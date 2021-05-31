@@ -1,0 +1,639 @@
+
+/* CONNEXION ET INSCRIPTION */
+
+#login_Inscrit_bookArt-wrap {
+  min-height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: row;  
+}
+
+/*text*/
+.text-white { color: #fff; }
+.text-main { color: #1C1E4A; }
+.colorInscrit_bookArt-alt { color: #EB5160; }
+.colorInscrit_bookArt { color: #2B9FDA; }
+.textInscrptNew { color: #93C01F; }
+.text-mutedinscrit { color: #555252; }
+
+.display-lg {
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 56px;
+  text-transform: uppercase;
+  margin: auto;
+}
+
+ 
+.h-8 {
+    height: 6rem !important;
+}
+/* Image Styling */
+
+.login_Inscrit_bookArt-image {
+  background: linear-gradient(90deg, rgba(6, 28, 51, 1), rgba(0,0,0,0)), url(../images/home/slide01.jpg) no-repeat center / cover;
+  position: relative;
+  flex: 66%;
+}
+
+ 
+.login_Inscrit_bookArt-image-text {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+}
+
+.login_Inscrit_bookArt-image-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 24px;
+}
+
+.login_Inscrit_bookArt-image-footer a {
+  margin-right: 24px;
+}
+.login_Inscrit_bookArt-image-footer a:hover {
+  opacity: .75;
+}
+
+/* login_Inscrit_bookArt Form Styling */
+
+.login_Inscrit_bookArt-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  box-sizing: border-box;
+  flex: 33%;
+  max-width: 500px;
+  position: relative;
+}
+@media (min-width: 1000px) {
+  .login_Inscrit_bookArt-card { padding: 48px; }
+}
+
+.login_Inscrit_bookArt-card-form {
+  margin-top: 48px;
+  width: 100%;
+}
+
+ 
+ 
+
+ 
+.login_Inscrit_bookArt-card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 24px;
+  border-top: 1px solid rgba(0,0,0,.1);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login_Inscrit_bookArt-card-footer p {
+  margin: 0;
+  font-size: 12px;
+}
+
+/* Mobile Styling */
+ 
+@media (max-width: 800px) {
+  .login_Inscrit_bookArt-image, .login_Inscrit_bookArt-card {
+    flex: 50%;
+  }
+  .login_Inscrit_bookArt-image-nav, .login_Inscrit_bookArt-image-footer {
+    display: none;
+  }
+  
+  
+  .display-lg {
+    font-size: 36px;
+    line-height: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .login_Inscrit_bookArt-image {
+    display: none;
+  }
+  .login_Inscrit_bookArt-card {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+/* INSCRIPTIONS */
+
+#inscription_Inscrit_bookArt-wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  
+}
+ 
+.display-lg {
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 56px;
+  text-transform: uppercase;
+  margin: auto;
+}
+.red-text.text-darken-1 {
+    color: #e53935 !important;
+}
+.titre_steps_log h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #289fd8
+}
+ 
+.h-8 {
+    height: 6rem !important;
+}
+/* Image Styling */
+
+.inscription_Inscrit_bookArt-image { 
+  position: relative;
+  flex: 33%; 
+ 
+}
+
+.inscription_Inscrit_image_reseau {
+  position: relative;
+  flex: 33%; 
+ 
+}
+
+.inscription_Inscrit_image_photographie{ 
+  position: relative;
+  flex: 33%; 
+ 
+}
+
+ 
+.inscription_Inscrit_bookArt-image-text {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+}
+
+ 
+/* inscription_Inscrit_bookArt Form Styling */
+
+.inscription_Inscrit_bookArt-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  padding: 0 15px 15px 15px;
+  box-sizing: border-box;
+  flex: 66%;
+  position: relative;
+  background: #f9f9f9;
+}
+ 
+.inscription_Inscrit_bookArt-card-form { 
+  width: 100%;
+}
+
+ 
+ 
+
+ 
+ 
+/* Mobile Styling */
+ 
+@media (max-width: 800px) {
+  .inscription_Inscrit_bookArt-image, .inscription_Inscrit_image_reseau, .inscription_Inscrit_image_photographie, .inscription_Inscrit_bookArt-card {
+    flex: 50%;
+  }
+
+    
+  .inscription_Inscrit_bookArt-image-nav, .inscription_Inscrit_bookArt-image-footer {
+    display: none;
+  }
+  
+  
+  .display-lg {
+    font-size: 36px;
+    line-height: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .inscription_Inscrit_bookArt-image, .inscription_Inscrit_image_reseau, .inscription_Inscrit_image_photographie  {
+    display: none;
+  }
+
+   
+  .inscription_Inscrit_bookArt-card {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+.tabs,
+.form {
+  width: 390px;
+  opacity: 0.8;
+  border-radius: 5px;
+
+}
+.tabs {
+  background: var(--gradienticonbookcastfemale);
+  height: 60px;
+  margin: 25px auto 10px;
+  color: #000;
+}
+.form {
+  height: 300px; 
+  background: #e3e2e28f;
+  box-shadow: -5px 5px 15px 1px rgba(0, 0, 0, 0);
+}
+.tabsli_inscript {
+  display: block;
+  width: 40%;
+  height: 30px;
+  vertical-align: middle;
+  float: left;
+  margin: 15px;
+  padding: 0;
+  border-right: 1px solid #fff;
+}
+.tabsli_inscript:last-child {
+  border: none;
+}
+.tabsli_inscript a {
+  text-decoration: none;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 18px;
+}
+.tabsli_inscript a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.tabsli_inscript a:active {
+  color: #fff;
+  text-decoration: none;
+}
+.tabsli_inscript a:link {
+  color: #fff;
+  text-decoration: none;
+}
+.container {
+  margin-top: 20px;
+}
+.input {
+  margin: 20px 0; 
+}
+input.main-form {
+  border: 1px solid rgba(136, 139, 140, 0.31);
+  display: block;
+  width: 100%;
+  height: 45px;
+  color: #464545;
+  background: rgba(255,255,255,0.2);
+  font-size: 16px;
+  border-radius: 7px;  
+  padding: 12px 41px 12px 16px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+  vertical-align: top;  
+  border-radius: 7px;  
+}
+
+.input a {
+  color: #158ac1;
+}
+
+.input a:hover {
+  color: #41afe3;
+}
+.form input.btn {
+  background: var(--gradienticonbookcastfemale);
+  border: none;
+  color: white;
+  padding: 0;
+}
+
+.info-password {
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-size: .8125rem;
+    font-style: italic;
+    color: #666;
+}
+.info-password .inner {
+    padding: 10px;
+    border: 1px dashed #ccc;
+}
+
+ 
+
+:focus {
+outline: none; }
+
+textarea {
+resize: none; }
+
+
+
+p, h1, h2, h3, h4, h5, h6, ul {
+margin: 0; }
+
+ul {
+padding: 0;
+margin: 0;
+list-style: none; }
+
+a {
+text-decoration: none; }
+
+
+
+img {
+max-width: 100%;
+vertical-align: middle; }
+
+body {
+background: url("../images/form-inscript_steps_option-bg.jpg");
+background-size: cover; }
+
+
+
+.inscript_steps_option > .steps .current-info, .inscript_steps_option > .steps .number {
+display: none; }
+
+#inscript_steps_option {  
+padding: 10px 5px 65px; }
+
+.steps {
+margin-bottom: 30px; }
+.steps ul {
+  display: flex;
+  position: relative; }
+  .steps ul li {
+    width: 20.16%;
+    margin-right: 10px; }
+    .steps ul li a {
+      display: inline-block;
+      width: 100%;
+      height: 7px;
+      background: #e6e6e6;
+      border-radius: 3.5px; }
+    .steps ul li.first a, .steps ul li.checked a {
+      background: var(--gradientbookcast) !important;
+      transition: all 0.5s ease; }
+ 
+
+h3 {
+font-family: "Poppins-SemiBold"; }
+
+.form_steps_option-row {
+margin-bottom: 24px; }
+.form_steps_option-row label {
+  margin-bottom: 8px;
+  display: block; }
+.form_steps_option-row.form_steps_option-group {
+  display: flex; }
+  .form_steps_option-row.form_steps_option-group .form_steps_option-holder {
+    width: 50%;
+    margin-right: 21px; }
+    .form_steps_option-row.form_steps_option-group .form_steps_option-holder:last-child {
+      margin-right: 0; }
+
+.form_steps_option-holder {
+position: relative; }
+.form_steps_option-holder i {
+  position: absolute;
+  top: 11px;
+  right: 19px;
+  font-size: 17px;
+  color: #999; }
+
+
+.option {
+color: #999; }
+
+.actions_steps_option ul {
+display: flex;
+margin-top: 30px;
+justify-content: space-between; }
+.actions_steps_option ul.step-last {
+  justify-content: flex-end; }
+  .actions_steps_option ul.step-last li:first-child {
+    display: none; }
+.actions_steps_option li a {
+padding: 0;
+border: none;
+display: inline-flex;
+height: 51px;
+width: 135px;
+align-items: center;
+background: var(--gradientbookcast) !important;
+cursor: pointer;
+position: relative;
+padding-left: 41px;
+border-radius: 5rem;
+color: #fff;
+-webkit-transform: perspective(1px) translateZ(0);
+transform: perspective(1px) translateZ(0);
+-webkit-transition-duration: 0.3s;
+transition-duration: 0.3s;
+font-weight: 400; }
+.actions_steps_option li a:before {
+  content: '\f2ee';
+  position: absolute;
+  top: 19px;
+  right: 41px;
+  font-family: Material-Design-Iconic-Font;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); }
+.actions_steps_option li a:hover {
+  background: #d9bda3; }
+  .actions_steps_option li a:hover:before {
+    -webkit-animation-name: hvr-icon-wobble-horizontal;
+    animation-name: hvr-icon-wobble-horizontal;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1; }
+.actions_steps_option li[aria-disabled="true"] a {
+display: none; }
+.actions_steps_option li:first-child a {
+background: #e6e6e6;
+padding-left: 48px; }
+.actions_steps_option li:first-child a:before {
+  content: '\f2ea';
+  left: 26px; }
+.actions_steps_option li:first-child a:hover {
+  background: #ccc; }
+.actions_steps_option li:last-child a {
+padding-left: 29px;
+width: 167px;
+font-weight: 400; }
+.actions_steps_option li:last-child a:before {
+  right: 30px; }
+
+
+
+@media (max-width: 1199px) {
+
+
+#inscript_steps_option {
+  margin-right: 40px;
+  min-height: 829px;
+  padding-left: 60px;
+  padding-right: 60px; } }
+@media (max-width: 991px) {
+ 
+
+#inscript_steps_option {
+  margin-right: 0;
+  padding-left: 40px;
+  padding-right: 40px; } }
+@media (max-width: 767px) {
+
+
+#inscript_steps_option {
+  min-height: unset;
+  padding: 70px 20px 40px; }
+
+.form_steps_option-row.form_steps_option-group {
+  display: block; }
+  .form_steps_option-row.form_steps_option-group .form_steps_option-holder {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 24px; }
+
+.item .purchase {
+  margin-left: 11px; } }
+
+  /* STYLE home_slide_texte CALLING */
+ .home_slide_texte {
+    display: flex; 
+    height: 100vh;
+    color: #fff; 
+}
+ 
+.home_slide_texte .max-width{
+    margin: auto 0 auto 30px;
+}
+.home_slide_texte .home_slide_texte-content .text-1{
+    font-size: 27px;
+}
+.home_slide_texte .home_slide_texte-content .text-2{
+    font-size: 75px;
+    font-weight: 600;
+    margin-left: -3px;
+}
+.home_slide_texte .home_slide_texte-content .text-3{
+    font-size: 40px;
+    margin: 5px 0;
+}
+.home_slide_texte .home_slide_texte-content .text-3 span{
+    color: inherit;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.home_slide_texte .home_slide_texte-content a{
+    display: inline-block;
+    background: var(--gradienticonbookcastfemale);
+    color: #fff;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    font-weight: 400;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    transition: all 0.3s ease;
+}
+.home_slide_texte .home_slide_texte-content a:hover{
+    color: #2c539f;
+    background: none;
+}
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+/* responsive media query start */
+@media (max-width: 1300px) {
+    .home_slide_texte .max-width{
+        margin-left: 0px;
+    }
+}
+
+ 
+
+@media (max-width: 991px) {
+    .max-width{
+        padding: 0 50px;
+    }
+}
+@media (max-width: 947px){
+   
+    
+    .home_slide_texte .home_slide_texte-content .text-2{
+        font-size: 70px;
+    }
+    .home_slide_texte .home_slide_texte-content .text-3{
+        font-size: 35px;
+    }
+    .home_slide_texte .home_slide_texte-content a{
+        font-size: 23px;
+        padding: 10px 30px;
+    }
+    .max-width{
+        max-width: 930px;
+    }
+    
+ 
+}
+
+@media (max-width: 690px) {
+    .max-width{
+        padding: 0 23px;
+    }
+    .home_slide_texte .home_slide_texte-content .text-2{
+        font-size: 60px;
+    }
+    .home_slide_texte .home_slide_texte-content .text-3{
+        font-size: 32px;
+    }
+ 
+}
+
+@media (max-width: 500px) {
+    .home_slide_texte .home_slide_texte-content .text-2{
+        font-size: 50px;
+    }
+    .home_slide_texte .home_slide_texte-content .text-3{
+        font-size: 27px;
+    }
+    
+    
+}
+
+.info.strong {
+    font-weight: 600;
+}
+
+.conditionsbookcast {
+    color: #2ba8e1;
+} 
+
+.conditionsbookcast:hover {
+    color: #2c59a3;
+} 
