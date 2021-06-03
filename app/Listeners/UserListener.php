@@ -40,6 +40,24 @@ class UserListener
 
                 break;
 
+            case 'register_artist':
+
+                Mail::to($user->email)->send(new UserMail($user, 'register_artist', "Inscription sur le site", compact('password')));
+
+                break;
+
+            case 'register_photographer':
+
+                Mail::to($user->email)->send(new UserMail($user, 'register_photographer', "Inscription sur le site", compact('password')));
+
+                break;
+
+            case 'register_artistic_network':
+
+                Mail::to($user->email)->send(new UserMail($user, 'register_artistic_network', "Inscription sur le site", compact('password')));
+
+                break;
+
             case 'login':
 
                 Mail::to($user->email)->send(new UserMail($user, 'login', "Connexion sur le site"));

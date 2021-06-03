@@ -14,6 +14,8 @@ class Controller extends BaseController
 
     const PAGINATION_NUMBER = 20;
 
+    const MIABPAY_TOKEN = "56sqqsqs5q4s";
+
     public function __construct()
 	{
 		# code...
@@ -29,7 +31,7 @@ class Controller extends BaseController
 		$url = null;
 
 		if ($request->has('civility_id')) {
-			switch (inval($request->input('civility_id'))) {
+			switch (intval($request->input('civility_id'))) {
 				case 1:
 					$url = 'man.png';
 					break;
@@ -62,12 +64,12 @@ class Controller extends BaseController
 		return "http://miabartafrik.com/images/{$folder}/{$url}";
 	}
 
-	public function getMonpaysUri()
+	public function getMiabpay()
 	{
 		if (config('app.env') == 'local') {
-			return '';
+			return 'http://localhost/miabartafrik/moneypay/payment/checkout';
 		}
 
-		return '';
+		return 'https://miabartafrik.com/moneypay/payment/checkout';
 	}
 }

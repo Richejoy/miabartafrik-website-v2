@@ -32,13 +32,13 @@
 
                 {!! Form::open(['route' => 'page.password_forgot', 'class' => 'form_connexionBookcast login_connexionBookcast']) !!}
 
-                    <div class="form__field">
-                    <label for="login__username">
-
-                        <i class="icon icon-user iconBookconnex" data-toggle="tooltip" title=""></i>
-                        <span class="hidden">Nom d'utilisateur </span></label>
-                    <input autocomplete="username" id="login__username" type="text" name="username" class="form__input"
-                        placeholder="Nom d'utilisateur/Email/Téléphone" required>
+                <div class="form__field">
+                    <label for="email_phone_username">
+                        <i class="icon icon-user iconBookconnex"></i>
+                        <span class="hidden">Email/Téléphone/Nom d'utilisateur </span>
+                    </label>
+                    <input id="email_phone_username" type="text" name="email_phone_username" class="form__input"
+                        placeholder="Email/Téléphone/Nom d'utilisateur" required>
                 </div>
 
                     <div class="form__field">

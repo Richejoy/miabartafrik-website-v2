@@ -2,6 +2,7 @@
     <footer role="navigation" class="miabartbc-footer">
         <div class="mer-nav-wrapper">
             <ul class="mer-nav-main">
+                <li><a href="{{ route('subscriber.index') }}">Souscrire</a></li>
                 <li><a href="{{ route('page.about') }}">A Propos</a></li>
                 <li><a href="{{ route('contact.index') }}">Contact</a></li>
                 <li><a href="{{ route('guestbook.index') }}">Témoignages</a></li>

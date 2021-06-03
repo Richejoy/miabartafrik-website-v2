@@ -8,8 +8,11 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\CronsController;
-use App\Http\Controllers\BookCastController;
 use App\Http\Controllers\GuestbookController;
+
+use App\Http\Controllers\BookCastController;
+use App\Http\Controllers\BoutikArtController;
+use App\Http\Controllers\BonAddressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +49,12 @@ Route::prefix('/')->name('page.')->group(function() {
 		Route::get('/activated/{email}/{token}', [PageController::class, 'activated'])->name('activated');
 		Route::get('/removed/account/{email}/{token}', [PageController::class, 'removedAccount'])->name('removed_account');
 		Route::get('/enabled/tfa/{email}/{token}', [PageController::class, 'enabledTFA'])->name('enabled_tfa');
+
+		/**/
+		Route::match(['GET', 'POST'], '/register/artist/{email}/{token}', [PageController::class, 'registerArtist'])->name('register_artist');
+		Route::match(['GET', 'POST'], '/register/photographer/{email}/{token}', [PageController::class, 'registerPhotographer'])->name('register_photographer');
+		Route::match(['GET', 'POST'], '/register/artistic/network/{email}/{token}', [PageController::class, 'registerArtisticNetwork'])->name('register_artistic_network');
+		/**/
 	});
 
 	Route::match(['GET', 'POST'], '/donate', [PageController::class, 'donate'])->name('donate');
@@ -53,6 +62,10 @@ Route::prefix('/')->name('page.')->group(function() {
 	Route::get('/logout', [PageController::class, 'logout'])->name('logout');
 
 	Route::get('/partners', [PageController::class, 'partners'])->name('partners');
+
+	Route::middleware(['auth'])->group(function () {
+		Route::get('/services', [PageController::class, 'services'])->name('services');
+	});
 });
 
 Route::prefix('/utilisateur')->name('user.')->group(function() {
@@ -87,9 +100,17 @@ Route::prefix('/subscriber')->name('subscriber.')->group(function () {
 });
 
 Route::prefix('/payement')->name('payment.')->group(function () {
-	Route::match(['GET', 'POST'], '/callback_url', [PaymentController::class, 'callbackURL'])->name('callback_url');
-	Route::get('/return_url', [PaymentController::class, 'returnURL'])->name('return_url');
-	Route::get('/cancel_url', [PaymentController::class, 'cancelURL'])->name('cancel_url');
+	Route::match(['GET', 'POST'], '/callback/url', [PaymentController::class, 'callbackURL'])->name('callback_url');
+	Route::get('/return/url', [PaymentController::class, 'returnURL'])->name('return_url');
+	Route::get('/cancel/url', [PaymentController::class, 'cancelURL'])->name('cancel_url');
+
+	/**/
+	Route::middleware(['auth'])->group(function () {
+		Route::match(['GET', 'POST'], '/artist', [PaymentController::class, 'artist'])->name('artist');
+		Route::match(['GET', 'POST'], '/photographer', [PaymentController::class, 'photographer'])->name('photographer');
+		Route::match(['GET', 'POST'], '/artistic/network', [PaymentController::class, 'artisticNetwork'])->name('artistic_network');
+	});
+	/**/
 });
 
 
@@ -105,7 +126,7 @@ Route::prefix('/crons')->name('crons.')->group(function () {
 	Route::get('/dbbackup', [CronsController::class, 'dbbackup'])->name('dbbackup');
 });
 
-Route::prefix('/bookcast')->name('bookcast.')->group(function() {
+Route::prefix('/bookcast')->name('bookcast.')->middleware(['auth'])->group(function() {
 	Route::get('/', [BookCastController::class, 'index'])->name('index');
 	Route::get('/books', [BookCastController::class, 'books'])->name('books');
 	Route::get('/castings', [BookCastController::class, 'castings'])->name('castings');
@@ -114,4 +135,12 @@ Route::prefix('/bookcast')->name('bookcast.')->group(function() {
 	Route::get('/elections', [BookCastController::class, 'elections'])->name('elections');
 	Route::get('/notebook', [BookCastController::class, 'notebook'])->name('notebook');
 	Route::get('/movies', [BookCastController::class, 'movies'])->name('movies');
+});
+
+Route::prefix('/boutikart')->name('boutikart.')->middleware(['auth'])->group(function() {
+	Route::get('/', [BoutikArtController::class, 'index'])->name('index');
+});
+
+Route::prefix('/bonaddress')->name('bonaddress.')->middleware(['auth'])->group(function() {
+	Route::get('/', [BonAddressController::class, 'index'])->name('index');
 });

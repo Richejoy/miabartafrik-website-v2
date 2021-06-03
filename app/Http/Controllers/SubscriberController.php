@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Events\SubscriberEvent;
 use App\Models\Subscriber;
 use MercurySeries\Flashy\Flashy;
+use App\Models\Country;
+use App\Models\Civility;
+use App\Models\ArtisticRay;
 
 class SubscriberController extends Controller
 {
@@ -13,12 +16,16 @@ class SubscriberController extends Controller
 	{
 		parent::__construct();
 	}
-	
+
     public function index(Request $request)
     {
+        $countries = Country::all()->sortBy('id')->pluck(null, 'id');
+        $civilities = Civility::all()->sortBy('id')->pluck(null, 'id');
+        $artisticRays = ArtisticRay::all()->sortBy('id')->pluck(null, 'id');
+
         session()->put('verificationCode', $this->getFormVerificationCode());
 
-        return view('subscribers.index');
+        return view('subscribers.index', compact('countries', 'civilities', 'artisticRays'));
     }
 
     public function store(Request $request)

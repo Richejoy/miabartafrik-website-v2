@@ -30,20 +30,21 @@
             {!! Form::open(['route' => 'page.login', 'class' => 'form_connexionBookcast login_connexionBookcast']) !!}
 
                 <div class="form__field">
-                    <label for="login__username">
-
-                        <i class="icon icon-user iconBookconnex" data-toggle="tooltip" title=""></i>
-                        <span class="hidden">Nom d'utilisateur </span></label>
-                    <input autocomplete="username" id="login__username" type="text" name="username" class="form__input"
-                        placeholder="Nom d'utilisateur/Email/Téléphone" required>
+                    <label for="email_phone_username">
+                        <i class="icon icon-user iconBookconnex"></i>
+                        <span class="hidden">Email/Téléphone/Nom d'utilisateur </span>
+                    </label>
+                    <input id="email_phone_username" type="text" name="email_phone_username" class="form__input"
+                        placeholder="Email/Téléphone/Nom d'utilisateur" required>
                 </div>
 
                 <div class="form__field">
-                    <label for="login__password">
-                        <i class="icon icon-lock iconBookconnex" data-toggle="tooltip" title=""></i>
-                        <span class="hidden">Mot de passe </span></label>
-                    <input id="login__password" type="password" name="password" class="form__input"
-                        placeholder="Mot de passe " required>
+                    <label for="Mot de passe">
+                        <i class="icon icon-lock iconBookconnex"></i>
+                        <span class="hidden">Mot de passe </span>
+                    </label>
+                    <input id="Mot de passe" type="password" name="password" class="form__input"
+                        placeholder="Mot de passe" required>
                 </div>
                 <p class="mpoublier">
                     <a href="{{ route('page.password_forgot') }}">J'ai perdu mon mot de passe </a>

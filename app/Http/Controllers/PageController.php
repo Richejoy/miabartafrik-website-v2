@@ -11,6 +11,9 @@ use App\Models\Civility;
 use App\Models\Image;
 use App\Models\UserType;
 use App\Models\User;
+use App\Models\Artist;
+use App\Models\Photographer;
+use App\Models\ArtisticNetwork;
 use App\Models\ArtisticRay;
 use App\Models\Transaction;
 use App\Events\UserEvent;
@@ -24,11 +27,7 @@ class PageController extends Controller
 
     public function index(Request $request)
     {
-        $countries = Country::all()->sortBy('id')->pluck(null, 'id');
-        $civilities = Civility::all()->sortBy('id')->pluck(null, 'id');
-        $artisticRays = ArtisticRay::all()->sortBy('id')->pluck(null, 'id');
-
-    	return view('pages.index', compact('countries', 'civilities', 'artisticRays'));
+    	return view('pages.login');
     }
 
     public function terms(Request $request)
@@ -54,6 +53,16 @@ class PageController extends Controller
     public function about(Request $request)
     {
         return view('pages.about');
+    }
+
+    public function services(Request $request)
+    {
+        return view('pages.services');
+    }
+
+    public function partners(Request $request)
+    {
+        return view('pages.partners');
     }
 
     public function donate(Request $request)
@@ -106,62 +115,26 @@ class PageController extends Controller
     {
         if ($request->isMethod('POST')) {
 
-            return redirect()->route('bookcast.index');
+            $this->validate($request, [
+                'email_phone_username' => 'required',
+                'password' => 'required',
+            ]);
 
-            /*if ($request->has('form')) {
+            if ($user = User::whereEmail($request->email_phone_username)->first()) {
 
-                switch ($request->form) {
-                    case 'email':
+                return $this->_processLoginForm($request, $user);
 
-                        $this->validate($request, [
-                            'email' => 'required',
-                            'password' => 'required',
-                        ]);
+            } elseif ($user = User::wherePhone($request->email_phone_username)->first()) {
 
-                        if ($user = User::whereEmail($request->email)->first()) {
+                return $this->_processLoginForm($request, $user);
+                
+            } elseif ($user = User::whereUsername($request->email_phone_username)->first()) {
 
-                            return $this->_processLoginForm($request, $user);
-                        }
+                return $this->_processLoginForm($request, $user);
+                
+            }
 
-                        break;
-
-                    case 'phone':
-
-                        $this->validate($request, [
-                            'phone' => 'required',
-                            'password' => 'required',
-                        ]);
-
-                        if ($user = User::wherePhone($request->phone)->first()) {
-
-                            return $this->_processLoginForm($request, $user);
-                        }
-
-                        break;
-
-                    case 'username':
-
-                        $this->validate($request, [
-                            'username' => 'required',
-                            'password' => 'required',
-                        ]);
-
-                        if ($user = User::whereUsername($request->username)->first()) {
-
-                            return $this->_processLoginForm($request, $user);
-                        }
-
-                        break;
-
-                    default:
-
-                        return back();
-
-                        break;
-                }
-
-                return back()->withDanger("Impossible de vous trouvé dans le régistre.");
-            }*/
+            return back()->withDanger("Impossible de vous trouvé dans le régistre.");
         }
 
         return view('pages.login');
@@ -177,6 +150,7 @@ class PageController extends Controller
         if ($request->isMethod('POST')) {
 
             $this->validate($request, [
+                'user_type_id' => 'required',
                 'country_id' => 'required',
                 'civility_id' => 'required',
                 'first_name' => 'required|min:3',
@@ -219,7 +193,27 @@ class PageController extends Controller
 
                 DB::commit();
 
-                event(new UserEvent($user, ['action' => 'register', 'password' => $password]));
+                switch (intval($user->user_type_id)) {
+                    case 2:
+                        event(new UserEvent($user, ['action' => 'register', 'password' => $password]));
+                        break;
+
+                    case 3:
+                        event(new UserEvent($user, ['action' => 'register_artist', 'password' => $password]));
+                        break;
+
+                    case 4:
+                        event(new UserEvent($user, ['action' => 'register_photographer', 'password' => $password]));
+                        break;
+
+                    case 5:
+                        event(new UserEvent($user, ['action' => 'register_artistic_network', 'password' => $password]));
+                        break;
+                    
+                    default:
+                        // code...
+                        break;
+                }
 
                 session()->flash('primary', "Inscription et mail envoyé");
             } catch (\Exception $ex) {
@@ -283,56 +277,25 @@ class PageController extends Controller
     {
         if ($request->isMethod('POST')) {
 
-            if ($request->has('form')) {
-                switch ($request->form) {
-                    case 'email':
+            $this->validate($request, [
+                'email_phone_username' => 'required',
+            ]);
 
-                        $this->validate($request, [
-                            'email' => 'required',
-                        ]);
+            if ($user = User::whereEmail($request->email_phone_username)->first()) {
 
-                        if ($user = User::whereEmail($request->email)->first()) {
+                return $this->_processPasswordForgotForm($request, $user);
 
-                            return $this->_processPasswordForgotForm($request, $user);
-                        }
+            } elseif ($user = User::wherePhone($request->email_phone_username)->first()) {
 
-                        break;
+                return $this->_processPasswordForgotForm($request, $user);
+                
+            } elseif ($user = User::whereUsername($request->email_phone_username)->first()) {
 
-                    case 'phone':
-
-                        $this->validate($request, [
-                            'phone' => 'required',
-                        ]);
-
-                        if ($user = User::wherePhone($request->phone)->first()) {
-
-                            return $this->_processPasswordForgotForm($request, $user);
-                        }
-
-                        break;
-
-                    case 'username':
-
-                        $this->validate($request, [
-                            'username' => 'required',
-                        ]);
-
-                        if ($user = User::whereUsername($request->username)->first()) {
-
-                            return $this->_processPasswordForgotForm($request, $user);
-                        }
-
-                        break;
-
-                    default:
-
-                        return back();
-
-                        break;
-                }
-
-                return back()->withDanger("Impossible de vous trouvé dans le régistre.");
+                return $this->_processPasswordForgotForm($request, $user);
+                
             }
+
+            return back()->withDanger("Impossible de vous trouvé dans le régistre.");
         }
 
         return view('pages.password_forgot');
@@ -364,13 +327,13 @@ class PageController extends Controller
 
     public function logout(Request $request)
     {
-        /*Transaction::create([
+        Transaction::create([
             'activity' => "Déconnexion sur le site",
             'user_id' => $request->user()->id,
             'transaction_type_id' => 2,
-        ]);*/
+        ]);
 
-        //Auth::logout();
+        Auth::logout();
 
         if (session()->has('pendingConnectUser')) {
             session()->forget('pendingConnectUser');
@@ -411,6 +374,39 @@ class PageController extends Controller
         return back()->withDanger("Impossible de satisfaire votre requête.");
     }
 
+    public function registerArtist(Request $request, string $email, string $token)
+    {
+        if ($request->isMethod('POST')) {
+
+            return redirect()->route('payment.artist');
+
+        }
+
+        return view('pages.register_artist');
+    }
+
+    public function registerPhotographer(Request $request, string $email, string $token)
+    {
+        if ($request->isMethod('POST')) {
+            
+            return redirect()->route('payment.photographer');
+
+        }
+
+        return view('pages.register_photographer');
+    }
+
+    public function registerArtisticNetwork(Request $request, string $email, string $token)
+    {
+        if ($request->isMethod('POST')) {
+            
+            return redirect()->route('payment.artistic_network');
+
+        }
+
+        return view('pages.register_artistic_network');
+    }
+
     private function _connectUser(Request $request, User $user)
     {
         if (!is_null($user)) {
@@ -432,7 +428,7 @@ class PageController extends Controller
 
             event(new UserEvent($user, ['action' => 'login']));
 
-            return redirect()->route('user.index');
+            return redirect()->route('page.services');
         }
 
         return back()->withDanger("Impossible de satisfaire votre requête.");
@@ -494,10 +490,5 @@ class PageController extends Controller
         }
 
         return back()->withPrimary("Veuillez attendre la suppression de votre compte.");
-    }
-
-    public function partners(Request $request)
-    {
-        return view('pages.partners');
     }
 }

@@ -110,18 +110,18 @@
                 </div><!-- MESSAGE-BOX -->
                 <div class="dropdown text-center selector profile-1 d-sm-flex d-none">
                     <a href="#" data-toggle="dropdown" class="nav-link leading-none d-flex">
-                        <span><img src="{{ asset('public/assets/images/faces/female/1.jpg') }}" alt="profile-user" class="avatar brround cover-image mb-1 ml-0"></span>
+                        <span><img src="{{ Auth::user()->image->link }}" alt="profile-user" class="avatar brround cover-image mb-1 ml-0"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                         <div class="text-center bg-image p-4">
-                            <a href="#" class="dropdown-item text-center font-weight-sembold user pt-0"
-                                data-toggle="dropdown">Nom Artiste</a>
-                            <span class="text-center user-semi-title ">Domaine Artistique</span>
+                            <a href="{{ route('user.show', ['user' => Auth::user()]) }}" class="dropdown-item text-center font-weight-sembold user pt-0"
+                                data-toggle="dropdown">{{ Auth::user()->fullName() }}</a>
+                            <span class="text-center user-semi-title ">{{ Auth::user()->userType->name }}</span>
                         </div>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('user.show', ['user' => Auth::user()]) }}">
                             <i class="dropdown-icon mdi mdi-account-outline"></i> Profile
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('settings.index') }}">
                             <i class="dropdown-icon  mdi mdi-settings"></i> Paramètres
                         </a>
                         <a class="dropdown-item" href="#">
