@@ -22,6 +22,7 @@ body {
 }
 
 
+
 .final_connexion_inscript_steps { 
     width: 100%;
     color: #ffffff;
@@ -239,7 +240,10 @@ span.round-tab:hover {
 box-shadow: 0px 0px 13px 0 rgba(82,63,105,.15);
 }
 @media (min-width: 1000px) {
-  .login_Inscrit_bookArt-card { padding: 48px; }
+  .login_Inscrit_bookArt-card { 
+    overflow-y: scroll;
+    height: 100vh;
+    padding-top: 12%; }
 }
 
 .login_Inscrit_bookArt-card-form {
@@ -398,6 +402,7 @@ a:hover {
 
 input {
   background-image: none;
+  background: #3b4148;
   border: 0;
   color: inherit;
   font: inherit;
@@ -467,6 +472,9 @@ input[type="submit"] {
 .login_connexionBookcast input[type="date"],
 .form_connexionBookcast input[type="file"],
 .login_connexionBookcast input[type="password"],
+.login_connexionBookcast input[type="input"],
+.login_connexionBookcast input[type="select"],
+.login_connexionBookcast input[type="tel"],
 .login_connexionBookcast input[type="submit"] {
   border-radius: 0.25rem;
   border-radius: var(--loginBorderRadus);
@@ -475,6 +483,7 @@ input[type="submit"] {
 }
 
 .login_connexionBookcast select,
+.login_connexionBookcast input,
 .login_connexionBookcast label
  {
   background-color: #363b41;
@@ -506,10 +515,11 @@ input[type="submit"] {
 .login_connexionBookcast input[type="date"]:hover,
 .form_connexionBookcast input[type="file"]:focus,
 .form_connexionBookcast input[type="file"]:hover,
+.form_connexionBookcast input[type="tel"]:focus,
+.form_connexionBookcast input[type="tel"]:hover,
 .login_connexionBookcast input[type="text"]:focus,
 .login_connexionBookcast input[type="text"]:hover {
-  background-color: #434a52;
-  background-color: var(--loginInputHoverBackgroundColor);
+  background-color: #3b4148; 
 }
 
 .login_connexionBookcast input[type="submit"] { 
@@ -11021,7 +11031,7 @@ footer {
 
   /* styling */
   background-color: white;
-  border: thin solid #adadb0;
+  border: thin solid #adadb000;
   border-radius: 4px;
   display: inline-block;
   font: inherit;
@@ -11046,21 +11056,13 @@ footer {
 
  
 select.select_on_bookcast {
-  background-image:
-    linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position:
-    calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px),
-    calc(100% - 2.5em) 0.5em;
-  background-size:
-    5px 5px,
-    5px 5px,
-    1px 1.5em;
-  background-repeat: no-repeat;
-  color: #999;
-  height: 100%;
+  background-image: linear-gradient(45deg, #0000 50%, #2c3338 50%), linear-gradient(135deg, #2c3338 50%, transparent 50%), linear-gradient(to right, #ccc, #0f0f0f);
+background-position: calc(100% - 20px) calc(1em + 10px), calc(100% - 15px) calc(1em + 10px), calc(100% - 2.5em) 1.2em;
+background-size: 5px 5px, 5px 5px, 1px 1.5em;
+background-repeat: no-repeat;
+color: #999;
+height: 100%;
+
 }
 
 select.select_on_bookcast:focus {
@@ -11069,9 +11071,9 @@ select.select_on_bookcast:focus {
     linear-gradient(135deg, transparent 50%, green 50%),
     linear-gradient(to right, #ccc, #ccc);
   background-position:
-    calc(100% - 15px) 1em,
-    calc(100% - 20px) 1em,
-    calc(100% - 2.5em) 0.5em;
+    calc(100% - 15px) 1.5em,
+    calc(100% - 20px) 1.5em,
+    calc(100% - 2.5em) 1.2em;
   background-size:
     5px 5px,
     5px 5px,
@@ -11923,6 +11925,6 @@ padding-right: .3rem;
   }
 }
 
-/* INSCRIPTION AND CONNEXION */
+
 
 

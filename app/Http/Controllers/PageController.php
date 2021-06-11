@@ -428,7 +428,25 @@ class PageController extends Controller
 
             event(new UserEvent($user, ['action' => 'login']));
 
-            return redirect()->route('page.services');
+            switch (intval($user->user_type_id)) {
+                case 3:
+                case 4:
+                case 5:
+                    return redirect()->route('bookcast.index');
+                    break;
+
+                case 6:
+                    return redirect()->route('boutikart.index');
+                    break;
+
+                case 7:
+                    return redirect()->route('bonaddress.index');
+                    break;
+                
+                default:
+                    return redirect()->route('page.services');
+                    break;
+            }
         }
 
         return back()->withDanger("Impossible de satisfaire votre requête.");
