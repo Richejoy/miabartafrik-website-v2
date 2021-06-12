@@ -13,6 +13,7 @@ use App\Http\Controllers\GuestbookController;
 use App\Http\Controllers\BookCastController;
 use App\Http\Controllers\BoutikArtController;
 use App\Http\Controllers\BonAddressController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------

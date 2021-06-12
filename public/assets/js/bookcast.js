@@ -1,31 +1,159 @@
-$(document).ready(function () {
-    //Initialize tooltips
-    $('.nav-tabs > li a[title]').tooltip();
-    
-    //Wizard
-    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-
-        var $target = $(e.target);
-    
-        if ($target.parent().hasClass('disabled')) {
-            return false;
-        }
-    });
-
-    $(".next-step").click(function (e) {
-
-        var $active = $('.final_connexion_inscript_steps .nav-tabs li.active');
-        $active.next().removeClass('disabled');
-        nextTab($active);
-
-    });
-    $(".prev-step").click(function (e) {
-
-        var $active = $('.final_connexion_inscript_steps .nav-tabs li.active');
-        prevTab($active);
-
-    });
+$('body').delegate('.c-faq', 'click', function(){
+  $('.c-faq').removeClass('c-faq--active');
+  $(this).addClass('c-faq--active');
 });
+
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+
+    'use strict';
+
+    cards_util_miabartafrik.init();
+    conf.InfoBox();
+
+  });
+})();
+
+const cards_util_miabartafrik = {
+
+  init: () => {
+    cards_util_miabartafrik.triggerCardChange();
+    cards_util_miabartafrik.directlyClickOncards_util_miabartafrik();
+    cards_util_miabartafrik.imageHoverPerspective();
+  },
+
+  //  Change the active Card on directly clicking on it
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  directlyClickOncards_util_miabartafrik: () => {
+    let cards_util_miabartafrik = conf.qSA('.info_util_miabartafrik');
+    if (cards_util_miabartafrik.length) {
+      cards_util_miabartafrik.forEach(function (item) {
+        item.onclick = () => {
+          if (!item.classList.contains('active')) {
+            // search the active card
+            for (let i = 0; i < cards_util_miabartafrik.length; i++) {
+              if (cards_util_miabartafrik[i].classList.contains('active')) {
+                let dataCard = cards_util_miabartafrik[i];
+                dataCard.classList.add('inactive');
+                dataCard.classList.remove('active');
+                break;
+              }
+            }
+
+            conf.qS('.cards_util_miabartafrik-wrapper').prepend(item);
+            item.classList.remove('inactive');
+            item.classList.add('active');
+          }
+        };
+      });
+    }
+  },
+
+  //  Change the active Card
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  triggerCardChange: () => {
+
+    let arrow = conf.qS('.slide-button'),
+    cards_util_miabartafrik = conf.qSA('.info_util_miabartafrik');
+
+    if (arrow) {
+      arrow.onclick = () => {
+        if (cards_util_miabartafrik.length) {
+          for (let i = 0; i < cards_util_miabartafrik.length; i++) {
+            if (cards_util_miabartafrik[i].classList.contains('active')) {
+              let dataCard = cards_util_miabartafrik[i];
+              getNextCard(dataCard);
+              break;
+            }
+          }
+        }
+
+        function getNextCard(prevCard) {
+
+          for (let i = 0; i < cards_util_miabartafrik.length; i++) {
+            let dataCard = parseInt(prevCard.getAttribute('data-card'), 10),
+            nextCard = parseInt(cards_util_miabartafrik[i].getAttribute('data-card'), 10);
+
+            if (dataCard + 1 === nextCard) {
+              prevCard.classList.add('inactive');
+              prevCard.classList.remove('active');
+              conf.qS('.cards_util_miabartafrik-wrapper').prepend(cards_util_miabartafrik[i]);
+              cards_util_miabartafrik[i].classList.remove('inactive');
+              cards_util_miabartafrik[i].classList.add('active');
+              break;
+            } else if (dataCard + 1 >= cards_util_miabartafrik.length) {
+              prevCard.classList.add('inactive');
+              prevCard.classList.remove('active');
+              conf.qS('.cards_util_miabartafrik-wrapper').prepend(cards_util_miabartafrik[i]);
+              cards_util_miabartafrik[0].classList.remove('inactive');
+              cards_util_miabartafrik[0].classList.add('active');
+              break;
+            }
+          }
+        }
+      };
+    }
+  },
+
+  //  Change the Image perspective on mouseover
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  imageHoverPerspective: () => {
+    let cards_util_miabartafrik = conf.qSA('.info_util_miabartafrik');
+    if (cards_util_miabartafrik.length) {
+      cards_util_miabartafrik.forEach(function (card) {
+        let image = conf.CqS(card, '.image_util_miabartafrik-wrapper');
+        image.onmousemove = e => {
+
+          let offset = image.getBoundingClientRect(),
+          elX = offset.left + document.body.scrollTop,
+          elY = offset.top + document.body.scrollTop,
+          elWidth = image.offsetWidth,
+          elHeight = image.offsetHeight,
+          intensity = 11,
+          mouseX = e.pageX,
+          mouseY = e.pageY,
+          rotateY = (elWidth / 2 - (mouseX - elX)) / (elWidth / 2) * intensity,
+          rotateX = (elHeight / 2 - (mouseY - elY)) / (elHeight / 2) * intensity;
+
+          let style = 'transform: rotateY(' + rotateY + 'deg) rotateX(' + rotateX + 'deg)';
+          image.setAttribute('style', style);
+        };
+        image.onmouseleave = () => {
+          image.removeAttribute('style');
+        };
+      });
+    }
+  } };
+
+
+//  Config Functions
+// - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+const conf = {
+  qS: selector => {
+    return document.querySelector(selector);
+  },
+  qSA: selector => {
+    return document.querySelectorAll(selector);
+  },
+  CqS: (container, selector) => {
+    return container.querySelector(selector);
+  },
+  InfoBox: () => {
+    let toggle = conf.qS('.infobox-container .infobox-toggle'),
+    detail = conf.qS('.infobox-container .infobox-detail-container');
+
+    if (toggle) {
+      toggle.onclick = e => {
+        e.preventDefault();
+        detail.classList.toggle('active');
+      };
+    }
+  } };
+
 
 function nextTab(elem) {
     $(elem).next().find('a[data-toggle="tab"]').click();
@@ -240,6 +368,53 @@ function openTabs(el) {
 }
 
 // PROGRESSE INSCRIPTION JS
+
+ 
+
+
+    // Team carousel
+    $(".team-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 1500,
+        dots: false,
+        loop: true,
+        nav : true,
+        navText : [
+            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+        ],
+        responsive: {
+            0:{
+                items:1
+            },
+            576:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    });
+
+
+    // Testimonials carousel
+    $(".testimonial-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 1000,
+        items: 1,
+        dots: false,
+        loop: true,
+        nav : true,
+        navText : [
+            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+        ]
+    });
+    
+ 
 
 
 

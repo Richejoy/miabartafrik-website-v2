@@ -30,8 +30,7 @@
 }
 /* Image Styling */
 
-.login_Inscrit_bookArt-image {
-  background: linear-gradient(90deg, rgba(6, 28, 51, 1), rgba(0,0,0,0)), url(../images/home/slide01.jpg) no-repeat center / cover;
+.login_Inscrit_bookArt-image { 
   position: relative;
   flex: 66%;
 }
@@ -364,11 +363,7 @@ img {
 max-width: 100%;
 vertical-align: middle; }
 
-body {
-background: url("../images/form-inscript_steps_option-bg.jpg");
-background-size: cover; }
-
-
+ 
 
 .inscript_steps_option > .steps .current-info, .inscript_steps_option > .steps .number {
 display: none; }

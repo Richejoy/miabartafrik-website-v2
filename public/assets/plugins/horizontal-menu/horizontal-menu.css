@@ -127,7 +127,7 @@
 }
 .horizontalMenu>.horizontalMenu-list>li>a {
 	display: block;
-	padding: 1rem 1.4rem 1rem;
+	padding: 1rem 1.5rem 0.9rem;
     text-decoration: none;
     position: relative;
     margin: 0px;

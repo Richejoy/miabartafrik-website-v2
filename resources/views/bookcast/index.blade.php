@@ -10,163 +10,19 @@
 @section('body')
 
 <!-- HOME SLIDER -->
-<div class="ms-main-container">
-    <!-- Container -->
-    <main class="ms-container home-slider">
-        <!-- Swiper Slider -->
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <!-- Slide -->
-                <div class="swiper-slide">
-                    <div class="slide-inner" data-swiper-parallax="45%">
-                        <div class="overlay"></div>
-                        <div class="slide-inner--image"
-                            style="background: linear-gradient(90deg, rgba(6, 28, 51, 1), rgba(0,0,0,0)), url({{ asset('public/assets/images/home/slide01.jpg') }}) no-repeat center / cover;">
-                        </div>
-                        <div class="slide-inner--info">
-                            <!-- home_slide_texte CALL -->
-                            <section class="home_slide_texte" id="home_slide_texte">
-                                <div class="max-width">
-                                    <div class="home_slide_texte-content">
-
-                                        <div class="text-3"><span class="typing"></span></div>
-                                        <div data-animation="zoomIn" data-delay="0.8s" class="text-1">-
-                                        </div>
-                                        <div data-animation="zoomIn" data-delay="2.4s" class="text-1">La
-                                            plateforme Africaine</div>
-                                        <div data-animation="zoomIn" data-delay="1.8s" class="text-2">
-                                            des comédiens &</div>
-                                        <div data-animation="zoomIn" data-delay="2.4s" class="text-2">
-                                            acteurs professionnels.</div>
-
-                                    </div>
-
-                                </div>
-                            </section>
-
-                            <!-- end home_slide_texte CALL -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide -->
-                <div class="swiper-slide">
-                    <div class="slide-inner" data-swiper-parallax="45%">
-                        <div class="overlay"></div>
-                        <div class="slide-inner--image"
-                            style="background: linear-gradient(90deg, rgba(6, 28, 51, 1), rgba(0,0,0,0)), url({{ asset('public/assets/images/home/home01.jpg') }}) no-repeat center / cover;">
-                        </div>
-                        <div class="slide-inner--info">
-                            <!-- home_slide_texte CALL -->
-                            <section class="home_slide_texte" id="home_slide_texte">
-                                <div class="max-width">
-                                    <div class="home_slide_texte-content">
-
-                                        <div class="text-3"><span class="typing"></span></div>
-                                        <div data-animation="zoomIn" data-delay="0.8s" class="text-1">
-                                            Votre</div>
-                                        <div data-animation="zoomIn" data-delay="1.8s" class="text-2">
-                                            Book Artistique</div>
-                                        <div data-animation="zoomIn" data-delay="2.4s" class="text-1">En
-                                            ligne .</div>
-
-                                    </div>
-
-                                </div>
-                            </section>
-
-                            <!-- end home_slide_texte CALL -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide -->
-                <div class="swiper-slide">
-                    <div class="slide-inner" data-swiper-parallax="45%">
-                        <div class="overlay"></div>
-                        <div class="slide-inner--image"
-                            style="background: linear-gradient(90deg, rgba(6, 28, 51, 1), rgba(0,0,0,0)), url({{ asset('public/assets/images/home/sound-mixer-studio.jpg') }}) no-repeat center / cover;">
-                        </div>
-                        <div class="slide-inner--info">
-                            <!-- home_slide_texte CALL -->
-                            <section class="home_slide_texte" id="home_slide_texte">
-                                <div class="max-width">
-                                    <div class="home_slide_texte-content">
-
-                                        <div class="text-3"><span class="typing"></span></div>
-                                        <div data-animation="zoomIn" data-delay="0.8s" class="text-1">
-                                            Découvrez les professionnels </div>
-                                        <div data-animation="zoomIn" data-delay="2.4s" class="text-1">
-                                            Artistiques parmis nos</div>
-                                        <div data-animation="zoomIn" data-delay="1.8s" class="text-2">
-                                            Réseaux Artistiques</div>
-
-                                    </div>
-
-                                </div>
-                            </section>
-
-                            <!-- end home_slide_texte CALL -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide -->
-                <div class="swiper-slide">
-                    <div class="slide-inner" data-swiper-parallax="45%">
-                        <div class="overlay"></div>
-                        <div class="slide-inner--image"
-                            style="background: linear-gradient(90deg, rgba(6, 28, 51, 1), rgba(0,0,0,0)), url({{ asset('public/assets/images/home/rows-red-seats-theater.jpg') }}) no-repeat center / cover;">
-                        </div>
-                        <div class="slide-inner--info">
-                            <!-- home_slide_texte CALL -->
-                            <section class="home_slide_texte" id="home_slide_texte">
-                                <div class="max-width">
-                                    <div class="home_slide_texte-content">
-
-                                        <div class="text-3"><span class="typing"></span></div>
-                                        <div data-animation="zoomIn" data-delay="0.8s" class="text-1">
-                                            Des évènements culturels avec</div>
-                                        <div data-animation="zoomIn" data-delay="1.8s" class="text-2">
-                                            L'Agenda +</div>
-                                        <div data-animation="zoomIn" data-delay="2.4s" class="text-1">
-                                            Profitez dès maintenant</div>
-
-                                    </div>
-
-                                </div>
-                            </section>
-
-                            <!-- end home_slide_texte CALL -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-nav-btn">
-                <div class="swiper-button-prev swiper-button-white">Préd</div>
-                <div class="swiper-button-next swiper-button-white">Suiv</div>
-            </div>
-            <!-- Pagination -->
-            <div class="expanded-timeline">
-                <div class="expanded-timeline__counter"><span></span><span></span></div>
-                <div class="swiper-pagination"></div>
-                <div class="scroll-message">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.5 15.98" class="scroll-svg">
-                        <title>Asset 1</title>
-                        <g>
-                            <g data-name="Layer 1">
-                                <polygon fill="#fff"
-                                    points="0 4.64 0.71 5.34 3.85 2.2 3.85 15.98 4.85 15.98 4.85 2.2 8 5.34 8.71 4.64 4.35 0.29 0 4.64">
-                                </polygon>
-                                <polygon fill="#fff"
-                                    points="11.65 0 11.65 13.79 8.5 10.64 7.79 11.35 12.15 15.7 16.5 11.35 15.79 10.64 12.65 13.79 12.65 0 11.65 0">
-                                </polygon>
-                            </g>
-                        </g>
-                    </svg>Scroll
-                </div>
-            </div>
-        </div>
-    </main>
-    <!-- /Container -->
-</div>
+<section id="welcome-section" class="grid"> 
+                        
+                      <div>
+                        <h2 data-en class="member_info">Acteurs,<br>chanteurs, <br>producteurs, <br>danseurs, <span class="h2color">&</span>...</h2> 
+                      </div>
+                      
+                          <div class="vertical-line"></div>
+                      
+                      <div class="welc_h1">
+                        <h1 data-en class="vivez_art">Vivez,<br>de votre<br>Art<span class="h1color">.</span></h1> 
+                      </div>
+                      
+                    </section>
 <!-- HOME SLIDER -->
 
 <!-- CONTAINER OPENED -->

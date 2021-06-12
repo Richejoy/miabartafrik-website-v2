@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,800");
+html, body {
+  height: 100%;
+  min-height: 18em;
+}
+
+.boutikart_service {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-code.png");
+}
+.boutikart_service button:hover {
+  color: violet;
+}
+
+.bookcastimagservice {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-post-its.png");
+}
+.bookcastimagservice button:hover {
+  color: #005de3;
+}
+
+.bonadress_service {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-post-its.png");
+}
+.bonadress_service button:hover {
+  color: #005de3;
+}
+
+
+.split-pane {
+  padding-top: 1em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 50%;
+  min-height: 9em;
+  font-size: 2em;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+@media (min-width: 500px) {
+  .split-pane {
+    padding-top: 2em;
+    height: 100%;
+  }
+}
+.split-pane div {
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+}
+.split-pane div button {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 0.5em;
+  padding: 0.8em;
+  font-weight: bold;
+  transition: all 0.2s ease-out;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+@media (max-width: 500px) {
+  .split-pane div button {
+    font-size: 0.4em;
+  }
+}
+.split-pane div button:hover {
+  background: #fff;
+  text-decoration: none;
+}
+.split-pane div .text-content {
+  line-height: 1.6em;
+  margin-bottom: 1em;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.split-pane div .text-content .bold {
+  font-size: 0.6em;
+  text-transform: uppercase;
+}
+@media (max-width: 500px) {
+  .split-pane div .text-content .bold {
+    font-size: 0.4em;
+  }
+}
+.split-pane div .text-content .big {
+  font-size: 2em;
+  font-weight: 800;
+}
+@media (max-width: 500px) {
+  .split-pane div .text-content .big {
+    font-size: 1.5em;
+  }
+}
+
+.split-pane-line {
+  color: white;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  text-align: center;
+}
+.split-pane-line img {
+  height: 6em;
+}
+@media (max-width: 500px) {
+  .split-pane-line img {
+    height: 3em;
+  }
+}
+
+@media (min-width: 500px) {
+  .col-sm-6 {
+    width: 50%; 
+  }
+}
+
