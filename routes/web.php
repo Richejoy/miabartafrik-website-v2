@@ -9,11 +9,13 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\CronsController;
 use App\Http\Controllers\GuestbookController;
+use App\Http\Controllers\PaymentController;
 
 use App\Http\Controllers\BookCastController;
+use App\Http\Controllers\ArtisticNetworkController;
 use App\Http\Controllers\BoutikArtController;
 use App\Http\Controllers\BonAddressController;
-use App\Http\Controllers\PaymentController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,12 +71,12 @@ Route::prefix('/')->name('page.')->group(function() {
 	});
 });
 
-Route::prefix('/utilisateur')->name('user.')->group(function() {
+Route::prefix('/user')->name('user.')->group(function() {
 	Route::get('/transactions', [UserController::class, 'transactions'])->name('transactions');
 
 	Route::get('/', [UserController::class, 'index'])->name('index');
-	Route::match(['GET', 'POST'], '/{user}/afficher', [UserController::class, 'show'])->name('show');
-	Route::match(['GET', 'POST'], '/{user}/editer', [UserController::class, 'edit'])->name('edit');
+	Route::match(['GET', 'POST'], '/{user}/show', [UserController::class, 'show'])->name('show');
+	Route::match(['GET', 'POST'], '/{user}/edit', [UserController::class, 'edit'])->name('edit');
 });
 
 Route::prefix('/contact')->name('contact.')->group(function () {
@@ -116,10 +118,10 @@ Route::prefix('/payement')->name('payment.')->group(function () {
 
 
 /** */
-Route::prefix('parametres')->name('settings.')->middleware(['auth'])->group(function () {
+Route::prefix('settings')->name('settings.')->middleware(['auth'])->group(function () {
 	Route::get('/', [SettingsController::class, 'index'])->name('index');
-	Route::get('/suppression/compte', [SettingsController::class, 'removingAccount'])->name('removing_account');
-	Route::get('/activation/tfa', [SettingsController::class, 'enablingTFA'])->name('enabling_tfa');
+	Route::get('/removing/account', [SettingsController::class, 'removingAccount'])->name('removing_account');
+	Route::get('/enabling/tfa', [SettingsController::class, 'enablingTFA'])->name('enabling_tfa');
 });
 /** */
 
@@ -136,6 +138,10 @@ Route::prefix('/bookcast')->name('bookcast.')->middleware(['auth'])->group(funct
 	Route::get('/elections', [BookCastController::class, 'elections'])->name('elections');
 	Route::get('/notebook', [BookCastController::class, 'notebook'])->name('notebook');
 	Route::get('/movies', [BookCastController::class, 'movies'])->name('movies');
+});
+
+Route::prefix('/artistic/network')->name('artistic_network.')->middleware(['auth'])->group(function() {
+	Route::get('/', [ArtisticNetworkController::class, 'index'])->name('index');
 });
 
 Route::prefix('/boutikart')->name('boutikart.')->middleware(['auth'])->group(function() {

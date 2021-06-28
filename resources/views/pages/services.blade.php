@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Services - Plateforme artistique</title>
+    <title>Services – {{ config('app.name') }}</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,7 +70,8 @@
     <link rel="stylesheet" href="{{ asset('public/assets/plugins/multipleselect/multiple-select.css') }}">
 
     <!-- FILE UPLODES -->
-    <link href="{{ asset('public/assets/plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public/assets/plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet"
+        type="text/css" />
 
     <!--Sweat Alert Css-->
     <link href="{{ asset('public/assets/plugins/sweet-alert/sweetalert.css') }}" rel="stylesheet" />
@@ -88,7 +89,6 @@
             <img src="{{ asset('public/assets/images/loader.svg') }}" class="loader-img" alt="Loader">
         </div>
 
-
         <!-- AvatarView -->
         <div class="inscription_Inscrit_bookArt-image">
 
@@ -103,7 +103,7 @@
                             </div>
                             <h3>BookCast</h3>
                             <p>Retouvez le book de tes artistes préférés toute catégorie confondue. Vous pourriez les
-                                likers pour propulser leur carrière artistique. </p>
+                                likers pour propulser leur carrière artistique.</p>
                             <a target="_blank" class="button" href="https://unsplash.com/s/photos/miami"
                                 aria-label="Photos from unsplash of miami">Avantages BookCast</a>
                         </div>
@@ -111,7 +111,8 @@
                         <div data-card="1" class="info_util_miabartafrik inactive">
                             <div class="image_util_miabartafrik-wrapper">
                                 <div class="image_util_miabartafrik"><img draggable="false"
-                                        src="{{ asset('public/assets/images/reseau.jpg') }}" alt="Photo of toronto"></div>
+                                        src="{{ asset('public/assets/images/reseau.jpg') }}" alt="Photo of toronto">
+                                </div>
                             </div>
                             <h3>Réseaux artistique</h3>
                             <p>Les professionnels artistique et culturel sont à retrouver ici, discuter donc avec eux
@@ -151,8 +152,6 @@
                 </div>
             </section>
 
-
-
         </div>
 
         <!-- Formulaire infos -->
@@ -188,7 +187,7 @@
                     </div>
                 </a>
 
-                <a href="{{ route('bookcast.index') }}" class="">
+                <a href="{{ route('artistic_network.index') }}" class="">
                     <div class="servicesmiabartafrikGood">
                         <label class="servicesmiabartafrikGood-wrapper">
                             <input type="servicesmiabartafrikGood" class="servicesmiabartafrikGood-input" checked />

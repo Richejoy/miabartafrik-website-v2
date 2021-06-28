@@ -110,7 +110,7 @@
                 </div><!-- MESSAGE-BOX -->
                 <div class="dropdown text-center selector profile-1 d-sm-flex d-none">
                     <a href="#" data-toggle="dropdown" class="nav-link leading-none d-flex">
-                        <span><img src="{{ Auth::user()->image->link }}" alt="profile-user" class="avatar brround cover-image mb-1 ml-0"></span>
+                        <span><img src="{{ Auth::user()->image->link }}" alt="{{ Auth::user()->username }}" class="avatar brround cover-image mb-1 ml-0"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                         <div class="text-center bg-image p-4">

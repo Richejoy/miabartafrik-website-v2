@@ -2,7 +2,6 @@
 
 @section('stylesheet')
 
-
 @endsection
 
 @section('body')
@@ -25,30 +24,30 @@
             </li>
 
             <li class="c-faq">
-                <span class="c-faq__title">Compte Artiste?</span>
+                <span class="c-faq__title">Compte Artiste ?</span>
                 <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
                     un profil.</div>
             </li>
             <li class="c-faq">
-                <span class="c-faq__title">Compte Photographe/ Vidéaste?</span>
-                <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
-                    un profil.</div>
-            </li>
-
-            <li class="c-faq">
-                <span class="c-faq__title">Compte Réseaux artisques?</span>
+                <span class="c-faq__title">Compte Photographe/ Vidéaste ?</span>
                 <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
                     un profil.</div>
             </li>
 
             <li class="c-faq">
-                <span class="c-faq__title">Compte Marchands?</span>
+                <span class="c-faq__title">Compte Réseaux artisques ?</span>
                 <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
                     un profil.</div>
             </li>
 
             <li class="c-faq">
-                <span class="c-faq__title">Compte Entrepreneur(Bon-Adress)?</span>
+                <span class="c-faq__title">Compte Marchands ?</span>
+                <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
+                    un profil.</div>
+            </li>
+
+            <li class="c-faq">
+                <span class="c-faq__title">Compte Entrepreneur(Bon-Adress) ?</span>
                 <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
                     un profil.</div>
             </li>
@@ -57,11 +56,9 @@
 
     <div class="login_Inscrit_bookArt-card">
         <div class="login_Inscrit_bookArt-card-header logconnexbottom">
-            <a class="header-brand" href="index.html">
+            <a class="header-brand" href="{{ route('page.index') }}">
                 <img src="{{ asset('public/assets/images/brand/logo.png') }}" class="h-8" alt="BookCast logo">
             </a>
-
-
         </div>
 
         <p class="text-mutedinscrit">Inscrivez-vous enfin de profiter de plusieurs avantages. </p>
@@ -72,29 +69,27 @@
 
             <div class="form__field">
                 <label for="user_type_id">
-
                     <i class="fe fe-users iconBookconnex" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Profil </span></label>
+                    <span class="hidden">Profil </span>
+                </label>
                 {!! Form::select('user_type_id', $userTypes, null, ['class' => 'select_on_bookcast', 'placeholder' =>
                 'Profil', 'required' => true]) !!}
             </div>
 
             <div class="form__field">
                 <label for="civility_id">
-
                     <i class="icon icon-symbol-female iconBookconnex" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Civilité </span></label>
-
+                    <span class="hidden">Civilité </span>
+                </label>
                 {!! Form::select('civility_id', $civilities, null, ['class' => 'select_on_bookcast', 'placeholder' =>
                 'Civilité', 'required' => true]) !!}
             </div>
 
             <div class="form__field">
                 <label for="country_id">
-
                     <i class="fe fe-map-pin iconBookconnex" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Pays </span></label>
-
+                    <span class="hidden">Pays </span>
+                </label>
                 {!! Form::select('country_id', $countries, null, ['class' => 'select_on_bookcast', 'placeholder' =>
                 'Pays', 'required' => true]) !!}
             </div>
@@ -102,28 +97,32 @@
             <div class="form__field">
                 <label for="last_name">
                     <i class="fe fe-user" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Nom </span></label>
+                    <span class="hidden">Nom </span>
+                </label>
                 <input id="last_name" type="text" name="last_name" class="form__input" placeholder="Nom" required>
             </div>
 
             <div class="form__field">
                 <label for="first_name">
                     <i class="fe fe-user" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Prénoms </span></label>
+                    <span class="hidden">Prénoms </span>
+                </label>
                 <input id="first_name" type="text" name="first_name" class="form__input" placeholder="Prénoms" required>
             </div>
 
             <div class="form__field">
                 <label for="email">
                     <i class="fe fe-at-sign" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Email </span></label>
+                    <span class="hidden">Email </span>
+                </label>
                 <input id="email" type="email" name="email" class="form__input" placeholder="Email" required>
             </div>
 
             <div class="form__field">
                 <label for="phone">
                     <i class="fe fe-phone" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Téléphone </span></label>
+                    <span class="hidden">Téléphone </span>
+                </label>
                 <input id="phone" type="tel" name="phone" class="form__input" placeholder="Téléphone" required>
             </div>
 
@@ -138,8 +137,8 @@
 
             {!! Form::close() !!}
 
-            <p class="text--center">Je suis déjà membre <a href="{{ route('page.login') }}">Se connecter</a> <svg
-                    class="icon">
+            <p class="text--center">Je suis déjà membre <a href="{{ route('page.login') }}">Se connecter</a>
+                <svg class="icon">
                     <use xlink:href="#icon-arrow-right"></use>
                 </svg>
             </p>

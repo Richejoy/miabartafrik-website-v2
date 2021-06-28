@@ -2,7 +2,6 @@
 
 @section('stylesheet')
 
-
 @endsection
 
 @section('body')
@@ -15,16 +14,13 @@
         </div>
         <div class="login_Inscrit_bookArt-image"
             style="background: url({{ asset('public/assets/images/home/forgotpass.jpg') }}) no-repeat center / cover;">
-
         </div>
 
         <div class="login_Inscrit_bookArt-card">
             <div class="login_Inscrit_bookArt-card-header">
-                <a class="header-brand" href="index.html">
+                <a class="header-brand" href="{{ route('page.index') }}">
                     <img src="{{ asset('public/assets/images/brand/logo.png') }}" class="h-8" alt="BookCast logo">
                 </a>
-
-
             </div>
 
             <p class="text-mutedinscrit">Choisi un nouveau mot de passe. </p>
