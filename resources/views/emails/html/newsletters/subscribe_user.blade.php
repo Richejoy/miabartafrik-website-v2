@@ -1,6 +1,6 @@
 @extends('layouts.mail', array('title' => 'Newsletter'))
 
-@section('content')
+@section('body')
 
 <h1>Bonjour {{ $newsletter->email }}!</h1>
 

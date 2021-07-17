@@ -1,162 +1,438 @@
-@extends('layouts.bookcast', ['title' => "Accueil"])
-
-@section('stylesheet')
-
-@endsection
+@extends('layouts.bookcast', ['title' => "Castings"])
 
 @section('body')
+ 
+<div class="miabartafrik">
+            <div class="page-main">
+                <div class="app-content">
 
-<!-- CONTAINER OPENED -->
-<div class="side-app container">
-    <!-- ROW-1 OPEN -->
-    <div class="row row-cards">
-        <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <div class="card">
-                        <div class="card-body border-0">
+                    <!-- HEADER -->
+                    @include('layouts.partials.bookcast._header')
+                    <!-- HEADER -->
 
-                            <div class="rechercheupdatbookcast">
-                                <form>
-                                    <div class="inner-form">
-                                        <div class="basic-search">
-                                            <div class="input-field">
-                                                <input id="search" type="text" placeholder="Retrouver un casting" />
-                                                <div class="icon-wrap">
-                                                    <svg class="svg-inline--fa fa-search fa-w-16" fill="#ccc"
-                                                        aria-hidden="true" data-prefix="fas" data-icon="search"
-                                                        role="img" xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 512 512">
-                                                        <path
-                                                            d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
-                                                        </path>
-                                                    </svg>
-                                                </div>
+                    <!--NOTIFICATIONS-->
+                    @include('layouts.partials.bookcast._notifications')
+                    <!--NOTIFICATIONS-->
+
+                    <!-- HORIZONTAL-MENU -->
+                    @include('layouts.partials.bookcast._nav')
+                    <!-- HORIZONTAL-MENU -->
+
+                    <!-- CONTAINER -->
+                    <div class="side-app container"> 
+
+                        <!-- ROW-1 OPEN -->
+                        <div class="row row-cards">
+                            <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                        <div class="card">
+                                            <div class="card-body border-0"> 
+
+                                                <div class="rechercheupdatbookcast">
+                                                  <form>
+                                                    <div class="inner-form">
+                                                      <div class="basic-search">
+                                                        <div class="input-field">
+                                                          <input id="search" type="text" placeholder="Rechercher un casting" />
+                                                          <div class="icon-wrap">
+                                                            <svg class="svg-inline--fa fa-search fa-w-16" fill="#ccc" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                              <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                                                            </svg>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="advance-search"> 
+                                                        <div class="row">
+                                                          
+                                                          <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 form_connexionBookcast login_connexionBookcast pandm">
+                                                               <div class="form__field">
+                                                                <label for="login__username">
+                                                                  <i class="fa fa-map-marker iconBookconnex" data-toggle="tooltip" title="">
+                                                                    
+                                                                  </i>
+                                                                  <span class="hidden">Choix du pays </span></label>
+                                                                <select class="select_on_bookcast">
+                                                                <option>Pays</option>
+                                                                <option>Togo</option>
+                                                                <option>Bénin</option>
+                                                                <option>Ghana</option>
+                                                               </select>
+                                                              </div>  
+                                                            </div>
+
+                                                            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 form_connexionBookcast login_connexionBookcast pandm">
+                                                               <div class="form__field">
+                                                                <label for="login__username">
+                                                                  <i class="fe fe-briefcase iconBookconnex" data-toggle="tooltip" title="">
+                                                                    
+                                                                  </i>
+                                                                  <span class="hidden">Domaine artistique </span></label>
+                                                                <select class="select_on_bookcast">
+                                                                <option>Domaines artistique</option>
+                                                                <option>Cinéma & Fiction</option>
+                                                                <option>Mode & Beauté</option>
+                                                                <option>Musique / Danse</option>
+                                                                <option>Radio / Télévision</option>
+                                                                <option>Théâtre & Humour</option>
+                                                               </select>
+                                                              </div>  
+                                                            </div>
+
+                                                            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 form_connexionBookcast login_connexionBookcast pandm">
+                                                               <div class="form__field">
+                                                                <label for="login__username">
+                                                                  <i class="fa fa-calendar-check-o iconBookconnex" data-toggle="tooltip" title="">
+                                                                    
+                                                                  </i>
+                                                                  <span class="hidden">Période </span></label>
+                                                                <select class="select_on_bookcast">
+                                                                <option>Quand ?</option>
+                                                                <option>Aujourd'hui</option>
+                                                                <option>7 Prochains jours</option> 
+                                                               </select>
+                                                              </div>  
+                                                            </div> 
+
+
+                                                        </div>
+
+                                                        <!-- BUTTON RECHERCHE START -->
+                                                                <a href="" class="guymake_button_mba_all">
+                                                                   <div class="search_mba_all">Recherche casting</div> 
+                                                                </a>
+                                                            <!-- BUTTON RECHERCHE END -->
+                                                        
+                                                      
+                                                      </div>
+                                                    </div>
+                                                  </form>
+                                                </div>  
+                                     
                                             </div>
                                         </div>
-                                        <div class="advance-search">
-                                            <div class="row">
+                                    </div> <!-- COL END -->
 
-                                                <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                                    <div class="form_steps_option-row animated bounceInDown">
-                                                        <label for="">
-                                                            Pays *
-                                                        </label>
-                                                        <select class="select_on_bookcast">
-                                                            <option>Votre pays d'origine</option>
-                                                            <option>Togo</option>
-                                                            <option>Côte d'ivoire</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                 
+                                                 <div class="row">
 
-                                                <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                                    <div class="form_steps_option-row animated bounceInDown">
-                                                        <label for="">
-                                                            Domaines de casting *
-                                                        </label>
-                                                        <select class="select_on_bookcast">
-                                                            <option>Votre pays d'origine</option>
-                                                            <option>Cinéma & Fiction</option>
-                                                            <option>Mode & Beauté</option>
-                                                            <option>Musique / Danse</option>
-                                                            <option>Radio / Télévision</option>
-                                                            <option>Théâtre & Humour</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                    <!-- Castings 01 -->
+                                                    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mb_1_5"> 
+                                                        <div class="castingart_newByOsez">
 
-                                                <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                                    <div class="form_steps_option-row animated bounceInDown">
-                                                        <label for="">
-                                                            Quand ? *
-                                                        </label>
-                                                        <select class="select_on_bookcast">
-                                                            <option>Période du casting</option>
-                                                            <option>Aujourd'hui</option>
-                                                            <option>Les 7 prochains jours</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                          <div class="castingart_newByOsez__side castingart_newByOsez__side--front">
+                                                            <div class="castingart_newByOsez__img"
+                                                            style="background-image: url(./assets/images/casting/studio-dance-photo.jpg);">
+                                                              
+                                                            </div>
 
-                                            <div class="row third">
-                                                <div class="input-field">
-                                                    <div class="result-count">
-                                                        <span>807 259 </span>résultat(s)
+                                                            <h4 class="castingart_newByOsez__text">
+                                                              <span class="castingart_newByOsez__text-span">Danse & Musique</span>
+                                                            </h4>
+
+                                                            <div class="castingart_newByOsez_body">
+                                                                <ul> 
+                                                                    <li class="castings--title">Pour le clip de Aamron, des danseurs H/F sont conviés pour un cating</li>
+                                                                </ul>
+                                                                <div class="infos_plus_bookcast">
+                                                                <ul> 
+                                                                  <li>
+                                                                    <div class="bullet orange"></div> 
+                                                                    <div class="desc">
+                                                                      <h4>Rémunération</h4>
+                                                                      <h3>Prévue</h3>
+                                                                    </div>
+                                                                  </li>   
+                                                                    <li> 
+                                                                  </li> 
+                                                                </ul>
+                                                              </div>
+ 
+                                                                <div class="detail-buttons" style="padding: 0.3rem;">
+                                                                   <button class="detail-button">
+                                                                    <i class="fa fa-heart"></i>
+                                                                   </button>
+                                                                   <button class="detail-button">  
+                                                                    <a href="castingartview.html">VOIR L'ANNONCE </a>
+                                                                   </button>
+
+                                                                  </div>
+
+                                                                <div class="task__stats" style="padding: 0.5rem;"> 
+                                                                  <span class="mrlk">
+                                                                    <i class="flag flag-tg" data-toggle="tooltip" title="" data-original-title="Togo"></i>
+                                                                  </span>
+
+                                                                  <span class="mrlk">
+                                                                    <button><i class="fa fa-heart"></i></button>1259
+                                                                  </span>   
+
+                                                                  <span class="mrlk">
+                                                                    <button><i class="fa fa-eye"></i></button> 7254
+                                                                  </span> 
+                                                                </div>
+                                                                
+                                                            </div>
+                                                          </div>
+
+                                                        </div> 
                                                     </div>
-                                                    <div class="group-btn">
-                                                        <button class="btn-delete" id="delete">SUPPRIMER</button>
-                                                        <button class="btn-search">RECHERCHE</button>
+                                                    <!-- end Castings -->
+
+                                                     <!-- Castings 02 -->
+                                                    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mb_1_5">
+
+
+                                                        <div class="castingart_newByOsez">
+
+                                                          <div class="castingart_newByOsez__side castingart_newByOsez__side--front">
+                                                            <div class="castingart_newByOsez__img"
+                                                            style="background-image: url(./assets/images/casting/photography.jpg);">
+                                                              
+                                                            </div>
+
+                                                            <h4 class="castingart_newByOsez__text">
+                                                              <span class="castingart_newByOsez__text-span">Mode & Beauté</span>
+                                                            </h4>
+
+                                                            <div class="castingart_newByOsez_body">
+                                                                <ul> 
+                                                                    <li class="castings--title">Séance de shoot photo à l'endroit des modèles photo & mannequin ...</li>
+                                                                </ul>
+                                                                <div class="infos_plus_bookcast">
+                                                                <ul> 
+                                                                  <li>
+                                                                    <div class="bullet orange"></div> 
+                                                                    <div class="desc">
+                                                                      <h4>Rémunération</h4>
+                                                                      <h3>Prévue</h3>
+                                                                    </div>
+                                                                  </li>   
+                                                                    <li> 
+                                                                  </li> 
+                                                                </ul>
+                                                              </div>
+ 
+                                                                <div class="detail-buttons" style="padding: 0.3rem;">
+                                                                   <button class="detail-button">
+                                                                    <i class="fa fa-heart"></i>
+                                                                   </button>
+                                                                   <button class="detail-button">  
+                                                                    <a href="">VOIR L'ANNONCE </a>
+                                                                   </button>
+
+                                                                  </div>
+
+                                                                <div class="task__stats" style="padding: 0.5rem;"> 
+                                                                  <span class="mrlk">
+                                                                    <i class="flag flag-tg" data-toggle="tooltip" title="" data-original-title="Togo"></i>
+                                                                  </span>
+
+                                                                  <span class="mrlk">
+                                                                    <button><i class="fa fa-heart"></i></button>1259
+                                                                  </span>   
+
+                                                                  <span class="mrlk">
+                                                                    <button><i class="fa fa-eye"></i></button> 7254
+                                                                  </span> 
+                                                                </div>
+                                                                
+                                                            </div>
+                                                          </div>
+
+                                                        </div> 
+
+                                                            
                                                     </div>
+                                                    <!-- end Castings -->
+
+                                                     <!-- Castings 03 -->
+                                                    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mb_1_5">
+
+
+                                                        <div class="castingart_newByOsez">
+
+                                                          <div class="castingart_newByOsez__side castingart_newByOsez__side--front">
+                                                            <div class="castingart_newByOsez__img"
+                                                            style="background-image: url(./assets/images/casting/work-4.jpg);">
+                                                              
+                                                            </div>
+
+                                                            <h4 class="castingart_newByOsez__text">
+                                                              <span class="castingart_newByOsez__text-span">Cinéma & Fiction</span>
+                                                            </h4>
+
+                                                            <div class="castingart_newByOsez_body">
+                                                                <ul> 
+                                                                    <li class="castings--title">Casting pour des acteurs débutants sur un tournois de court métrage. </li>
+                                                                </ul>
+                                                                <div class="infos_plus_bookcast">
+                                                                <ul> 
+                                                                  <li>
+                                                                    <div class="bullet orange"></div> 
+                                                                    <div class="desc">
+                                                                      <h4>Rémunération</h4>
+                                                                      <h3>Bénévole</h3>
+                                                                    </div>
+                                                                  </li>   
+                                                                    <li> 
+                                                                  </li> 
+                                                                </ul>
+                                                              </div>
+ 
+                                                                <div class="detail-buttons" style="padding: 0.3rem;">
+                                                                   <button class="detail-button">
+                                                                    <i class="fa fa-heart"></i>
+                                                                   </button>
+                                                                   <button class="detail-button">  
+                                                                    <a href="">VOIR L'ANNONCE </a>
+                                                                   </button>
+
+                                                                  </div>
+
+                                                                <div class="task__stats" style="padding: 0.5rem;"> 
+                                                                  <span class="mrlk">
+                                                                    <i class="flag flag-tg" data-toggle="tooltip" title="" data-original-title="Togo"></i>
+                                                                  </span>
+
+                                                                  <span class="mrlk">
+                                                                    <button><i class="fa fa-heart"></i></button>1259
+                                                                  </span>   
+
+                                                                  <span class="mrlk">
+                                                                    <button><i class="fa fa-eye"></i></button> 7254
+                                                                  </span> 
+                                                                </div>
+                                                                
+                                                            </div>
+                                                          </div>
+
+                                                        </div> 
+
+                                                            
+                                                    </div>
+                                                    <!-- end Castings -->
+
+                                                    <!-- Castings 04 -->
+                                                    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mb_1_5">
+
+
+                                                        <div class="castingart_newByOsez">
+
+                                                          <div class="castingart_newByOsez__side castingart_newByOsez__side--front">
+                                                            <div class="castingart_newByOsez__img"
+                                                            style="background-image: url(./assets/images/casting/reflex-et-vous.jpg);">
+                                                              
+                                                            </div>
+
+                                                            <h4 class="castingart_newByOsez__text">
+                                                              <span class="castingart_newByOsez__text-span">Cinéma & Fiction</span>
+                                                            </h4>
+
+                                                            <div class="castingart_newByOsez_body">
+                                                                <ul> 
+                                                                    <li class="castings--title">Casting pour des acteurs débutants sur un tournois de court métrage. </li>
+                                                                </ul>
+                                                                <div class="infos_plus_bookcast">
+                                                                <ul> 
+                                                                  <li>
+                                                                    <div class="bullet orange"></div> 
+                                                                    <div class="desc">
+                                                                      <h4>Rémunération</h4>
+                                                                      <h3>Bénévole</h3>
+                                                                    </div>
+                                                                  </li>   
+                                                                    <li> 
+                                                                  </li> 
+                                                                </ul>
+                                                              </div>
+ 
+                                                                <div class="detail-buttons" style="padding: 0.3rem;">
+                                                                   <button class="detail-button">
+                                                                    <i class="fa fa-heart"></i>
+                                                                   </button>
+                                                                   <button class="detail-button">  
+                                                                    <a href="">VOIR L'ANNONCE </a>
+                                                                   </button>
+
+                                                                  </div>
+
+                                                                <div class="task__stats" style="padding: 0.5rem;"> 
+                                                                  <span class="mrlk">
+                                                                    <i class="flag flag-tg" data-toggle="tooltip" title="" data-original-title="Togo"></i>
+                                                                  </span>
+
+                                                                  <span class="mrlk">
+                                                                    <button><i class="fa fa-heart"></i></button>1259
+                                                                  </span>   
+
+                                                                  <span class="mrlk">
+                                                                    <button><i class="fa fa-eye"></i></button> 7254
+                                                                  </span> 
+                                                                </div>
+                                                                
+                                                            </div>
+                                                          </div>
+
+                                                        </div> 
+
+                                                            
+                                                    </div>
+                                                    <!-- end Castings -->
+
+
+
+                                                         
+
+                                                        
+
+                                                    </div>
+
+                                                    <!-- PREVANDNEXT START -->
+                                                <div class="prvnextbtn_mba_all">
+                                                  <svg width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                      <g id="prev" transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)">
+                                                          <polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+                                                          <polygon class="arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+                                                          <path d="M-1.48029737e-15,0.56157424 L-1.48029737e-15,16.1929159 L9.708,8.33860465 L-2.66453526e-15,0.56157424 L-1.48029737e-15,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
+                                                      </g>
+                                                  </svg>
+
+                                                  <svg width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                      <g>
+                                                          <polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+                                                          <polygon class="arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+                                                          <path d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
+                                                      </g>
+                                                  </svg>
                                                 </div>
+                                                <!-- PREVANDNEXT END -->
+                                                 
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div> <!-- COL END -->
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <div class="row">
-                            	@for($i = 0; $i <= 10; $i++)
-                                <!-- Castings 01 -->
-                                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-12 mb_1_5">
-                                    <div role="listitem" class="casting_item w-dyn-item">
-                                        <a href="castingartview.html" class="job-link-block w-inline-block">
-                                            <img loading="lazy" src="{{ asset('public/assets/images/partner/radiolome.jpg') }}"
-                                                alt="Société de casting" class="company-logo">
-                                            <div class="casting_item-main-content">
-                                                <div class="casting_item-name-block">
-                                                    <h3>Acteur H/F pour un film</h3>
-                                                    <div class="casting_item-location"><i class="flag flag-ci"
-                                                            data-toggle="tooltip" title=""
-                                                            data-original-title="artiste du Ghana"></i></div>
-                                                </div>
-                                                <div class="paragraphcast">domaine artistique</div>
-
-                                            </div>
-                                            <div class="casting_item-right-block">
-                                                <div class="job-type">Date</div>
-                                                <div class="job-type_date">12.03.2021 - 15.03.2021</div>
-
-
-                                            </div>
-                                        </a>
-                                        <div class="jetboost-toggle-favorite-9o2r">
-                                            <a href="#" class="star-button w-button"
-                                                style=" background-image: url({{ asset('public/assets/images/icons/video.svg') }});"></a>
-                                            <a href="#" class="star-button w-button jetboost-list-item-hide"
-                                                style="display: block;"></a>
-                                        </div>
-
-                                        <div class="w-embed">
-                                            <input type="hidden" class="jetboost-list-item"
-                                                value="senior-account-manager">
-                                        </div>
-                                    </div>
+                                    </div>  
                                 </div>
-                                <!-- end Castings -->
-                                @endfor
                             </div>
 
+                            <!-- ASIDE BAR -->
+                            @include('layouts.partials.bookcast._aside_right')
+                            <!-- ASIDE BAR -->
                         </div>
                     </div>
+                    <!-- CONTAINER -->
                 </div>
             </div>
-        </div>
 
-        <!-- ASIDE BAR -->
-        @include('layouts.partials.bookcast._before_footer')
-        <!-- ASIDE BAR END -->
-    </div>
-</div>
-<!-- CONTAINER CLOSED -->
+            <!-- MES CONATCTS -->
+            @include('layouts.partials.bookcast._sidebar_right')
+            <!-- MES CONATCTS -->
+
+            <!-- FOOTER -->
+            @include('layouts.partials.bookcast._footer')
+            <!-- FOOTER -->
+        </div>
 
 @endsection

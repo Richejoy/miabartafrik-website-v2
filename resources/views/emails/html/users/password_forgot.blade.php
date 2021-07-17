@@ -1,6 +1,6 @@
 @extends('layouts.mail', array('title' => 'User'))
 
-@section('content')
+@section('body')
 
 <h1>Bonjour {{ $user }}!</h1>
 

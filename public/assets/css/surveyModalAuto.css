@@ -1,0 +1,46 @@
+
+ 
+#surveyModalAuto {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, .8); z-index: 9001; display:none;}
+
+.surveyModalContainer {position:fixed;   
+    background-repeat:no-repeat; background-position:20px -20px; left:50%; top:-100%; transform: translate(-50%, -50%);
+     z-index: 1500; border-radius:5px; border:5px solid #FFF; padding:0px; text-align:center; background-color:#FFF;
+      box-shadow:0 8px 17px 0 rgba(0, 0, 0, 0.4); display:none; opacity:0; max-width:700px;}
+ 
+.surveyModalBody {text-align:center; color:#4D4D4D; font-size:22px; line-height:28px; box-sizing:border-box;}
+.surveyModalBody img {width: 380px;}
+
+
+.surveyModalFooter {padding:0px 0 0px 0px; text-align:center;}
+.surveyModalFine {padding:20px 20px; margin:20px auto 0 auto;text-align:left; font-size:13px; letter-spacing:0px; border-top:1px solid #ddd; line-height:18px; box-sizing:border-box;}
+
+.surveyButton {width:80px; height:80px; margin:0px auto 10px auto; content:''; background:url(http://www.getikuw.com/assets/images/icons/20160302_icon_sprite_survey_144x144.png); background-position:0px 0px; background-size:cover; background-repeat:no-repeat;}
+.surveyButton:hover {background-position:-80px 0px;}
+
+
+#surveyCloseButton {box-sizing:border-box; background:#FF8000; display:block; width:30px; height:30px; border-radius:15px; position:absolute; top:10px; right:10px;  z-index:60; cursor:pointer;}
+/* ---- MODAL CLOSE X STATIC----*/
+#surveyCloseButton:before {background:#F2F2F2; content:''; display:block; width:20px; height:2px; position:absolute; top:14px; transform:rotate(45deg); border-radius:1px; right:5px;-webkit-animation: in1 .3s;}
+#surveyCloseButton span {background:#F2F2F2; content:''; display:block; width:20px; height:2px; position:absolute; top:14px;  transform:rotate(135deg); border-radius:1px; right:5px;-webkit-animation: in2 .3s;}
+/* ---- MODAL CLOSE X HOVER ----*/
+#surveyCloseButton:hover:before {background:#4D4D4D; -webkit-animation: out1 .3s;}
+#surveyCloseButton:hover span {background:#4D4D4D; -webkit-animation: out2 .3s;}
+/* ---- MODAL CLOSE X ANIMATION ----*/
+#surveyCloseButton:hover:before, #surveyCloseButton:hover span {-webkit-transition:none .3s ease 0s; transition:none .3s ease 0s; -webkit-transition-property:transform, top, bottom, right, opacity; transition-property:transform, top, bottom, right, opacity;}
+@-webkit-keyframes in1 {
+    from   { -webkit-transform: rotate(45deg); }
+    to { -webkit-transform: rotate(225deg);}
+}
+@-webkit-keyframes in2 {
+    from   { -webkit-transform: rotate(135deg); }
+    to { -webkit-transform: rotate(315deg);}
+}
+@-webkit-keyframes out1 {
+    from   { -webkit-transform: rotate(225deg); }
+    to { -webkit-transform: rotate(45deg); }
+}
+@-webkit-keyframes out2 {
+    from   { -webkit-transform: rotate(315deg); }
+    to { -webkit-transform: rotate(135deg); }
+}
+

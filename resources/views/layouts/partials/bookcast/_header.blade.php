@@ -1,4 +1,4 @@
-<div class="header header-fixed">
+<header class="header header-fixed">
     <div class="container">
         <div class="d-flex">
             <a id="horizontal-navtoggle" class="animated-arrow hor-toggle"><span></span></a>
@@ -158,4 +158,4 @@
             </a>
         </div>
     </div>
-</div>
+</header>

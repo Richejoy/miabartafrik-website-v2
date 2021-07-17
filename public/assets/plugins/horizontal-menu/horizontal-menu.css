@@ -68,7 +68,7 @@
 }
 .horizontal-body .sticky-wrapper.is-sticky .horizontal-main{
 	margin-top:77px;
-	border-top: 1px solid rgba(255,255,255,0.1) !important;
+	border-top: 1px solid rgba(255, 255, 255, 0) !important;
 }
 .horizontal-main.horizontal-main-1{
 	position: relative;

@@ -9,12 +9,11 @@
 	<link rel="icon" type="image/png" href="{{ asset('public/favicon.png') }}">
 
 	<title>{{ config('app.name') }}</title>
-
 </head>
 
 <body>
 
-	@yield('content')
+	@yield('body')
 
 	<h6>Nous découvrir : <a href="{{ route('page.index') }}">Ici</a></h6>
 	<h5>Equipe {{ config('app.name') }}</h5>

@@ -1,38 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
+    <title>{{ config('app.name') }} - BonAddress - {{ $title ?? 'Laravel' }}</title>
     <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="msapplication-TileColor" content="#0061da">
-    <meta name="theme-color" content="#1643a3">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <link rel="icon" href="{{ asset('public/favicon.ico') }}" type="image/x-icon" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/favicon.ico') }}" />
-
-    <!-- TITLE -->
-    <title>{{ $title ?? 'Laravel' }} - BonAddress - {{ config('app.name') }}</title>
-
-    <!-- bookcast CSS -->
-    <link href="{{ asset('public/assets/css/bonaddress.css') }}" rel="stylesheet" />
-
-    @yield('stylesheet')
-
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="icon" type="image/png" href="{{ asset('public/images/icons/favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/fonts/iconic/css/material-design-iconic-font.min.css') }}"> 
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/main.css') }}">
 </head>
-
 <body>
+    
+    @yield('body')
 
-<h1>Coming Soon</h1>
-
-@yield('body')
-
-<script type="text/javascript" src="{{ asset('js/bonaddress.js') }}"></script>
-
+    <script src="{{ asset('public/js/main.js') }}"></script>
 </body>
-
 </html>

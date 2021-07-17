@@ -1,3 +1,67 @@
+  //  LOGOS SLIDER PARTENAIRES
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$(document).ready(function(){
+      $('.customer-logos').slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [{
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 4
+          }
+        }, {
+          breakpoint: 520,
+          settings: {
+            slidesToShow: 3
+          }
+        }]
+      });
+    });
+
+  //  INFOS UTILE
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$('.book_infos_title').click(function(e) {
+  console.log("Clicked");
+  $(this).next().slideToggle();
+  $(this).next().next().next().slideToggle();
+})
+
+function _defineProperty(obj, key, value) 
+{if (key in obj) {
+  Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} 
+  else {obj[key] = value;}return obj;}class Widget {
+  constructor($widget_id) {_defineProperty(this, "setHandler",
+
+
+
+
+
+    () => {
+      if (this.toggle.length) {
+        let target = this.toggle.attr("target");
+        this.contact = this.widget.find(target);
+
+        this.toggle.on('click', e => {
+          this.toggle.toggleClass('active');
+          this.contact.toggleClass('active');
+        });
+      } else {
+        console.error("Toggle object not found");
+      }
+    });this.widget = $($widget_id);this.toggle = this.widget.find($widget_id + "-toggle");this.setHandler();}}
+
+
+let widget = new Widget("#reseau_art_Widget");
+
+
+
 $('body').delegate('.c-faq', 'click', function(){
   $('.c-faq').removeClass('c-faq--active');
   $(this).addClass('c-faq--active');
@@ -298,45 +362,7 @@ $('.btn_inscript_container-prev').on('click', function() {
     })
 
 
-  // Timeline
-$(document).ready(function() {
-  $timeline_bookcastExpandableTitle = $('.timeline_bookcast-action.is-expandable .title');
   
-  $($timeline_bookcastExpandableTitle).attr('tabindex', '0');
-  
-  // Give timeline_bookcasts ID's
-  $('.timeline_bookcast').each(function(i, $timeline_bookcast) {
-    var $timeline_bookcastActions = $($timeline_bookcast).find('.timeline_bookcast-action.is-expandable');
-    
-    $($timeline_bookcastActions).each(function(j, $timeline_bookcastAction) {
-      var $milestoneContent = $($timeline_bookcastAction).find('.content');
-      
-      $($milestoneContent).attr('id', 'timeline_bookcast-' + i + '-milestone-content-' + j).attr('role', 'region');
-      $($milestoneContent).attr('aria-expanded', $($timeline_bookcastAction).hasClass('expanded'));
-      
-      $($timeline_bookcastAction).find('.title').attr('aria-controls', 'timeline_bookcast-' + i + '-milestone-content-' + j);
-    });
-  });
-  
-  $($timeline_bookcastExpandableTitle).click(function() {
-    $(this).parent().toggleClass('is-expanded');
-    $(this).siblings('.content').attr('aria-expanded', $(this).parent().hasClass('is-expanded'));
-  });
-  
-  // Expand or navigate back and forth between sections
-  $($timeline_bookcastExpandableTitle).keyup(function(e) {
-    if (e.which == 13){ //Enter key pressed
-      $(this).click();
-    } else if (e.which == 37 ||e.which == 38) { // Left or Up
-      $(this).closest('.timeline_bookcast-milestone').prev('.timeline_bookcast-milestone').find('.timeline_bookcast-action .title').focus();
-    } else if (e.which == 39 ||e.which == 40) { // Right or Down
-      $(this).closest('.timeline_bookcast-milestone').next('.timeline_bookcast-milestone').find('.timeline_bookcast-action .title').focus();
-    }
-  });
-});
-
-
- 
 
 
 // tabs
@@ -372,48 +398,6 @@ function openTabs(el) {
  
 
 
-    // Team carousel
-    $(".team-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
-    });
-
-
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        items: 1,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ]
-    });
-    
  
 
 

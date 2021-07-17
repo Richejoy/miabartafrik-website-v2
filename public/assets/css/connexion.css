@@ -363,7 +363,11 @@ img {
 max-width: 100%;
 vertical-align: middle; }
 
- 
+body {
+background: url("../images/form-inscript_steps_option-bg.jpg");
+background-size: cover; }
+
+
 
 .inscript_steps_option > .steps .current-info, .inscript_steps_option > .steps .number {
 display: none; }

@@ -1,6 +1,6 @@
 @extends('layouts.mail', array('title' => 'Contact'))
 
-@section('content')
+@section('body')
 
 <h1>Bonjour {{ config('app.name', 'Laravel') }}!</h1>
 

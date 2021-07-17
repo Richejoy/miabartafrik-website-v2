@@ -1,6 +1,6 @@
-<div class="horizontal-main hor-menu clearfix">
+<nav class="horizontal-main hor-menu clearfix">
     <div class="horizontal-mainwrapper clearfix">
-        <nav class="horizontalMenu clearfix">
+        <div class="horizontalMenu clearfix">
             <ul class="horizontalMenu-list container">
                 <li aria-haspopup="true"><a href="{{ route('bookcast.index') }}" class="sub-icon active"><i class="fa fa-home"></i> Accueil
                     </a></li>
@@ -24,7 +24,6 @@
                 <li aria-haspopup="true"><a href="{{ route('bookcast.movies') }}" class="sub-icon"><i class="fa fa-tv"></i> NetConcert </a>
                 </li>
             </ul>
-        </nav>
-        <!-- NAV END -->
+        </div>
     </div>
-</div>
+</nav>
