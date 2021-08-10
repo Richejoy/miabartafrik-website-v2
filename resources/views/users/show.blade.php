@@ -11,18 +11,18 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+		<link rel="icon" href="{{ asset('public/favicon.ico') }}" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/favicon.ico') }}"/>
 
 		 <!-- TITLE -->
 		<title>Profil – Plateforme artistique</title>
 
 		<!-- STYLE NEWS --> 
 		 <!-- bookcast CSS -->
-      <link href="./assets/css/bookcast.css" rel="stylesheet"/> 
+      <link href="{{ asset('public/assets/css/bookcast.css') }}" rel="stylesheet"/> 
 
       <!-- miabartafrik CSS -->
-    <link href="./assets/css/miabartafrik.css" rel="stylesheet"/>
+    <link href="{{ asset('public/assets/css/miabartafrik.css') }}" rel="stylesheet"/>
 
       <!-- FANCYBOX CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" /> 
@@ -36,33 +36,33 @@
 		<link href="./assets/css/colorbookcast.css" rel="stylesheet"/> 
 
 		<!-- CUSTOM SCROLL BAR CSS-->
-		<link href="./assets/plugins/mcustomscrollbar/jquery.mCustomScrollbar.css" rel="stylesheet"/>
+		<link href="{{ asset('public/assets/plugins/mcustomscrollbar/jquery.mCustomScrollbar.css') }}" rel="stylesheet"/>
 
 		<!--- FONT-ICONS CSS -->
-		<link href="./assets/css/icons.css" rel="stylesheet"/>
+		<link href="{{ asset('public/assets/css/icons.css') }}" rel="stylesheet"/>
 
 		<!-- RIGHT-MENU CSS -->
-		<link href="./assets/plugins/sidebar/sidebar.css" rel="stylesheet">
+		<link href="{{ asset('public/assets/plugins/sidebar/sidebar.css') }}" rel="stylesheet">
 
 		<!-- LEFT-SIDEMENU CSS -->
-		<link href="./assets/plugins/jquery-jside-menu-master/css/jside-menu.css" rel="stylesheet"/>
-		<link href="./assets/plugins/jquery-jside-menu-master/css/jside-skins.css" rel="stylesheet"/>
+		<link href="{{ asset('public/assets/plugins/jquery-jside-menu-master/css/jside-menu.css') }}" rel="stylesheet"/>
+		<link href="{{ asset('public/assets/plugins/jquery-jside-menu-master/css/jside-skins.css') }}" rel="stylesheet"/>
 
 		<!-- Perfect scroll bar css-->
-		<link href="./assets/plugins/pscrollbar/perfect-scrollbar.css" rel="stylesheet" />
+		<link href="{{ asset('public/assets/plugins/pscrollbar/perfect-scrollbar.css') }}" rel="stylesheet" />
 
 		<!-- Sidemenu css -->
-		<link id="side" href="./assets/plugins/side-menu/full-sidemenu.css" rel="stylesheet" />
+		<link id="side" href="{{ asset('public/assets/plugins/side-menu/full-sidemenu.css') }}" rel="stylesheet" />
 
 		<!-- Sidebar Accordions css -->
-		<link href="./assets/plugins/sidemenu-responsive-tabs/css/easy-responsive-tabs.css" rel="stylesheet">
+		<link href="{{ asset('public/assets/plugins/sidemenu-responsive-tabs/css/easy-responsive-tabs.css') }}" rel="stylesheet">
 
 	</head>
 	<body class="app sidebar-mini rtl">
 
 		<!-- GLOBAL-LOADER -->
 		<div id="global-loader">
-			<img src="./assets/images/loader.svg" class="loader-img" alt="Loader">
+			<img src="{{ asset('public/assets/images/loader.svg" class="loader-img') }}" alt="Loader">
 		</div>
 		<div class="page">
 			<div class="page-main">
@@ -71,8 +71,8 @@
 				<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 				<aside class="app-sidebar">
 					<a class="header-brand left-meu-header-brand left-meu-header-style1 left-meu-header-brand-desktop" href="index.html">
-						<img src="./assets/images/brand/logo2.png" class="header-brand-img desktop-logo" alt="MiabartAfrik logo">
-						<img src="./assets/images/brand/favicon.png" class="header-brand-img mobile-view-logo" alt="MiabartAfrik logo">
+						<img src="{{ asset('public/assets/images/brand/logo2.png') }}" class="header-brand-img desktop-logo" alt="MiabartAfrik logo">
+						<img src="{{ asset('public/assets/images/brand/favicon.png') }}" class="header-brand-img mobile-view-logo" alt="MiabartAfrik logo">
 					</a>
 					 
 					<div class="side-tab-body p-0 border-0" id="parentVerticalTab">
@@ -2004,64 +2004,64 @@
 		<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
 		<!-- JQUERY SCRIPTS -->
-		<script src="./assets/js/vendors/jquery-3.2.1.min.js"></script>
+		<script src="{{ asset('public/assets/js/vendors/jquery-3.2.1.min.js') }}"></script>
 
 		<!-- BOOTSTRAP SCRIPTS -->
-		<script src="./assets/js/vendors/bootstrap.bundle.min.js"></script>
+		<script src="{{ asset('public/assets/js/vendors/bootstrap.bundle.min.js') }}"></script>
 
 		<!-- SPARKLINE -->
-		<script src="./assets/js/vendors/jquery.sparkline.min.js"></script>
+		<script src="{{ asset('public/assets/js/vendors/jquery.sparkline.min.js') }}"></script>
 
 		<!-- CHART-CIRCLE -->
-		<script src="./assets/js/vendors/circle-progress.min.js"></script>
+		<script src="{{ asset('public/assets/js/vendors/circle-progress.min.js') }}"></script>
 
 		<!-- RATING STAR -->
-		<script src="./assets/plugins/rating/jquery.rating-stars.js"></script>
+		<script src="{{ asset('public/assets/plugins/rating/jquery.rating-stars.js') }}"></script>
 
 		<!-- INPUT MASK PLUGIN-->
-		<script src="./assets/plugins/input-mask/jquery.mask.min.js"></script>
+		<script src="{{ asset('public/assets/plugins/input-mask/jquery.mask.min.js') }}"></script>
 
 		<!-- CHARTJS CHART -->
-		<script src="./assets/plugins/chart/Chart.bundle.js"></script>
-		<script src="./assets/plugins/chart/utils.js"></script>
+		<script src="{{ asset('public/assets/plugins/chart/Chart.bundle.js') }}"></script>
+		<script src="{{ asset('public/assets/plugins/chart/utils.js') }}"></script>
 
 		<!-- PIETYCHART -->
-		<script src="./assets/plugins/peitychart/jquery.peity.min.js"></script>
-		<script src="./assets/plugins/peitychart/peitychart.init.js"></script>
+		<script src="{{ asset('public/assets/plugins/peitychart/jquery.peity.min.js') }}"></script>
+		<script src="{{ asset('public/assets/plugins/peitychart/peitychart.init.js') }}"></script>
 
 		<!-- CUSTOM SCROLL BAR JS-->
-		<script src="./assets/plugins/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="{{ asset('public/assets/plugins/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 
 		<!-- CHARTS PLUGIN -->
-		<script src="./assets/plugins/highcharts/highcharts.js"></script>
+		<script src="{{ asset('public/assets/plugins/highcharts/highcharts.js') }}"></script>
 
 		<!-- RIGHT-MENU JS -->
-		<script src="./assets/plugins/sidebar/sidebar.js"></script>
+		<script src="{{ asset('public/assets/plugins/sidebar/sidebar.js') }}"></script>
 
 		<!-- LEFT-SIDEMENU PLUGIN -->
-		<script src="./assets/plugins/jquery-jside-menu-master/js/jquery.jside.menu.js"></script>
+		<script src="{{ asset('public/assets/plugins/jquery-jside-menu-master/js/jquery.jside.menu.js') }}"></script>
 
 		<!--Side-menu js-->
-		<script src="./assets/plugins/side-menu/sidemenu.js"></script>
+		<script src="{{ asset('public/assets/plugins/side-menu/sidemenu.js') }}"></script>
 
 		<!-- STICKY JS-->
-		<script src="./assets/js/sticky.js"></script>
-		<script src="./assets/js/horizontal-sticky.js"></script>
+		<script src="{{ asset('public/assets/js/sticky.js') }}"></script>
+		<script src="{{ asset('public/assets/js/horizontal-sticky.js') }}"></script>
 
 		<!-- Sidebar Accordions js -->
-		<script src="./assets/plugins/sidemenu-responsive-tabs/js/easyResponsiveTabs.js"></script>
+		<script src="{{ asset('public/assets/plugins/sidemenu-responsive-tabs/js/easyResponsiveTabs.js') }}"></script>
 
 		<!-- Perfect scroll bar js-->
-		<script src="./assets/plugins/pscrollbar/perfect-scrollbar.js"></script>
+		<script src="{{ asset('public/assets/plugins/pscrollbar/perfect-scrollbar.js') }}"></script>
 
 		<!-- Left CUSTOM JS-->
-		<script src="./assets/js/left-custom.js"></script>
+		<script src="{{ asset('public/assets/js/left-custom.js') }}"></script>
 
 		<!-- INDEX-SCRIPTS -->
-		<script src="./assets/js/index1.js"></script>
+		<script src="{{ asset('public/assets/js/index1.js') }}"></script>
 
 		<!-- CUSTOM JS-->
-		<script src="./assets/js/custom.js"></script>
+		<script src="{{ asset('public/assets/js/custom.js') }}"></script>
 
 	</body>
 </html>

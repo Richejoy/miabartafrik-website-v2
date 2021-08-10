@@ -4,17 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\CronsController;
-use App\Http\Controllers\GuestbookController;
 use App\Http\Controllers\PaymentController;
 
 use App\Http\Controllers\BookCastController;
-use App\Http\Controllers\ArtisticNetworkController;
 use App\Http\Controllers\BoutikArtController;
 use App\Http\Controllers\BonAddressController;
+
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -43,6 +41,7 @@ Route::prefix('/')->name('page.')->group(function() {
 	Route::get('/sitemap', [PageController::class, 'sitemap'])->name('sitemap');
 
 	Route::middleware(['logged'])->group(function () {
+		Route::match(['GET', 'POST'], '/lock/screen', [PageController::class, 'lockScreen'])->name('lock_screen');
 		Route::match(['GET', 'POST'], '/login', [PageController::class, 'login'])->name('login');
 		Route::match(['GET', 'POST'], '/register', [PageController::class, 'register'])->name('register');
 		Route::match(['GET', 'POST'], '/confirmed', [PageController::class, 'confirmed'])->name('confirmed');
@@ -53,27 +52,16 @@ Route::prefix('/')->name('page.')->group(function() {
 		Route::get('/removed/account/{email}/{token}', [PageController::class, 'removedAccount'])->name('removed_account');
 		Route::get('/enabled/tfa/{email}/{token}', [PageController::class, 'enabledTFA'])->name('enabled_tfa');
 
-		/**/
-		Route::match(['GET', 'POST'], '/register/artist/{email}/{token}', [PageController::class, 'registerArtist'])->name('register_artist');
-		Route::match(['GET', 'POST'], '/register/photographer/{email}/{token}', [PageController::class, 'registerPhotographer'])->name('register_photographer');
-		Route::match(['GET', 'POST'], '/register/artistic/network/{email}/{token}', [PageController::class, 'registerArtisticNetwork'])->name('register_artistic_network');
-		/**/
+		Route::match(['GET', 'POST'], '/completed', [PageController::class, 'completed'])->name('completed');
 	});
 
 	Route::match(['GET', 'POST'], '/donate', [PageController::class, 'donate'])->name('donate');
 
 	Route::get('/logout', [PageController::class, 'logout'])->name('logout');
-
-	Route::get('/partners', [PageController::class, 'partners'])->name('partners');
-
-	Route::middleware(['auth'])->group(function () {
-		Route::get('/services', [PageController::class, 'services'])->name('services');
-	});
+	Route::get('/lock', [PageController::class, 'lock'])->name('lock');
 });
 
 Route::prefix('/user')->name('user.')->group(function() {
-	Route::get('/transactions', [UserController::class, 'transactions'])->name('transactions');
-
 	Route::get('/', [UserController::class, 'index'])->name('index');
 	Route::match(['GET', 'POST'], '/{user}/show', [UserController::class, 'show'])->name('show');
 	Route::match(['GET', 'POST'], '/{user}/edit', [UserController::class, 'edit'])->name('edit');
@@ -84,34 +72,20 @@ Route::prefix('/contact')->name('contact.')->group(function () {
 	Route::post('/store', [ContactController::class, 'store'])->name('store');
 });
 
-Route::prefix('/testimonials')->name('guestbook.')->group(function () {
-	Route::get('/', [GuestbookController::class, 'index'])->name('index');
-	Route::get('/create', [GuestbookController::class, 'create'])->name('create');
-	Route::post('/store', [GuestbookController::class, 'store'])->name('store');
-});
-
 Route::prefix('/newsletter')->name('newsletter.')->group(function () {
 	Route::get('/', [NewsletterController::class, 'index'])->name('index');
 	Route::post('/store', [NewsletterController::class, 'store'])->name('store');
 	Route::get('/unsubscribe/{email}/{token}', [NewsletterController::class, 'unsubscribe'])->name('unsubscribe');
 });
 
-Route::prefix('/subscriber')->name('subscriber.')->group(function () {
-	Route::get('/', [SubscriberController::class, 'index'])->name('index');
-	Route::post('/store', [SubscriberController::class, 'store'])->name('store');
-	Route::get('/unsubscribe/{email}/{token}', [SubscriberController::class, 'unsubscribe'])->name('unsubscribe');
-});
-
 Route::prefix('/payement')->name('payment.')->group(function () {
-	Route::match(['GET', 'POST'], '/callback/url', [PaymentController::class, 'callbackURL'])->name('callback_url');
+	Route::post('/callback/url', [PaymentController::class, 'callbackURL'])->name('callback_url');
 	Route::get('/return/url', [PaymentController::class, 'returnURL'])->name('return_url');
 	Route::get('/cancel/url', [PaymentController::class, 'cancelURL'])->name('cancel_url');
 
 	/**/
 	Route::middleware(['auth'])->group(function () {
-		Route::match(['GET', 'POST'], '/artist', [PaymentController::class, 'artist'])->name('artist');
-		Route::match(['GET', 'POST'], '/photographer', [PaymentController::class, 'photographer'])->name('photographer');
-		Route::match(['GET', 'POST'], '/artistic/network', [PaymentController::class, 'artisticNetwork'])->name('artistic_network');
+		
 	});
 	/**/
 });
@@ -133,15 +107,11 @@ Route::prefix('/bookcast')->name('bookcast.')->middleware(['auth'])->group(funct
 	Route::get('/', [BookCastController::class, 'index'])->name('index');
 	Route::get('/books', [BookCastController::class, 'books'])->name('books');
 	Route::get('/castings', [BookCastController::class, 'castings'])->name('castings');
-	Route::get('/network', [BookCastController::class, 'network'])->name('network');
-	Route::get('/news', [BookCastController::class, 'news'])->name('news');
-	Route::get('/elections', [BookCastController::class, 'elections'])->name('elections');
+	Route::get('/networks', [BookCastController::class, 'networks'])->name('networks');
 	Route::get('/notebook', [BookCastController::class, 'notebook'])->name('notebook');
+	Route::get('/elections', [BookCastController::class, 'elections'])->name('elections');
 	Route::get('/movies', [BookCastController::class, 'movies'])->name('movies');
-});
-
-Route::prefix('/artistic/network')->name('artistic_network.')->middleware(['auth'])->group(function() {
-	Route::get('/', [ArtisticNetworkController::class, 'index'])->name('index');
+	Route::get('/news', [BookCastController::class, 'news'])->name('news');
 });
 
 Route::prefix('/boutikart')->name('boutikart.')->middleware(['auth'])->group(function() {

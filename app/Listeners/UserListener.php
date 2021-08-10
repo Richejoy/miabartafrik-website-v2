@@ -34,27 +34,27 @@ class UserListener
         extract($event->params);
 
         switch ($action) {
-            case 'register':
+            case 'register_member':
 
-                Mail::to($user->email)->send(new UserMail($user, 'register', "Inscription sur le site", compact('password')));
+                Mail::to($user->email)->send(new UserMail($user, 'register_member', "Inscription Membre", compact('password')));
 
                 break;
 
             case 'register_artist':
 
-                Mail::to($user->email)->send(new UserMail($user, 'register_artist', "Inscription sur le site", compact('password')));
+                Mail::to($user->email)->send(new UserMail($user, 'register_artist', "Inscription Artiste", compact('password')));
+
+                break;
+
+            case 'register_partner':
+
+                Mail::to($user->email)->send(new UserMail($user, 'register_partner', "Inscription Partenaire", compact('password')));
 
                 break;
 
             case 'register_photographer':
 
-                Mail::to($user->email)->send(new UserMail($user, 'register_photographer', "Inscription sur le site", compact('password')));
-
-                break;
-
-            case 'register_artistic_network':
-
-                Mail::to($user->email)->send(new UserMail($user, 'register_artistic_network', "Inscription sur le site", compact('password')));
+                Mail::to($user->email)->send(new UserMail($user, 'register_photographer', "Inscription Photographe", compact('password')));
 
                 break;
 

@@ -1,58 +1,57 @@
 @extends('layouts.auth', ['title' => "Mot de passe oublié ?"])
 
-@section('stylesheet')
-
-@endsection
-
 @section('body')
 
-<!-- partial:index.partial.html -->
-<div id="login_Inscrit_bookArt-wrap">
-    <!-- GLOBAL-LOADER -->
-    <div id="global-loader">
-        <img src="{{ asset('public/assets/images/loader.svg') }}" class="loader-img" alt="Loader">
-    </div>
-    <div class="login_Inscrit_bookArt-image"
-        style="background: url({{ asset('public/assets/images/home/forgotpass.jpg') }}) no-repeat center / cover;">
-    </div>
+		<div class="page main-signin-wrapper">
 
-    <div class="login_Inscrit_bookArt-card">
-        <div class="login_Inscrit_bookArt-card-header">
-            <a class="header-brand" href="{{ route('page.index') }}">
-                <img src="{{ asset('public/assets/images/brand/logo.png') }}" class="h-8" alt="BookCast logo">
-            </a>
-        </div>
+			<!-- Row -->
+			<div class="row signpages text-center">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="row row-sm">
+							<div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
+								<div class="mt-3 pt-3 p-2 pos-absolute">
+									<img src="{{ asset('public/assets/img/brand/logo-light.png') }}" class="header-brand-img mb-4" alt="logo">
+                                    <div class="clearfix"></div>
+                                    <img src="{{ asset('public/assets/img/svgs/user0.svg') }}" class="ht-100 mb-0" alt="user">
+									<h5 class="mt-4 text-white">Réinitialisez votre mot de passe</h5>
+									<span class="tx-white-6 tx-13 mb-5 mt-xl-0">Inscrivez-vous pour créer, découvrir et vous connecter avec la communauté artistique africaine </span>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
+								<div class="container-fluid">
+									<div class="row row-sm">
+										<div class="card-body mt-2 mb-2">
+											<img src="{{ asset('public/assets/img/brand/logo.png') }}" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
+											<div class="clearfix"></div>
+											<h5 class="text-left mb-2">Mot de passe oublié ?</h5>
+											<p class="mb-4 text-muted tx-13 ml-0 text-left">Renseigner votre email, téléphone ou nom d'utilisateur pour récuppérer votre mot de passe.</p>
+											
+											{!! Form::open() !!}
+												<div class="form-group text-left">
+													<label for="email_phone_username" class="required-text mg-b-10 label_mba">
+														Identifiants
+													</label>
+													<input class="form-control" placeholder="Email | téléphone | nom d'utilisateur" type="text" id="email_phone_username" name="email_phone_username">
+												</div>
+												<button class="btnSignin ripple btn-main-primary btn-block" type="submit">
+												Demander un lien de réinitialisation 
+											    </button>
+											{!! Form::close() !!}
 
-        <p class="text-mutedinscrit">Entrez votre identifiant pour générer un nouveau mot de passe. </p>
-        <div class="grid_connexionBookcast">
-
-            {!! Form::open(['route' => 'page.password_forgot', 'class' => 'form_connexionBookcast
-            login_connexionBookcast']) !!}
-
-            <div class="form__field">
-                <label for="email_phone_username">
-                    <i class="icon icon-user iconBookconnex"></i>
-                    <span class="hidden">Email/Téléphone/Nom d'utilisateur </span>
-                </label>
-                <input id="email_phone_username" type="text" name="email_phone_username" class="form__input"
-                    placeholder="Email/Téléphone/Nom d'utilisateur" required>
-            </div>
-
-            <div class="form__field">
-                <input type="submit" value="Recevoir">
-            </div>
-
-            {!! Form::close() !!}
-
-            <p class="text--center">Renvoyez moi sur la page <a href="{{ route('page.login') }}">Connexion</a> <svg
-                    class="icon">
-                    <use xlink:href="#icon-arrow-right"></use>
-                </svg></p>
-
-        </div>
-
-    </div>
-</div>
-<!-- partial -->
+											<div class="card-footer border-top-0 pl-0 mt-3 text-left ">
+												<p>Vous êtes-vous souvenu de votre mot de passe ?</p>
+												<p class="mb-0">Essayez de <a href="{{ route('page.register') }}">S'identifier</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Row -->
+		</div>
 
 @endsection

@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Artist;
+use App\Models\Partner;
+use App\Models\Event;
+use App\Models\News;
+use App\Models\Movie;
+use App\Models\Casting;
 
 class BookCastController extends Controller
 {
@@ -19,36 +24,50 @@ class BookCastController extends Controller
 
     public function books(Request $request)
     {
-    	return view('bookcast.books');
+        $artists = Artist::all();
+
+    	return view('bookcast.books', compact('artists'));
     }
 
     public function castings(Request $request)
     {
-    	return view('bookcast.castings');
+        $castings = Casting::all();
+
+    	return view('bookcast.castings', compact('castings'));
     }
 
-    public function network(Request $request)
+    public function networks(Request $request)
     {
-    	return view('bookcast.network');
-    }
+        $partners = Partner::all();
 
-    public function news(Request $request)
-    {
-    	return view('bookcast.news');
+    	return view('bookcast.networks', compact('partners'));
     }
 
     public function notebook(Request $request)
     {
-    	return view('bookcast.notebook');
-    }
+        $events = Event::all();
 
-    public function movies(Request $request)
-    {
-    	return view('bookcast.movies');
+        return view('bookcast.notebook', compact('events'));
     }
 
     public function elections(Request $request)
     {
-    	return view('bookcast.elections');
+        $artists = Artist::all();
+
+        return view('bookcast.elections', compact('artists'));
+    }
+
+    public function movies(Request $request)
+    {
+        $movies = Movie::all();
+
+    	return view('bookcast.movies', compact('movies'));
+    }
+
+    public function news(Request $request)
+    {
+        $news = News::all();
+
+        return view('bookcast.news', compact('news'));
     }
 }

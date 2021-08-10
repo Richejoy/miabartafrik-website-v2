@@ -1,586 +1,316 @@
-(function($) {
-	"use strict";
-	var chart = c3.generate({
-		bindto: '#chart-area-spline2', // id of chart wrapper
+ $(function(){
+   
+
+	/*LIne-Chart */
+	var ctx = document.getElementById("chartLine").getContext('2d');
+	var myChart = new Chart(ctx, {
+
 		data: {
-			columns: [
-				// each columns data
-				['data1', 0, 8, 10, 12, 20, 18, 15, 10, 18, 10, 20, 10],
-				['data2', 0, 12, 8, 20, 10, 13, 10, 20, 10, 19, 8, 19]
-			],
-			type: 'area-spline', // default type of chart
-			colors: {
-				data1: '#5797fc',
-				data2: '#26eda2'
+			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Aug', 'Sep', 'Oct'],
+			datasets: [{
+				label: 'TOTAL BUDGET',
+				data: [100, 210, 180, 454, 454, 230, 230,656,656,350,350, 210, 410],
+				borderWidth: 3,
+				backgroundColor: 'transparent',
+				borderColor: '#6259ca',
+				pointBackgroundColor: '#ffffff',
+				pointRadius: 0,
+				type: 'line',
 			},
-			names: {
-				// name of each serie
-				'data1': 'Profit',
-				'data2': 'Sales'
-			}
+			{
+				
+				label: 'AMOUNT USED',
+				data: [200, 530, 110, 110, 480, 520, 780,435,475,738, 454, 454, 230,],
+				borderWidth: 3,
+				backgroundColor: 'transparent',
+				borderColor: 'rgb(183, 179, 220,0.5)',
+				pointBackgroundColor: '#ffffff',
+				pointRadius: 0,
+				type: 'line',
+				borderDash: [7,3],
+
+			}]
 		},
-		axis: {
-			y: {
-				padding: {
-					bottom: 0,
-				},
-				show: false,
-				tick: {
-					outer: false
-				}
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			tooltips: {
+				enabled: true,
 			},
-			x: {
-				padding: {
-					left: 0,
-					right: 0
+			tooltips: {
+				mode: 'index',
+				intersect: false,
+			},
+			hover: {
+				mode: 'nearest',
+				intersect: true
+			},
+			scales: {
+				xAxes: [{
+					ticks: {
+						fontColor: "#c8ccdb",
+					},
+					barPercentage: 0.7,
+					display: true,
+					gridLines: {
+						color:'rgba(119, 119, 142, 0.2)',
+						zeroLineColor: 'rgba(119, 119, 142, 0.2)',
+					}
+				}],
+				yAxes: [{
+					ticks: {
+						fontColor: "#77778e",
+					},
+					display: true,
+					gridLines: {
+						color:'rgba(119, 119, 142, 0.2)',
+						zeroLineColor: 'rgba(119, 119, 142, 0.2)',
+					},
+					ticks: {
+					  min: 0,
+					  max: 1050,
+					  stepSize: 150
+                },
+					scaleLabel: {
+						display: true,
+						labelString: 'Thousands',
+						fontColor: 'transparent'
+					}
+				}]
+			},
+			legend: {
+				display: true,
+				width:30,
+				height:30,
+				borderRadius:50,
+				labels: {
+					fontColor: "#77778e"
 				},
-				show: false
-			}
-		},
-		legend: {
-			position: 'inset',
-			padding: 0,
-			inset: {
-				anchor: 'top-left',
-				x: 20,
-				y: 8,
-				step: 10
-			}
-		},
-		tooltip: {
-			format: {
-				title: function(x) {
-					return '';
-				}
-			}
-		},
-		padding: {
-			bottom: 0,
-			left: -1,
-			right: -1
-		},
-		point: {
-			show: false
+			},
 		}
 	});
-	var chart = c3.generate({
-		bindto: '#chart-area-spline1', // id of chart wrapper
-		data: {
-			columns: [
-				// each columns data
-				['data1', 0, 8, 10, 12, 20, 18, 15, 10, 18, 10, 20, 10],
-				['data2', 0, 12, 8, 20, 10, 13, 10, 20, 10, 19, 8, 19]
-			],
-			type: 'area-spline', // default type of chart
-			colors: {
-				data1: '#4ecc48',
-				data2: '#5797fc'
-			},
-			names: {
-				// name of each serie
-				'data1': 'data1',
-				'data2': 'data2'
-			}
+
+
+	/* Peity charts */
+ 
+	$('.peity-donut').peity('donut');
+
+	/*--- Apex (#spark1) ---*/
+	var spark1 = {
+    chart: {
+		id: 'spark1',
+		group: 'sparks',
+		type: 'line',
+		height: 38,
+		sparkline: {
+		  enabled: true
 		},
-		axis: {
-			x: {
-				type: 'category',
-				// name of each category
-				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-			},
-		},
-		legend: {
-			show: false, //hide legend
-		},
-		padding: {
-			bottom: 0,
-			top: 0
-		},
-	});
-	var chart = c3.generate({
-		bindto: '#chart-visitors',
-		padding: {
-			bottom: 24
-		},
-		data: {
-			x: 'x',
-			names: {
-				data1: 'views',
-				data2: 'Sales',
-				data3: 'Users',
-			},
-			columns: [
-				['x', '2018-08-02', '2018-05-09', '2018-05-12', '2018-05-18', '2018-05-21', '2018-05-25', '2018-06-08', '2018-06-11', '2018-06-19', '2018-06-22', '2018-07-12'],
-				['data1', 22, 28, 21, 46, 48, 38, 48, 52, 28, 57, 32],
-				['data2', 50, 61, 75, 104, 110, 76, 74, 98, 78, 96, 144],
-				['data3', 155, 100, 96, 132, 154, 141, 158, 142, 132, 146, 186],
-			],
-			types: {
-				data1: 'area',
-			}
-		},
-		point: {
-			show: false
-		},
-		legend: {
-			position: 'top',
-			padding: 16
-		},
-		transition: {
-			duration: 0
-		},
-		axis: {
-			y: {
-				tick: {
-					fit: true
-				}
-			},
-			x: {
-				type: 'timeseries',
-				tick: {
-					format: '%d %b'
-				},
-				padding: {
-					top: 10,
-					bottom: 0
-				}
-			}
-		},
-		grid: {
-			y: {
-				show: true
-			}
-		},
-		color: {
-			pattern: ['#c21a1a', '#4ecc48', '#867efc', ]
+		dropShadow: {
+		  enabled: true,
+		  top: 1,
+		  left: 1,
+		  blur: 1,
+		  opacity: 0.1,
 		}
-	});
-	var chart = c3.generate({
-		bindto: '#chart-tasks', // id of chart wrapper
-		data: {
-			columns: [
-				// each columns data
-				['data1', 0, 0, 1, 2, 21, 9, 12, 10, 31, 13, 65, 10, 12, 6, 4, 3, 0],
-				['data2', 0, 0, 1, 2, 7, 5, 6, 8, 24, 7, 12, 5, 6, 3, 2, 2, 0],
-				['data3', 0, 0, 1, 0, 2, 0, 1, 0, 2, 3, 0, 2, 3, 2, 1, 0, 0]
-			],
-			classes: {
-				data1: 'filled',
-				data2: 'filled',
-				data3: 'filled'
-			},
-			type: 'area-spline', // default type of chart
-			groups: [
-				['data1', 'data2', 'data3']
-			],
-			colors: {
-				data1: '#a343ff',
-				data2: '#ff7e5f',
-				data3: '#fbc434'
-			},
-			names: {
-				// name of each serie
-				'data1': 'Profit',
-				'data2': 'Sales',
-				'data3': 'Gain'
-			}
-		},
-		axis: {
-			y: {
-				padding: {
-					bottom: 0,
-				},
-				show: false,
-				tick: {
-					outer: false
-				}
-			},
-			x: {
-				padding: {
-					left: 0,
-					right: 0
-				},
-				show: false
-			}
-		},
-		legend: {
-			position: 'inset',
-			padding: 0,
-			inset: {
-				anchor: 'top-left',
-				x: 20,
-				y: 8,
-				step: 10
-			}
-		},
-		tooltip: {
-			format: {
-				title: function(x) {
-					return '';
-				}
-			}
-		},
+	  },
+	  series: [{
+		data: [25, 66, 41, 59, 25, 44, 12, 36, 9, 21]
+	  }],
+	  stroke: {
+		curve: 'smooth'
+	  },
+	  markers: {
+		size: 0
+	  },
+	  grid: {
 		padding: {
-			bottom: 0,
-			left: -1,
-			right: -1
-		},
-		point: {
-			show: false
+		  top: 10,
+		  bottom: 10,
+		  left: 50
 		}
-	});
-	/*chart-donut*/
-	var chart = c3.generate({
-		bindto: '#chart-donut', // id of chart wrapper
-		data: {
-			columns: [
-				// each columns data
-				['data1', 78],
-				['data2', 95],
-				['data3', 25],
-			],
-			type: 'donut', // default type of chart
-			colors: {
-				data1: '#6574cd',
-				data2: '#2bcbba',
-				data3: '#f66d9b'
-			},
-			names: {
-				// name of each serie
-				'data1': 'sales1',
-				'data2': 'sales2',
-				'data3': 'sales3'
+	  },
+	  colors: ['#0a9ae1'],
+	   stroke: {
+		  width: 2
+		},
+	  tooltip: {
+		x: {
+		  show: false,
+		  width: 1,
+		},
+		y: {
+		  title: {
+			formatter: function formatter(val) {
+			  return '';
 			}
-		},
-		axis: {},
-		legend: {
-			show: true,
-		},
-		padding: {
-			bottom: 0,
-			top: 0
-		},
-	});
-	/*chart-pie*/
-	var chart = c3.generate({
-		bindto: '#chart-pie', // id of chart wrapper
-		data: {
-			columns: [
-				// each columns data
-				['data1', 98],
-				['data2', 76],
-				['data3', 45],
-			],
-			type: 'pie', // default type of chart
-			colors: {
-				data1: '#ffcc29',
-				data2: '#17a2b8',
-				data3: '#ff7088'
-			},
-			names: {
-				// name of each serie
-				'data1': 'profit1',
-				'data2': 'profit2',
-				'data3': 'profit3'
-			}
-		},
-		axis: {},
-		legend: {
-			show: true, //hide legend
-		},
-		padding: {
-			bottom: 0,
-			top: 0
-		},
-	});
-	/*chart-bg-users-1*/
-	var chart = c3.generate({
-		bindto: '#chart-bg-users-1',
-		padding: {
-			bottom: -10,
-			left: -1,
-			right: -1
-		},
-		size: {
-			height: 64
-		},
-		data: {
-			names: {
-				data1: 'Visitors online'
-			},
-			columns: [
-				['data1', 10, 50, 100, 50, 40, 35, 70]
-			],
-			type: 'area-spline'
-		},
-		legend: {
-			show: false
-		},
-		transition: {
-			duration: 0
-		},
-		point: {
-			show: false
-		},
-		tooltip: {
-			format: {
-				title: function(x) {
-					return '';
-				}
-			}
-		},
-		axis: {
-			y: {
-				padding: {
-					bottom: 0,
-				},
-				show: false,
-				tick: {
-					outer: false
-				}
-			},
-			x: {
-				padding: {
-					left: 0,
-					right: 0
-				},
-				show: false
-			}
-		},
-		color: {
-			pattern: ['#a343ff']
+		  }
 		}
-	});
-	/*chart-bg-users-2*/
-	var chart = c3.generate({
-		bindto: '#chart-bg-users-2',
-		padding: {
-			bottom: -10,
-			left: -1,
-			right: -1
-		},
-		size: {
-			height: 64
-		},
-		data: {
-			names: {
-				data1: 'Total Sales'
-			},
-			columns: [
-				['data1', 10, 30, 20, 60, 70, 85, 75]
-			],
-			type: 'area-spline'
-		},
-		legend: {
-			show: false
-		},
-		transition: {
-			duration: 0
-		},
-		point: {
-			show: false
-		},
-		tooltip: {
-			format: {
-				title: function(x) {
-					return '';
-				}
-			}
-		},
-		axis: {
-			y: {
-				padding: {
-					bottom: 0,
-				},
-				show: false,
-				tick: {
-					outer: false
-				}
-			},
-			x: {
-				padding: {
-					left: 0,
-					right: 0
-				},
-				show: false
-			}
-		},
-		color: {
-			pattern: ['#ff7088']
+	  }
+	}
+	/*--- Apex (#spark1) closed ---*/
+	
+	
+	 $('.resp-tabs-list .dashboard-spruha').addClass('active');
+	$('.second-sidemenu .dashboard-spruha').addClass('resp-tab-content-active');
+});
+
+
+
+/*Bar-Chart */
+
+Chart.elements.Rectangle.prototype.draw = function() {
+	var ctx = this._chart.ctx;
+	var vm = this._view;
+	var left, right, top, bottom, signX, signY, borderSkipped, radius;
+	var borderWidth = vm.borderWidth;
+	var cornerRadius = 4;
+
+	if (!vm.horizontal) {
+		// bar
+		left = vm.x - vm.width / 1;
+		right = vm.x + vm.width / 1;
+		top = vm.y;
+		bottom = vm.base;
+		signX = 1;
+		signY = bottom > top? 1: -1;
+		borderSkipped = vm.borderSkipped || 'bottom';
+	} else {
+		// horizontal bar
+		left = vm.base;
+		right = vm.x;
+		top = vm.y - vm.height / 1;
+		bottom = vm.y + vm.height / 1;
+		signX = right > left? 1: -1;
+		signY = 1;
+		borderSkipped = vm.borderSkipped || 'left';
+	}
+	ctx.beginPath();
+	ctx.fillStyle = vm.backgroundColor;
+	ctx.strokeStyle = vm.borderColor;
+	ctx.lineWidth = borderWidth;
+
+	// Corner points, from bottom-left to bottom-right clockwise
+	// | 1 2 |
+	// | 0 3 |
+	var corners = [
+		[left, bottom],
+		[left, top],
+		[right, top],
+		[right, bottom]
+	];
+
+	// Find first (starting) corner with fallback to 'bottom'
+	var borders = ['bottom', 'left', 'top', 'right'];
+	var startCorner = borders.indexOf(borderSkipped, 0);
+	if (startCorner === -1) {
+		startCorner = 0;
+	}
+
+	function cornerAt(index) {
+		return corners[(startCorner + index) % 2];
+	}
+
+	// Draw rectangle from 'startCorner'
+	var corner = cornerAt(0);
+	ctx.moveTo(corner[0], corner[1]);
+
+	for (var i = 1; i < 2; i++) {
+		corner = cornerAt(i);
+		nextCornerId = i+1;
+		if(nextCornerId == 2){
+			nextCornerId = 0
 		}
-	});
-	/*chart-bg-users-3*/
-	var chart = c3.generate({
-		bindto: '#chart-bg-users-3',
-		padding: {
-			bottom: -10,
-			left: -1,
-			right: -1
-		},
-		size: {
-			height: 64
-		},
-		data: {
-			names: {
-				data1: 'Total Projects'
-			},
-			columns: [
-				['data1', 40, 40, 50, 70, 100, 85, 80]
-			],
-			type: 'area-spline'
-		},
-		legend: {
-			show: false
-		},
-		transition: {
-			duration: 0
-		},
-		point: {
-			show: false
-		},
-		tooltip: {
-			format: {
-				title: function(x) {
-					return '';
-				}
-			}
-		},
-		axis: {
-			y: {
-				padding: {
-					bottom: 0,
-				},
-				show: false,
-				tick: {
-					outer: false
-				}
-			},
-			x: {
-				padding: {
-					left: 0,
-					right: 0
-				},
-				show: false
-			}
-		},
-		color: {
-			pattern: ['#fc7303']
+
+		nextCorner = cornerAt(nextCornerId);
+
+		width = corners[2][0] - corners[1][0];
+		height = corners[0][1] - corners[1][1];
+		x = corners[1][0];
+		y = corners[1][1];
+
+		var radius = cornerRadius;
+
+		// Fix radius being too large
+		if(radius > height/2){
+			radius = height/2;
+		}if(radius > width/2){
+			radius = width/2;
 		}
-	});
-	/*chart-bg-users-4*/
-	var chart = c3.generate({
-		bindto: '#chart-bg-users-4',
-		padding: {
-			bottom: -10,
-			left: -1,
-			right: -1
-		},
-		size: {
-			height: 64
-		},
-		data: {
-			names: {
-				data1: 'Today Income'
-			},
-			columns: [
-				['data1', 300, 800, 300, 600, 300, 650, 1000]
-			],
-			type: 'area-spline'
-		},
-		legend: {
-			show: false
-		},
-		transition: {
-			duration: 0
-		},
-		point: {
-			show: false
-		},
-		tooltip: {
-			format: {
-				title: function(x) {
-					return '';
-				}
-			}
-		},
-		axis: {
-			y: {
-				padding: {
-					bottom: 0,
-				},
-				show: false,
-				tick: {
-					outer: false
-				}
-			},
-			x: {
-				padding: {
-					left: 0,
-					right: 0
-				},
-				show: false
-			}
-		},
-		color: {
-			pattern: ['#4ecc48']
+
+		ctx.moveTo(x + radius, y);
+		ctx.lineTo(x + width - radius, y);
+		ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+		ctx.lineTo(x + width, y + height - radius);
+		ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+		ctx.lineTo(x + radius, y + height);
+		ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+		ctx.lineTo(x, y + radius);
+		ctx.quadraticCurveTo(x, y, x + radius, y);
+
+	}
+
+	ctx.fill();
+	if (borderWidth) {
+		ctx.stroke();
+	}
+};
+
+
+var ctx = document.getElementById('bar-chart').getContext('2d');
+var myChart = new Chart(ctx, {
+	type: 'bar',
+	data: {
+	   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+	   datasets: [{
+			label: 'Total Project',
+			backgroundColor: "#6259ca",
+			borderColor: "#6259ca ",
+			data: [89, 59, 76, 56, 58,73, 59, 87, 45, 54,59, 76, 56,],
+		}, {
+			label: 'On Going',
+			 backgroundColor: "rgba(204, 204, 204,0.2)",
+			borderColor: "rgba(204, 204, 204,0.2)",
+			data: [66, 59, 76, 56, 58,65, 59, 85, 23, 32,59, 76, 56,],
 		}
-	});
-	/*chart-browsers*/
-	var chart = c3.generate({
-		bindto: '#chart-browsers',
-		data: {
-			columns: [
-				['Chrome', 36],
-				['Firefox', 15],
-				['Safari', 9],
-				['Edge', 10],
-				['Opera', 30],
-			],
-			colors: {
-				Chrome: '#17a2b8',
-				Firefox: '#fc7303',
-				Safari: '#7ea5dd',
-				Edge: '#f999b9',
-				Opera: '#c21a1a',
-			},
-			type: 'donut'
+		],
+	},
+	options: {
+		tooltips: {
+		  displayColors: true,
 		},
-		legend: {
-			show: true
+		barValueSpacing : 3,        // doesn't work; find another way
+		barDatasetSpacing : 3,
+		scales: {
+		  xAxes: [{
+				barThickness: 3,
+				categoryPercentage: 4,
+				barPercentage: 4,
+				stacked: true,
+				 display: false,
+				gridLines: {
+					display: false,
+				}
+			}],
+		  yAxes: [{
+				stacked: true,
+				ticks: {
+					beginAtZero: false,
+				},
+				display: false,
+				  gridLines: {
+                    display: false,
+                },
+					type: 'linear',
+					display: false,
+				}]
+			},
+			responsive: true,
+			maintainAspectRatio: false,
+			legend: { position: 'bottom',display: false, },
 		}
-	});
-	/*chart-emails*/
-	var chart = c3.generate({
-		bindto: '#chart-emails',
-		padding: {
-			bottom: 24,
-			top: 0
-		},
-		data: {
-			type: 'donut',
-			names: {
-				data1: 'Open',
-				data2: 'Bounce',
-				data3: 'Unsubscribe',
-			},
-			columns: [
-				['data1', 30],
-				['data2', 50],
-				['data3', 25],
-			],
-			colors: {
-				data1: 'blue',
-				data2: 'red',
-				data3: 'yellow',
-			}
-		},
-		donut: {
-			label: {
-				show: false
-			}
-		},
-		legend: {
-			show: true
-		},
-	});
-})(jQuery);
+});
+
+
+
+
+

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Events\NewsletterEvent;
 use App\Models\Newsletter;
-use MercurySeries\Flashy\Flashy;
 
 class NewsletterController extends Controller
 {
@@ -45,7 +44,7 @@ class NewsletterController extends Controller
                 event(new NewsletterEvent($newsletter, ['action' => 'subscribe']));
             }
 
-            Flashy::success("Merci pour votre suscription.");
+            flashy()->success("Merci pour votre suscription.");
 
             return back()->withSuccess("Merci pour votre suscription.");
         }

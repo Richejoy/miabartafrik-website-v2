@@ -53,8 +53,10 @@
         <!-- BOOKCAST JS -->
         <script src="{{ asset('public/assets/js/bookcast.js') }}"></script> 
 
+        @if(Route::currentRouteName() == 'bookcast.index')
         <!-- MODAL PUBLICITE JS --> 
-        <script src="{{ asset('public/assets/js/surveyModalAuto.js') }}"></script>  
+        <script src="{{ asset('public/assets/js/surveyModalAuto.js') }}"></script>
+        @endif
  
         <!-- JQUERY SCRIPTS -->
         <script src="{{ asset('public/assets/js/vendors/jquery-3.2.1.min.js') }}"></script>

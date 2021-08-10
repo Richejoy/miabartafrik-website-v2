@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Civility;
 use App\Models\Image;
 use App\Models\UserType;
 use App\Models\User;
+use App\Models\Member;
 use App\Models\Artist;
+use App\Models\Partner;
 use App\Models\Photographer;
-use App\Models\ArtisticNetwork;
 use App\Models\ArtisticRay;
 use App\Models\Transaction;
 use App\Events\UserEvent;
@@ -53,16 +53,6 @@ class PageController extends Controller
     public function about(Request $request)
     {
         return view('pages.about');
-    }
-
-    public function services(Request $request)
-    {
-        return view('pages.services');
-    }
-
-    public function partners(Request $request)
-    {
-        return view('pages.partners');
     }
 
     public function donate(Request $request)
@@ -111,6 +101,15 @@ class PageController extends Controller
         return view('pages.donate');
     }
 
+    public function lockScreen(Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            return back();
+        }
+
+        return view('pages.lock_screen');
+    }
+
     public function login(Request $request)
     {
         if ($request->isMethod('POST')) {
@@ -157,8 +156,8 @@ class PageController extends Controller
                 'last_name' => 'required|min:3',
                 'email' => 'required|email|unique:users',
                 'phone' => 'required|unique:users',
-                #'city' => 'required|min:3',
-                #'address' => 'required|min:3',
+                'city' => 'required|min:3',
+                'address' => 'required|min:3',
             ]);
 
             if (empty($request->tou)) {
@@ -171,9 +170,9 @@ class PageController extends Controller
 
                 $image = Image::create(
                     [
-                        'folder' => 'users',
+                        'folder' => $this->getAppropriateFolder($request),
                         'url' => $this->getAppropriateUrl($request),
-                        'link' => $this->getAppropriateLink($request, 'users'),
+                        'link' => $this->getAppropriateLink($request),
                     ]
                 );
 
@@ -184,38 +183,66 @@ class PageController extends Controller
                         $request->all(),
                         [
                             'username' => mb_strtoupper(mb_substr(uniqid($image->id), 0, 15)),
-                            'password' => Hash::make($password),
+                            'password' => bcrypt($password),
                             'image_id' => $image->id,
                             'token' => sha1(uniqid($image->id)),
                         ]
                     )
                 );
 
-                DB::commit();
-
+                //save apropriate user
                 switch (intval($user->user_type_id)) {
-                    case 2:
-                        event(new UserEvent($user, ['action' => 'register', 'password' => $password]));
+                    case 3: //artist
+                        $artist = Artist::create([
+                            'user_id' => $user->id,
+                        ]);
                         break;
 
-                    case 3:
+                    case 4: //partner
+                        $partner = Partner::create([
+                            'user_id' => $user->id,
+                        ]);
+                        break;
+
+                    case 5: //photographer
+                        $photographer = Photographer::create([
+                            'user_id' => $user->id,
+                        ]);
+                        break;
+                    
+                    default:    // 2 : member
+                        $member = Member::create([
+                            'user_id' => $user->id,
+                        ]);
+                        break;
+                }
+
+                DB::commit();
+
+                //send mail
+                switch (intval($user->user_type_id)) {
+                    case 3: //artist
                         event(new UserEvent($user, ['action' => 'register_artist', 'password' => $password]));
                         break;
 
-                    case 4:
-                        event(new UserEvent($user, ['action' => 'register_photographer', 'password' => $password]));
+                    case 4: //partner
+                        event(new UserEvent($user, ['action' => 'register_partner', 'password' => $password]));
                         break;
 
-                    case 5:
-                        event(new UserEvent($user, ['action' => 'register_artistic_network', 'password' => $password]));
+                    case 5: //photographer
+                        event(new UserEvent($user, ['action' => 'register_photographer', 'password' => $password]));
                         break;
                     
-                    default:
-                        // code...
+                    default:    //member
+                        event(new UserEvent($user, ['action' => 'register_member', 'password' => $password]));
                         break;
                 }
 
                 session()->flash('primary', "Inscription et mail envoyé");
+
+                session()->put('tmpUser', $user);
+
+                return redirect()->route('page.completed');
             } catch (\Exception $ex) {
                 DB::rollback();
 
@@ -226,6 +253,22 @@ class PageController extends Controller
         }
 
         return view('pages.register', compact('userTypes', 'countries', 'civilities'));
+    }
+
+    public function completed(Request $request)
+    {
+        $user = session('tmpUser');
+
+        $userTypes = UserType::where('id', '>', 1)->get()->sortBy('id')->pluck(null, 'id');
+
+        $countries = Country::all()->sortBy('id')->pluck(null, 'id');
+        $civilities = Civility::all()->sortBy('id')->pluck(null, 'id');
+
+        if ($request->isMethod('POST')) {
+            dd($request->all());
+        }
+
+        return view('pages.completed', compact('userTypes', 'countries', 'civilities', 'user'));
     }
 
     public function confirmed(Request $request)
@@ -333,13 +376,24 @@ class PageController extends Controller
             'transaction_type_id' => 2,
         ]);
 
-        Auth::logout();
+        auth()->logout();
 
         if (session()->has('pendingConnectUser')) {
             session()->forget('pendingConnectUser');
         }
 
         return redirect()->route('page.login');
+    }
+
+    public function lock(Request $request)
+    {
+        /*auth()->logout();
+
+        if (session()->has('pendingConnectUser')) {
+            session()->forget('pendingConnectUser');
+        }*/
+
+        return redirect()->route('page.lock_screen');
     }
 
     public function removedAccount(Request $request, string $email, string $token)
@@ -374,39 +428,6 @@ class PageController extends Controller
         return back()->withDanger("Impossible de satisfaire votre requête.");
     }
 
-    public function registerArtist(Request $request, string $email, string $token)
-    {
-        if ($request->isMethod('POST')) {
-
-            return redirect()->route('payment.artist');
-
-        }
-
-        return view('pages.register_artist');
-    }
-
-    public function registerPhotographer(Request $request, string $email, string $token)
-    {
-        if ($request->isMethod('POST')) {
-            
-            return redirect()->route('payment.photographer');
-
-        }
-
-        return view('pages.register_photographer');
-    }
-
-    public function registerArtisticNetwork(Request $request, string $email, string $token)
-    {
-        if ($request->isMethod('POST')) {
-            
-            return redirect()->route('payment.artistic_network');
-
-        }
-
-        return view('pages.register_artistic_network');
-    }
-
     private function _connectUser(Request $request, User $user)
     {
         if (!is_null($user)) {
@@ -422,31 +443,13 @@ class PageController extends Controller
                 'transaction_type_id' => 1,
             ]);
 
-            Auth::login($user, $request->has('remember_me'));
+            auth()->login($user, $request->has('remember_me'));
 
             session()->flash('success', "Bienvenue dans votre tableau de bord");
 
             event(new UserEvent($user, ['action' => 'login']));
 
-            switch (intval($user->user_type_id)) {
-                case 3:
-                case 4:
-                case 5:
-                    return redirect()->route('bookcast.index');
-                    break;
-
-                case 6:
-                    return redirect()->route('boutikart.index');
-                    break;
-
-                case 7:
-                    return redirect()->route('bonaddress.index');
-                    break;
-                
-                default:
-                    return redirect()->route('page.services');
-                    break;
-            }
+            return redirect()->route('bookcast.index');
         }
 
         return back()->withDanger("Impossible de satisfaire votre requête.");

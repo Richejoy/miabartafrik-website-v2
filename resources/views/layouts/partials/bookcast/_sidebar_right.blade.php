@@ -6,8 +6,8 @@
         <div class="tabs-menu ">
             <!-- Tabs -->
             <ul class="nav panel-tabs">
-                <li class=""><a href="#tab1" class="active" data-toggle="tab">Mes contacts</a></li>
-                <li><a href="#tab2" data-toggle="tab">Contacts En ligne</a></li>
+                <li class=""><a href="#tab1" class="active" data-toggle="tab">Contacts</a></li>
+                <li><a href="#tab2" data-toggle="tab">En ligne</a></li>
             </ul>
         </div>
     </div>

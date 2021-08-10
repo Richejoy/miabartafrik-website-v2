@@ -1,152 +1,123 @@
 @extends('layouts.auth', ['title' => "Inscription"])
 
-@section('stylesheet')
-
-@endsection
-
 @section('body')
 
-<!-- partial:index.partial.html -->
-<div id="login_Inscrit_bookArt-wrap">
-    <!-- GLOBAL-LOADER -->
-    <div id="global-loader">
-        <img src="{{ asset('public/assets/images/loader.svg') }}" class="loader-img" alt="Loader">
-    </div>
+		<div class="page main-signin-wrapper">
 
-    <div class="login_Inscrit_bookArt-image">
+			<!-- Row -->
+			<div class="row signpages text-center">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="row row-sm">
+							<div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
+								<div class="pt-5 p-2 pos-absolute">
+									<img src="{{ asset('public/assets/img/brand/logo-light.png') }}" class="header-brand-img mb-4" alt="logo">
+                                    <div class="clearfix"></div>
+                                    <img src="{{ asset('public/assets/img/svgs/user0.svg') }}" class="ht-100 mb-0" alt="user">
+									<h5 class="mt-4 text-white textSignHead">Créer 1 compte sur 3</h5>
+									<span class="tx-white-6 tx-13 mb-5 mt-xl-0">Créer un compte selon votre profil, pour rejoindre la communauté artistique africaine.</span>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
+								<div class="container-fluid">
+									<div class="row row-sm">
+										<div class="card-body mt-2 mb-2">
+											<img src="{{ asset('public/assets/img/brand/logo.png') }}" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
+											<div class="clearfix"></div>
+											<h5 class="text-left mb-2 textSignHead">Inscription gratuite</h5>
+											<p class="mb-4 text-muted tx-13 ml-0 text-left">L'inscription est gratuite et ne prend qu'une minute.</p>
 
-        <h2 class="c-faqs__headline">Quels Comptes sur MiabartAfrik ?</h2>
-        <ul class="c-faqs">
-            <li class="c-faq c-faq--active">
-                <span class="c-faq__title">Compte utilisateur ?</span>
-                <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
-                    un profil.</div>
-            </li>
+											{!! Form::open() !!}
+												<div class="row row-sm text-left mb-2">
+													 
+													<div class="col-lg-12 mg-t-20 mg-lg-t-0">
+				
+				{{ Form::label('user_type_id', "Quel compte crée ?", ['class' => 'required-text mg-b-10 label_mba']) }}
 
-            <li class="c-faq">
-                <span class="c-faq__title">Compte Artiste ?</span>
-                <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
-                    un profil.</div>
-            </li>
-            <li class="c-faq">
-                <span class="c-faq__title">Compte Photographe/ Vidéaste ?</span>
-                <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
-                    un profil.</div>
-            </li>
+														<div class="parsley-select" id="slWrapper">
 
-            <li class="c-faq">
-                <span class="c-faq__title">Compte Réseaux artisques ?</span>
-                <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
-                    un profil.</div>
-            </li>
+				{{ Form::select('user_type_id', $userTypes, null, ['class' => 'form-control select2', 'placeholder' => "Quel compte crée ?", 'required' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Quel compte crée ?"]) }}
 
-            <li class="c-faq">
-                <span class="c-faq__title">Compte Marchands ?</span>
-                <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
-                    un profil.</div>
-            </li>
+														<div id="slErrorContainer"></div>
+													</div>
+													</div><!-- col-12 -->
+												</div>
 
-            <li class="c-faq">
-                <span class="c-faq__title">Compte Entrepreneur(Bon-Adress) ?</span>
-                <div class="c-faq__answer">Décrire ce profil en quelque mots ou phrase pour aider les membres à choisir
-                    un profil.</div>
-            </li>
-        </ul> <!-- /end c-faqs -->
-    </div>
+												<div class="row row-sm text-left mb-2">
+													<div class="col-lg-6 mg-t-20 mg-lg-t-0">
+				{{ Form::label('civility_id', "Civilité", ['class' => 'required-text mg-b-10 label_mba']) }}
+														<div class="parsley-select" id="slWrapper">
+				{{ Form::select('civility_id', $civilities, null, ['class' => 'form-control select2', 'placeholder' => "Civilité", 'required' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Civilité"]) }}
+														<div id="slErrorContainer"></div>
+													</div>
+													</div><!-- col-6 --> 
+													<div class="col-lg-6 mg-t-20 mg-lg-t-0">
+				{{ Form::label('country_id', "Votre pays d'origine", ['class' => 'required-text mg-b-10 label_mba']) }}
+														<div class="parsley-select" id="slWrapper">
+				{{ Form::select('country_id', $countries, null, ['class' => 'form-control select2', 'placeholder' => "Pays d'origine", 'required' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Pays d'origine"]) }}
+														<div id="slErrorContainer"></div>
+													</div>
+													</div><!-- col-6 -->
+												</div>
 
-    <div class="login_Inscrit_bookArt-card">
-        <div class="login_Inscrit_bookArt-card-header logconnexbottom">
-            <a class="header-brand" href="{{ route('page.index') }}">
-                <img src="{{ asset('public/assets/images/brand/logo.png') }}" class="h-8" alt="BookCast logo">
-            </a>
-        </div>
+												<div class="row row-sm text-left mb-2">
+													<div class="col-lg-6 mg-t-20 mg-lg-t-0">
+			{{ Form::label('last_name', 'Votre nom', ['class' => 'required-text mg-b-10 label_mba']) }}
+			{{ Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Votre nom', 'required' => true]) }}
+													</div><!-- col-6 -->
+													<div class="col-lg-6 mg-t-20 mg-lg-t-0">
+			{{ Form::label('first_name', 'Votre prénoms', ['class' => 'required-text mg-b-10 label_mba']) }}
+            {{ Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'Votre prénoms', 'required' => true]) }}
+													</div><!-- col-6 -->
+												</div>
 
-        <p class="text-mutedinscrit">Inscrivez-vous enfin de profiter de plusieurs avantages. </p>
-        <div class="grid_connexionBookcast">
+												<div class="row row-sm text-left mb-2">
+													<div class="col-lg-6 mg-t-20 mg-lg-t-0">
+			{{ Form::label('email', 'Votre email', ['class' => 'required-text mg-b-10 label_mba']) }}
+            {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Votre email', 'required' => true]) }}
+													</div><!-- col-6 -->
+													<div class="col-lg-6 mg-t-20 mg-lg-t-0">
+			{{ Form::label('phone', 'Votre téléphone', ['class' => 'required-text mg-b-10 label_mba']) }}
+            {{ Form::tel('phone', null, ['class' => 'form-control', 'placeholder' => 'Votre téléphone', 'required' => true]) }}
+													</div><!-- col-6 --> 
+												</div>
 
-            {!! Form::open(['route' => 'page.register', 'class' => 'form_connexionBookcast login_connexionBookcast'])
-            !!}
+												<div class="row row-sm text-left mb-2">
+													<div class="col-lg-6 mg-t-20 mg-lg-t-0">
+			{{ Form::label('city', 'Ville', ['class' => 'required-text mg-b-10 label_mba']) }}
+            {{ Form::text('city', null, ['class' => 'form-control', 'placeholder' => 'Ville', 'required' => true]) }}
+													</div><!-- col-6 --> 
+													<div class="col-lg-6 mg-t-20 mg-lg-t-0">
+			{{ Form::label('address', 'Adresse', ['class' => 'required-text mg-b-10 label_mba']) }}
+            {{ Form::text('address', null, ['class' => 'form-control', 'placeholder' => 'Adresse', 'required' => true]) }}
+													</div><!-- col-6 -->
+												</div>
+												 
+												<button class="btnSignin ripple btn-main-primary btn-block mt-3 mb-3">
+												  Créer mon compte
+											    </button>
 
-            <div class="form__field">
-                <label for="user_type_id">
-                    <i class="fe fe-users iconBookconnex" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Profil </span>
-                </label>
-                {!! Form::select('user_type_id', $userTypes, null, ['class' => 'select_on_bookcast', 'placeholder' =>
-                'Profil', 'required' => true]) !!}
-            </div>
+												<div class="form-group mb-0 text-left">
+													<label class="ckbox" for="tou">
+														<input type="checkbox" id="tou" name="tou" required><span class="">
+															J'accepte les <a href="{{ route('page.terms') }}" target="_blank">termes</a> et <a href="{{ route('page.conditions') }}" target="_blank">conditions</a>
+														</span>
+													</label>
+												</div>
+											{!! Form::close() !!}
 
-            <div class="form__field">
-                <label for="civility_id">
-                    <i class="icon icon-symbol-female iconBookconnex" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Civilité </span>
-                </label>
-                {!! Form::select('civility_id', $civilities, null, ['class' => 'select_on_bookcast', 'placeholder' =>
-                'Civilité', 'required' => true]) !!}
-            </div>
-
-            <div class="form__field">
-                <label for="country_id">
-                    <i class="fe fe-map-pin iconBookconnex" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Pays </span>
-                </label>
-                {!! Form::select('country_id', $countries, null, ['class' => 'select_on_bookcast', 'placeholder' =>
-                'Pays', 'required' => true]) !!}
-            </div>
-
-            <div class="form__field">
-                <label for="last_name">
-                    <i class="fe fe-user" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Nom </span>
-                </label>
-                <input id="last_name" type="text" name="last_name" class="form__input" placeholder="Nom" required>
-            </div>
-
-            <div class="form__field">
-                <label for="first_name">
-                    <i class="fe fe-user" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Prénoms </span>
-                </label>
-                <input id="first_name" type="text" name="first_name" class="form__input" placeholder="Prénoms" required>
-            </div>
-
-            <div class="form__field">
-                <label for="email">
-                    <i class="fe fe-at-sign" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Email </span>
-                </label>
-                <input id="email" type="email" name="email" class="form__input" placeholder="Email" required>
-            </div>
-
-            <div class="form__field">
-                <label for="phone">
-                    <i class="fe fe-phone" data-toggle="tooltip" title=""></i>
-                    <span class="hidden">Téléphone </span>
-                </label>
-                <input id="phone" type="tel" name="phone" class="form__input" placeholder="Téléphone" required>
-            </div>
-
-            <p class="text--center">
-                <input class="inputbookcast2021" id="c1" name="tou" type="checkbox"> J'accepte les<a
-                    href="{{ route('page.terms') }}"> condition d'utilisation </a>
-            </p>
-
-            <div class="form__field">
-                <input type="submit" value="Créer mon compte">
-            </div>
-
-            {!! Form::close() !!}
-
-            <p class="text--center">Je suis déjà membre <a href="{{ route('page.login') }}">Se connecter</a>
-                <svg class="icon">
-                    <use xlink:href="#icon-arrow-right"></use>
-                </svg>
-            </p>
-
-        </div>
-
-    </div>
-</div>
-<!-- partial -->
+											<div class="text-left mt-4 ml-0">
+												<p class="mb-0">Vous avez déjà un compte ? <a href="{{ route('page.login') }}">Se connecter</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Row -->
+		</div>
 
 @endsection

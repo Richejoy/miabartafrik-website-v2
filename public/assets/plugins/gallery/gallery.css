@@ -183,9 +183,9 @@
 	content: "\e0f2";
 }
 .lg-sub-html {
-	background-color: rgba(0, 0, 0, 0.45);
+	background-color: rgba(0, 0, 0, 0.1);
 	bottom: 0;
-	color: #EEE;
+	color: #fff;
 	font-size: 16px;
 	left: 0;
 	padding: 10px 40px;
@@ -745,7 +745,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 1050;
+	z-index: 999999;
 	opacity: 0;
 	-webkit-transition: opacity 0.15s ease 0s;
 	-o-transition: opacity 0.15s ease 0s;
@@ -804,7 +804,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	white-space: nowrap;
 }
 .lg-outer .lg-item {
-	background: url("../img/loading.gif") no-repeat scroll center center transparent;
+	background: url("loading.gif") no-repeat scroll center center transparent;
 	display: none !important;
 }
 .lg-outer.lg-css3 .lg-prev-slide, .lg-outer.lg-css3 .lg-current, .lg-outer.lg-css3 .lg-next-slide {
@@ -871,7 +871,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	right: 0;
 	bottom: 0;
 	z-index: 1040;
-	background-color: #000;
+	background-color:rgb(0, 0, 0, 0.8);
 	opacity: 0;
 	-webkit-transition: opacity 0.15s ease 0s;
 	-o-transition: opacity 0.15s ease 0s;

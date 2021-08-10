@@ -1,12 +1,12 @@
 $('.dropify').dropify({
 	messages: {
-		'default': 'Faites glisser et déposez ou cliquez pour remplacer',
-		'replace': 'Faites glisser et déposez ou cliquez pour remplacer',
-		'remove': 'Supprimer ',
-		'error': 'Oups, quelque chose ne va pas ajouté .'
+		'default': 'Drag and drop a file here or click',
+		'replace': 'Drag and drop or click to replace',
+		'remove': 'Remove',
+		'error': 'Ooops, something wrong appended.'
 	},
 	error: {
-		'fileSize': 'La taille du fichier est trop grande (2M max).'
+		'fileSize': 'The file size is too big (2M max).'
 	}
 });
 	

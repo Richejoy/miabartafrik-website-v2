@@ -26,6 +26,37 @@ class Controller extends BaseController
 		return mt_rand(100000, 500000);
 	}
 
+	protected function getAppropriateFolder(Request $request)
+	{
+		$folder = null;
+
+		if ($request->has('civility_id')) {
+			switch (intval($request->input('civility_id'))) {
+				case 2:
+					$folder = 'members';
+					break;
+
+				case 3:
+					$folder = 'artists';
+					break;
+
+				case 3:
+					$folder = 'partners';
+					break;
+
+				case 3:
+					$folder = 'photographers';
+					break;
+				
+				default:
+					$folder = 'users';
+					break;
+			}
+		}
+
+		return $folder;
+	}
+
 	protected function getAppropriateUrl(Request $request)
 	{
 		$url = null;
@@ -53,8 +84,9 @@ class Controller extends BaseController
 		return $url;
 	}
 
-	protected function getAppropriateLink(Request $request, string $folder)
+	protected function getAppropriateLink(Request $request)
 	{
+		$folder = $this->getAppropriateFolder($request);
 		$url = $this->getAppropriateUrl($request);
 
 		if (config('app.env') == 'local') {

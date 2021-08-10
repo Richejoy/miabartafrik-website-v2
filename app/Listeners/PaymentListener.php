@@ -40,18 +40,6 @@ class PaymentListener
 
                 break;
 
-            case 'photographer':
-
-                Mail::to($user->email)->send(new PaymentMail($user, 'photographer', "Mise à jour du profil"));
-
-                break;
-
-            case 'artistic_network':
-
-                Mail::to($user->email)->send(new PaymentMail($user, 'artistic_network', "Mise à jour du profil"));
-
-                break;
-
             default:
                 # code...
                 break;

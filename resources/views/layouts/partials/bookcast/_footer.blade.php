@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row align-items-center flex-row-reverse">
             <div class="col-md-12 col-sm-12 text-center">
-                Copyright © 2021 <a href="#">BookCast</a>. Conçu par <a href="#">Osez Consult</a> Tous droits réservés.
+                Copyright © 2021 <a href="{{ route('bookcast.index') }}">BookCast</a>. Conçu par <a href="https://osezconsult.com" target="_blank">Osez Consult</a> Tous droits réservés.
             </div>
         </div>
     </div>

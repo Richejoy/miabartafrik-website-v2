@@ -24,8 +24,73 @@ $(document).ready(function(){
       });
     });
 
+
+var $shareModal = $('.share-modal');
+
+    var toggleModal = function() {
+      $shareModal.toggleClass('share-modal--open');
+      $shareModal.toggleClass('share-modal--close');
+    }
+
+    $('.js-share-button').on('click', function(e) {
+        e.preventDefault();
+        toggleModal();
+    });
+
+    $(document).keyup(function(e) {
+        if (e.keyCode === 27 && $shareModal.hasClass('share-modal--open')) {
+          $shareModal.removeClass('share-modal--open');
+          $shareModal.addClass('share-modal--close');
+        }
+    });
+
+    $('#closeModalButton').on('click', function(e) {
+        e.preventDefault();
+        toggleModal();
+    });
+
+
   //  INFOS UTILE
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
+//  Video Poster Setup
+
+$(document).on("click", ".js-videoPoster_miabart_afrik", function (ev) {
+  "use strict";
+  ev.preventDefault();
+  videoStop();
+  var $poster = $(this);
+  var $wrapper = $poster.closest(".js-videoWrapper_miabart_afrik");
+  videoPlay($wrapper);
+});
+
+// play the targeted video (and hide the poster frame)
+function videoPlay($wrapper) {
+  "use strict";
+  var $iframe = $wrapper.find(".js-videoIframe_miabart_afrik");
+  var src = $iframe.data("src");
+  // hide poster
+  $wrapper.addClass("videoWrapper_miabart_afrikActive");
+  // add iframe src in, starting the video
+  $iframe.attr("src", src);
+}
+
+// stop the targeted/all videos (and re-instate the poster frames)
+function videoStop($wrapper) {
+  "use strict";
+  // if we're stopping all videos on page
+  if (!$wrapper) {
+    var $wrapper = $(".js-videoWrapper_miabart_afrik");
+    var $iframe = $(".js-videoIframe_miabart_afrik");
+    // if we're stopping a particular video
+  } else {
+    var $iframe = $wrapper.find(".js-videoIframe_miabart_afrik");
+  }
+  // reveal poster
+  $wrapper.removeClass("videoWrapper_miabart_afrikActive");
+  // remove youtube link, stopping the video from playing in the background
+  $iframe.attr("src", "");
+}
+
 
 $('.book_infos_title').click(function(e) {
   console.log("Clicked");
@@ -393,9 +458,8 @@ function openTabs(el) {
    btnTarget.classList.add("active");
 }
 
-// PROGRESSE INSCRIPTION JS
-
  
+
 
 
  
