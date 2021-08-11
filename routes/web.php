@@ -90,7 +90,6 @@ Route::prefix('/payement')->name('payment.')->group(function () {
 	/**/
 });
 
-
 /** */
 Route::prefix('settings')->name('settings.')->middleware(['auth'])->group(function () {
 	Route::get('/', [SettingsController::class, 'index'])->name('index');

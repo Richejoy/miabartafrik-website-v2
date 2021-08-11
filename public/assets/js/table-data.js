@@ -94,7 +94,7 @@ $(function() {
    $('table').on('draw.dt', function() {
 		$('.select2-no-search').select2({
 			minimumResultsForSearch: Infinity,
-			placeholder: 'Sélectionné(e)'
+			placeholder: 'Sélectionner'
 		});
 	});
 	

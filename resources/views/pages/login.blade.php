@@ -25,7 +25,7 @@
                                             <img src="{{ asset('public/assets/img/brand/logo.png') }}" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
                                             <div class="clearfix"></div>
 
-                                            {!! Form::open() !!}
+                                            {!! Form::open(['route' => 'page.login']) !!}
                                                 <h5 class="text-left mb-2 textSignHead">Se connecter à votre compte</h5>
                                                 <p class="mb-4 text-muted tx-13 ml-0 text-left">Se connecté pour créer, partager son book et se connecter au monde artistique.</p>
                                                 <div class="form-group text-left"> 

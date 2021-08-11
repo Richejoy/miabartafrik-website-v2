@@ -1,132 +1,125 @@
-<!doctype html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="msapplication-TileColor" content="#0061da">
-        <meta name="theme-color" content="#1643a3">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        <link rel="icon" href="{{ asset('public/favicon.ico') }}" type="image/x-icon"/>
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/favicon.ico') }}"/>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-        <!-- TITLE -->
-        <title>{{ config('app.name') }} - BookCast - {{ $title ?? 'Laravel' }}</title>
+<head>
 
-        <!-- bookcast CSS -->
-        <link href="{{ asset('public/assets/css/bookcast.css') }}" rel="stylesheet"/>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta name="description" content="BookCast -  Miabart Afrik">
+    <meta name="author" content="Miabart Afrik">
+    <meta name="keywords" content="book artiste, castings artistique, agenda plus, concert en ligne, ">
 
-        <!-- MODAL CSS -->
-        <link href="{{ asset('public/assets/css/surveyModalAuto.css') }}" rel="stylesheet"/>   
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('public/assets/img/brand/favicon.ico') }}" type="image/x-icon" />
 
-        <!-- miabartafrik CSS -->
-        <link href="{{ asset('public/assets/css/miabartafrik.css') }}" rel="stylesheet"/>  
-    </head>
-    <body class="app sidebar-mini rtl horizontal-body">
+    <!-- Title -->
+    <title>{{ pageTitle($title) }} | BookCast | {{ config('app.name') }}</title>
 
-        <!-- GLOBAL-LOADER --> 
-        <!-- Preloader MiabartAfrik -->
-        <div id="global-loader" class="miabartafrik_preloader_page">
-            <img class="miabartafrik_preloader_logo" src="{{ asset('public/assets/images/preloader.jpg') }}">
-            <div class="miabartafrik_preloader_previewArea">
-                <div class="miabartafrik_preloader_ballPulse">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-        </div>
-        <!-- Preloader MiabartAfrik end -->
+    <!-- Bootstrap css-->
+    <link href="{{ asset('public/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
-        @yield('body')
+    <!-- Icons css-->
+    <link href="{{ asset('public/assets/plugins/web-fonts/icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/assets/plugins/web-fonts/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/plugins/web-fonts/plugin.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/assets/css/icon-list.css') }}" rel="stylesheet" />
 
-        <!-- BACK-TO-TOP -->
-        <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <!-- Style css-->
+    <link href="{{ asset('public/assets/css/bookcast.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/preloader_miabartAfrik.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/skins.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/dark-style.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/colors/default.css') }}" rel="stylesheet">
 
-        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
- 
-        <!-- BOOKCAST JS -->
-        <script src="{{ asset('public/assets/js/bookcast.js') }}"></script> 
+    <!-- Color css-->
+    <link id="theme" rel="stylesheet" type="text/css" media="all"
+        href="{{ asset('public/assets/css/colors/color.css') }}">
 
-        @if(Route::currentRouteName() == 'bookcast.index')
-        <!-- MODAL PUBLICITE JS --> 
-        <script src="{{ asset('public/assets/js/surveyModalAuto.js') }}"></script>
-        @endif
- 
-        <!-- JQUERY SCRIPTS -->
-        <script src="{{ asset('public/assets/js/vendors/jquery-3.2.1.min.js') }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <!-- Select2 css -->
+    <link href="{{ asset('public/assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
 
-        <!-- BOOTSTRAP SCRIPTS -->
-        <script src="{{ asset('public/assets/js/vendors/bootstrap.bundle.min.js') }}"></script>
+    <!-- Internal Owl Carousel css-->
+    <link href="{{ asset('public/assets/plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
 
-        <!-- SPARKLINE -->
-        <script src="{{ asset('public/assets/js/vendors/jquery.sparkline.min.js') }}"></script>
+    <!-- Sidemenu css-->
+    <link href="{{ asset('public/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
 
-        <!-- CHART-CIRCLE -->
-        <script src="{{ asset('public/assets/js/vendors/circle-progress.min.js') }}"></script>
+    @stack('styles')
 
-        <!-- RATING STAR -->
-        <script src="{{ asset('public/assets/plugins/rating/jquery.rating-stars.js') }}"></script>
+    @livewireStyles
+</head>
 
-        <!-- CHARTJS CHART -->
-        <script src="{{ asset('public/assets/plugins/chart/Chart.bundle.js') }}"></script>
-        <script src="{{ asset('public/assets/plugins/chart/utils.js') }}"></script>
+<body class="horizontalmenu">
 
-        <!-- C3.JS CHART PLUGIN -->
-        <script src="{{ asset('public/assets/plugins/charts-c3/d3.v5.min.js') }}"></script>
-        <script src="{{ asset('public/assets/plugins/charts-c3/c3-chart.js') }}"></script>
+    <!-- Loader -->
+    <x-loader />
+    <!-- End Loader -->
 
-        <!-- INPUT MASK PLUGIN-->
-        <script src="{{ asset('public/assets/plugins/input-mask/jquery.mask.min.js') }}"></script>
- 
-        <!-- CUSTOM SCROLLBAR -->
-        <script src="{{ asset('public/assets/plugins/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <!-- Page -->
+    <div class="page">
 
-        <!--Side-menu js-->
-        <script src="{{ asset('public/assets/plugins/side-menu/sidemenu.js') }}"></script>
+        <!-- Main Header-->
+        @include("layouts.partials.bookcast._header")
+        <!-- End Main Header-->
 
-        <!-- STICKY JS-->
-        <script src="{{ asset('public/assets/js/sticky.js') }}"></script>
-        <script src="{{ asset('public/assets/js/horizontal-sticky.js') }}"></script>
+        <!-- Mobile-header -->
+        @include("layouts.partials.bookcast._mobile_header")
+        <!-- Mobile-header closed -->
 
-        <!-- Perfect scroll bar js-->
-        <script src="{{ asset('public/assets/plugins/pscrollbar/perfect-scrollbar.js') }}"></script> 
+        <!-- Horizonatal menu-->
+        @include("layouts.partials.bookcast._nav")
+        <!--End  Horizonatal menu-->
 
-        <!-- RIGHT-MENU JS -->
-        <script src="{{ asset('public/assets/plugins/sidebar/sidebar.js') }}"></script>
+        <!-- Main Content-->
+        <main>
+            @yield('body')
+        </main>
+        <!-- End Main Content-->
 
-        <!-- LEFTSIDEMENU PLUGIN -->
-        <script src="{{ asset('public/assets/plugins/jquery-jside-menu-master/js/jquery.jside.menu.js') }}"></script>
+        @include("layouts.partials.bookcast._footer")
 
-        <!-- HORIZONTAL-MENU JS -->
-        <script src="{{ asset('public/assets/plugins/horizontal-menu/horizontal-menu.js') }}"></script>
-        <script src="{{ asset('public/assets/plugins/jquery-jside-menu-master/docs/demo-only.js') }}"></script>
- 
-        <!--CUSTOM JS -->
-        <script src="{{ asset('public/assets/js/custom.js') }}"></script>  
+        <!-- Sidebar -->
+        @include("layouts.partials.bookcast._right_sidebar")
+        <!-- End Sidebar -->
 
-        <!-- DATEPICKER JS -->
-        <script src="{{ asset('public/assets/plugins/spectrum-date-picker/spectrum.js') }}"></script>
-        <script src="{{ asset('public/assets/plugins/spectrum-date-picker/jquery-ui.js') }}"></script>
-        <script src="{{ asset('public/assets/plugins/input-mask/jquery.maskedinput.js') }}"></script>
+    </div>
+    <!-- End Page -->
 
-        <!-- DATA TABLE -->
-        <script src="{{ asset('public/assets/plugins/datatable/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('public/assets/plugins/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <!-- Back-to-top -->
+    <a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a>
 
-        <!-- SELECT2 JS -->
-        <script src="{{ asset('public/assets/js/select2.js') }}"></script> 
+    <!-- Jquery js-->
+    <script src="{{ asset('public/assets/plugins/jquery/jquery.min.js') }}"></script>
 
-        <script src="{{ asset('public/assets/js/owl.carousel.min.js') }}"></script>
-        <script src="{{ asset('public/assets/js/mainsli.js') }}"></script>
+    <!-- BookCast js-->
+    <script src="{{ asset('public/assets/js/bookcast.js') }}"></script>
 
-        <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-        
-    </body>
+    <!-- Bootstrap js-->
+    <script src="{{ asset('public/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+
+    <!-- Perfect-scrollbar js -->
+    <script src="{{ asset('public/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+
+    <!-- Sidebar js -->
+    <script src="{{ asset('public/assets/plugins/sidebar/sidebar.js') }}"></script>
+
+    <!-- Select2 js-->
+    <script src="{{ asset('public/assets/plugins/select2/js/select2.min.js') }}"></script>
+
+    <!-- Sticky js -->
+    <script src="{{ asset('public/assets/js/sticky.js') }}"></script>
+
+    <!-- Custom js -->
+    <script src="{{ asset('public/assets/js/custom.js') }}"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+    @stack('scripts')
+    
+    @livewireScripts
+</body>
+
 </html>

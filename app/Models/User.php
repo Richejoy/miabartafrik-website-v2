@@ -32,6 +32,7 @@ class User extends Authenticatable
         'city',
         'address',
         'token',
+        'remember_token',
         'tfa_enabled',
         'tfa_code',
         'removed',

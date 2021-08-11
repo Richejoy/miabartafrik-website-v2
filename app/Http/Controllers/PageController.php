@@ -449,7 +449,8 @@ class PageController extends Controller
 
             event(new UserEvent($user, ['action' => 'login']));
 
-            return redirect()->route('bookcast.index');
+            return back();  //middleware logged will return to user.index automaticaly
+            //return redirect()->route('bookcast.index');
         }
 
         return back()->withDanger("Impossible de satisfaire votre requête.");

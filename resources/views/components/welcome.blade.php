@@ -11,5 +11,5 @@
 
     <p>
         <a href="{{ route('page.login') }}" class="btn btn-success">Se connecter</a>
-    </p>                                         
+    </p>
 </section>

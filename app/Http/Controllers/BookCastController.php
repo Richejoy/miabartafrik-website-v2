@@ -9,6 +9,7 @@ use App\Models\Event;
 use App\Models\News;
 use App\Models\Movie;
 use App\Models\Casting;
+use App\Models\Sponsor;
 
 class BookCastController extends Controller
 {
@@ -19,7 +20,14 @@ class BookCastController extends Controller
 
     public function index(Request $request)
     {
-    	return view('bookcast.index');
+        $sponsors = Sponsor::all();
+
+        $movie = Movie::find(1);
+        $artist = Artist::find(1);
+        $casting = Casting::find(1);
+        $election = Artist::find(1);
+
+    	return view('bookcast.index', compact('sponsors', 'movie', 'artist', 'casting', 'election'));
     }
 
     public function books(Request $request)

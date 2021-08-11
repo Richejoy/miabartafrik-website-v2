@@ -1,3 +1,5 @@
+ 
+
   //  LOGOS SLIDER PARTENAIRES
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -48,6 +50,7 @@ var $shareModal = $('.share-modal');
         e.preventDefault();
         toggleModal();
     });
+
 
 
   //  INFOS UTILE

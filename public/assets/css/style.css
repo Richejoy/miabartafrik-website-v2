@@ -503,7 +503,6 @@ h3.title--intertitle {
     padding-left: 1rem;
     margin-left: -1rem;
     width: 100%;
-    margin-bottom: 1.5rem;
 }
 
 [type="number"]::-webkit-inner-spin-button,
@@ -4558,7 +4557,7 @@ fieldset:disabled a.btn {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #a8afc7;
+    color: #565657;
     background-color: #ffffff;
     background-clip: padding-box;
     border: 1px solid #e8e8f7;
@@ -4574,7 +4573,7 @@ fieldset:disabled a.btn {
 }
 
 .form-control:focus {
-    color: #8f9cc0;
+    color: #565657;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(135, 96, 251, 0.25);
     border-color: #a8afc7;
@@ -4582,7 +4581,7 @@ fieldset:disabled a.btn {
 }
 
 .form-control::placeholder {
-    color: #a8afc7;
+    color: #767777;
     opacity: 1;
 }
 
@@ -9510,7 +9509,7 @@ div.dataTables_wrapper div.dataTables_length select {
     background-color: #ffffff;
     transition: none;
     height: 40px;
-    padding-left: 2.6rem;
+    padding-left: .6rem;
     border-radius: 3px;
 }
 
@@ -68092,8 +68091,8 @@ a.tag-addon:hover {
     justify-content: space-between;
 }
 
-.wizard>.actions>ul>li:last-child a {
-    background-color: #f16d75;
+.wizard>.actions>ul>li:last-child a { 
+    display: none;
 }
 
 .wizard>.actions a {
@@ -73330,6 +73329,11 @@ body.horizontalmenu {
 
  .body_price{
   padding: 1.5rem .5rem 0 !important
+ }
+
+  .avantage{
+  display: block;
+  margin-top: .5em;
  }
 
  .discount_price{

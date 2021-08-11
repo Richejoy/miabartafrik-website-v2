@@ -2932,12 +2932,7 @@ input[type="submit"] {
 }
 
 /* modules/text.css */
-
-p {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
+ 
 .text--center {
   text-align: center;
   color: #c4c6ca;
@@ -16041,3 +16036,5 @@ font-size: 0.9rem;
     transform: rotate(360deg);
   }
 }
+
+
