@@ -128,4 +128,9 @@ class User extends Authenticatable
     {
         return $this->fullName();
     }
+
+    public function getFlag()
+    {
+        return 'flag flag-' . mb_strtolower($this->country->iso);
+    }
 }
