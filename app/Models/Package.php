@@ -9,6 +9,9 @@ class Package extends Model
 {
     use HasFactory;
 
+    const CREATED_AT = 'created';
+    const UPDATED_AT = 'modified';
+
     public function userType()
     {
         return $this->belongsTo(UserType::class);

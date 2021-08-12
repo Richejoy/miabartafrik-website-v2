@@ -9,6 +9,9 @@ class ArtisticArea extends Model
 {
     use HasFactory;
 
+    const CREATED_AT = 'created';
+    const UPDATED_AT = 'modified';
+
     public function artisticRay()
     {
         return $this->belongsTo(ArtisticRay::class);

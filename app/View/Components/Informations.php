@@ -3,7 +3,9 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use App\Models\User;
+use App\Models\UserType;
+use App\Models\Country;
+use App\Models\Civility;
 
 class Informations extends Component
 {
@@ -12,21 +14,16 @@ class Informations extends Component
     public $countries;
 
     public $civilities;
-
-    public $user;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($user, $userTypes, $countries, $civilities)
+    public function __construct()
     {
-        //dd($user instanceof User);
-
-        $this->userTypes = $userTypes;
-        $this->countries = $countries;
-        $this->civilities = $civilities;
-        $this->user = $user;
+        $this->userTypes = UserType::where('id', '>', 1)->get()->sortBy('id')->pluck(null, 'id');
+        $this->countries = Country::all()->sortBy('id')->pluck(null, 'id');
+        $this->civilities = Civility::all()->sortBy('id')->pluck(null, 'id');
     }
 
     /**

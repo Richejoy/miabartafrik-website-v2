@@ -5,7 +5,7 @@
     </a>
     <div class="dropdown-menu">
         <div class="header-navheading">
-            <h6 class="main-notification-title">{{ auth()->user()->fullName() }}</h6>
+            <h6 class="main-notification-title">{{ auth()->user()->full_name }}</h6>
             <p class="main-notification-text">{{ auth()->user()->userType->name }}</p>
         </div>
         <a class="dropdown-item border-top" href="{{ route('user.show', ['user' => auth()->id()]) }}">
@@ -17,7 +17,7 @@
         <a class="dropdown-item" href="{{ route('settings.index') }}">
             <i class="fe fe-settings"></i> Paramètres du compte
         </a>
-        <a class="dropdown-item" href="{{ route('page.lock_screen') }}">
+        <a class="dropdown-item" href="{{ route('page.lock') }}">
             <i class="fe fe-compass"></i> Vérroullé écran
         </a>
         <a class="dropdown-item" href="{{ route('page.logout') }}">

@@ -19,7 +19,7 @@
                 <div class="main_profilbook_header">
                     <div class="main_book_name">
                         <h6>
-                            <a href="book_view.html">{{ $artist->user->fullName() }}</a>
+                            <a href="book_view.html">{{ $artist->user->full_name }}</a>
                         </h6>
                         <small class="mr-3">Actrice, Modèle photo, Danseuse</small>
                     </div>

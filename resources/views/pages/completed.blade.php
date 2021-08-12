@@ -19,17 +19,14 @@
                                 </div>
                                 <div id="wizard3">
                                     <h3>Informations</h3>
-                                    <x-informations :user="$user" :userTypes="$userTypes" :countries="$countries"
-                                        :civilities="$civilities" />
+                                    <x-informations />
 
-                                    @if($user->user_type_id != 2)
+                                    @if(session('registratedUser')->user_type_id != 2)
                                     <h3>Complèter</h3>
-                                    <section>
-                                        formulaire
-                                    </section>
+                                    <x-auth.artist-next-form />
                                     @endif
 
-                                    @if(($user->user_type_id == 3) || ($user->user_type_id == 5))
+                                    @if((session('registratedUser')->user_type_id == 3) || (session('registratedUser')->user_type_id == 5))
                                     <h3>Packages</h3>
                                     @livewire('packages')
                                     @endif

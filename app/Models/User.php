@@ -11,7 +11,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    public $timestamps = false;
+    const CREATED_AT = 'created';
+    const UPDATED_AT = 'modified';
 
     /**
      * The attributes that are mass assignable.
@@ -84,6 +85,45 @@ class User extends Authenticatable
         'removed' => false,
     ];
 
+    /*Mutators : sets*/
+    public function setFirstNameAttribute($value)
+    {
+        $this->attributes['first_name'] = ucwords($value);
+    }
+
+    public function setLastNameAttribute($value)
+    {
+        $this->attributes['last_name'] = mb_strtolower($value);
+    }
+
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['email'] = strtolower($value);
+    }
+
+    public function setPhoneAttribute($value)
+    {
+        $this->attributes['phone'] = str_replace(' ', '', $value);
+    }
+
+    public function setCityAttribute($value)
+    {
+        $this->attributes['city'] = ucwords($value);
+    }
+
+    public function setAddressAttribute($value)
+    {
+        $this->attributes['address'] = ucfirst($value);
+    }
+    /**/
+
+    /*Mutators : gets*/
+    public function getFullNameAttribute()
+    {
+        return $this->last_name . ' ' . $this->first_name;
+    }
+    /**/
+
     public function civility()
     {
         return $this->belongsTo(Civility::class);
@@ -119,18 +159,13 @@ class User extends Authenticatable
         return $this->hasMany(Transaction::class);
     }
 
-    public function fullName()
+    public function getFlag()
     {
-        return $this->last_name . ' ' . $this->first_name;
+        return 'flag flag-' . mb_strtolower($this->country->iso);
     }
 
     public function __toString()
     {
-        return $this->fullName();
-    }
-
-    public function getFlag()
-    {
-        return 'flag flag-' . mb_strtolower($this->country->iso);
+        return $this->full_name;
     }
 }

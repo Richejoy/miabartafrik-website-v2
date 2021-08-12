@@ -20,4 +20,9 @@ class Partner extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function society()
+    {
+        return $this->belongsTo(Society::class);
+    }
 }

@@ -240,7 +240,7 @@ class PageController extends Controller
 
                 session()->flash('primary', "Inscription et mail envoyé");
 
-                session()->put('tmpUser', $user);
+                session()->put('registratedUser', $user);
 
                 return redirect()->route('page.completed');
             } catch (\Exception $ex) {
@@ -257,18 +257,11 @@ class PageController extends Controller
 
     public function completed(Request $request)
     {
-        $user = session('tmpUser');
-
-        $userTypes = UserType::where('id', '>', 1)->get()->sortBy('id')->pluck(null, 'id');
-
-        $countries = Country::all()->sortBy('id')->pluck(null, 'id');
-        $civilities = Civility::all()->sortBy('id')->pluck(null, 'id');
-
         if ($request->isMethod('POST')) {
             dd($request->all());
         }
 
-        return view('pages.completed', compact('userTypes', 'countries', 'civilities', 'user'));
+        return view('pages.completed');
     }
 
     public function confirmed(Request $request)

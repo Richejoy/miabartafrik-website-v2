@@ -7,6 +7,8 @@ use App\Models\Artist;
 
 class Item extends Component
 {
+    //protected $listerners = ['emitMethod' => 'thisMethod'];
+
     public $artist;
 
     public function mount(Artist $artist)

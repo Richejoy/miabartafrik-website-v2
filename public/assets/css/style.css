@@ -222,6 +222,12 @@ p {
     margin-bottom: 1rem;
 }
 
+.dowload_photoProfile {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+
 abbr[title],
 abbr[data-original-title] {
     text-decoration: underline;
@@ -12129,7 +12135,7 @@ textarea.parsley-success:focus {
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
     border-color: #f0f0ff;
-    border: solid #eaeafa 1px;
+    border: solid #d0d0d2 1px;
 }
 
 .select2-container--default .select2-search--dropdown .select2-search__field {
@@ -18264,6 +18270,11 @@ button.bg-info:hover,
 button.bg-info:focus {
     background-color: #06aff1 !important;
 }
+
+.annuler_mbafonction a {
+    color: #d70a0a !important;
+}
+
 
 .bg-warning {
     background-color: #ff9b21 !important;

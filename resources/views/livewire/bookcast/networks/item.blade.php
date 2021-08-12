@@ -8,7 +8,7 @@
 
         </div>
         <h3 class="partnername">
-            <a href="" title="Voir la fiche">{{ $partner->structure_name }}</a>
+            <a href="" title="Voir la fiche">{{ $partner->mark_name }}</a>
         </h3>
         <div class="infopartner">
             <div class="label-type">Producteur</div>

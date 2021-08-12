@@ -1,19 +1,7 @@
 <section>
-    {!! Form::model($user) !!}
-    <div class="row row-sm text-left mb-2">
+    {!! Form::model(session('registratedUser')) !!}
 
-        <div class="col-lg-12 mg-t-20 mg-lg-t-0">
-
-            {{ Form::label('user_type_id', "Quel compte crée ?", ['class' => 'required-text mg-b-10 label_mba']) }}
-
-            <div class="parsley-select" id="slWrapper">
-
-                {{ Form::select('user_type_id', $userTypes, null, ['class' => 'form-control select2', 'placeholder' => "Quel compte crée ?", 'required' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Quel compte crée ?"]) }}
-
-                <div id="slErrorContainer"></div>
-            </div>
-        </div><!-- col-12 -->
-    </div>
+    {!! Form::hidden('form', 'user') !!}
 
     <div class="row row-sm text-left mb-2">
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
@@ -65,9 +53,16 @@
         </div><!-- col-6 -->
     </div>
 
-    <button class="btnSignin ripple btn-main-primary btn-block mt-3 mb-3">
-        Enregistrer mes modifications
-    </button>
+    <div class="row">
+        <div class="col annuler_mbafonction">
+            <p><a href="{{ route('page.register') }}">Annuler l'inscription</a></p>
+        </div>
+        <div class="col enreg_mbafonction">
+            <button type="submit" class="btn btn-link">
+                Enregistrer mes modifications
+            </button>
+        </div>
+    </div>
 
     {!! Form::close() !!}
 </section>

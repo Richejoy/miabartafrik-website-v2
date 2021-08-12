@@ -17,7 +17,7 @@ class Logged
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check()) return redirect()->route('user.index');
+        if (Auth::check()) return redirect()->route('bookcast.index');
         
         return $next($request);
     }

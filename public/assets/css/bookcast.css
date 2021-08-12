@@ -3280,6 +3280,10 @@ font-weight: 400; }
   flex-grow: 1; 
 }
 
+.detail-button a:hover { 
+  color: #d7d4d4;  
+}
+
 .mr_publier {
   margin-left: 0.2rem;
 }
