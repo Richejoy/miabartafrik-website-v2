@@ -30,6 +30,19 @@ return [
 
     'disks' => [
 
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => 'miabartafrik.com',
+            'username' => 'uy18aontzr6g',
+            'password' => 'Miabartafrik2021',
+            // Optional FTP Settings...
+            // 'port' => 21,
+            // 'root' => '',
+            // 'passive' => true,
+            // 'ssl' => true,
+            // 'timeout' => 30,
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

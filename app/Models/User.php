@@ -93,7 +93,7 @@ class User extends Authenticatable
 
     public function setLastNameAttribute($value)
     {
-        $this->attributes['last_name'] = mb_strtolower($value);
+        $this->attributes['last_name'] = mb_strtoupper($value);
     }
 
     public function setEmailAttribute($value)

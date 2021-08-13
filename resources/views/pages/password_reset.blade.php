@@ -52,9 +52,11 @@
                                         <input class="form-control" placeholder="Tapez votre mot de passe"
                                             type="password">
                                     </div>
-                                    <button class="btnSignin ripple btn-main-primary btn-block" type="submit">
-                                        Réinitialiser le mot de passe
-                                    </button>
+                                    
+                                    <div class="form-group">
+                                        {!! Form::submit('Réinitialiser le mot de passe', ['class' => 'btnSignin ripple btn-main-primary btn-block mt-3 mb-3']) !!}
+                                    </div>
+
                                     {!! Form::close() !!}
 
                                 </div>

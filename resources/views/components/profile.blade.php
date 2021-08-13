@@ -1,6 +1,6 @@
 <div class="dropdown main-profile-menu">
     <a class="d-flex" href="#">
-        <span class="main-img-user"><img alt="avatar"
+        <span class="main-img-user"><img alt="{{ auth()->user()->image->description }}"
                 src="{{ auth()->user()->image->link }}"></span>
     </a>
     <div class="dropdown-menu">
@@ -17,7 +17,7 @@
         <a class="dropdown-item" href="{{ route('settings.index') }}">
             <i class="fe fe-settings"></i> Paramètres du compte
         </a>
-        <a class="dropdown-item" href="{{ route('page.lock') }}">
+        <a class="dropdown-item" href="{{ route('page.lock_screen') }}">
             <i class="fe fe-compass"></i> Vérroullé écran
         </a>
         <a class="dropdown-item" href="{{ route('page.logout') }}">

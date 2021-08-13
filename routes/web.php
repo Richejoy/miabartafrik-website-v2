@@ -13,6 +13,14 @@ use App\Http\Controllers\BookCastController;
 use App\Http\Controllers\BoutikArtController;
 use App\Http\Controllers\BonAddressController;
 
+use App\Http\Controllers\ImageController;
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\PhotographerController;
+
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -41,7 +49,6 @@ Route::prefix('/')->name('page.')->group(function() {
 	Route::get('/sitemap', [PageController::class, 'sitemap'])->name('sitemap');
 
 	Route::middleware(['logged'])->group(function () {
-		Route::match(['GET', 'POST'], '/lock/screen', [PageController::class, 'lockScreen'])->name('lock_screen');
 		Route::match(['GET', 'POST'], '/login', [PageController::class, 'login'])->name('login');
 		Route::match(['GET', 'POST'], '/register', [PageController::class, 'register'])->name('register');
 		Route::match(['GET', 'POST'], '/confirmed', [PageController::class, 'confirmed'])->name('confirmed');
@@ -51,14 +58,15 @@ Route::prefix('/')->name('page.')->group(function() {
 		Route::get('/activated/{email}/{token}', [PageController::class, 'activated'])->name('activated');
 		Route::get('/removed/account/{email}/{token}', [PageController::class, 'removedAccount'])->name('removed_account');
 		Route::get('/enabled/tfa/{email}/{token}', [PageController::class, 'enabledTFA'])->name('enabled_tfa');
-
-		Route::match(['GET', 'POST'], '/completed', [PageController::class, 'completed'])->name('completed');
 	});
+
+	Route::match(['GET', 'POST'], '/completed/{email}/{token}', [PageController::class, 'completed'])->name('completed');
 
 	Route::match(['GET', 'POST'], '/donate', [PageController::class, 'donate'])->name('donate');
 
+	Route::match(['GET', 'POST'], '/lock/screen', [PageController::class, 'lockScreen'])->middleware(['auth'])->name('lock_screen');
+
 	Route::get('/logout', [PageController::class, 'logout'])->name('logout');
-	Route::get('/lock', [PageController::class, 'lock'])->name('lock');
 });
 
 Route::prefix('/user')->name('user.')->group(function() {
@@ -120,3 +128,19 @@ Route::prefix('/boutikart')->name('boutikart.')->middleware(['auth'])->group(fun
 Route::prefix('/bonaddress')->name('bonaddress.')->middleware(['auth'])->group(function() {
 	Route::get('/', [BonAddressController::class, 'index'])->name('index');
 });
+
+Route::prefix('/pictures')->name('pictures.')->middleware(['auth'])->group(function() {
+	Route::get('/', [ImageController::class, 'index'])->name('index');
+	Route::get('/show/{image}', [ImageController::class, 'show'])->name('show');
+	Route::match(['GET', 'POST'], '/edit/{image}', [ImageController::class, 'edit'])->name('edit');
+});
+
+Route::resource('admins', AdminController::class)->middleware('auth');
+
+Route::resource('members', MemberController::class)->middleware('auth');
+
+Route::resource('artists', ArtistController::class)->middleware('auth')->except(['destroy']);
+
+Route::resource('partners', PartnerController::class)->middleware('auth')->except(['destroy']);
+
+Route::resource('photographers', PhotographerController::class)->middleware('auth')->except(['destroy']);

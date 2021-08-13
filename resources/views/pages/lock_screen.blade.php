@@ -52,8 +52,11 @@
                                             <span class="custom-switch-description">montrer le mot de passe</span>
                                         </label>
                                     </div>
-                                    <button class="btnSignin ripple btn-main-primary btn-block mt-4"
-                                        type="submit">Ouvrir</button>
+                                    
+                                    <div class="form-group">
+                                        {!! Form::submit('Dévérroullé', ['class' => 'btnSignin ripple btn-main-primary btn-block mt-3 mb-3']) !!}
+                                    </div>
+
                                     {!! Form::close() !!}
 
                                     <div class="text-left mt-4 ml-0">

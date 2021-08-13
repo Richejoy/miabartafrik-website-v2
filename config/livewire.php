@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/miabartafrik/website/v2/public',
+    'asset_url' => env('LIVEWIRE_ASSET_URL', null),
 
     /*
     |--------------------------------------------------------------------------

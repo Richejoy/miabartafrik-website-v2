@@ -15,8 +15,11 @@ use App\Models\Artist;
 use App\Models\Partner;
 use App\Models\Photographer;
 use App\Models\ArtisticRay;
+use App\Models\Subscriber;
 use App\Models\Transaction;
 use App\Events\UserEvent;
+use App\Events\SubscriberEvent;
+use Illuminate\Validation\Rule;
 
 class PageController extends Controller
 {
@@ -141,15 +144,42 @@ class PageController extends Controller
 
     public function register(Request $request)
     {
-        $userTypes = UserType::where('id', '>', 1)->get()->sortBy('id')->pluck(null, 'id');
+        session()->forget('registratedUser');
 
-        $countries = Country::all()->sortBy('id')->pluck(null, 'id');
-        $civilities = Civility::all()->sortBy('id')->pluck(null, 'id');
+        $userTypes = UserType::where('id', '>', 1)->get()->sortBy('id')->pluck(null, 'id');
 
         if ($request->isMethod('POST')) {
 
             $this->validate($request, [
                 'user_type_id' => 'required',
+                'email' => 'required|email|unique:subscribers',
+            ]);
+
+            $subscriber = Subscriber::create([
+                'email' => $request->email,
+                'user_type_id' => $request->user_type_id,
+                'token' => sha1(uniqid()),
+            ]);
+
+            event(new SubscriberEvent($subscriber, ['action' => 'subscription']));
+
+            session()->flash('success', "Inscription et mail envoyé avec succès. Veuillez consulter votre mail");
+
+            flashy()->primary("Inscription et mail envoyé avec succès.");
+
+            return back();
+        }
+
+        return view('pages.register', compact('userTypes'));
+    }
+
+    public function completed(Request $request, string $email, string $token)
+    {
+        $subscriber = Subscriber::where(['email' => $email, 'token' => $token])->firstOrFail();
+
+        if ($request->isMethod('POST')) {
+
+            $this->validate($request, [
                 'country_id' => 'required',
                 'civility_id' => 'required',
                 'first_name' => 'required|min:3',
@@ -170,9 +200,10 @@ class PageController extends Controller
 
                 $image = Image::create(
                     [
-                        'folder' => $this->getAppropriateFolder($request),
+                        'folder' => 'users',
                         'url' => $this->getAppropriateUrl($request),
-                        'link' => $this->getAppropriateLink($request),
+                        'link' => $this->getAppropriateLink($request, 'users'),
+                        'description' => 'Ma jolie photo',
                     ]
                 );
 
@@ -182,6 +213,7 @@ class PageController extends Controller
                     array_merge(
                         $request->all(),
                         [
+                            'user_type_id' => $subscriber->user_type_id,
                             'username' => mb_strtoupper(mb_substr(uniqid($image->id), 0, 15)),
                             'password' => bcrypt($password),
                             'image_id' => $image->id,
@@ -190,78 +222,78 @@ class PageController extends Controller
                     )
                 );
 
-                //save apropriate user
+                //save apropriate user and send apropriate mail
                 switch (intval($user->user_type_id)) {
+                    case 2:    // 2 : member
+                        $member = Member::create([
+                            'user_id' => $user->id,
+                        ]);
+
+                        event(new UserEvent($user, ['action' => 'register_member', 'password' => $password]));
+                        break;
+
                     case 3: //artist
                         $artist = Artist::create([
                             'user_id' => $user->id,
                         ]);
+
+                        event(new UserEvent($user, ['action' => 'register_artist', 'password' => $password]));
                         break;
 
                     case 4: //partner
                         $partner = Partner::create([
                             'user_id' => $user->id,
                         ]);
+
+                        event(new UserEvent($user, ['action' => 'register_partner', 'password' => $password]));
                         break;
 
                     case 5: //photographer
                         $photographer = Photographer::create([
                             'user_id' => $user->id,
                         ]);
+
+                        event(new UserEvent($user, ['action' => 'register_photographer', 'password' => $password]));
                         break;
                     
-                    default:    // 2 : member
-                        $member = Member::create([
-                            'user_id' => $user->id,
-                        ]);
+                    default:    // 1 : admin
+                        
                         break;
                 }
 
                 DB::commit();
 
-                //send mail
-                switch (intval($user->user_type_id)) {
-                    case 3: //artist
-                        event(new UserEvent($user, ['action' => 'register_artist', 'password' => $password]));
-                        break;
-
-                    case 4: //partner
-                        event(new UserEvent($user, ['action' => 'register_partner', 'password' => $password]));
-                        break;
-
-                    case 5: //photographer
-                        event(new UserEvent($user, ['action' => 'register_photographer', 'password' => $password]));
-                        break;
-                    
-                    default:    //member
-                        event(new UserEvent($user, ['action' => 'register_member', 'password' => $password]));
-                        break;
-                }
-
                 session()->flash('primary', "Inscription et mail envoyé");
 
-                session()->put('registratedUser', $user);
+                auth()->login($user);
 
-                return redirect()->route('page.completed');
+                if ($user->user_type_id == 2) {
+                    //return redirect()->route('members.index');
+                    return redirect()->route('pictures.edit', ['image' => $image]);
+                }
+
+                if ($user->user_type_id == 3) {
+                    return redirect()->route('artists.index');
+                }
+
+                if ($user->user_type_id == 4) {
+                    return redirect()->route('partners.index');
+                }
+
+                if ($user->user_type_id == 5) {
+                    return redirect()->route('photographers.index');
+                }
+
             } catch (\Exception $ex) {
                 DB::rollback();
 
-                session()->flash('danger', "Impossible de vous inscrire");
+                session()->flash('danger', "Impossible de vous inscrire " . $ex);
             }
 
             return back();
         }
 
-        return view('pages.register', compact('userTypes', 'countries', 'civilities'));
-    }
-
-    public function completed(Request $request)
-    {
-        if ($request->isMethod('POST')) {
-            dd($request->all());
-        }
-
-        return view('pages.completed');
+        return view('pages.completed', compact('subscriber'));
     }
 
     public function confirmed(Request $request)
@@ -438,12 +470,9 @@ class PageController extends Controller
 
             auth()->login($user, $request->has('remember_me'));
 
-            session()->flash('success', "Bienvenue dans votre tableau de bord");
-
             event(new UserEvent($user, ['action' => 'login']));
 
-            return back();  //middleware logged will return to user.index automaticaly
-            //return redirect()->route('bookcast.index');
+            return back()->withSuccess("Bienvenue dans votre tableau de bord");
         }
 
         return back()->withDanger("Impossible de satisfaire votre requête.");

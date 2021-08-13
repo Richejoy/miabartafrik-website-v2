@@ -47,10 +47,10 @@
     <x-loader />
     <!-- End Loader -->
 
-    @include("layouts.partials._validation_errors")
-
     <!-- Page -->
     <main>
+        @include("layouts.partials._validation_errors")
+
         @yield('body')
     </main>
     <!-- End Page -->
@@ -82,6 +82,8 @@
 
     <!-- Custom js -->
     <script src="{{ asset('public/assets/js/custom.js') }}"></script>
+
+    @include('flashy::message')
 
     @stack('scripts')
     

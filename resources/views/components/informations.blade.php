@@ -1,7 +1,5 @@
 <section>
-    {!! Form::model(session('registratedUser')) !!}
-
-    {!! Form::hidden('form', 'user') !!}
+    {!! Form::open() !!}
 
     <div class="row row-sm text-left mb-2">
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
@@ -34,7 +32,7 @@
     <div class="row row-sm text-left mb-2">
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             {{ Form::label('email', 'Votre email', ['class' => 'required-text mg-b-10 label_mba']) }}
-            {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Votre email', 'required' => true]) }}
+            {{ Form::email('email', $subscriber->email, ['class' => 'form-control', 'placeholder' => 'Votre email', 'required' => true, 'readonly' => true]) }}
         </div><!-- col-6 -->
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             {{ Form::label('phone', 'Votre téléphone', ['class' => 'required-text mg-b-10 label_mba']) }}
@@ -53,15 +51,18 @@
         </div><!-- col-6 -->
     </div>
 
-    <div class="row">
-        <div class="col annuler_mbafonction">
-            <p><a href="{{ route('page.register') }}">Annuler l'inscription</a></p>
-        </div>
-        <div class="col enreg_mbafonction">
-            <button type="submit" class="btn btn-link">
-                Enregistrer mes modifications
-            </button>
-        </div>
+    <div class="form-group mt-3 text-left">
+        <label class="ckbox" for="tou">
+            <input type="checkbox" id="tou" name="tou" required><span class="">
+                J'accepte les <a href="{{ route('page.terms') }}" target="_blank">termes</a> et <a
+                    href="{{ route('page.conditions') }}" target="_blank">conditions</a>
+            </span>
+        </label>
+    </div>
+
+    <div class="form-group">
+        {!! Form::submit('Créer mon compte', ['class' => 'btnSignin ripple
+        btn-main-primary btn-block mt-3 mb-3']) !!}
     </div>
 
     {!! Form::close() !!}

@@ -39,9 +39,11 @@
                                         <input class="form-control" placeholder="Email | téléphone | nom d'utilisateur"
                                             type="text" id="email_phone_username" name="email_phone_username">
                                     </div>
-                                    <button class="btnSignin ripple btn-main-primary btn-block" type="submit">
-                                        Demander un lien de réinitialisation
-                                    </button>
+
+                                    <div class="form-group">
+                                        {!! Form::submit('Demander un lien de réinitialisation', ['class' => 'btnSignin ripple btn-main-primary btn-block mt-3 mb-3']) !!}
+                                    </div>
+
                                     {!! Form::close() !!}
 
                                     <div class="card-footer border-top-0 pl-0 mt-3 text-left ">
