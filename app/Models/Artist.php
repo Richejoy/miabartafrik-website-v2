@@ -14,6 +14,10 @@ class Artist extends Model
 
     protected $fillable = [
         'user_id',
+        'is_ambassador',
+        'artistic_area_max',
+        'package_id',
+        'paid',
     ];
 
     protected $casts = [

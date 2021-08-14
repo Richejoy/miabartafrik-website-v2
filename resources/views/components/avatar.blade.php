@@ -16,7 +16,7 @@
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="url" role="tabpanel" aria-labelledby="url-tab">
             {!! Form::model($image, ['files' => true]) !!}
-            {!! Form::hidden('avatar', 'url') !!}
+            {!! Form::hidden('form', 'url') !!}
 
             <div class="row row-sm text-left">
                 <div class="col-md-12">
@@ -44,7 +44,7 @@
         </div>
         <div class="tab-pane fade" id="link" role="tabpanel" aria-labelledby="link-tab">
             {!! Form::model($image) !!}
-            {!! Form::hidden('avatar', 'link') !!}
+            {!! Form::hidden('form', 'link') !!}
 
         <div class="row row-sm text-left">
             <div class="col-md-12">

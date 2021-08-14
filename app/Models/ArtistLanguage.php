@@ -14,6 +14,13 @@ class ArtistLanguage extends Model
 
     public $table = 'artists_languages';
 
+    protected $fillable = [
+        'artist_id',
+        'language_id',
+        'language_level_id',
+        'language_accent',
+    ];
+
     public function artist()
     {
         return $this->belongsTo(Artist::class);

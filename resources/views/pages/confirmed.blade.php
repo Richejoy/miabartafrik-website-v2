@@ -5,7 +5,7 @@
 <div class="page main-signin-wrapper">
 
     <!-- Row -->
-    <div class="row signpages text-center">
+    <div class="row signpages">
         <div class="col-md-12">
             <div class="card">
                 <div class="row row-sm">

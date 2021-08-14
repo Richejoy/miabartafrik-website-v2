@@ -135,12 +135,32 @@ Route::prefix('/pictures')->name('pictures.')->middleware(['auth'])->group(funct
 	Route::match(['GET', 'POST'], '/edit/{image}', [ImageController::class, 'edit'])->name('edit');
 });
 
+
+Route::prefix('/admins')->name('admins.')->middleware(['auth'])->group(function() {
+	
+});
 Route::resource('admins', AdminController::class)->middleware('auth');
 
+
+Route::prefix('/members')->name('members.')->middleware(['auth'])->group(function() {
+	
+});
 Route::resource('members', MemberController::class)->middleware('auth');
 
+
+Route::prefix('/artists')->name('artists.')->middleware(['auth'])->group(function() {
+	Route::get('/package/{package?}', [ArtistController::class, 'package'])->name('package');
+});
 Route::resource('artists', ArtistController::class)->middleware('auth')->except(['destroy']);
 
+
+Route::prefix('/partners')->name('partners.')->middleware(['auth'])->group(function() {
+	Route::get('/package/{package?}', [PartnerController::class, 'package'])->name('package');
+});
 Route::resource('partners', PartnerController::class)->middleware('auth')->except(['destroy']);
 
+
+Route::prefix('/photographers')->name('photographers.')->middleware(['auth'])->group(function() {
+	Route::get('/package/{package?}', [PhotographerController::class, 'package'])->name('package');
+});
 Route::resource('photographers', PhotographerController::class)->middleware('auth')->except(['destroy']);

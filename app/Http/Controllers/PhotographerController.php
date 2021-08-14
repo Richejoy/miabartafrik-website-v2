@@ -20,11 +20,19 @@ class PhotographerController extends Controller
 
     public function create(Request $request)
     {
-        return view('photographers.create');
+        $photographer = Photographer::where('user_id', auth()->id())->firstOrFail();
+
+        return view('photographers.create', compact('photographer'));
     }
 
     public function store(Request $request)
     {
+        $photographer = Photographer::where('user_id', auth()->id())->firstOrFail();
+
+        if ($request->isMethod('POST')) {
+            dd($request->all());
+        }
+
         return back();
     }
 
@@ -43,8 +51,12 @@ class PhotographerController extends Controller
         return back();
     }
 
-    public function package()
+    public function package(Request $request, Package $package = null)
     {
+        if (!is_null($package)) {
+            dd($package->id);
+        }
+        
         $packages = Package::where('user_type_id', 5)->get();
 
         return view('photographers.package', compact('packages'));

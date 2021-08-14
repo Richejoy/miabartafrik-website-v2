@@ -25,8 +25,8 @@ class ImageController extends Controller
     public function edit(Request $request, Image $image)
     {
         if ($request->isMethod('POST')) {
-            if ($request->has('avatar')) {
-                if ($request->avatar == 'url') {
+            if ($request->has('form')) {
+                if ($request->form == 'url') {
 
                                 $this->validate($request, [
                                     'photo' => 'required|mimes:jpeg,png,jpg,gif|max:10000',
@@ -55,7 +55,7 @@ class ImageController extends Controller
                                     flashy()->success("Modifications éffectuées");
                                 }
 
-                }elseif ($request->avatar == 'link') {
+                }elseif ($request->form == 'link') {
                                     
                                 $this->validate($request, [
                                     'description' => 'required|min:6',
@@ -73,7 +73,28 @@ class ImageController extends Controller
 
                 }
 
-                return redirect()->route('bookcast.index');
+                switch ($image->folder) {
+                    case 'admins':
+                    case 'members':
+                        return redirect()->route('bookcast.index');
+                        break;
+
+                    case 'artists':
+                        return redirect()->route('artists.package');
+                        break;
+
+                    case 'partners':
+                        return redirect()->route('partners.package');
+                        break;
+
+                    case 'photographers':
+                        return redirect()->route('photographers.package');
+                        break;
+                    
+                    default:
+                        // code...
+                        break;
+                }
             }
 
             return back();

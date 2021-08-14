@@ -200,7 +200,7 @@ class PageController extends Controller
 
                 $image = Image::create(
                     [
-                        'folder' => 'users',
+                        'folder' => $this->getAppropriateFolder($subscriber->user_type_id),
                         'url' => $this->getAppropriateUrl($request),
                         'link' => $this->getAppropriateLink($request, 'users'),
                         'description' => 'Ma jolie photo',
@@ -273,15 +273,15 @@ class PageController extends Controller
                 }
 
                 if ($user->user_type_id == 3) {
-                    return redirect()->route('artists.index');
+                    return redirect()->route('artists.create');
                 }
 
                 if ($user->user_type_id == 4) {
-                    return redirect()->route('partners.index');
+                    return redirect()->route('partners.create');
                 }
 
                 if ($user->user_type_id == 5) {
-                    return redirect()->route('photographers.index');
+                    return redirect()->route('photographers.create');
                 }
 
             } catch (\Exception $ex) {

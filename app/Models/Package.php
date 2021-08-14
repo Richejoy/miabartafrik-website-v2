@@ -22,6 +22,21 @@ class Package extends Model
         return $this->belongsTo(Currency::class);
     }
 
+    public function getPrice()
+    {
+        return number_format($this->price, 0, '.', ' ') . ' ' . $this->currency->name;
+    }
+
+    public function getPercentage()
+    {
+        return ((100 * ($this->price - $this->discount)) / $this->price) - 100 . ' %';
+    }
+
+    public function getExpire()
+    {
+        return ' / AN';
+    }
+
     public function __toString()
     {
         return $this->name;

@@ -14,6 +14,11 @@ class ArtistArtisticArea extends Model
 
     public $table = 'artists_artistic_areas';
 
+    protected $fillable = [
+        'artist_id',
+        'artistic_area_id',
+    ];
+
     public function artist()
     {
         return $this->belongsTo(Artist::class);

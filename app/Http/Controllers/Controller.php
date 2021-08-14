@@ -26,6 +26,41 @@ class Controller extends BaseController
 		return mt_rand(100000, 500000);
 	}
 
+	protected function getAppropriateFolder(int $user_type_id)
+	{
+		$folder = null;
+
+		if ($user_type_id > 0) {
+			switch ($user_type_id) {
+				case 1:
+					$folder = 'admins';
+					break;
+
+				case 2:
+					$folder = 'members';
+					break;
+
+				case 3:
+					$folder = 'artists';
+					break;
+
+				case 4:
+					$folder = 'partners';
+					break;
+
+				case 5:
+					$folder = 'photographers';
+					break;
+				
+				default:
+					$folder = 'users';
+					break;
+			}
+		}
+
+		return $folder;
+	}
+
 	protected function getAppropriateUrl(Request $request)
 	{
 		$url = null;

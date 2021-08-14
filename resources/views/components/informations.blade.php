@@ -1,7 +1,7 @@
 <section>
     {!! Form::open() !!}
 
-    <div class="row row-sm text-left mb-2">
+    <div class="row mb-2">
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             {{ Form::label('civility_id', "Civilité", ['class' => 'required-text mg-b-10 label_mba']) }}
             <div class="parsley-select" id="slWrapper">
@@ -18,7 +18,7 @@
         </div><!-- col-6 -->
     </div>
 
-    <div class="row row-sm text-left mb-2">
+    <div class="row mb-2">
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             {{ Form::label('last_name', 'Votre nom', ['class' => 'required-text mg-b-10 label_mba']) }}
             {{ Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Votre nom', 'required' => true]) }}
@@ -29,7 +29,7 @@
         </div><!-- col-6 -->
     </div>
 
-    <div class="row row-sm text-left mb-2">
+    <div class="row mb-2">
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             {{ Form::label('email', 'Votre email', ['class' => 'required-text mg-b-10 label_mba']) }}
             {{ Form::email('email', $subscriber->email, ['class' => 'form-control', 'placeholder' => 'Votre email', 'required' => true, 'readonly' => true]) }}
@@ -40,7 +40,7 @@
         </div><!-- col-6 -->
     </div>
 
-    <div class="row row-sm text-left mb-2">
+    <div class="row mb-2">
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             {{ Form::label('city', 'Ville', ['class' => 'required-text mg-b-10 label_mba']) }}
             {{ Form::text('city', null, ['class' => 'form-control', 'placeholder' => 'Ville', 'required' => true]) }}
@@ -51,7 +51,7 @@
         </div><!-- col-6 -->
     </div>
 
-    <div class="form-group mt-3 text-left">
+    <div class="form-group mt-3">
         <label class="ckbox" for="tou">
             <input type="checkbox" id="tou" name="tou" required><span class="">
                 J'accepte les <a href="{{ route('page.terms') }}" target="_blank">termes</a> et <a
