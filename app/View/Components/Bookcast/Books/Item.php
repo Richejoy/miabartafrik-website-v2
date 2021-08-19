@@ -1,22 +1,22 @@
 <?php
 
-namespace App\View\Components\Auth;
+namespace App\View\Components\Bookcast\Books;
 
 use Illuminate\View\Component;
-use App\Models\Photographer;
+use App\Models\Artist;
 
-class PhotographerNextForm extends Component
+class Item extends Component
 {
-    public $photographer;
+    public $artists;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($photographer)
+    public function __construct($artists)
     {
-        $this->photographer = $photographer;
+        $this->artists = $artists;
     }
 
     /**
@@ -26,6 +26,6 @@ class PhotographerNextForm extends Component
      */
     public function render()
     {
-        return view('components.auth.photographer-next-form');
+        return view('components.bookcast.books.item');
     }
 }

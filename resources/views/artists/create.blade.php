@@ -36,7 +36,7 @@
                                     <p class="mb-4 text-muted tx-13 ml-0 text-left">Mettez une chance de côté en
                                         complétant vos informations de profil.</p>
 
-                                    <x-auth.artist-next-form />
+                                    <x-auth.artist-next-form :artist="$artist" />
 
                                 </div>
                             </div>

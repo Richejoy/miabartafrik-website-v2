@@ -16,4 +16,6 @@
 
 <p>Veuillez cliquer <a href="{{ route('page.activated', array('email' => $user->email, 'token' => $user->token)) }}">ici</a> pour activer votre compte.</p>
 
+<p>Copie : {{ route('page.activated', array('email' => $user->email, 'token' => $user->token)) }}</p>
+
 @endsection

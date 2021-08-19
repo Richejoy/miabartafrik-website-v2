@@ -106,8 +106,27 @@ class PageController extends Controller
 
     public function lockScreen(Request $request)
     {
+        if ($request->has('lock')) {
+            session()->put('lockUser', auth()->user());
+
+            auth()->logout();
+
+            return redirect()->route('page.lock_screen');
+        }
+
         if ($request->isMethod('POST')) {
-            return back();
+            $this->validate($request, [
+                'email_phone_username' => 'required',
+                'password' => 'required',
+            ]);
+
+            if (session('lockUser')->email == $request->email_phone_username) {
+
+                return $this->_processLoginForm($request, session('lockUser'));
+
+            }
+
+            return back()->withDanger("Impossible de vous connecter.");
         }
 
         return view('pages.lock_screen');
@@ -188,6 +207,7 @@ class PageController extends Controller
                 'phone' => 'required|unique:users',
                 'city' => 'required|min:3',
                 'address' => 'required|min:3',
+                'password' => 'required|min:9|confirmed',
             ]);
 
             if (empty($request->tou)) {
@@ -207,7 +227,7 @@ class PageController extends Controller
                     ]
                 );
 
-                $password = mb_substr(uniqid($image->id), 0, 9);
+                $password = $request->password;
 
                 $user = User::create(
                     array_merge(

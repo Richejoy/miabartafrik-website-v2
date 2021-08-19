@@ -53,12 +53,18 @@ class PhotographerController extends Controller
 
     public function package(Request $request, Package $package = null)
     {
+        $photographer = Photographer::where('user_id', auth()->id())->firstOrFail();
+        
         if (!is_null($package)) {
-            dd($package->id);
+            $photographer->update([
+                'package_id' => $package->id,
+            ]);
+
+            return redirect()->route('bookcast.index');
         }
         
         $packages = Package::where('user_type_id', 5)->get();
 
-        return view('photographers.package', compact('packages'));
+        return view('photographers.package', compact('photographer', 'packages'));
     }
 }

@@ -64,7 +64,7 @@ Route::prefix('/')->name('page.')->group(function() {
 
 	Route::match(['GET', 'POST'], '/donate', [PageController::class, 'donate'])->name('donate');
 
-	Route::match(['GET', 'POST'], '/lock/screen', [PageController::class, 'lockScreen'])->middleware(['auth'])->name('lock_screen');
+	Route::match(['GET', 'POST'], '/lock/screen', [PageController::class, 'lockScreen'])->middleware(['lock'])->name('lock_screen');
 
 	Route::get('/logout', [PageController::class, 'logout'])->name('logout');
 });
@@ -143,7 +143,7 @@ Route::resource('admins', AdminController::class)->middleware('auth');
 
 
 Route::prefix('/members')->name('members.')->middleware(['auth'])->group(function() {
-	
+	Route::get('/package/{package?}', [MemberController::class, 'package'])->name('package');
 });
 Route::resource('members', MemberController::class)->middleware('auth');
 

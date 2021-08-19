@@ -1,4 +1,4 @@
-@extends('layouts.auth', ['title' => "Photographe"])
+@extends('layouts.auth', ['title' => $photographer->user->full_name])
 
 @section('body')
 
@@ -30,7 +30,7 @@
                                     <h5 class="text-left mb-2">COMPLETER VOTRE INSCRIPTION</h5>
                                     <p class="mb-4 text-muted tx-13 ml-0 text-left">Mettez une chance de côté en complétant vos informations de profil.</p>
 
-                                    <x-auth.photographer-next-form />
+                                    <x-auth.photographer-next-form :photographer="$photographer" />
 
                                 </div>
                             </div>

@@ -29,7 +29,7 @@
                                     <div class="clearfix"></div>
                                     <h5 class="text-left mb-2 textSignHead">Inscription gratuite</h5>
                                     <p class="mb-4 text-muted tx-13 ml-0 text-left">L'inscription est gratuite et ne
-                                        prend qu'une minute.</p>
+                                        prend que moins de 15s.</p>
 
                                     {!! Form::open() !!}
 

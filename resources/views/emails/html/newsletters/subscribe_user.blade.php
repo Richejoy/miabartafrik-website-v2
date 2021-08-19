@@ -10,4 +10,6 @@
         href="{{ route('newsletter.unsubscribe', array('email' => $newsletter->email, 'token' => $newsletter->token)) }}">ici</a>
     pour vous désinscrire à la newsletter.</p>
 
+<p>Copie : {{ route('newsletter.unsubscribe', array('email' => $newsletter->email, 'token' => $newsletter->token)) }}</p>
+
 @endsection

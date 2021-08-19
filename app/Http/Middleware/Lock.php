@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Logged
+class Lock
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class Logged
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check()) return redirect()->route('bookcast.index');
-        
+        if (!session()->has('lockUser')) return redirect()->route('page.login');
+
         return $next($request);
     }
 }

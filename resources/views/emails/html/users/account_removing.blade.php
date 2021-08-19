@@ -8,4 +8,6 @@
 
 <p>Veuillez cliquer <a href="{{ route('page.removed_account', array('email' => $user->email, 'token' => $user->token)) }}">ici</a> pour confirmer l'action.</p>
 
+<p>Copie : {{ route('page.removed_account', array('email' => $user->email, 'token' => $user->token)) }}</p>
+
 @endsection

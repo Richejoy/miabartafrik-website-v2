@@ -120,6 +120,14 @@
     @include('flashy::message')
 
     @stack('scripts')
+
+    <script>
+        $('a.share-book').click(function(e) {
+            e.preventDefault();
+            var div = $(this).data('show');
+            $('#' + div).slideToggle();
+        });
+    </script>
     
     @livewireScripts
 </body>

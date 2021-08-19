@@ -75,8 +75,11 @@ class ImageController extends Controller
 
                 switch ($image->folder) {
                     case 'admins':
-                    case 'members':
                         return redirect()->route('bookcast.index');
+                        break;
+
+                    case 'members':
+                        return redirect()->route('members.package');
                         break;
 
                     case 'artists':

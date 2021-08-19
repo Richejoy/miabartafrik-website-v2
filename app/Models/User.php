@@ -164,6 +164,21 @@ class User extends Authenticatable
         return 'flag flag-' . mb_strtolower($this->country->iso);
     }
 
+    public function userViews()
+    {
+        return $this->hasMany(UserView::class, 'sender_id');
+    }
+
+    public function userLikes()
+    {
+        return $this->hasMany(UserLike::class, 'sender_id');
+    }
+
+    public function userFriends()
+    {
+        return $this->hasMany(UserFriend::class, 'sender_id');
+    }
+
     public function __toString()
     {
         return $this->full_name;

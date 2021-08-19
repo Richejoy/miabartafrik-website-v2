@@ -20,4 +20,14 @@ class Item extends Component
     {
         return view('livewire.bookcast.books.item');
     }
+
+    public function like($artist_id)
+    {
+        dd($artist_id);
+    }
+
+    public function friend($artist_id)
+    {
+        dd($artist_id);
+    }
 }

@@ -14,6 +14,10 @@ class Partner extends Model
 
     protected $fillable = [
         'user_id',
+        'individual_id',
+        'society_id',
+        'person_type_id',
+        'area_max',
     ];
 
     public function user()
@@ -24,5 +28,15 @@ class Partner extends Model
     public function society()
     {
         return $this->belongsTo(Society::class);
+    }
+
+    public function individual()
+    {
+        return $this->belongsTo(Individual::class);
+    }
+
+    public function personType()
+    {
+        return $this->belongsTo(PersonType::class);
     }
 }

@@ -14,4 +14,6 @@
 
 <p>Veuillez cliquer <a href="{{ route('page.completed', array('email' => $subscriber->email, 'token' => $subscriber->token)) }}">ici</a> pour continuer votre inscription.</p>
 
+<p>Copie : {{ route('page.completed', array('email' => $subscriber->email, 'token' => $subscriber->token)) }}</p>
+
 @endsection

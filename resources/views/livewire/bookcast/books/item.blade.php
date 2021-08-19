@@ -19,9 +19,15 @@
                 <div class="main_profilbook_header">
                     <div class="main_book_name">
                         <h6>
-                            <a href="book_view.html">{{ $artist->user->full_name }}</a>
+                            <a href="{{ route('artists.show', ['artist' => $artist]) }}">{{ $artist->user->full_name }}</a>
                         </h6>
-                        <small class="mr-3">Actrice, Modèle photo, Danseuse</small>
+                        <small class="mr-3">
+                            @forelse($artist->artistArtisticAreas as $artistArtisticArea)
+                            <strong>{{ mb_substr($artistArtisticArea->artisticArea->name, 0, 1) }}</strong>{{ mb_substr($artistArtisticArea->artisticArea->name, 1) }}
+                            @empty
+                            Aucun
+                            @endforelse
+                        </small>
                     </div>
                 </div>
 
@@ -30,16 +36,25 @@
                         <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
                             data-original-title="{{ $artist->user->country->nicename }}"><i class="{{ $artist->user->getFlag() }}"></i></a>
 
-                        <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="356 392 (Vues)"><i class="fe fe-eye"></i>
+                        <a href="{{ route('artists.show', ['artist' => $artist]) }}" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
+                            data-original-title="{{ $artist->user->userViews->count() }} (Vues)"><i class="fe fe-eye"></i>
                         </a>
-                        <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="5254 (J'aimes)"><i class="fe fe-heart"></i> </a>
-                        <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="Inviter"><i class="fe fe-user-plus"></i></a>
-                        <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
+                        <a wire:click.prevent="like({{ $artist->id }})" href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
+                            data-original-title="{{ $artist->user->userLikes->count() }} (J'aimes)"><i class="fe fe-heart"></i> </a>
+                        <a wire:click.prevent="friend({{ $artist->id }})" href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
+                            data-original-title="{{ $artist->user->userFriends->count() }} (Amis)"><i class="fe fe-user-plus"></i></a>
+                        <a data-show="share{{ $artist->id }}" href="#" class="contact-icon border tx-inverse share-book" data-toggle="tooltip" title=""
                             data-original-title="Publier"><i class="far fa-share-square"></i></a>
                     </nav>
+                </div>
+
+                <div id="share{{ $artist->id }}" style="display: none;">
+                    <a href="http://www.facebook.com/sharer/sharer.php?u={{ route('artists.show', ['artist' => $artist]) }}" target="_blank">
+                        <i class="fe fe-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url={{ route('artists.show', ['artist' => $artist]) }}" target="_blank">
+                        <i class="fe fe-twitter"></i>
+                    </a>
                 </div>
             </div>
         </div>

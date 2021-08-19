@@ -5,12 +5,13 @@ namespace App\View\Components\Auth;
 use Illuminate\View\Component;
 use App\Models\Area;
 use App\Models\Work;
-use App\Models\Society;
-use App\Models\PersonType;
 use App\Models\PersonLevel;
+use App\Models\Partner;
 
 class PartnerNextForm extends Component
 {
+    public $partner;
+
     public $areas;
 
     public $works;
@@ -22,8 +23,10 @@ class PartnerNextForm extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($partner)
     {
+        $this->partner = $partner;
+
         $this->areas = Area::all()->sortBy('id')->pluck(null, 'id');
         $this->works = Work::all()->sortBy('id')->pluck(null, 'id');
         $this->personLevels = PersonLevel::all()->sortBy('id')->pluck(null, 'id');

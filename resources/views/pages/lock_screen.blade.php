@@ -32,17 +32,18 @@
                                         votre mot de passe</p>
 
                                     {!! Form::open() !!}
+                                    {!! Form::hidden('email_phone_username', session('lockUser')->email) !!}
+
                                     <div class="text-left d-flex float-left mb-4 user-lock">
                                         <img alt="avatar avatar-sm" class="rounded-circle mb-0"
-                                            src="{{ asset('public/assets/img/artiste/artiste3-1.jpg') }}">
+                                            src="{{ session('lockUser')->image->link }}">
                                         <div class="my-auto">
-                                            <p class="font-weight-semibold my-auto ml-2 text-uppercase ">Fidèle Amouzou
+                                            <p class="font-weight-semibold my-auto ml-2 text-uppercase">{{ session('lockUser')->full_name }}
                                             </p>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Tapez votre mot de passe"
-                                            type="password" id="password" name="password" required>
+                                        {!! Form::password('password', null, ['class' => 'form-control', 'required' => true, 'placeholder' => 'Tapez votre mot de passe']) !!}
                                     </div>
                                     <div class="text-left">
                                         <label class="custom-switch">

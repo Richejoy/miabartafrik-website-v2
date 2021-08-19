@@ -64,7 +64,7 @@
                                                         </div>
 
                                                         <p class="small-text text-center">
-                                                            <a href="{{ route('artists.package', array('package' => $package)) }}"
+                                                            <a href="{{ route('members.package', array('package' => $package)) }}"
                                                                 class="btnSignin ripple btn-main-primary btn-block">J'EN
                                                                 PROFITE</a>
                                                         </p>

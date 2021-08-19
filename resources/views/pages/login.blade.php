@@ -66,6 +66,12 @@
                                                 mot de passe</a></div>
                                         <div>Je n'ai pas un compte. <a href="{{ route('page.register') }}">S'inscrire
                                                 maintenant</a></div>
+
+                                        @if(session()->has('lockUser'))
+                                        <div>
+                                            <a href="{{ route('page.lock_screen') }}">Page de vérroullage</a>
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

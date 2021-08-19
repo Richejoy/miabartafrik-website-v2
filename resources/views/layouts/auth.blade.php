@@ -58,6 +58,8 @@
     <!-- Jquery js-->
     <script src="{{ asset('public/assets/plugins/jquery/jquery.min.js') }}"></script>
 
+    <script src="{{ asset('public/assets/js/select2.js') }}"></script>
+
     <!-- Bootstrap js-->
     <script src="{{ asset('public/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
     <script src="{{ asset('public/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>

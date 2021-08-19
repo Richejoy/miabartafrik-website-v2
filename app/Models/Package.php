@@ -29,7 +29,14 @@ class Package extends Model
 
     public function getPercentage()
     {
-        return ((100 * ($this->price - $this->discount)) / $this->price) - 100 . ' %';
+        $percentage = 100;
+        $sign = ' %';
+
+        if ($this->price != 0) {
+            $percentage = (($percentage * ($this->price - $this->discount)) / $this->price) - $percentage;
+        }
+
+        return $percentage . $sign;
     }
 
     public function getExpire()

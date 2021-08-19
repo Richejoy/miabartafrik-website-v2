@@ -33,62 +33,37 @@ class ArtistController extends Controller
 
         if ($request->isMethod('POST')) {
             
-            if ($request->has('form')) {
-                switch ($request->form) {
-                    case 'artisticArea':
-                        
-                        $this->validate($request, [
-                            'artistic_area_id' => 'required|array|size:3',
-                        ]);
+            $this->validate($request, [
+                'artistic_area_id' => 'required|array|size:3',
+                'language_id' => 'required',
+                'language_level_id' => 'required',
+                'language_accent' => 'required|min:3',
+            ]);
 
-                        if ($artist->artistic_area_max == 0) {
-                            if (is_array($request->artistic_area_id)) {
-                                foreach($request->artistic_area_id as $key => $value) {
-                                    ArtistArtisticArea::create([
-                                        'artist_id' => $artist->id,
-                                        'artistic_area_id' => $value,
-                                    ]);
-                                }
+            if ($artist->artistic_area_max == 0) {
 
-                                $artist->update([
-                                    'artistic_area_max' => count($request->artistic_area_id),
-                                ]);
-                            }
-
-                            return back()->withSuccess("Informations pris en compte");
-                        }
-
-                        return back()->withDanger("Vous avez atteind la limite exigée");
-
-                        break;
-
-                    case 'language':
-                        $this->validate($request, [
-                            'language_id' => 'required',
-                            'language_level_id' => 'required',
-                            'language_accent' => 'required|min:3',
-                        ]);
-                        
-                        ArtistLanguage::create(array_merge(
-                            $request->all(),
-                            [
-                                'artist_id' => $artist->id,
-                            ]
-                        ));
-
-                        if ($request->leave_page || ($request->leave_page == 'on')) {
-                            return redirect()->route('pictures.edit', ['image' => $artist->user->image]);
-                        }
-
-                        return back()->withSuccess("Informations pris en compte");
-
-                        break;
-                    
-                    default:
-                        // code...
-                        break;
+                foreach($request->artistic_area_id as $key => $value) {
+                    ArtistArtisticArea::create([
+                        'artist_id' => $artist->id,
+                        'artistic_area_id' => $value,
+                    ]);
                 }
+
+                ArtistLanguage::create(array_merge(
+                    $request->only('language_id', 'language_level_id', 'language_accent'),
+                    [
+                        'artist_id' => $artist->id,
+                    ]
+                ));
+
+                $artist->update([
+                    'artistic_area_max' => count($request->artistic_area_id),
+                ]);
+                            
+                return redirect()->route('pictures.edit', ['image' => $artist->user->image]);
             }
+
+            return back()->withDanger("Vous avez atteind la limite exigée");
         }
 
         return back();
@@ -123,6 +98,6 @@ class ArtistController extends Controller
 
         $packages = Package::where('user_type_id', 3)->get();
 
-        return view('artists.package', compact('packages'));
+        return view('artists.package', compact('artist', 'packages'));
     }
 }

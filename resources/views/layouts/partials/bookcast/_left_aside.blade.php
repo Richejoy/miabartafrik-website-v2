@@ -9,7 +9,11 @@
             </div>
             <div class="right_sidebar">
                 
-                @livewire('bookcast.movies.item', ['movie' => $movie])
+                @if(!is_null($movie))
+                    @livewire('bookcast.movies.item', ['movie' => $movie])
+                @else
+                <p>Aucune donnée trouvée</p>
+                @endif
 
             </div>
         </div>
@@ -23,7 +27,11 @@
             </div>
             <div class="right_sidebar">
                 
-                @livewire('bookcast.books.item', ['artist' => $artist])
+                @if(!is_null($artist))
+                    @livewire('bookcast.books.item', ['artist' => $artist])
+                @else
+                <p>Aucune donnée trouvée</p>
+                @endif
 
             </div>
         </div>
@@ -37,7 +45,11 @@
             </div>
             <div class="right_sidebar">
                 
-                @livewire('bookcast.castings.item', ['casting' => $casting])
+                @if(!is_null($casting))
+                    @livewire('bookcast.castings.item', ['casting' => $casting])
+                @else
+                <p>Aucune donnée trouvée</p>
+                @endif
 
             </div>
         </div>
@@ -51,7 +63,11 @@
             </div>
             <div class="right_sidebar">
                 
-                @livewire('bookcast.elections.item', ['artist' => $election])
+                @if(!is_null($election))
+                    @livewire('bookcast.elections.item', ['artist' => $election])
+                @else
+                <p>Aucune donnée trouvée</p>
+                @endif
 
             </div>
         </div>

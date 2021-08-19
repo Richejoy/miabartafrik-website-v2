@@ -5,27 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PartnerArea extends Model
+class UserView extends Model
 {
     use HasFactory;
 
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    public $table = 'partners_areas';
+    public $table = 'users_views';
 
     protected $fillable = [
-        'partner_id',
-        'area_id',
+        'sender_id',
+        'receiver_id',
     ];
 
-    public function partner()
+    public function sender()
     {
-        return $this->belongsTo(Partner::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function area()
+    public function receiver()
     {
-        return $this->belongsTo(Area::class);
+        return $this->belongsTo(User::class);
     }
 }
