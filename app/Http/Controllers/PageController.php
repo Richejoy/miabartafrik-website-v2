@@ -14,12 +14,12 @@ use App\Models\Member;
 use App\Models\Artist;
 use App\Models\Partner;
 use App\Models\Photographer;
-use App\Models\ArtisticRay;
 use App\Models\Subscriber;
 use App\Models\Transaction;
 use App\Events\UserEvent;
 use App\Events\SubscriberEvent;
 use Illuminate\Validation\Rule;
+use Carbon\Carbon;
 
 class PageController extends Controller
 {
@@ -106,14 +106,6 @@ class PageController extends Controller
 
     public function lockScreen(Request $request)
     {
-        if ($request->has('lock')) {
-            session()->put('lockUser', auth()->user());
-
-            auth()->logout();
-
-            return redirect()->route('page.lock_screen');
-        }
-
         if ($request->isMethod('POST')) {
             $this->validate($request, [
                 'email_phone_username' => 'required',
@@ -178,6 +170,8 @@ class PageController extends Controller
                 'email' => $request->email,
                 'user_type_id' => $request->user_type_id,
                 'token' => sha1(uniqid()),
+                'token_expires' => now()->addDay(),
+                'token_signature' => md5(uniqid()),
             ]);
 
             event(new SubscriberEvent($subscriber, ['action' => 'subscription']));
@@ -195,6 +189,8 @@ class PageController extends Controller
     public function completed(Request $request, string $email, string $token)
     {
         $subscriber = Subscriber::where(['email' => $email, 'token' => $token])->firstOrFail();
+
+        abort_if(Carbon::parse($subscriber->token_expires)->isPast(), 403, 'The expire date is past');
 
         if ($request->isMethod('POST')) {
 
@@ -288,7 +284,6 @@ class PageController extends Controller
                 auth()->login($user);
 
                 if ($user->user_type_id == 2) {
-                    //return redirect()->route('members.index');
                     return redirect()->route('pictures.edit', ['image' => $image]);
                 }
 
@@ -417,7 +412,7 @@ class PageController extends Controller
     {
         Transaction::create([
             'activity' => "Déconnexion sur le site",
-            'user_id' => $request->user()->id,
+            'user_id' => auth()->id(),
             'transaction_type_id' => 2,
         ]);
 
@@ -432,13 +427,15 @@ class PageController extends Controller
 
     public function lock(Request $request)
     {
-        /*auth()->logout();
+        if ($request->has('lock')) {
+            session()->put('lockUser', auth()->user());
 
-        if (session()->has('pendingConnectUser')) {
-            session()->forget('pendingConnectUser');
-        }*/
+            auth()->logout();
 
-        return redirect()->route('page.lock_screen');
+            return redirect()->route('page.lock_screen');
+        }
+
+        return $this->logout($request);
     }
 
     public function removedAccount(Request $request, string $email, string $token)

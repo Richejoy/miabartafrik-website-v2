@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ArtisticRay extends Model
+class AreaRay extends Model
 {
     use HasFactory;
 
@@ -17,8 +17,8 @@ class ArtisticRay extends Model
         return $this->name;
     }
 
-    public function artisticAreas()
+    public function areas()
     {
-        return $this->hasMany(ArtisticArea::class);
+        return $this->hasMany(Area::class);
     }
 }

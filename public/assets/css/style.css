@@ -481,10 +481,7 @@ h3.title--intertitle {
  
 }
 
-.comedien-profile-form{
-    margin-top: 1rem; 
-}
-
+ 
 .comedien-profile-form p{
     font-size: .625rem;
     font-family: Open Sans,sans-serif;
@@ -504,10 +501,9 @@ h3.title--intertitle {
     font-size: .75rem;
     font-family: Rubik,sans-serif;
     font-weight: 700;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
-    margin-left: -1rem;
+    padding-top: .8rem;
+    padding-bottom: .5rem;
+    padding-left: 1rem; 
     width: 100%;
 }
 
@@ -605,6 +601,16 @@ h6,
     content: url(../img/obligatoire@1x.baedf82e.png);
     display: inline;
     padding-left: .2rem;
+    padding-right: .2rem;
+
+}
+
+.all_services_mba_small::before {
+
+    content: url(../img/obligatoire@1x.baedf82e.png);
+    display: inline;
+    padding-left: .2rem;
+    padding-right: .2rem;
 
 }
 
@@ -3044,6 +3050,10 @@ fieldset:disabled a.btn {
 .card-body {
     flex: 1 1 auto;
     padding: 25px;
+}
+
+.card_infos_miabpay {
+    flex: 1 1 auto; 
 }
 
 .main-content-label {
@@ -14398,6 +14408,22 @@ textarea.parsley-success:focus {
 }
 
 /* ###### Chat  ###### */
+
+
+/* ###### Miab.Pay  ###### */ 
+
+.info_payer_title {
+    color: #2c539b;
+    font-weight: 500;
+    font-size: 12px !important;
+    text-indent: -1px;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+
 /* ########## Contacts ########## */
 @media (min-width: 768px) and (max-width: 991.98px) {
     .main-content-body-show .main-header-contacts .main-header-menu-icon {
@@ -67213,6 +67239,10 @@ a.tag-addon:hover {
     .main-navbar-backdrop {
         transition: none;
     }
+}
+
+.bonadress_color{ 
+    background-color: #884307 !important; 
 }
 
 .main-navbar {

@@ -18,6 +18,8 @@ class Partner extends Model
         'society_id',
         'person_type_id',
         'area_max',
+        'package_id',
+        'paid',
     ];
 
     public function user()
@@ -38,5 +40,15 @@ class Partner extends Model
     public function personType()
     {
         return $this->belongsTo(PersonType::class);
+    }
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
+
+    public function partnerAreas()
+    {
+        return $this->hasMany(PartnerArea::class);
     }
 }

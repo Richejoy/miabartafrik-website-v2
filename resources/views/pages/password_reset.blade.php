@@ -7,8 +7,13 @@
     <!-- Row -->
     <div class="row signpages">
         <div class="col-md-12">
+            
+            <div class="row">
+                @include("layouts.partials._validation_errors")
+            </div>
+
             <div class="card">
-                <div class="row row-sm">
+                <div class="row">
                     <div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
                         <div class="mt-4 pt-5 p-2 pos-absolute">
                             <img src="{{ asset('public/assets/img/brand/logo-light.png') }}"

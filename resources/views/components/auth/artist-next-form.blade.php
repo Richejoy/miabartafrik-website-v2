@@ -6,9 +6,9 @@
     </p>
 
     <div class="form-group">
-        {{ Form::label('artistic_area_id', "Domaines artistique", ['class' => 'required-text']) }}
+        {{ Form::label('area_id', "Domaines artistique", ['class' => 'required-text']) }}
         <div class="parsley-select" id="slWrapper">
-            {{ Form::select('artistic_area_id', $artisticAreas, null, ['name' => 'artistic_area_id[]', 'class' => 'form-control select2', 'required' => true, 'multiple' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Domaines artistique"]) }}
+            {{ Form::select('area_id', $areas, null, ['name' => 'area_id[]', 'class' => 'form-control select2', 'required' => true, 'multiple' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Domaines artistique"]) }}
             <div id="slErrorContainer"></div>
         </div>
     </div>

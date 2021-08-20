@@ -13,7 +13,9 @@ class Society extends Model
     const UPDATED_AT = 'modified';
 
     protected $fillable = [
-        'name', 'rccm'
+        'name',
+        'rccm',
+        'nif',
     ];
 
     public function __toString()

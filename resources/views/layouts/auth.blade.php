@@ -49,8 +49,6 @@
 
     <!-- Page -->
     <main>
-        @include("layouts.partials._validation_errors")
-
         @yield('body')
     </main>
     <!-- End Page -->

@@ -3,7 +3,7 @@
 namespace App\View\Components\Auth;
 
 use Illuminate\View\Component;
-use App\Models\ArtisticArea;
+use App\Models\Area;
 use App\Models\Language;
 use App\Models\LanguageLevel;
 use App\Models\Artist;
@@ -12,7 +12,7 @@ class ArtistNextForm extends Component
 {
     public $artist;
 
-    public $artisticAreas;
+    public $areas;
 
     public $languages;
 
@@ -27,7 +27,7 @@ class ArtistNextForm extends Component
     {
         $this->artist = $artist;
         
-        $this->artisticAreas = ArtisticArea::all()->sortBy('id')->pluck(null, 'id');
+        $this->areas = Area::where('user_type_id', $artist->user->user_type_id)->get()->sortBy('id')->pluck(null, 'id');
         $this->languages = Language::all()->sortBy('id')->pluck(null, 'id');
         $this->languageLevels = LanguageLevel::all()->sortBy('id')->pluck(null, 'id');
     }

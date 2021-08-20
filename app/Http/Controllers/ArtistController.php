@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Artist;
-use App\Models\ArtistArtisticArea;
-use App\Models\ArtistLanguage;
+use App\Models\ArtistArea;
+use App\Models\UserLanguage;
 use App\Models\Package;
 
 class ArtistController extends Controller
@@ -34,33 +35,46 @@ class ArtistController extends Controller
         if ($request->isMethod('POST')) {
             
             $this->validate($request, [
-                'artistic_area_id' => 'required|array|size:3',
+                'area_id' => 'required|array|size:3',
                 'language_id' => 'required',
                 'language_level_id' => 'required',
                 'language_accent' => 'required|min:3',
             ]);
 
-            if ($artist->artistic_area_max == 0) {
+            if ($artist->area_max == 0) {
 
-                foreach($request->artistic_area_id as $key => $value) {
-                    ArtistArtisticArea::create([
-                        'artist_id' => $artist->id,
-                        'artistic_area_id' => $value,
+                try {
+
+                    DB::beginTransaction();
+
+                    foreach($request->area_id as $key => $value) {
+                        ArtistArea::create([
+                            'artist_id' => $artist->id,
+                            'area_id' => $value,
+                        ]);
+                    }
+
+                    UserLanguage::create(array_merge(
+                        $request->only('language_id', 'language_level_id', 'language_accent'),
+                        [
+                            'user_id' => $artist->user_id,
+                        ]
+                    ));
+
+                    $artist->update([
+                        'area_max' => count($request->area_id),
                     ]);
-                }
 
-                ArtistLanguage::create(array_merge(
-                    $request->only('language_id', 'language_level_id', 'language_accent'),
-                    [
-                        'artist_id' => $artist->id,
-                    ]
-                ));
+                    DB::commit();
 
-                $artist->update([
-                    'artistic_area_max' => count($request->artistic_area_id),
-                ]);
+                    flashy()->success("Modifications éffectuées");
                             
-                return redirect()->route('pictures.edit', ['image' => $artist->user->image]);
+                    return redirect()->route('pictures.edit', ['image' => $artist->user->image]);
+                } catch (\Exception $ex) {
+                    DB::rollback();
+
+                    session()->flash('danger', "Impossible de vous inscrire " . $ex);
+                }
             }
 
             return back()->withDanger("Vous avez atteind la limite exigée");
@@ -96,7 +110,7 @@ class ArtistController extends Controller
             return redirect()->route('bookcast.index');
         }
 
-        $packages = Package::where('user_type_id', 3)->get();
+        $packages = Package::where('user_type_id', $artist->user->user_type_id)->get();
 
         return view('artists.package', compact('artist', 'packages'));
     }

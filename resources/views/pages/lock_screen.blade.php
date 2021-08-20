@@ -7,8 +7,13 @@
     <!-- Row -->
     <div class="row signpages">
         <div class="col-md-12">
+            
+            <div class="row">
+                @include("layouts.partials._validation_errors")
+            </div>
+
             <div class="card">
-                <div class="row row-sm">
+                <div class="row">
                     <div class="col-lg-6 col-xl-5 d-none d-lg-block bg-primary details">
                         <div class="mt-4 pt-4 pl-5 ml-3 pr-5 pos-absolute">
                             <img src="{{ asset('public/assets/img/brand/logo-light.png') }}"
@@ -43,7 +48,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::password('password', null, ['class' => 'form-control', 'required' => true, 'placeholder' => 'Tapez votre mot de passe']) !!}
+                                        {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Tapez votre mot de passe']) !!}
                                     </div>
                                     <div class="text-left">
                                         <label class="custom-switch">

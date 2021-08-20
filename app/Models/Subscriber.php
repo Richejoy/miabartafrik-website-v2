@@ -15,6 +15,8 @@ class Subscriber extends Model
     protected $fillable = [
         'email',
         'token',
+        'token_expires',
+        'token_signature',
         'user_type_id',
     ];
 

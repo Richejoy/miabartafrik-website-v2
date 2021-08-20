@@ -143,11 +143,11 @@
 }
 .select2-container--default .select2-selection--single {
 	background-color: #fff;
-	border: 1px solid #e8e8f7;
+	border: 1px solid #bababd;
 	border-radius: 3px;
 }
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-	color: #a6a6bf;
+	color: #5b5b5e;
 	line-height: 38px;
 }
 .select2-container--default .select2-selection--single .select2-selection__clear {

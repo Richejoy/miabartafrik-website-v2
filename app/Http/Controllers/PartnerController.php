@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Partner;
 use App\Models\PartnerArea;
@@ -51,22 +52,35 @@ class PartnerController extends Controller
 
                         if ($partner->area_max == 0) {
 
-                            $individual = Individual::create($request->except('area_id'));
+                            try {
 
-                            $partner->update([
-                                'individual_id' => $individual->id,
-                                'person_type_id' => 1,
-                                'area_max' => count($request->area_id),
-                            ]);
+                                DB::beginTransaction();
 
-                            foreach($request->area_id as $key => $value) {
-                                PartnerArea::create([
-                                    'partner_id' => $partner->id,
-                                    'area_id' => $value,
+                                $individual = Individual::create($request->except('area_id'));
+
+                                $partner->update([
+                                    'individual_id' => $individual->id,
+                                    'person_type_id' => 1,
+                                    'area_max' => count($request->area_id),
                                 ]);
-                            }
 
-                            return redirect()->route('pictures.edit', ['image' => $partner->user->image]);
+                                foreach($request->area_id as $key => $value) {
+                                    PartnerArea::create([
+                                        'partner_id' => $partner->id,
+                                        'area_id' => $value,
+                                    ]);
+                                }
+
+                                DB::commit();
+
+                                flashy()->success("Modifications éffectuées");
+
+                                return redirect()->route('pictures.edit', ['image' => $partner->user->image]);
+                            } catch (\Exception $ex) {
+                                DB::rollback();
+
+                                session()->flash('danger', "Impossible de vous inscrire " . $ex);
+                            }
                         }
 
                         return back()->withDanger("Vous avez atteind la limite exigée");
@@ -88,22 +102,35 @@ class PartnerController extends Controller
 
                         if ($partner->area_max == 0) {
 
-                            $society = Society::create($request->except('area_id'));
+                            try {
 
-                            $partner->update([
-                                'society_id' => $society->id,
-                                'person_type_id' => 2,
-                                'area_max' => count($request->area_id),
-                            ]);
-                            
-                            foreach($request->area_id as $key => $value) {
-                                PartnerArea::create([
-                                    'partner_id' => $partner->id,
-                                    'area_id' => $value,
+                                DB::beginTransaction();
+
+                                $society = Society::create($request->except('area_id'));
+
+                                $partner->update([
+                                    'society_id' => $society->id,
+                                    'person_type_id' => 2,
+                                    'area_max' => count($request->area_id),
                                 ]);
-                            }
+                            
+                                foreach($request->area_id as $key => $value) {
+                                    PartnerArea::create([
+                                        'partner_id' => $partner->id,
+                                        'area_id' => $value,
+                                    ]);
+                                }
 
-                            return redirect()->route('pictures.edit', ['image' => $partner->user->image]);
+                                DB::commit();
+
+                                flashy()->success("Modifications éffectuées");
+
+                                return redirect()->route('pictures.edit', ['image' => $partner->user->image]);
+                            } catch (\Exception $ex) {
+                                DB::rollback();
+
+                                session()->flash('danger', "Impossible de vous inscrire " . $ex);
+                            }
                         }
 
                         return back()->withDanger("Vous avez atteind la limite exigée");
@@ -147,7 +174,7 @@ class PartnerController extends Controller
             return redirect()->route('bookcast.index');
         }
         
-        $packages = Package::where('user_type_id', 4)->get();
+        $packages = Package::where('user_type_id', $partner->user->user_type_id)->get();
 
         return view('partners.package', compact('partner', 'packages'));
     }

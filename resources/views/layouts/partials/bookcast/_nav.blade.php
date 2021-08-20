@@ -2,7 +2,7 @@
     <div class="container">
         <ul class="nav">
 
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('bookcast.index') }}"><i class="ti-home"></i>Accueil</a>
             </li>
 
@@ -11,11 +11,15 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('bookcast.castings') }}"><i class="ti-video-clapper"></i>Castings</a>
+                <a class="nav-link" href="{{ route('bookcast.visuoshop') }}"><i class="si si-graduation"></i>VisuoShop</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('bookcast.networks') }}"><i class="si si-graduation"></i>Réseaux</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('bookcast.castings') }}"><i class="ti-video-clapper"></i>Castings</a>
             </li>
 
             <li class="nav-item">
@@ -27,7 +31,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('bookcast.news') }}"><i class="ti-face-smile"></i>Actualités</a>
+                <a class="nav-link" href="{{ route('bookcast.news') }}"><i class="ti-face-smile"></i>ActuArt</a>
             </li>
 
             <li class="nav-item">
@@ -35,7 +39,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link with-sub" href="{{ route('bookcast.index') }}"><i class="si si-grid"></i>Nos Produits</a>
+                <a class="nav-link with-sub" href="#"><i class="si si-grid"></i>Nos Produits</a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
                         <a target="_blank" class="nav-sub-link" href="{{ route('bookcast.index') }}">BookCast</a>

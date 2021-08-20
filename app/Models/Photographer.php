@@ -14,6 +14,12 @@ class Photographer extends Model
 
     protected $fillable = [
         'user_id',
+        'individual_id',
+        'society_id',
+        'person_type_id',
+        'area_max',
+        'package_id',
+        'paid',
     ];
 
     protected $casts = [
@@ -24,5 +30,30 @@ class Photographer extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function society()
+    {
+        return $this->belongsTo(Society::class);
+    }
+
+    public function individual()
+    {
+        return $this->belongsTo(Individual::class);
+    }
+
+    public function personType()
+    {
+        return $this->belongsTo(PersonType::class);
+    }
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
+
+    public function photographerAreas()
+    {
+        return $this->hasMany(PhotographerArea::class);
     }
 }

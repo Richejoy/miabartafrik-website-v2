@@ -5,20 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ArtistLanguage extends Model
+class ArtistArea extends Model
 {
     use HasFactory;
 
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    public $table = 'artists_languages';
+    public $table = 'artists_areas';
 
     protected $fillable = [
         'artist_id',
-        'language_id',
-        'language_level_id',
-        'language_accent',
+        'area_id',
     ];
 
     public function artist()
@@ -26,13 +24,8 @@ class ArtistLanguage extends Model
         return $this->belongsTo(Artist::class);
     }
 
-    public function language()
+    public function area()
     {
-        return $this->belongsTo(Language::class);
-    }
-
-    public function languageLevel()
-    {
-        return $this->belongsTo(LanguageLevel::class);
+        return $this->belongsTo(Area::class);
     }
 }

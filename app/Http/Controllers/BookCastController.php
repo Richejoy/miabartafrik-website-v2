@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Artist;
 use App\Models\Partner;
+use App\Models\Photographer;
 use App\Models\Event;
 use App\Models\News;
 use App\Models\Movie;
@@ -37,18 +38,25 @@ class BookCastController extends Controller
     	return view('bookcast.books', compact('artists'));
     }
 
-    public function castings(Request $request)
+    public function visuoshop(Request $request)
     {
-        $castings = Casting::all();
+        $photographers = Photographer::all();
 
-    	return view('bookcast.castings', compact('castings'));
+        return view('bookcast.visuoshop', compact('photographers'));
     }
 
     public function networks(Request $request)
     {
         $partners = Partner::all();
 
-    	return view('bookcast.networks', compact('partners'));
+        return view('bookcast.networks', compact('partners'));
+    }
+
+    public function castings(Request $request)
+    {
+        $castings = Casting::all();
+
+    	return view('bookcast.castings', compact('castings'));
     }
 
     public function notebook(Request $request)

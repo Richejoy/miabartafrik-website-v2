@@ -27,7 +27,7 @@ class PartnerNextForm extends Component
     {
         $this->partner = $partner;
 
-        $this->areas = Area::all()->sortBy('id')->pluck(null, 'id');
+        $this->areas = Area::where('user_type_id', $partner->user->user_type_id)->get()->sortBy('id')->pluck(null, 'id');
         $this->works = Work::all()->sortBy('id')->pluck(null, 'id');
         $this->personLevels = PersonLevel::all()->sortBy('id')->pluck(null, 'id');
     }

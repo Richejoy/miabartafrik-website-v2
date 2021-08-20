@@ -67,6 +67,7 @@ Route::prefix('/')->name('page.')->group(function() {
 	Route::match(['GET', 'POST'], '/lock/screen', [PageController::class, 'lockScreen'])->middleware(['lock'])->name('lock_screen');
 
 	Route::get('/logout', [PageController::class, 'logout'])->name('logout');
+	Route::get('/lock', [PageController::class, 'lock'])->name('lock');
 });
 
 Route::prefix('/user')->name('user.')->group(function() {
@@ -113,8 +114,9 @@ Route::prefix('/crons')->name('crons.')->group(function () {
 Route::prefix('/bookcast')->name('bookcast.')->middleware(['auth'])->group(function() {
 	Route::get('/', [BookCastController::class, 'index'])->name('index');
 	Route::get('/books', [BookCastController::class, 'books'])->name('books');
-	Route::get('/castings', [BookCastController::class, 'castings'])->name('castings');
+	Route::get('/visuoshop', [BookCastController::class, 'visuoshop'])->name('visuoshop');
 	Route::get('/networks', [BookCastController::class, 'networks'])->name('networks');
+	Route::get('/castings', [BookCastController::class, 'castings'])->name('castings');
 	Route::get('/notebook', [BookCastController::class, 'notebook'])->name('notebook');
 	Route::get('/elections', [BookCastController::class, 'elections'])->name('elections');
 	Route::get('/movies', [BookCastController::class, 'movies'])->name('movies');

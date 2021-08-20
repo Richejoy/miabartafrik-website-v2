@@ -15,7 +15,7 @@ class Artist extends Model
     protected $fillable = [
         'user_id',
         'is_ambassador',
-        'artistic_area_max',
+        'area_max',
         'package_id',
         'paid',
     ];
@@ -30,9 +30,14 @@ class Artist extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function artistArtisticAreas()
+    public function package()
     {
-        return $this->hasMany(ArtistArtisticArea::class);
+        return $this->belongsTo(Package::class);
+    }
+
+    public function artistAreas()
+    {
+        return $this->hasMany(ArtistArea::class);
     }
 
 }

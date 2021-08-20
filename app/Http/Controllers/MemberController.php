@@ -30,7 +30,7 @@ class MemberController extends Controller
             return redirect()->route('bookcast.index');
         }
         
-        $packages = Package::where('user_type_id', 2)->get();
+        $packages = Package::where('user_type_id', $member->user->user_type_id)->get();
 
         return view('members.package', compact('member', 'packages'));
     }

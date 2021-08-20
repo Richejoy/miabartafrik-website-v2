@@ -54,11 +54,11 @@
     <div class="row mb-2">
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             {{ Form::label('password', 'Mot de passe', ['class' => 'required-text mg-b-10 label_mba']) }}
-            {{ Form::password('password', null, ['class' => 'form-control', 'placeholder' => 'Mot de passe', 'required' => true]) }}
+            {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Mot de passe', 'required' => true]) }}
         </div>
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             {{ Form::label('password_confirmation', 'Confirmation mot de passe', ['class' => 'required-text mg-b-10 label_mba']) }}
-            {{ Form::password('password_confirmation', null, ['class' => 'form-control', 'placeholder' => 'Confirmation mot de passe', 'required' => true]) }}
+            {{ Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Confirmation mot de passe', 'required' => true]) }}
         </div>
     </div>
 

@@ -17,7 +17,7 @@
         <a class="dropdown-item" href="{{ route('settings.index') }}">
             <i class="fe fe-settings"></i> Paramètres du compte
         </a>
-        <a class="dropdown-item" href="{{ route('page.lock_screen', ['lock' => uniqid()]) }}">
+        <a class="dropdown-item" href="{{ route('page.lock', ['lock' => uniqid()]) }}">
             <i class="fe fe-compass"></i> Vérroullé écran
         </a>
         <a class="dropdown-item" href="{{ route('page.logout') }}">

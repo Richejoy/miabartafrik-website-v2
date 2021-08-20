@@ -7,8 +7,13 @@
     <!-- Row -->
     <div class="row signpages">
         <div class="col-md-12">
+            
+            <div class="row">
+                @include("layouts.partials._validation_errors")
+            </div>
+
             <div class="card">
-                <div class="row row-sm">
+                <div class="row">
                     <div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
                         <div class="mt-5 pt-4 p-2 pos-absolute">
                             <img src="{{ asset('public/assets/img/brand/logo-light.png') }}"
@@ -32,20 +37,15 @@
                                     <h5 class="text-left mb-2 textSignHead">Se connecter à votre compte</h5>
                                     <p class="mb-4 text-muted tx-13 ml-0 text-left">Se connecté pour créer, partager son
                                         book et se connecter au monde artistique.</p>
+                                    
                                     <div class="form-group text-left">
-                                        <label for="email_phone_username" class="required-text mg-b-10 label_mba">
-                                            Identifiants
-                                        </label>
-                                        <input class="form-control" placeholder="Email | téléphone | nom d'utilisateur"
-                                            type="text" id="email_phone_username" name="email_phone_username" required>
+                                        {{ Form::label('email_phone_username', "Identifiants", ['class' => 'required-text mg-b-10 label_mba']) }}
+                                        {!! Form::text('email_phone_username', null, ['class' => 'form-control', 'required' => true, 'placeholder' => "Email | téléphone | nom d'utilisateur"]) !!}
                                     </div>
-                                    <div class="form-group text-left">
 
-                                        <label for="password" class="required-text mg-b-10 label_mba">
-                                            Mot de passe
-                                        </label>
-                                        <input class="form-control" placeholder="Entrer votre mot de passe"
-                                            type="password" id="password" name="password" required>
+                                    <div class="form-group text-left">
+                                        {{ Form::label('password', "Mot de passe", ['class' => 'required-text mg-b-10 label_mba']) }}
+                                        {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Entrer votre mot de passe']) !!}
                                     </div>
                                     
                                     <div class="form-group">

@@ -108,6 +108,8 @@
     <!-- Select2 js-->
     <script src="{{ asset('public/assets/plugins/select2/js/select2.min.js') }}"></script>
 
+    <script src="{{ asset('public/assets/js/form-validation.js') }}"></script>
+
     <!-- Sticky js -->
     <script src="{{ asset('public/assets/js/sticky.js') }}"></script>
 
@@ -122,8 +124,7 @@
     @stack('scripts')
 
     <script>
-        $('a.share-book').click(function(e) {
-            e.preventDefault();
+        $('span.share').click(function(e) {
             var div = $(this).data('show');
             $('#' + div).slideToggle();
         });

@@ -7,6 +7,11 @@
     <!-- Row -->
     <div class="row signpages">
         <div class="col-md-12">
+            
+            <div class="row">
+                @include("layouts.partials._validation_errors")
+            </div>
+
             <div class="card">
                 <div class="row">
                     <div class="col-lg-6 col-xl-5 d-none d-lg-block bg-primary details">

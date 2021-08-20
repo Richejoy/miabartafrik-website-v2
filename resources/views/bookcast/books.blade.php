@@ -22,13 +22,10 @@
             <!-- Row -->
             <div class="row row-sm">
                 <div class="col-xl-9 col-lg-12">
-
                     @livewire('bookcast.books.search')
 
                     <div class="content_body">
-
                         <x-bookcast.books.item :artists="$artists" />
-
                     </div>
 
                     <p><button type="button" class="btn btn-dark btn-sm">Charger plus </button></p>

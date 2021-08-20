@@ -3,11 +3,20 @@
 namespace App\View\Components\Auth;
 
 use Illuminate\View\Component;
+use App\Models\Area;
+use App\Models\Work;
+use App\Models\PersonLevel;
 use App\Models\Photographer;
 
 class PhotographerNextForm extends Component
 {
     public $photographer;
+
+    public $areas;
+
+    public $works;
+
+    public $personLevels;
 
     /**
      * Create a new component instance.
@@ -17,6 +26,10 @@ class PhotographerNextForm extends Component
     public function __construct($photographer)
     {
         $this->photographer = $photographer;
+
+        $this->areas = Area::where('user_type_id', $photographer->user->user_type_id)->get()->sortBy('id')->pluck(null, 'id');
+        $this->works = Work::all()->sortBy('id')->pluck(null, 'id');
+        $this->personLevels = PersonLevel::all()->sortBy('id')->pluck(null, 'id');
     }
 
     /**

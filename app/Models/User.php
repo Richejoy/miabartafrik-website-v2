@@ -179,6 +179,11 @@ class User extends Authenticatable
         return $this->hasMany(UserFriend::class, 'sender_id');
     }
 
+    public function call()
+    {
+        return 'tel:+' . $this->longPhone();
+    }
+
     public function __toString()
     {
         return $this->full_name;

@@ -5,16 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ArtisticArea extends Model
+class Module extends Model
 {
     use HasFactory;
 
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    public function artisticRay()
+    protected $fillable = [
+        'name',
+    ];
+
+    protected $casts = [
+        'created' => 'datetime',
+        'modified' => 'datetime',
+    ];
+
+    public function menus()
     {
-        return $this->belongsTo(ArtisticRay::class);
+        return $this->hasMany(Menu::class);
     }
 
     public function __toString()
