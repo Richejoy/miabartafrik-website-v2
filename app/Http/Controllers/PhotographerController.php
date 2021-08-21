@@ -9,6 +9,7 @@ use App\Models\PhotographerArea;
 use App\Models\Individual;
 use App\Models\Society;
 use App\Models\Package;
+use App\Models\Image;
 
 class PhotographerController extends Controller
 {
@@ -165,10 +166,19 @@ class PhotographerController extends Controller
     public function package(Request $request, Package $package = null)
     {
         $photographer = Photographer::where('user_id', auth()->id())->firstOrFail();
+
+        $image = Image::create([
+            'folder' => 'photographers',
+            'url' => 'https://miabartafrik.com/images/photographers/cover.jpg',
+            'link' => 'https://miabartafrik.com/images/photographers/cover.jpg',
+            'description' => 'Photo de couverture',
+        ]);
         
         if (!is_null($package)) {
             $photographer->update([
+                'image_id' => $image->id,
                 'package_id' => $package->id,
+                'paid' => (bool) ($package->price == 0),
             ]);
 
             return redirect()->route('bookcast.index');

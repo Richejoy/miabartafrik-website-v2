@@ -1,32 +1,41 @@
 <div class="dropdown main-header-notification">
     <a class="nav-link icon" href="#">
         <i class="fe fe-message-square header-icons"></i>
-        <span class="badge badge-success nav-link-badge">6</span>
+        <span class="badge badge-success nav-link-badge">{{ $messages->count() }}</span>
     </a>
     <div class="dropdown-menu">
         <div class="header-navheading">
-            <p class="main-notification-text">Vous avez 1 message non lue
+            <p class="main-notification-text">
+                @if($messages->count())
+                Vous avez {{ $messages->count() }} message(s) non lu
+                @else
+                Aucun message non lu
+                @endif
+
                 <a href="{{ route('user.index') }}" class="badge badge-pill badge-success ml-3">Voir tout</a>
             </p>
         </div>
         <div class="main-notification-list">
 
-            <div class="media new">
-                <div class="main-img-user online"><img alt="avatar" src="{{ asset('public/assets/img/users/5.jpg') }}">
+            @forelse($messages as $message)
+
+            <div class="media">
+                <div class="main-img-user">
+                    <img alt="{{ $message->sender->image->description }}" src="{{ $message->sender->image->link }}">
                 </div>
                 <div class="media-body">
-                    <p>Féliciter <strong>Folly ADOKPO</strong> pour le démarrage d'un nouveau film </p>
-                    <span>15 octobre 12h32 </span>
+                    <p>
+                        <strong>{{ $message->sender->full_name }}</strong>, vous a envoyé un nouveau message.
+                    </p>
+                    <span>{{ $message->created }}</span>
                 </div>
             </div>
 
-            <div class="media">
-                <div class="main-img-user"><img alt="avatar" src="{{ asset('public/assets/img/users/2.jpg') }}"></div>
-                <div class="media-body">
-                    <p><strong>Joshua Gray</strong> Nouveau message reçu </p><span>13 octobre 02:56
-                    </span>
-                </div>
-            </div>
+            @empty
+
+            <p class="my-3 text-center">Aucun message non lu reçu</p>
+
+            @endforelse
 
         </div>
 

@@ -14,6 +14,7 @@ class Country extends Model
 
     public function __toString()
     {
+        //'<i class="flag flag-' . mb_strtolower($this->iso) . '"></i> ' . 
         return $this->nicename . ' (+' . $this->phonecode . ')';
     }
 }

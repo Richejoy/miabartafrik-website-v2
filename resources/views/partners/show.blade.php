@@ -1,4 +1,4 @@
-@extends('layouts.bookcast', ['title' => 'Books'])
+@extends('layouts.bookcast', ['title' => $partner->user->full_name])
 
 @section('body')
 
@@ -928,54 +928,6 @@
 
 @endsection
 
-@push('scripts')
-
-<script src="../assets/js/cbpFWTabs.js"></script>
-<script>
-(function() {
-
-    [].slice.call(document.querySelectorAll('.tabs_miabartafrik')).forEach(function(el) {
-        new CBPFWTabs(el);
-    });
-
-})();
-</script>
-<!-- Jquery js-->
-<script src="../assets/plugins/jquery/jquery.min.js"></script>
-
-<!-- BookCast js-->
-<script src="../assets/js/bookcast.js"></script>
-
-
-
-<!-- Bootstrap js-->
-<script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
-<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Perfect-scrollbar js -->
-<script src="../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
-<!-- Internal Gallery js-->
-<script src="../assets/plugins/gallery/picturefill.js"></script>
-<script src="../assets/plugins/gallery/lightgallery.js"></script>
-<script src="../assets/plugins/gallery/lightgallery-1.js"></script>
-<script src="../assets/plugins/gallery/lg-pager.js"></script>
-<script src="../assets/plugins/gallery/lg-autoplay.js"></script>
-<script src="../assets/plugins/gallery/lg-fullscreen.js"></script>
-<script src="../assets/plugins/gallery/lg-zoom.js"></script>
-<script src="../assets/plugins/gallery/lg-hash.js"></script>
-<script src="../assets/plugins/gallery/lg-share.js"></script>
-
-<!-- Sidebar js -->
-<script src="../assets/plugins/sidebar/sidebar.js"></script>
-
-<!-- Select2 js-->
-<script src="../assets/plugins/select2/js/select2.min.js"></script>
-
-<!-- Sticky js -->
-<script src="../assets/js/sticky.js"></script>
-
-<!-- Custom js -->
-<script src="../assets/js/custom.js"></script>
-
-@endpush
+@section('loader')
+<x-loader imgLink="{{ $partner->user->image->link }}" />
+@endsection

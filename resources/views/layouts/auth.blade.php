@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="description" content="BookCast -  Miabart Afrik">
     <meta name="author" content="Miabart Afrik">
-    <meta name="keywords" content="book artiste, castings artistique, agenda plus, concert en ligne, ">
+    <meta name="keywords" content="book artiste, castings artistique, agenda plus, concert en ligne">
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('public/assets/img/brand/favicon.ico') }}" type="image/x-icon" />
@@ -44,7 +44,7 @@
 <body class="main-body leftmenu">
 
     <!-- Loader -->
-    <x-loader />
+    <x-loader imgLink="{{ asset('public/assets/img/preloader.jpg') }}" />
     <!-- End Loader -->
 
     <!-- Page -->

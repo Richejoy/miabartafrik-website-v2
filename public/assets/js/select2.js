@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$('.select2').select2({
-		placeholder: 'Sélectionner',
+		placeholder: '',
 		searchInputPlaceholder: 'Recherche',
 		 width: '100%'
 	});

@@ -2,12 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="description" content="BookCast -  Miabart Afrik">
     <meta name="author" content="Miabart Afrik">
-    <meta name="keywords" content="book artiste, castings artistique, agenda plus, concert en ligne, ">
+    <meta name="keywords" content="book artiste, castings artistique, agenda plus, concert en ligne">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('public/assets/img/brand/favicon.ico') }}" type="image/x-icon" />
@@ -45,6 +46,8 @@
     <!-- Sidemenu css-->
     <link href="{{ asset('public/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('public/assets/plugins/gallery/gallery.css') }}" rel="stylesheet">
+
     @stack('styles')
 
     @livewireStyles
@@ -53,7 +56,15 @@
 <body class="horizontalmenu">
 
     <!-- Loader -->
-    <x-loader />
+    @if(in_array(Route::currentRouteName(), ['artists.show', 'partners.show', 'photographers.show']))
+
+    @yield('loader')
+
+    @else
+
+    <x-loader imgLink="{{ asset('public/assets/img/preloader.jpg') }}" />
+
+    @endif
     <!-- End Loader -->
 
     <!-- Page -->
@@ -119,6 +130,24 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
+    <script src="{{ asset('public/assets/js/cbpFWTabs.js') }}"></script>
+
+    <!-- Perfect-scrollbar js -->
+    <script src="{{ asset('public/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+
+    <!-- Internal Gallery js-->
+    <script src="{{ asset('public/assets/plugins/gallery/picturefill.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/gallery/lightgallery.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/gallery/lightgallery-1.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/gallery/lg-pager.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/gallery/lg-autoplay.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/gallery/lg-fullscreen.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/gallery/lg-zoom.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/gallery/lg-hash.js') }}"></script>
+    <script src="{{ asset('public/assets/plugins/gallery/lg-share.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
     @include('flashy::message')
 
     @stack('scripts')
@@ -128,6 +157,13 @@
             var div = $(this).data('show');
             $('#' + div).slideToggle();
         });
+
+        (function() {
+            [].slice.call(document.querySelectorAll('.tabs_miabartafrik')).forEach(function(el) {
+                new CBPFWTabs(el);
+            });
+
+        })();
     </script>
     
     @livewireScripts

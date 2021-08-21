@@ -3,11 +3,14 @@
 namespace App\Http\Livewire\Bookcast;
 
 use Livewire\Component;
+use App\Models\Notification;
 
 class Notifications extends Component
 {
     public function render()
     {
-        return view('livewire.bookcast.notifications');
+        $notifications = Notification::where(['readed' => false])->get();
+
+        return view('livewire.bookcast.notifications', compact('notifications'));
     }
 }

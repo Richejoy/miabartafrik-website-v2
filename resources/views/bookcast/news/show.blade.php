@@ -545,32 +545,3 @@
 <!-- End Main Content-->
 
 @endsection
-
-@push('scripts')
-
-<!-- Jquery js-->
-<script src="../assets/plugins/jquery/jquery.min.js"></script>
-
-<!-- BookCast js-->
-<script src="../assets/js/bookcast.js"></script>
-
-<!-- Bootstrap js-->
-<script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
-<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Perfect-scrollbar js -->
-<script src="../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
-<!-- Sidebar js -->
-<script src="../assets/plugins/sidebar/sidebar.js"></script>
-
-<!-- Select2 js-->
-<script src="../assets/plugins/select2/js/select2.min.js"></script>
-
-<!-- Sticky js -->
-<script src="../assets/js/sticky.js"></script>
-
-<!-- Custom js -->
-<script src="../assets/js/custom.js"></script>
-
-@endpush

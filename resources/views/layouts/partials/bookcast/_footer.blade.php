@@ -4,8 +4,13 @@
         <div class="container">
             <div class="row row-sm">
                 <div class="col-md-12">
-                    <span><a href="{{ route('page.faq') }}">Faq</a> | <a href="{{ route('page.conditions') }}">Conditions Générales</a> | <a
-                            href="{{ route('page.terms') }}">Termes Généraux</a> </span>
+                    <a href="{{ route('page.faq') }}">Faq</a> | <a href="{{ route('page.conditions') }}">Conditions Générales</a> |
+                    <a href="{{ route('page.terms') }}">Termes Généraux</a> |
+                    <a href="{{ route('page.about') }}">A propos</a> |
+                    <a href="{{ route('contact.index') }}">Contact</a> |
+                    <a href="{{ route('newsletter.index') }}">Newsletter</a> |
+                    <a href="{{ route('page.sitemap') }}">Plan du site</a> |
+                    <a href="{{ route('page.donate') }}">Faire un don</a>
                 </div>
             </div>
         </div>

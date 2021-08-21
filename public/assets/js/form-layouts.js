@@ -4,6 +4,6 @@ $(function() {
 		$(this).parent().toggleClass('focus');
 	});
 	$('.select2').select2({
-			placeholder: 'Sélectionner'
+			placeholder: ''
 		});
 });

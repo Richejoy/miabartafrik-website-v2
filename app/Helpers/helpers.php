@@ -21,10 +21,3 @@ if (!function_exists('pageTitle')) {
 		return $title ?? config('app.name');
 	}
 }
-
-if (!function_exists('checkLoader')) {
-	function checkLoader(): bool
-	{
-		return (bool) (in_array(Route::currentRouteName(), ['artists.show', 'partners.show', 'photographers.show']));
-	}
-}

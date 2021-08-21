@@ -14,6 +14,7 @@ class Advert extends Model
 
     protected $fillable = [
         'image_id',
+        'video_id',
         'website',
     ];
 
@@ -25,5 +26,10 @@ class Advert extends Model
     public function image()
     {
         return $this->belongsTo(Image::class);
+    }
+
+    public function video()
+    {
+        return $this->belongsTo(Video::class);
     }
 }

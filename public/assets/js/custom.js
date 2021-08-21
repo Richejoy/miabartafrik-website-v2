@@ -181,7 +181,7 @@ $(function() {
 	// ______________Select2-Search
 	$('.select2-no-search').select2({
 		minimumResultsForSearch: Infinity,
-		placeholder: 'Choix de pays',
+		placeholder: '',
 		 width: '100%'
 	});
 	

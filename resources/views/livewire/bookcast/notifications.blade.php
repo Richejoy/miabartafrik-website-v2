@@ -1,32 +1,39 @@
 <div class="dropdown main-header-notification">
     <a class="nav-link icon" href="#">
         <i class="fe fe-bell header-icons"></i>
-        <span class="badge badge-danger nav-link-badge">4</span>
+        <span class="badge badge-danger nav-link-badge">{{ $notifications->count() }}</span>
     </a>
     <div class="dropdown-menu">
         <div class="header-navheading">
-            <p class="main-notification-text">Vous avez 1 notification non lue
+            <p class="main-notification-text">
+                @if($notifications->count())
+                Vous avez {{ $notifications->count() }} notification(s) non lue
+                @else
+                Aucune notification non lue
+                @endif
+
                 <a href="{{ route('user.index') }}" class="badge badge-pill badge-danger ml-3">Voir tout</a>
             </p>
         </div>
         <div class="main-notification-list">
 
-            <div class="media new">
-                <div class="main-img-user online"><img alt="avatar" src="{{ asset('public/assets/img/users/5.jpg') }}">
+            @forelse($notifications as $notification)
+
+            <div class="media">
+                <div class="main-img-user">
+                    <img alt="{{ $notification->sender->image->description }}" src="{{ $notification->sender->image->link }}">
                 </div>
                 <div class="media-body">
-                    <p>Féliciter <strong>Folly ADOKPO</strong> pour le démarrage d'un nouveau film </p>
-                    <span>15 octobre 12h32 </span>
+                    <p><strong>{{ $notification->sender->full_name }}</strong>, {{ $notification->content }}</p>
+                    <span>{{ $notification->created }}</span>
                 </div>
             </div>
 
-            <div class="media">
-                <div class="main-img-user"><img alt="avatar" src="{{ asset('public/assets/img/users/2.jpg') }}"></div>
-                <div class="media-body">
-                    <p><strong>Joshua Gray</strong> Nouveau message reçu </p><span>13 octobre 02:56
-                    </span>
-                </div>
-            </div>
+            @empty
+
+            <p class="my-3 text-center">Aucune notification non lue reçue</p>
+
+            @endforelse
 
         </div>
 

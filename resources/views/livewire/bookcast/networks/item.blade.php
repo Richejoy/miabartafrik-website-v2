@@ -36,14 +36,14 @@
                     data-original-title="{{ $partner->user->country->nicename }}"><i class="{{ $partner->user->getFlag() }}"></i></span>
 
                 <a href="{{ route('partners.show', ['partner' => $partner]) }}" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="{{ $partner->user->userViews->count() }} (Vues)"><i class="fe fe-eye"></i>
+                            data-original-title="{{ $partner->user->receiverViews->count() }} (Vues)"><i class="fe fe-eye"></i>
                         </a>
 
                         <span wire:click.prevent="like({{ $partner->id }})" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="{{ $partner->user->userLikes->count() }} (J'aimes)"><i class="fe fe-heart"></i> </span>
+                            data-original-title="{{ $partner->user->receiverLikes->count() }} (J'aimes)"><i class="fe fe-heart"></i> </span>
 
                         <span wire:click.prevent="friend({{ $partner->id }})" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="{{ $partner->user->userFriends->count() }} (Amis)"><i class="fe fe-user-plus"></i></span>
+                            data-original-title="{{ $partner->user->friends->count() }} (Amis)"><i class="fe fe-user-plus"></i></span>
 
                 <a href="{{ $partner->user->call() }}" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
                     data-original-title="Appeler"><i class="fe fe-phone"></i></a>

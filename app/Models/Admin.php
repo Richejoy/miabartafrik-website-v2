@@ -14,6 +14,7 @@ class Admin extends Model
 
     protected $fillable = [
         'user_id',
+        'image_id',
     ];
 
     protected $casts = [
@@ -24,5 +25,10 @@ class Admin extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
     }
 }

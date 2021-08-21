@@ -14,8 +14,10 @@ class Member extends Model
 
     protected $fillable = [
         'user_id',
+        'image_id',
         'package_id',
         'paid',
+        'expire_date',
     ];
 
     protected $casts = [
@@ -26,6 +28,11 @@ class Member extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
     }
 
     public function package()

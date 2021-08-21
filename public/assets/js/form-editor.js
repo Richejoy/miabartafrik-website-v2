@@ -59,7 +59,7 @@ $(function() {
 	});
 	
 	$('#summernote').summernote({
-		placeholder: 'Hello bootstrap 4',
+		placeholder: 'Ecrivez quelque chose',
 		tabsize: 3,
 		height: 300
 	});

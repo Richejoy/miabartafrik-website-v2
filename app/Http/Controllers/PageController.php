@@ -10,6 +10,7 @@ use App\Models\Civility;
 use App\Models\Image;
 use App\Models\UserType;
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Member;
 use App\Models\Artist;
 use App\Models\Partner;
@@ -422,6 +423,10 @@ class PageController extends Controller
             session()->forget('pendingConnectUser');
         }
 
+        if (session()->has('lockUser')) {
+            session()->forget('lockUser');
+        }
+
         return redirect()->route('page.login');
     }
 
@@ -474,6 +479,21 @@ class PageController extends Controller
     {
         if (!is_null($user)) {
 
+            if ($user->user_type_id == 1) {
+                $image = Image::create([
+                    'folder' => 'admins',
+                    'url' => 'https://miabartafrik.com/images/admins/cover.jpg',
+                    'link' => 'https://miabartafrik.com/images/admins/cover.jpg',
+                    'description' => 'Photo de couverture',
+                ]);
+
+                $admin = Admin::where('user_id', $user->id)->firstOrFail();
+
+                $admin->update([
+                    'image_id' => $image->id,
+                ]);
+            }
+
             $user->update([
                 'last_login' => now(),
                 'nb_login' => ++$user->nb_login,
@@ -489,7 +509,9 @@ class PageController extends Controller
 
             event(new UserEvent($user, ['action' => 'login']));
 
-            return back()->withSuccess("Bienvenue dans votre tableau de bord");
+            flashy()->success("Bienvenue dans votre tableau de bord");
+
+            return redirect()->route('bookcast.index');
         }
 
         return back()->withDanger("Impossible de satisfaire votre requête.");

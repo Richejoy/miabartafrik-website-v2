@@ -5,7 +5,7 @@
         <div class="card custom-card">
             <div class="sidebar_titre">
                 <h4>Vidéo à la une</h4>
-                <a href="{{ route('bookcast.movies') }}">Voir tout</a>
+                <a href="{{ route('bookcast.movies') }}">Tout afficher</a>
             </div>
             <div class="right_sidebar">
                 
@@ -23,7 +23,7 @@
         <div class="card custom-card">
             <div class="sidebar_titre">
                 <h4>Artiste à la une</h4>
-                <a href="{{ route('bookcast.books') }}">Listes des artistes</a>
+                <a href="{{ route('bookcast.books') }}">Tout afficher</a>
             </div>
             <div class="right_sidebar">
                 
@@ -41,7 +41,7 @@
         <div class="card custom-card">
             <div class="sidebar_titre">
                 <h4>Casting à la une</h4>
-                <a href="{{ route('bookcast.castings') }}">Plus de castings</a>
+                <a href="{{ route('bookcast.castings') }}">Tout afficher</a>
             </div>
             <div class="right_sidebar">
                 
@@ -59,7 +59,7 @@
         <div class="card custom-card">
             <div class="sidebar_titre">
                 <h4>Vote d'artiste à la une</h4>
-                <a href="{{ route('bookcast.elections') }}">Plus de vote</a>
+                <a href="{{ route('bookcast.elections') }}">Tout afficher</a>
             </div>
             <div class="right_sidebar">
                 

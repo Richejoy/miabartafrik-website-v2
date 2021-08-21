@@ -8,6 +8,7 @@ use App\Models\Artist;
 use App\Models\ArtistArea;
 use App\Models\UserLanguage;
 use App\Models\Package;
+use App\Models\Image;
 
 class ArtistController extends Controller
 {
@@ -102,9 +103,18 @@ class ArtistController extends Controller
     {
         $artist = Artist::where('user_id', auth()->id())->firstOrFail();
 
+        $image = Image::create([
+            'folder' => 'artists',
+            'url' => 'https://miabartafrik.com/images/artists/cover.jpg',
+            'link' => 'https://miabartafrik.com/images/artists/cover.jpg',
+            'description' => 'Photo de couverture',
+        ]);
+
         if (!is_null($package)) {
             $artist->update([
+                'image_id' => $image->id,
                 'package_id' => $package->id,
+                'paid' => (bool) ($package->price == 0),
             ]);
 
             return redirect()->route('bookcast.index');

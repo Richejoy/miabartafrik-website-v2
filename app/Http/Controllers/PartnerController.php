@@ -9,6 +9,7 @@ use App\Models\PartnerArea;
 use App\Models\Individual;
 use App\Models\Society;
 use App\Models\Package;
+use App\Models\Image;
 
 class PartnerController extends Controller
 {
@@ -166,9 +167,18 @@ class PartnerController extends Controller
     {
         $partner = Partner::where('user_id', auth()->id())->firstOrFail();
 
+        $image = Image::create([
+            'folder' => 'partners',
+            'url' => 'https://miabartafrik.com/images/partners/cover.jpg',
+            'link' => 'https://miabartafrik.com/images/partners/cover.jpg',
+            'description' => 'Photo de couverture',
+        ]);
+
         if (!is_null($package)) {
             $partner->update([
+                'image_id' => $image->id,
                 'package_id' => $package->id,
+                'paid' => (bool) ($package->price == 0),
             ]);
 
             return redirect()->route('bookcast.index');

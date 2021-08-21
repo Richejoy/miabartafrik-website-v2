@@ -14,51 +14,19 @@
         @endif
 
         <!-- info -->
-        <div class="card custom-card">
-            <div class="sidebar_titre">
-                <h4>Publicité</h4>
-                <a href="">Aller</a>
-            </div>
-            <div class="right_sidebar">
-                <a href=""> <img src="{{ asset('public/assets/img/publicite/duchesse.jpg') }}" class="imageaffichepub"></a>
-            </div>
-        </div>
+        <x-image-advert type="gold" />
         <!-- end info -->
 
         <!-- info -->
-        <div class="card custom-card">
-            <div class="sidebar_titre">
-                <h4>Publicité</h4>
-                <a href="">Aller</a>
-            </div>
-            <div class="right_sidebar">
-                <a href=""> <img src="{{ asset('public/assets/img/publicite/affiche.jpg') }}" class="imageaffichepub"></a>
-            </div>
-        </div>
+        <x-image-advert type="all" />
         <!-- end info -->
 
         <!-- info -->
-        <div class="card custom-card">
-            <div class="sidebar_titre">
-                <h4>Publicité</h4>
-                <a href="">Aller</a>
-            </div>
-            <div class="right_sidebar">
-                <a href=""> <img src="{{ asset('public/assets/img/publicite/EbA7eBQXsAAmQKi.jpg') }}" class="imageaffichepub"></a>
-            </div>
-        </div>
+        <x-video-advert type="gold" />
         <!-- end info -->
 
         <!-- info -->
-        <div class="card custom-card">
-            <div class="sidebar_titre">
-                <h4>Publicité</h4>
-                <a href="">Aller</a>
-            </div>
-            <div class="right_sidebar">
-                <a href=""> <img src="{{ asset('public/assets/img/publicite/operateurs.jpg') }}" class="imageaffichepub"></a>
-            </div>
-        </div>
+        <x-video-advert type="all" />
         <!-- end info -->
 
     </div>

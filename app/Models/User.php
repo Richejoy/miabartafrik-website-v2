@@ -164,19 +164,29 @@ class User extends Authenticatable
         return 'flag flag-' . mb_strtolower($this->country->iso);
     }
 
-    public function userViews()
+    public function senderViews()
     {
-        return $this->hasMany(UserView::class, 'sender_id');
+        return $this->hasMany(UserView::class, 'users_views', 'sender_id', 'receiver_id');
     }
 
-    public function userLikes()
+    public function receiverViews()
     {
-        return $this->hasMany(UserLike::class, 'sender_id');
+        return $this->hasMany(UserView::class, 'users_views', 'sender_id', 'receiver_id');
     }
 
-    public function userFriends()
+    public function senderLikes()
     {
-        return $this->hasMany(UserFriend::class, 'sender_id');
+        return $this->hasMany(UserLike::class, 'users_likes', 'sender_id', 'receiver_id');
+    }
+
+    public function receiverLikes()
+    {
+        return $this->hasMany(UserLike::class, 'users_likes', 'sender_id', 'receiver_id');
+    }
+
+    public function friends()
+    {
+        return $this->hasMany(UserFriend::class, 'users_friends', 'sender_id', 'receiver_id')->where(['confirmed' => true]);
     }
 
     public function call()

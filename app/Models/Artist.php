@@ -14,10 +14,12 @@ class Artist extends Model
 
     protected $fillable = [
         'user_id',
+        'image_id',
         'is_ambassador',
         'area_max',
         'package_id',
         'paid',
+        'expire_date',
     ];
 
     protected $casts = [
@@ -28,6 +30,11 @@ class Artist extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
     }
 
     public function package()

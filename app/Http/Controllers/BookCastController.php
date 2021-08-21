@@ -33,21 +33,21 @@ class BookCastController extends Controller
 
     public function books(Request $request)
     {
-        $artists = Artist::all();
+        $artists = Artist::where('paid', true)->get();
 
     	return view('bookcast.books', compact('artists'));
     }
 
     public function visuoshop(Request $request)
     {
-        $photographers = Photographer::all();
+        $photographers = Photographer::where('paid', true)->get();
 
         return view('bookcast.visuoshop', compact('photographers'));
     }
 
     public function networks(Request $request)
     {
-        $partners = Partner::all();
+        $partners = Partner::where('paid', true)->get();
 
         return view('bookcast.networks', compact('partners'));
     }

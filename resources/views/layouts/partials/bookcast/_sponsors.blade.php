@@ -7,15 +7,17 @@
                 <p>Sponsors</p>
             </article>
             <section class="customer-logos slider">
-                
-                @forelse($sponsors as $sponsor)
+                    @forelse($sponsors as $sponsor)
 
-                <div class="slide"><img src="{{ $sponsor->image->link }}"></div>
+                    <div class="slide">
+                        <a href="{{ $sponsor->website }}" target="_blank">
+                            <img src="{{ $sponsor->image->link }}" alt="{{ $sponsor->image->description }}" height="150">
+                        </a>
+                    </div>
 
-                @empty
+                    @empty
 
-                @endforelse
-
+                    @endforelse
             </section>
 
         </div>

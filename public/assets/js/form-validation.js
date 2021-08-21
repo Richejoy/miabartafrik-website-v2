@@ -2,7 +2,7 @@ $(function() {
 	'use strict'
 	
 	$('.select2').select2({
-		placeholder: 'Sélectionner',
+		placeholder: '',
 		width: '100%'
 	});
 	$('#selectForm').parsley();

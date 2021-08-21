@@ -37,14 +37,14 @@
                             data-original-title="{{ $artist->user->country->nicename }}"><i class="{{ $artist->user->getFlag() }}"></i></span>
 
                         <a href="{{ route('artists.show', ['artist' => $artist]) }}" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="{{ $artist->user->userViews->count() }} (Vues)"><i class="fe fe-eye"></i>
+                            data-original-title="{{ $artist->user->receiverViews->count() }} (Vues)"><i class="fe fe-eye"></i>
                         </a>
 
                         <span wire:click.prevent="like({{ $artist->id }})" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="{{ $artist->user->userLikes->count() }} (J'aimes)"><i class="fe fe-heart"></i> </span>
+                            data-original-title="{{ $artist->user->receiverLikes->count() }} (J'aimes)"><i class="fe fe-heart"></i> </span>
 
                         <span wire:click.prevent="friend({{ $artist->id }})" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="{{ $artist->user->userFriends->count() }} (Amis)"><i class="fe fe-user-plus"></i></span>
+                            data-original-title="{{ $artist->user->friends->count() }} (Amis)"><i class="fe fe-user-plus"></i></span>
 
                         <span data-show="share{{ $artist->id }}" class="contact-icon border tx-inverse share" data-toggle="tooltip" title=""
                             data-original-title="Publier"><i class="far fa-share-square"></i></span>

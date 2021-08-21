@@ -34,10 +34,11 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/cache/clear', function() {
+Route::get('/clear', function() {
+	Artisan::call('route:clear');
 	Artisan::call('cache:clear');
 	Artisan::call('view:clear');
-	return "Cache is cleared";
+	return "Route, Cache and View are cleared";
 });
 
 Route::prefix('/')->name('page.')->group(function() {
@@ -94,7 +95,7 @@ Route::prefix('/payement')->name('payment.')->group(function () {
 
 	/**/
 	Route::middleware(['auth'])->group(function () {
-		
+		Route::get('/checkout/{tableName}', [PaymentController::class, 'checkout'])->name('checkout');
 	});
 	/**/
 });

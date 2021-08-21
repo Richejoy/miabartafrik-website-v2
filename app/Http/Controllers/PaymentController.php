@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Admin;
+use App\Models\Member;
+use App\Models\Artist;
+use App\Models\Partner;
+use App\Models\Photographer;
 
 class PaymentController extends Controller
 {
@@ -48,5 +53,19 @@ class PaymentController extends Controller
     public function cancelURL(Request $request)
     {
         return view('payments.cancel_url');
+    }
+
+    public function checkout(Request $request, string $tableName)
+    {
+        $modelNamespace = "App\\Models\\" . ucfirst($tableName);
+
+        $model = $modelNamespace::where('user_id', auth()->id())->firstOrFail();
+
+        $model->update([
+            'paid' => true,
+            'expire_date' => now()->addYear(),
+        ]);
+
+        dd($model->package->price);
     }
 }

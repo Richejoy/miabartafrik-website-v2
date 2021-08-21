@@ -12,10 +12,12 @@
             <div class="page-header">
                 <div>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-danger" href="{{ route('bookcast.books') }}">Books</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('bookcast.books') }}">Books</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Liste des artistes</li>
                     </ol>
                 </div>
+
+                <x-payment-alert />
             </div>
             <!-- End Page Header -->
 

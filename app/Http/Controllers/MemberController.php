@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Package;
+use App\Models\Image;
 
 class MemberController extends Controller
 {
@@ -21,10 +22,19 @@ class MemberController extends Controller
     public function package(Request $request, Package $package = null)
     {
         $member = Member::where('user_id', auth()->id())->firstOrFail();
+
+        $image = Image::create([
+            'folder' => 'members',
+            'url' => 'https://miabartafrik.com/images/members/cover.jpg',
+            'link' => 'https://miabartafrik.com/images/members/cover.jpg',
+            'description' => 'Photo de couverture',
+        ]);
         
         if (!is_null($package)) {
             $member->update([
+                'image_id' => $image->id,
                 'package_id' => $package->id,
+                'paid' => (bool) ($package->price == 0),
             ]);
 
             return redirect()->route('bookcast.index');
