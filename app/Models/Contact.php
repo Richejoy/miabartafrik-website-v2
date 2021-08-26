@@ -12,9 +12,16 @@ class Contact extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    protected $fillable = ['first_name', 'last_name', 'email', 'phone', 'contact_topic_id', 'message'];
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+        'contact_topic_id',
+        'message'
+    ];
 
-    public function fullName()
+    public function getFullNameAttribute()
     {
         return $this->last_name . ' ' . $this->first_name;
     }

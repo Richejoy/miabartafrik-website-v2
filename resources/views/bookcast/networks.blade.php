@@ -1,4 +1,4 @@
-@extends('layouts.bookcast', ['title' => 'Réseaux'])
+@extends('layouts.bookcast', ['title' => 'Liste des partenaires'])
 
 @section('body')
 
@@ -27,23 +27,7 @@
                     @livewire('bookcast.networks.search')
 
                     <div class="content_body">
-                        <div class="row">
-
-                            @forelse($partners as $partner)
-                            
-                            <!-- Réseau artistique 01 -->
-                            @livewire('bookcast.networks.item', ['partner' => $partner])
-                            <!-- end Réseau artistique -->
-
-                            @empty
-
-                            <div class="col-md-12">
-                                <p>Vide</p>
-                            </div>
-
-                            @endforelse
-                            
-                        </div>
+                        @livewire('bookcast.networks.item')
                     </div>
 
                     <p><button type="button" class="btn btn-dark btn-sm">Charger plus </button></p>

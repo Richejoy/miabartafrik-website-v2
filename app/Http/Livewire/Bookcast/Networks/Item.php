@@ -7,15 +7,25 @@ use App\Models\Partner;
 
 class Item extends Component
 {
-    public $partner;
+    public $fetch = 'all';
 
-    public function mount(Partner $partner)
+    public $partners = null;
+
+    public $partner = null;
+
+    public function mount($fetch = 'all')
     {
-        $this->partner = $partner;
+        $this->fetch = $fetch;
     }
 
     public function render()
     {
+        if ($this->fetch == 'all') {
+            $this->partners = Partner::where('paid', true)->get();
+        } else {
+            $this->partner = Partner::find(1);
+        }
+
         return view('livewire.bookcast.networks.item');
     }
 }

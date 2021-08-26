@@ -11,7 +11,7 @@
 
                     <div class="slide">
                         <a href="{{ $sponsor->website }}" target="_blank">
-                            <img src="{{ $sponsor->image->link }}" alt="{{ $sponsor->image->description }}" height="150">
+                            <img src="{{ $sponsor->library->remote }}" alt="{{ $sponsor->library->description }}" height="150">
                         </a>
                     </div>
 

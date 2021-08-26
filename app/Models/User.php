@@ -37,7 +37,7 @@ class User extends Authenticatable
         'tfa_enabled',
         'tfa_code',
         'removed',
-        'image_id',
+        'library_id',
         'user_type_id',
         'country_id',
         'civility_id',
@@ -139,9 +139,9 @@ class User extends Authenticatable
         return $this->belongsTo(Country::class);
     }
 
-    public function image()
+    public function library()
     {
-        return $this->belongsTo(Image::class);
+        return $this->belongsTo(Library::class);
     }
 
     public function userType()

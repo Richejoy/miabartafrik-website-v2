@@ -31,8 +31,7 @@
             <div class="row row-sm">
 
                 <!-- LEFT ASIDE -->
-                @include("layouts.partials.bookcast._left_aside", ['movie' => $movie, 'artist' => $artist, 'casting' =>
-                $casting, 'election' => $election])
+                @include('layouts.partials.bookcast._left_aside')
                 <!-- END LEFT ASIDE -->
 
                 <!-- BODY -->

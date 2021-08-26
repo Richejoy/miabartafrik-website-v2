@@ -3,13 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Artist;
-use App\Models\Partner;
-use App\Models\Photographer;
-use App\Models\Event;
-use App\Models\News;
-use App\Models\Movie;
-use App\Models\Casting;
 use App\Models\Sponsor;
 
 class BookCastController extends Controller
@@ -23,67 +16,46 @@ class BookCastController extends Controller
     {
         $sponsors = Sponsor::all();
 
-        $movie = Movie::find(1);
-        $artist = Artist::find(1);
-        $casting = Casting::find(1);
-        $election = Artist::find(1);
-
-    	return view('bookcast.index', compact('sponsors', 'movie', 'artist', 'casting', 'election'));
+    	return view('bookcast.index', compact('sponsors'));
     }
 
     public function books(Request $request)
     {
-        $artists = Artist::where('paid', true)->get();
-
-    	return view('bookcast.books', compact('artists'));
+    	return view('bookcast.books');
     }
 
     public function visuoshop(Request $request)
     {
-        $photographers = Photographer::where('paid', true)->get();
-
-        return view('bookcast.visuoshop', compact('photographers'));
+        return view('bookcast.visuoshop');
     }
 
     public function networks(Request $request)
     {
-        $partners = Partner::where('paid', true)->get();
-
-        return view('bookcast.networks', compact('partners'));
+        return view('bookcast.networks');
     }
 
     public function castings(Request $request)
     {
-        $castings = Casting::all();
-
-    	return view('bookcast.castings', compact('castings'));
+    	return view('bookcast.castings');
     }
 
     public function notebook(Request $request)
     {
-        $events = Event::all();
-
-        return view('bookcast.notebook', compact('events'));
+        return view('bookcast.notebook');
     }
 
     public function elections(Request $request)
     {
-        $artists = Artist::all();
-
-        return view('bookcast.elections', compact('artists'));
+        return view('bookcast.elections');
     }
 
     public function movies(Request $request)
     {
-        $movies = Movie::all();
-
-    	return view('bookcast.movies', compact('movies'));
+    	return view('bookcast.movies');
     }
 
     public function news(Request $request)
     {
-        $news = News::all();
-
-        return view('bookcast.news', compact('news'));
+        return view('bookcast.news');
     }
 }

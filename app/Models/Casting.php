@@ -12,9 +12,9 @@ class Casting extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    public function image()
+    public function library()
     {
-        return $this->belongsTo(Image::class);
+        return $this->belongsTo(Library::class);
     }
 
     public function user()

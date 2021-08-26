@@ -12,9 +12,15 @@ class Newsletter extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    protected $fillable = ['first_name', 'last_name', 'email', 'phone', 'token'];
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+        'token'
+    ];
 
-    public function fullName()
+    public function getFullNameAttribute()
     {
         return $this->last_name . ' ' . $this->first_name;
     }

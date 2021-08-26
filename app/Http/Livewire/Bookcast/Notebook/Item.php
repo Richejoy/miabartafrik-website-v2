@@ -7,15 +7,25 @@ use App\Models\Event;
 
 class Item extends Component
 {
-    public $event;
+    public $fetch = 'all';
 
-    public function mount(Event $event)
+    public $events = null;
+
+    public $event = null;
+
+    public function mount($fetch = 'all')
     {
-        $this->event = $event;
+        $this->fetch = $fetch;
     }
 
     public function render()
     {
+        if ($this->fetch == 'all') {
+            $this->events = Event::all();
+        } else {
+            $this->event = Event::find(1);
+        }
+
         return view('livewire.bookcast.notebook.item');
     }
 }

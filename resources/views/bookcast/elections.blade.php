@@ -1,4 +1,4 @@
-@extends('layouts.bookcast', ['title' => 'Votes'])
+@extends('layouts.bookcast', ['title' => 'Voter vos artiste préférés'])
 
 @section('body')
 
@@ -27,25 +27,7 @@
                     @livewire('bookcast.elections.search')
 
                     <div class="content_body">
-                        <div class="row" id="graybg">
-
-                            @forelse($artists as $artist)
-                            
-                            <!-- Book artiste -->
-                            <div class="col-md-6 col-lg-6 col-xl-4 col-sm-6">
-                            @livewire('bookcast.elections.item', ['artist' => $artist])
-                            </div>
-                            <!-- end Book artiste -->
-
-                            @empty
-
-                            <div class="col-md-12">
-                                <p>Vide</p>
-                            </div>
-
-                            @endforelse
-
-                        </div>
+                        @livewire('bookcast.elections.item')
                     </div>
 
                     <p><button type="button" class="btn btn-dark btn-sm">Charger plus </button></p>

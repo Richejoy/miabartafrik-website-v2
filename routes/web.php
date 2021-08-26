@@ -13,7 +13,7 @@ use App\Http\Controllers\BookCastController;
 use App\Http\Controllers\BoutikArtController;
 use App\Http\Controllers\BonAddressController;
 
-use App\Http\Controllers\ImageController;
+use App\Http\Controllers\LibraryController;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MemberController;
@@ -132,38 +132,38 @@ Route::prefix('/bonaddress')->name('bonaddress.')->middleware(['auth'])->group(f
 	Route::get('/', [BonAddressController::class, 'index'])->name('index');
 });
 
-Route::prefix('/pictures')->name('pictures.')->middleware(['auth'])->group(function() {
-	Route::get('/', [ImageController::class, 'index'])->name('index');
-	Route::get('/show/{image}', [ImageController::class, 'show'])->name('show');
-	Route::match(['GET', 'POST'], '/edit/{image}', [ImageController::class, 'edit'])->name('edit');
+Route::prefix('/library')->name('library.')->middleware(['auth'])->group(function() {
+	Route::get('/', [LibraryController::class, 'index'])->name('index');
+	Route::get('/show/{library}', [LibraryController::class, 'show'])->name('show');
+	Route::match(['GET', 'POST'], '/edit/{library}', [LibraryController::class, 'edit'])->name('edit');
 });
 
 
-Route::prefix('/admins')->name('admins.')->middleware(['auth'])->group(function() {
+Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function() {
 	
 });
-Route::resource('admins', AdminController::class)->middleware('auth');
+Route::resource('admin', AdminController::class)->middleware('auth');
 
 
-Route::prefix('/members')->name('members.')->middleware(['auth'])->group(function() {
+Route::prefix('/member')->name('member.')->middleware(['auth'])->group(function() {
 	Route::get('/package/{package?}', [MemberController::class, 'package'])->name('package');
 });
-Route::resource('members', MemberController::class)->middleware('auth');
+Route::resource('member', MemberController::class)->middleware('auth');
 
 
-Route::prefix('/artists')->name('artists.')->middleware(['auth'])->group(function() {
+Route::prefix('/artist')->name('artist.')->middleware(['auth'])->group(function() {
 	Route::get('/package/{package?}', [ArtistController::class, 'package'])->name('package');
 });
-Route::resource('artists', ArtistController::class)->middleware('auth')->except(['destroy']);
+Route::resource('artist', ArtistController::class)->middleware('auth')->except(['destroy']);
 
 
-Route::prefix('/partners')->name('partners.')->middleware(['auth'])->group(function() {
+Route::prefix('/partner')->name('partner.')->middleware(['auth'])->group(function() {
 	Route::get('/package/{package?}', [PartnerController::class, 'package'])->name('package');
 });
-Route::resource('partners', PartnerController::class)->middleware('auth')->except(['destroy']);
+Route::resource('partner', PartnerController::class)->middleware('auth')->except(['destroy']);
 
 
-Route::prefix('/photographers')->name('photographers.')->middleware(['auth'])->group(function() {
+Route::prefix('/photographer')->name('photographer.')->middleware(['auth'])->group(function() {
 	Route::get('/package/{package?}', [PhotographerController::class, 'package'])->name('package');
 });
-Route::resource('photographers', PhotographerController::class)->middleware('auth')->except(['destroy']);
+Route::resource('photographer', PhotographerController::class)->middleware('auth')->except(['destroy']);

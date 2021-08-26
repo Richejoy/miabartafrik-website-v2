@@ -9,7 +9,7 @@ use App\Models\PartnerArea;
 use App\Models\Individual;
 use App\Models\Society;
 use App\Models\Package;
-use App\Models\Image;
+use App\Models\Library;
 
 class PartnerController extends Controller
 {
@@ -76,7 +76,7 @@ class PartnerController extends Controller
 
                                 flashy()->success("Modifications éffectuées");
 
-                                return redirect()->route('pictures.edit', ['image' => $partner->user->image]);
+                                return redirect()->route('library.edit', ['library' => $partner->user->library]);
                             } catch (\Exception $ex) {
                                 DB::rollback();
 
@@ -126,7 +126,7 @@ class PartnerController extends Controller
 
                                 flashy()->success("Modifications éffectuées");
 
-                                return redirect()->route('pictures.edit', ['image' => $partner->user->image]);
+                                return redirect()->route('library.edit', ['library' => $partner->user->library]);
                             } catch (\Exception $ex) {
                                 DB::rollback();
 
@@ -167,16 +167,17 @@ class PartnerController extends Controller
     {
         $partner = Partner::where('user_id', auth()->id())->firstOrFail();
 
-        $image = Image::create([
+        $library = Library::create([
             'folder' => 'partners',
-            'url' => 'https://miabartafrik.com/images/partners/cover.jpg',
-            'link' => 'https://miabartafrik.com/images/partners/cover.jpg',
+            'url' => 'https://miabartafrik.com/libraries/partners/cover.jpg',
+            'link' => 'https://miabartafrik.com/libraries/partners/cover.jpg',
             'description' => 'Photo de couverture',
+            'library_type_id' => 1,
         ]);
 
         if (!is_null($package)) {
             $partner->update([
-                'image_id' => $image->id,
+                'library_id' => $library->id,
                 'package_id' => $package->id,
                 'paid' => (bool) ($package->price == 0),
             ]);

@@ -7,15 +7,25 @@ use App\Models\Photographer;
 
 class Item extends Component
 {
-    public $photographer;
+    public $fetch = 'all';
 
-    public function mount(Photographer $photographer)
+    public $photographers = null;
+
+    public $photographer = null;
+
+    public function mount($fetch = 'all')
     {
-        $this->photographer = $photographer;
+        $this->fetch = $fetch;
     }
 
     public function render()
     {
+        if ($this->fetch == 'all') {
+            $this->photographers = Photographer::where('paid', true)->get();
+        } else {
+            $this->photographer = Photographer::find(1);
+        }
+
         return view('livewire.bookcast.visuoshop.item');
     }
 }

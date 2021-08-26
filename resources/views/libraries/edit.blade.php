@@ -30,7 +30,7 @@
                                     <h5 class="text-left mb-2">COMPLETER VOTRE INSCRIPTION</h5>
                                     <p class="mb-4 text-muted tx-13 ml-0 text-left">Mettez une chance de côté en complétant vos informations de profil.</p>
 
-                                    <x-avatar :image="$image" />
+                                    <x-avatar :library="$library" />
 
                                 </div>
                             </div>

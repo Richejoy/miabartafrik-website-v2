@@ -61,38 +61,38 @@ class Controller extends BaseController
 		return $folder;
 	}
 
-	protected function getAppropriateUrl(Request $request)
+	protected function getAppropriateLocal(Request $request)
 	{
-		$url = null;
+		$local = null;
 
 		if ($request->has('civility_id')) {
 			switch (intval($request->input('civility_id'))) {
 				case 1:
-					$url = 'man.png';
+					$local = 'man.png';
 					break;
 
 				case 2:
-					$url = 'woman.png';
+					$local = 'woman.png';
 					break;
 
 				case 3:
-					$url = 'lady.png';
+					$local = 'lady.png';
 					break;
 				
 				default:
-					$url = 'default.png';
+					$local = 'default.png';
 					break;
 			}
 		}
 
-		return $url;
+		return $local;
 	}
 
-	protected function getAppropriateLink(Request $request, string $folder)
+	protected function getAppropriateRemote(Request $request, string $folder)
 	{
-		$url = $this->getAppropriateUrl($request);
+		$local = $this->getAppropriateLocal($request);
 
-		return "http://miabartafrik.com/images/{$folder}/{$url}";
+		return "http://miabartafrik.com/libraries/{$folder}/{$local}";
 	}
 
 	public function getMiabpay()

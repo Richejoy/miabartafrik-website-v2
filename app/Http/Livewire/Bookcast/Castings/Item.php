@@ -7,15 +7,25 @@ use App\Models\Casting;
 
 class Item extends Component
 {
-    public $casting;
+    public $fetch = 'all';
 
-    public function mount(casting $casting)
+    public $castings = null;
+
+    public $casting = null;
+
+    public function mount($fetch = 'all')
     {
-        $this->casting = $casting;
+        $this->fetch = $fetch;
     }
 
     public function render()
     {
+        if ($this->fetch == 'all') {
+            $this->castings = Casting::all();
+        } else {
+            $this->casting = Casting::find(1);
+        }
+
         return view('livewire.bookcast.castings.item');
     }
 }

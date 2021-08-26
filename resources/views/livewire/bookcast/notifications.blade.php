@@ -21,7 +21,7 @@
 
             <div class="media">
                 <div class="main-img-user">
-                    <img alt="{{ $notification->sender->image->description }}" src="{{ $notification->sender->image->link }}">
+                    <img alt="{{ $notification->sender->library->description }}" src="{{ $notification->sender->library->remote }}">
                 </div>
                 <div class="media-body">
                     <p><strong>{{ $notification->sender->full_name }}</strong>, {{ $notification->content }}</p>

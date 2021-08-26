@@ -1,4 +1,4 @@
-@extends('layouts.bookcast', ['title' => 'Books'])
+@extends('layouts.bookcast', ['title' => 'Liste des artistes'])
 
 @section('body')
 
@@ -27,7 +27,7 @@
                     @livewire('bookcast.books.search')
 
                     <div class="content_body">
-                        <x-bookcast.books.item :artists="$artists" />
+                        @livewire('bookcast.books.item')
                     </div>
 
                     <p><button type="button" class="btn btn-dark btn-sm">Charger plus </button></p>

@@ -14,7 +14,7 @@ class Photographer extends Model
 
     protected $fillable = [
         'user_id',
-        'image_id',
+        'library_id',
         'individual_id',
         'society_id',
         'person_type_id',
@@ -34,9 +34,9 @@ class Photographer extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function image()
+    public function library()
     {
-        return $this->belongsTo(Image::class);
+        return $this->belongsTo(Library::class);
     }
 
     public function society()

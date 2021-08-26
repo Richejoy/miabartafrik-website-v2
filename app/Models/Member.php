@@ -14,7 +14,7 @@ class Member extends Model
 
     protected $fillable = [
         'user_id',
-        'image_id',
+        'library_id',
         'package_id',
         'paid',
         'expire_date',
@@ -30,9 +30,9 @@ class Member extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function image()
+    public function library()
     {
-        return $this->belongsTo(Image::class);
+        return $this->belongsTo(Library::class);
     }
 
     public function package()

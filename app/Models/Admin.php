@@ -14,7 +14,7 @@ class Admin extends Model
 
     protected $fillable = [
         'user_id',
-        'image_id',
+        'library_id',
     ];
 
     protected $casts = [
@@ -27,8 +27,8 @@ class Admin extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function image()
+    public function library()
     {
-        return $this->belongsTo(Image::class);
+        return $this->belongsTo(Library::class);
     }
 }

@@ -3,20 +3,19 @@
 namespace App\View\Components\Bookcast\Books;
 
 use Illuminate\View\Component;
-use App\Models\Artist;
 
 class Item extends Component
 {
-    public $artists;
+    public $artist;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($artists)
+    public function __construct($artist)
     {
-        $this->artists = $artists;
+        $this->artist = $artist;
     }
 
     /**

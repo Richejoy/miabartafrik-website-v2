@@ -7,15 +7,25 @@ use App\Models\News;
 
 class Item extends Component
 {
-    public $item;
+    public $fetch = 'all';
 
-    public function mount(News $item)
+    public $news = null;
+
+    public $item = null;
+
+    public function mount($fetch = 'all')
     {
-        $this->item = $item;
+        $this->fetch = $fetch;
     }
 
     public function render()
     {
+        if ($this->fetch == 'all') {
+            $this->news = News::all();
+        } else {
+            $this->item = News::find(1);
+        }
+
         return view('livewire.bookcast.news.item');
     }
 }

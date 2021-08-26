@@ -8,7 +8,7 @@ use App\Models\Artist;
 use App\Models\ArtistArea;
 use App\Models\UserLanguage;
 use App\Models\Package;
-use App\Models\Image;
+use App\Models\Library;
 
 class ArtistController extends Controller
 {
@@ -70,7 +70,7 @@ class ArtistController extends Controller
 
                     flashy()->success("Modifications éffectuées");
                             
-                    return redirect()->route('pictures.edit', ['image' => $artist->user->image]);
+                    return redirect()->route('library.edit', ['library' => $artist->user->library]);
                 } catch (\Exception $ex) {
                     DB::rollback();
 
@@ -103,16 +103,17 @@ class ArtistController extends Controller
     {
         $artist = Artist::where('user_id', auth()->id())->firstOrFail();
 
-        $image = Image::create([
+        $library = Library::create([
             'folder' => 'artists',
-            'url' => 'https://miabartafrik.com/images/artists/cover.jpg',
-            'link' => 'https://miabartafrik.com/images/artists/cover.jpg',
+            'local' => 'https://miabartafrik.com/libraries/artists/cover.jpg',
+            'remote' => 'https://miabartafrik.com/libraries/artists/cover.jpg',
             'description' => 'Photo de couverture',
+            'library_type_id' => 1,
         ]);
 
         if (!is_null($package)) {
             $artist->update([
-                'image_id' => $image->id,
+                'library_id' => $library->id,
                 'package_id' => $package->id,
                 'paid' => (bool) ($package->price == 0),
             ]);

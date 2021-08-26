@@ -7,15 +7,25 @@ use App\Models\Movie;
 
 class Item extends Component
 {
-    public $movie;
+    public $fetch = 'all';
 
-    public function mount(Movie $movie)
+    public $movies = null;
+
+    public $movie = null;
+
+    public function mount($fetch = 'all')
     {
-        $this->movie = $movie;
+        $this->fetch = $fetch;
     }
 
     public function render()
     {
+        if ($this->fetch == 'all') {
+            $this->movies = Movie::all();
+        } else {
+            $this->movie = Movie::find(1);
+        }
+
         return view('livewire.bookcast.movies.item');
     }
 }

@@ -56,7 +56,7 @@
 <body class="horizontalmenu">
 
     <!-- Loader -->
-    @if(in_array(Route::currentRouteName(), ['artists.show', 'partners.show', 'photographers.show']))
+    @if(in_array(Route::currentRouteName(), ['artist.show', 'partner.show', 'photographer.show']))
 
     @yield('loader')
 
@@ -146,14 +146,22 @@
     <script src="{{ asset('public/assets/plugins/gallery/lg-hash.js') }}"></script>
     <script src="{{ asset('public/assets/plugins/gallery/lg-share.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-
     @include('flashy::message')
 
     @stack('scripts')
 
     <script>
-        $('span.share').click(function(e) {
+        $('span.share-artist').click(function(e) {
+            var div = $(this).data('show');
+            $('#' + div).slideToggle();
+        });
+
+        $('span.share-photographer').click(function(e) {
+            var div = $(this).data('show');
+            $('#' + div).slideToggle();
+        });
+
+        $('span.share-partner').click(function(e) {
             var div = $(this).data('show');
             $('#' + div).slideToggle();
         });
@@ -167,6 +175,8 @@
     </script>
     
     @livewireScripts
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
 </body>
 
 </html>

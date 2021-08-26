@@ -1,7 +1,7 @@
 @forelse($friends as $friend)
 <div class="main-contact-item">
     <div class="main-img-user">
-        <img alt="avatar" src="{{ $friend->receiver->image->link }}">
+        <img alt="avatar" src="{{ $friend->receiver->library->remote }}">
     </div>
     <div class="main-contact-body">
         <h6>{{ $friend->receiver->full_name }}</h6>

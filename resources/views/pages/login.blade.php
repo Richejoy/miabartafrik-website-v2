@@ -53,8 +53,8 @@
                                     </div>
 
                                     <div class="form-group mb-0 text-left">
-                                        <label class="ckbox" for="remember_me">
-                                            <input type="checkbox" id="remember_me" name="remember_me"><span class="">
+                                        <label class="ckbox" for="remember">
+                                            <input type="checkbox" id="remember" name="remember"><span class="">
                                                 Se souvenir de moi
                                             </span>
                                         </label>

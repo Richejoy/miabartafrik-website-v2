@@ -929,5 +929,5 @@
 @endsection
 
 @section('loader')
-<x-loader imgLink="{{ $photographer->user->image->link }}" />
+<x-loader imgLink="{{ $photographer->user->library->remote }}" />
 @endsection

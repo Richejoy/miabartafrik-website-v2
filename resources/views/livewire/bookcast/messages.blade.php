@@ -21,7 +21,7 @@
 
             <div class="media">
                 <div class="main-img-user">
-                    <img alt="{{ $message->sender->image->description }}" src="{{ $message->sender->image->link }}">
+                    <img alt="{{ $message->sender->library->description }}" src="{{ $message->sender->library->remote }}">
                 </div>
                 <div class="media-body">
                     <p>

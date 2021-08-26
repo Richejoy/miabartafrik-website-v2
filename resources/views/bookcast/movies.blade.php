@@ -38,25 +38,7 @@
                     </div>
 
                     <div class="content_body">
-                        <div class="row">
-
-                            @forelse($movies as $movie)
-                            
-                            <!-- START VIDEO -->
-                            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                            @livewire('bookcast.movies.item', ['movie' => $movie])
-                            </div>
-                            <!-- END VIDEO -->
-
-                            @empty
-
-                            <div class="col-md-12">
-                                <p>Vide</p>
-                            </div>
-
-                            @endforelse
-
-                        </div>
+                        @livewire('bookcast.movies.item')
                     </div>
 
                     <p><button type="button" class="btn btn-dark btn-sm">Charger plus </button></p>

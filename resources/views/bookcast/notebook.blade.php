@@ -1,4 +1,4 @@
-@extends('layouts.bookcast', ['title' => 'Agenda +'])
+@extends('layouts.bookcast', ['title' => 'Liste des évènements'])
 
 @section('body')
 
@@ -27,25 +27,7 @@
                     @livewire('bookcast.notebook.search')
 
                     <div class="content_body">
-                        <div class="row">
-
-                            @forelse($events as $event)
-
-                            <!-- EVENEMENT -->
-                            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                            @livewire('bookcast.notebook.item', ['event' => $event])
-                            </div>
-                            <!-- END EVENEMENT -->
-
-                            @empty
-
-                            <div class="col-md-12">
-                                <p>Vide</p>
-                            </div>
-
-                            @endforelse
-
-                        </div>
+                        @livewire('bookcast.notebook.item')
                     </div>
 
                     <p><button type="button" class="btn btn-dark btn-sm">Charger plus </button></p>

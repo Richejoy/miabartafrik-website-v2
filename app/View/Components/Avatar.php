@@ -3,20 +3,20 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use App\Models\Image;
+use App\Models\Library;
 
 class Avatar extends Component
 {
-    public $image;
+    public $library;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($image)
+    public function __construct($library)
     {
-        $this->image = $image; 
+        $this->library = $library; 
     }
 
     /**

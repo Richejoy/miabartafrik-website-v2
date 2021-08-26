@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Image;
+use App\Models\Library;
 
 class ImageController extends Controller
 {
@@ -14,19 +14,19 @@ class ImageController extends Controller
 
     public function index(Request $request)
     {
-        return view('images.index');
+        return view('libraries.index');
     }
 
-    public function show(Request $request, Image $image)
+    public function show(Request $request, Library $library)
     {
-        return view('images.show', compact('image'));
+        return view('libraries.show', compact('library'));
     }
 
-    public function edit(Request $request, Image $image)
+    public function edit(Request $request, Library $library)
     {
         if ($request->isMethod('POST')) {
             if ($request->has('form')) {
-                if ($request->form == 'url') {
+                if ($request->form == 'local') {
 
                                 $this->validate($request, [
                                     'photo' => 'required|mimes:jpeg,png,jpg,gif|max:10000',
@@ -44,28 +44,28 @@ class ImageController extends Controller
 
                                     $filename = time() . '.' . $request->file('photo')->extension();
 
-                                    $storePath = $request->file('photo')->storeAs("public_html/images/uploads/users/{$image->folder}", $filename, 'ftp');
+                                    $storePath = $request->file('photo')->storeAs("public_html/libraries/uploads/users/{$library->folder}", $filename, 'ftp');
 
-                                    $image->update([
+                                    $library->update([
                                         'description' => $request->description,
-                                        'url' => $filename,
-                                        'link' => "http://miabartafrik.com/images/uploads/users/{$image->folder}/" . $filename,
+                                        'local' => $filename,
+                                        'remote' => "http://miabartafrik.com/libraries/uploads/users/{$library->folder}/" . $filename,
                                     ]);
 
                                     flashy()->success("Modifications éffectuées");
                                 }
 
-                }elseif ($request->form == 'link') {
+                }elseif ($request->form == 'remote') {
                                     
                                 $this->validate($request, [
                                     'description' => 'required|min:6',
-                                    'link' => 'required|url',
+                                    'remote' => 'required|url',
                                 ]);
 
-                                $image->update(array_merge(
+                                $library->update(array_merge(
                                     $request->all(),
                                     [
-                                        'url' => $request->link,
+                                        'local' => $request->remote,
                                     ]
                                 ));
 
@@ -73,25 +73,25 @@ class ImageController extends Controller
 
                 }
 
-                switch ($image->folder) {
+                switch ($library->folder) {
                     case 'admins':
                         return redirect()->route('bookcast.index');
                         break;
 
                     case 'members':
-                        return redirect()->route('members.package');
+                        return redirect()->route('member.package');
                         break;
 
                     case 'artists':
-                        return redirect()->route('artists.package');
+                        return redirect()->route('artist.package');
                         break;
 
                     case 'partners':
-                        return redirect()->route('partners.package');
+                        return redirect()->route('partner.package');
                         break;
 
                     case 'photographers':
-                        return redirect()->route('photographers.package');
+                        return redirect()->route('photographer.package');
                         break;
                     
                     default:
@@ -103,6 +103,6 @@ class ImageController extends Controller
             return back();
         }
 
-        return view('images.edit', compact('image'));
+        return view('libraries.edit', compact('library'));
     }
 }

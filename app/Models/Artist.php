@@ -14,7 +14,7 @@ class Artist extends Model
 
     protected $fillable = [
         'user_id',
-        'image_id',
+        'library_id',
         'is_ambassador',
         'area_max',
         'package_id',
@@ -32,9 +32,9 @@ class Artist extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function image()
+    public function library()
     {
-        return $this->belongsTo(Image::class);
+        return $this->belongsTo(Library::class);
     }
 
     public function package()

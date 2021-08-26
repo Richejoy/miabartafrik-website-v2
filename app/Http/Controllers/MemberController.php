@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Package;
-use App\Models\Image;
+use App\Models\Library;
 
 class MemberController extends Controller
 {
@@ -23,16 +23,17 @@ class MemberController extends Controller
     {
         $member = Member::where('user_id', auth()->id())->firstOrFail();
 
-        $image = Image::create([
+        $library = Library::create([
             'folder' => 'members',
-            'url' => 'https://miabartafrik.com/images/members/cover.jpg',
-            'link' => 'https://miabartafrik.com/images/members/cover.jpg',
+            'url' => 'https://miabartafrik.com/libraries/members/cover.jpg',
+            'link' => 'https://miabartafrik.com/libraries/members/cover.jpg',
             'description' => 'Photo de couverture',
+            'library_type_id' => 1,
         ]);
         
         if (!is_null($package)) {
             $member->update([
-                'image_id' => $image->id,
+                'library_id' => $library->id,
                 'package_id' => $package->id,
                 'paid' => (bool) ($package->price == 0),
             ]);

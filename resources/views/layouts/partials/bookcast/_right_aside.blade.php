@@ -14,19 +14,11 @@
         @endif
 
         <!-- info -->
-        <x-image-advert type="gold" />
+        <x-library-advert type="gold" />
         <!-- end info -->
 
         <!-- info -->
-        <x-image-advert type="all" />
-        <!-- end info -->
-
-        <!-- info -->
-        <x-video-advert type="gold" />
-        <!-- end info -->
-
-        <!-- info -->
-        <x-video-advert type="all" />
+        <x-library-advert type="all" />
         <!-- end info -->
 
     </div>

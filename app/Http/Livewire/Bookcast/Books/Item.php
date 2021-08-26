@@ -9,15 +9,25 @@ class Item extends Component
 {
     //protected $listerners = ['emitMethod' => 'thisMethod'];
 
-    public $artist;
+    public $fetch = 'all';
 
-    public function mount(Artist $artist)
+    public $artists = null;
+
+    public $artist = null;
+
+    public function mount($fetch = 'all')
     {
-        $this->artist = $artist;
+        $this->fetch = $fetch;
     }
 
     public function render()
     {
+        if ($this->fetch == 'all') {
+            $this->artists = Artist::where('paid', true)->get();
+        } else {
+            $this->artist = Artist::find(1);
+        }
+
         return view('livewire.bookcast.books.item');
     }
 

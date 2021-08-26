@@ -13,8 +13,10 @@ class Advert extends Model
     const UPDATED_AT = 'modified';
 
     protected $fillable = [
-        'image_id',
-        'video_id',
+        'library_id',
+        'published',
+        'expire_date',
+        'is_gold',
         'website',
     ];
 
@@ -23,13 +25,8 @@ class Advert extends Model
         'modified' => 'datetime',
     ];
 
-    public function image()
+    public function library()
     {
-        return $this->belongsTo(Image::class);
-    }
-
-    public function video()
-    {
-        return $this->belongsTo(Video::class);
+        return $this->belongsTo(Library::class);
     }
 }

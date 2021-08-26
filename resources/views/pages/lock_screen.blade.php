@@ -41,7 +41,7 @@
 
                                     <div class="text-left d-flex float-left mb-4 user-lock">
                                         <img alt="avatar avatar-sm" class="rounded-circle mb-0"
-                                            src="{{ session('lockUser')->image->link }}">
+                                            src="{{ session('lockUser')->library->remote }}">
                                         <div class="my-auto">
                                             <p class="font-weight-semibold my-auto ml-2 text-uppercase">{{ session('lockUser')->full_name }}
                                             </p>

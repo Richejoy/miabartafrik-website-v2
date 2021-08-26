@@ -1,4 +1,4 @@
-@extends('layouts.bookcast', ['title' => 'Actualités'])
+@extends('layouts.bookcast', ['title' => 'Liste des actualités'])
 
 @section('body')
 
@@ -27,25 +27,7 @@
                     @livewire('bookcast.news.search')
 
                     <div class="content_body">
-                        <div class="row">
-
-                            @forelse($news as $item)
-
-                            <!-- ACTUALITE -->
-                            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                            @livewire('bookcast.news.item', ['item' => $item])
-                            </div>
-                            <!-- END ACTUALITE -->
-
-                            @empty
-
-                            <div class="col-md-12">
-                                <p>Vide</p>
-                            </div>
-
-                            @endforelse
-
-                        </div>
+                        @livewire('bookcast.news.item')
                     </div>
 
                     <p><button type="button" class="btn btn-dark btn-sm">Charger plus </button></p>

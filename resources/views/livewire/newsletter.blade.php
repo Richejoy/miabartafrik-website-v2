@@ -2,7 +2,7 @@
     <div class="component-item">
         <div class="right_sidebar">
 
-            <form wire:submit.prevent="save()">  
+            <form wire:submit.prevent="save()">
                <label for="email" class="required-text mg-b-10 label_mba">
                 NewsLetter       
                </label>

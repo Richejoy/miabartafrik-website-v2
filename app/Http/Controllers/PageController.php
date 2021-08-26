@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Civility;
-use App\Models\Image;
+use App\Models\Library;
 use App\Models\UserType;
 use App\Models\User;
 use App\Models\Admin;
@@ -215,12 +215,13 @@ class PageController extends Controller
 
                 DB::beginTransaction();
 
-                $image = Image::create(
+                $library = Library::create(
                     [
                         'folder' => $this->getAppropriateFolder($subscriber->user_type_id),
-                        'url' => $this->getAppropriateUrl($request),
-                        'link' => $this->getAppropriateLink($request, 'users'),
+                        'local' => $this->getAppropriateLocal($request),
+                        'remote' => $this->getAppropriateRemote($request, 'users'),
                         'description' => 'Ma jolie photo',
+                        'library_type_id' => 1,
                     ]
                 );
 
@@ -231,10 +232,10 @@ class PageController extends Controller
                         $request->all(),
                         [
                             'user_type_id' => $subscriber->user_type_id,
-                            'username' => mb_strtoupper(mb_substr(uniqid($image->id), 0, 15)),
+                            'username' => mb_strtoupper(mb_substr(uniqid($library->id), 0, 15)),
                             'password' => bcrypt($password),
-                            'image_id' => $image->id,
-                            'token' => sha1(uniqid($image->id)),
+                            'library_id' => $library->id,
+                            'token' => sha1(uniqid($library->id)),
                         ]
                     )
                 );
@@ -285,19 +286,19 @@ class PageController extends Controller
                 auth()->login($user);
 
                 if ($user->user_type_id == 2) {
-                    return redirect()->route('pictures.edit', ['image' => $image]);
+                    return redirect()->route('library.edit', ['library' => $library]);
                 }
 
                 if ($user->user_type_id == 3) {
-                    return redirect()->route('artists.create');
+                    return redirect()->route('artist.create');
                 }
 
                 if ($user->user_type_id == 4) {
-                    return redirect()->route('partners.create');
+                    return redirect()->route('partner.create');
                 }
 
                 if ($user->user_type_id == 5) {
-                    return redirect()->route('photographers.create');
+                    return redirect()->route('photographer.create');
                 }
 
             } catch (\Exception $ex) {
@@ -480,17 +481,18 @@ class PageController extends Controller
         if (!is_null($user)) {
 
             if ($user->user_type_id == 1) {
-                $image = Image::create([
+                $library = Library::create([
                     'folder' => 'admins',
-                    'url' => 'https://miabartafrik.com/images/admins/cover.jpg',
-                    'link' => 'https://miabartafrik.com/images/admins/cover.jpg',
+                    'local' => 'https://miabartafrik.com/libraries/admins/cover.jpg',
+                    'remote' => 'https://miabartafrik.com/libraries/admins/cover.jpg',
                     'description' => 'Photo de couverture',
+                    'library_type_id' => 1,
                 ]);
 
                 $admin = Admin::where('user_id', $user->id)->firstOrFail();
 
                 $admin->update([
-                    'image_id' => $image->id,
+                    'library_id' => $library->id,
                 ]);
             }
 
@@ -505,7 +507,7 @@ class PageController extends Controller
                 'transaction_type_id' => 1,
             ]);
 
-            auth()->login($user, $request->has('remember_me'));
+            auth()->login($user, $request->has('remember'));
 
             event(new UserEvent($user, ['action' => 'login']));
 

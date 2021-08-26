@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use App\Models\Advert;
 
-class ImageAdvert extends Component
+class LibraryAdvert extends Component
 {
     public $type = 'all';
 
@@ -26,7 +26,7 @@ class ImageAdvert extends Component
 
         $this->isGold = (bool) ($this->type == 'gold');
 
-        $query = Advert::where(['published' => true])->where('image_id', '!=', null);
+        $query = Advert::where(['published' => true]);
 
         if ($this->isGold) {
 
@@ -46,6 +46,6 @@ class ImageAdvert extends Component
      */
     public function render()
     {
-        return view('components.image-advert');
+        return view('components.library-advert');
     }
 }

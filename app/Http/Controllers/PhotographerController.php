@@ -9,7 +9,7 @@ use App\Models\PhotographerArea;
 use App\Models\Individual;
 use App\Models\Society;
 use App\Models\Package;
-use App\Models\Image;
+use App\Models\Library;
 
 class PhotographerController extends Controller
 {
@@ -76,7 +76,7 @@ class PhotographerController extends Controller
 
                                 flashy()->success("Modifications éffectuées");
 
-                                return redirect()->route('pictures.edit', ['image' => $photographer->user->image]);
+                                return redirect()->route('library.edit', ['library' => $photographer->user->library]);
                             } catch (\Exception $ex) {
                                 DB::rollback();
 
@@ -126,7 +126,7 @@ class PhotographerController extends Controller
 
                                 flashy()->success("Modifications éffectuées");
 
-                                return redirect()->route('pictures.edit', ['image' => $photographer->user->image]);
+                                return redirect()->route('library.edit', ['library' => $photographer->user->library]);
                             } catch (\Exception $ex) {
                                 DB::rollback();
 
@@ -167,16 +167,17 @@ class PhotographerController extends Controller
     {
         $photographer = Photographer::where('user_id', auth()->id())->firstOrFail();
 
-        $image = Image::create([
+        $library = Library::create([
             'folder' => 'photographers',
-            'url' => 'https://miabartafrik.com/images/photographers/cover.jpg',
-            'link' => 'https://miabartafrik.com/images/photographers/cover.jpg',
+            'url' => 'https://miabartafrik.com/libraries/photographers/cover.jpg',
+            'link' => 'https://miabartafrik.com/libraries/photographers/cover.jpg',
             'description' => 'Photo de couverture',
+            'library_type_id' => 1,
         ]);
         
         if (!is_null($package)) {
             $photographer->update([
-                'image_id' => $image->id,
+                'library_id' => $library->id,
                 'package_id' => $package->id,
                 'paid' => (bool) ($package->price == 0),
             ]);
