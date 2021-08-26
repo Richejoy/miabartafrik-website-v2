@@ -1,14 +1,18 @@
 <header>
-    <div class="main-header side-header">
-        <div class="container">
+    <div class="main-header side-header {{ $dashboard ? 'sticky' : '' }}">
+        <div class="container-fluid">
 
             <div class="main-header-left">
+                @if($dashboard)
+                <a class="main-header-menu-icon" href="#" id="mainSidebarToggle"><span></span></a>
+                @else
                 <a class="main-header-menu-icon d-lg-none" href="" id="mainNavShow"><span></span></a>
                 <a class="main-logo" href="index.html">
                     <img src="{{ asset('public/assets/img/brand/logo.png') }}" class="header-brand-img desktop-logo" alt="logo">
                     <img src="{{ asset('public/assets/img/brand/logo-light.png') }}" class="header-brand-img desktop-logo theme-logo"
                         alt="logo">
                 </a>
+                @endif
             </div>
 
             <div class="main-header-center">

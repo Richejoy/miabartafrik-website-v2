@@ -21,6 +21,9 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PhotographerController;
 
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\NotificationController;
+
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -167,3 +170,11 @@ Route::prefix('/photographer')->name('photographer.')->middleware(['auth'])->gro
 	Route::get('/package/{package?}', [PhotographerController::class, 'package'])->name('package');
 });
 Route::resource('photographer', PhotographerController::class)->middleware('auth')->except(['destroy']);
+
+Route::prefix('/message')->name('message.')->middleware(['auth'])->group(function() {
+	Route::get('/', [MessageController::class, 'index'])->name('index');
+});
+
+Route::prefix('/notification')->name('notification.')->middleware(['auth'])->group(function() {
+	Route::get('/', [NotificationController::class, 'index'])->name('index');
+});

@@ -49,11 +49,11 @@
                     </nav>
                 </div>
 
-                <div id="share-photographer{{ $photographer->id }}" style="display: none;">
-                    <a href="http://www.facebook.com/sharer/sharer.php?u={{ route('photographer.show', ['photographer' => $photographer]) }}" target="_blank">
+                <div class="py-1" id="share-photographer{{ $photographer->id }}" style="display: none;">
+                    <a class="contact-icon border tx-inverse" href="http://www.facebook.com/sharer/sharer.php?u={{ route('photographer.show', ['photographer' => $photographer]) }}" target="_blank">
                         <i class="fe fe-facebook"></i>
                     </a>
-                    <a href="https://twitter.com/intent/tweet?url={{ route('photographer.show', ['photographer' => $photographer]) }}" target="_blank">
+                    <a class="contact-icon border tx-inverse" href="https://twitter.com/intent/tweet?url={{ route('photographer.show', ['photographer' => $photographer]) }}" target="_blank">
                         <i class="fe fe-twitter"></i>
                     </a>
                 </div>

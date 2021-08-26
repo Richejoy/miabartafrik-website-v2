@@ -43,6 +43,8 @@
     <!-- Internal Owl Carousel css-->
     <link href="{{ asset('public/assets/plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ asset('public/assets/plugins/multipleselect/multiple-select.css') }}">
+
     <!-- Sidemenu css-->
     <link href="{{ asset('public/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
 
@@ -71,7 +73,7 @@
     <div class="page">
 
         <!-- Main Header-->
-        @include("layouts.partials.bookcast._header")
+        @include("layouts.partials.bookcast._header", ['dashboard' => false])
         <!-- End Main Header-->
 
         <!-- Mobile-header -->
@@ -123,6 +125,9 @@
 
     <!-- Sticky js -->
     <script src="{{ asset('public/assets/js/sticky.js') }}"></script>
+
+    <script src="{{ asset('public/assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
+    <script src="{{ asset('public/assets/js/carousel.js') }}"></script>
 
     <!-- Custom js -->
     <script src="{{ asset('public/assets/js/custom.js') }}"></script>

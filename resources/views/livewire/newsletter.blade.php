@@ -3,14 +3,18 @@
         <div class="right_sidebar">
 
             <form wire:submit.prevent="save()">
-               <label for="email" class="required-text mg-b-10 label_mba">
-                NewsLetter       
-               </label>
-               <a href="{{ route('newsletter.index') }}">PLus de champs</a>
-               <input class="form-control" placeholder="Entrer votre Email" type="email" id="email" name="email">
-               <div class="detail-buttons"> 
-                <button class="detail-button">S'ABONNER AU NEWSLETTER</button> 
-               </div>  
+                <div class="sidebar_titre">
+                                                        <h4>NewsLetter </h4>
+                                                        <a href="{{ route('newsletter.index') }}">Paramètre</a>
+                                                    </div>   
+
+                                                     <div class="input-group">
+                                                        <input class="form-control" placeholder="Entrer votre Email" type="email" id="email" name="email">
+                                                         
+                                                        <button class="btn search-btn" type="submit">
+                                                            <i class="fe fe-send" data-toggle="S'abonner au newsletter" title="" data-original-title="fe fe-send" style="font-size: 1.3rem;color: #2c539b;"></i>
+                                                        </button>
+                                                    </div>
             </form>
 
         </div>

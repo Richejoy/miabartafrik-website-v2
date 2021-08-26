@@ -1,18 +1,18 @@
 <div class="dropdown main-header-notification">
     <a class="nav-link icon" href="#">
-        <i class="fe fe-message-square header-icons"></i>
+        <i class="fe fe-mail header-icons"></i>
         <span class="badge badge-success nav-link-badge">{{ $messages->count() }}</span>
     </a>
     <div class="dropdown-menu">
         <div class="header-navheading">
             <p class="main-notification-text">
                 @if($messages->count())
-                Vous avez {{ $messages->count() }} message(s) non lu
+                <b>{{ $messages->count() }}</b> message(s) non lu
                 @else
                 Aucun message non lu
                 @endif
 
-                <a href="{{ route('user.index') }}" class="badge badge-pill badge-success ml-3">Voir tout</a>
+                <a href="{{ route('message.index') }}" class="badge badge-pill badge-success ml-3">Voir tout</a>
             </p>
         </div>
         <div class="main-notification-list">
@@ -40,7 +40,7 @@
         </div>
 
         <div class="dropdown-footer">
-            <a href="{{ route('user.index') }}">Afficher toutes les messages</a>
+            <a href="{{ route('message.index') }}">Afficher tous les messages</a>
         </div>
     </div>
 </div>

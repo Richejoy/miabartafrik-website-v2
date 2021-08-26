@@ -7,12 +7,12 @@
         <div class="header-navheading">
             <p class="main-notification-text">
                 @if($notifications->count())
-                Vous avez {{ $notifications->count() }} notification(s) non lue
+                <b>{{ $notifications->count() }}</b> notification(s) non lue
                 @else
                 Aucune notification non lue
                 @endif
 
-                <a href="{{ route('user.index') }}" class="badge badge-pill badge-danger ml-3">Voir tout</a>
+                <a href="{{ route('notification.index') }}" class="badge badge-pill badge-danger ml-3">Voir tout</a>
             </p>
         </div>
         <div class="main-notification-list">
@@ -38,7 +38,7 @@
         </div>
 
         <div class="dropdown-footer">
-            <a href="{{ route('user.index') }}">Afficher toutes les notifications</a>
+            <a href="{{ route('notification.index') }}">Afficher toutes les notifications</a>
         </div>
     </div>
 </div>

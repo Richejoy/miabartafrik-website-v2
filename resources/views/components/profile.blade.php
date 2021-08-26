@@ -5,9 +5,16 @@
     </a>
     <div class="dropdown-menu">
         <div class="header-navheading">
+            <p>
+                <img width="100px" height="100px" alt="{{ auth()->user()->library->description }}"
+                src="{{ auth()->user()->library->remote }}">
+            </p>
             <h6 class="main-notification-title">{{ auth()->user()->full_name }}</h6>
             <p class="main-notification-text">{{ auth()->user()->userType->name }}</p>
         </div>
+        <a class="dropdown-item border-top" href="{{ route('user.index') }}">
+            <i class="fe fe-home"></i> Tableau de bord
+        </a>
         <a class="dropdown-item border-top" href="{{ route('user.show', ['user' => auth()->id()]) }}">
             <i class="fe fe-user"></i> Mon profil
         </a>

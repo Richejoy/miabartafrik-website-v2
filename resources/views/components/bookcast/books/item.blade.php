@@ -51,11 +51,11 @@
                     </nav>
                 </div>
 
-                <div id="share-artist{{ $artist->id }}" style="display: none;">
-                    <a href="http://www.facebook.com/sharer/sharer.php?u={{ route('artist.show', ['artist' => $artist]) }}" target="_blank">
+                <div class="py-1" id="share-artist{{ $artist->id }}" style="display: none;">
+                    <a class="contact-icon border tx-inverse" href="http://www.facebook.com/sharer/sharer.php?u={{ route('artist.show', ['artist' => $artist]) }}" target="_blank">
                         <i class="fe fe-facebook"></i>
                     </a>
-                    <a href="https://twitter.com/intent/tweet?url={{ route('artist.show', ['artist' => $artist]) }}" target="_blank">
+                    <a class="contact-icon border tx-inverse" href="https://twitter.com/intent/tweet?url={{ route('artist.show', ['artist' => $artist]) }}" target="_blank">
                         <i class="fe fe-twitter"></i>
                     </a>
                 </div>

@@ -7,11 +7,11 @@
         </div>
         <div class="right_sidebar">
         @if($advert->library->library_type_id == 3)
-        <a class="" href="{{ $advert->website }}" target="_blank">
+        <a class="d-block py-2" href="{{ $advert->website }}" target="_blank">
             <iframe class="w-100" src="{{ $advert->library->remote }}" title="{{ $advert->library->description }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </a>
         @else
-        <a class="" href="{{ $advert->website }}" target="_blank">
+        <a class="d-block py-2" href="{{ $advert->website }}" target="_blank">
             <img src="{{ $advert->library->remote }}" alt="{{ $advert->library->description }}" class="w-100">
         </a>
         @endif
@@ -26,11 +26,11 @@
         <div class="right_sidebar">
         @forelse($adverts as $advert)
         @if($advert->library->library_type_id == 3)
-        <a class="" href="{{ $advert->website }}" target="_blank">
+        <a class="d-block py-2" href="{{ $advert->website }}" target="_blank">
             <iframe class="w-100" src="{{ $advert->library->remote }}" title="{{ $advert->library->description }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </a>
         @else
-        <a class="" href="{{ $advert->website }}" target="_blank">
+        <a class="d-block py-2" href="{{ $advert->website }}" target="_blank">
             <img src="{{ $advert->library->remote }}" alt="{{ $advert->library->description }}" class="w-100">
         </a>
         @endif
