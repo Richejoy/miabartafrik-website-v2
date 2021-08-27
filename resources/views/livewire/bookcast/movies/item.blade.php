@@ -1,19 +1,23 @@
 @if($fetch == 'all')
-<div class="row">
-    @forelse ($movies as $movie)
-    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-        <x-bookcast.movies.item :movie="$movie" />
+<div class="card custom-card">
+    <div class="card-body h-100">
+        <div id="owl-demo2" class="owl-carousel owl-carousel-icons2">
+
+            @forelse ($movies as $movie)
+            <x-bookcast.movies.item :movie="$movie" />
+            @empty
+            <div>
+                Aucune donnée trouvée
+            </div>
+            @endforelse
+
+        </div>
     </div>
-    @empty
-    <div class="col-md-12">
-        <p>Aucune donnée trouvée</p>
-    </div>
-    @endforelse
 </div>
 @else
-    @if(!is_null($movie))
-    <x-bookcast.movies.item :movie="$movie" /> 
-    @else
-    <p>Aucune donnée trouvée</p>
-    @endif
+@if(!is_null($movie))
+<x-bookcast.movies.item :movie="$movie" />
+@else
+<p>Aucune donnée trouvée</p>
+@endif
 @endif

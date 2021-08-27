@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Library;
 
-class ImageController extends Controller
+class LibraryController extends Controller
 {
     public function __construct()
     {

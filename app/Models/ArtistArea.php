@@ -12,7 +12,7 @@ class ArtistArea extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    public $table = 'artists_areas';
+    protected $table = 'artists_areas';
 
     protected $fillable = [
         'artist_id',

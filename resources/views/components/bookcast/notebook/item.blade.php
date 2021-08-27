@@ -1,18 +1,18 @@
 <div class="agendaplus_bookcast">
     <div class="event_affiche_agendaplus">
-        <img src="{{ asset('public/assets/img/agendaplus/affiche.jpg') }}" class="image_agendaplus_bookcast">
+        <img src="{{ $event->library->remote }}" class="image_agendaplus_bookcast">
 
         <div class="info_container_agendaplus">
             <div class="titre">{{ $event->title }}</div>
 
             <div class="detail-buttons">
                 <button class="detail-button">
-                    <a href="agenda_view.html">Afficher l'évènement</a>
+                    <a href="{{ route('event.show', ['event' => $event]) }}">Afficher l'évènement</a>
                 </button>
                 <button class="mr_publier">
                     <div class="main-img-user online">
                         <img alt="avatar" class="radius"
-                            src="{{ asset('public/assets/img/artiste/pexels-ivan-siarbolin-3841891.jpg') }}">
+                            src="{{ $event->user->library->remote }}">
                     </div>
                 </button>
             </div>

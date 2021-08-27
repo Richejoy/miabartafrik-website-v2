@@ -180,8 +180,7 @@ $(function() {
 	
 	// ______________Select2-Search
 	$('.select2-no-search').select2({
-		minimumResultsForSearch: Infinity,
-		placeholder: '',
+		minimumResultsForSearch: Infinity, 
 		 width: '100%'
 	});
 	

@@ -64,7 +64,7 @@
 
     @else
 
-    <x-loader imgLink="{{ asset('public/assets/img/preloader.jpg') }}" />
+    <x-loader imgLink="{{ auth()->user()->library->remote }}" />
 
     @endif
     <!-- End Loader -->

@@ -5,19 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserFriend extends Model
+class Vote extends Model
 {
     use HasFactory;
 
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    protected $table = 'users_friends';
-
     protected $fillable = [
         'sender_id',
         'receiver_id',
-        'confirmed',
     ];
 
     public function sender()

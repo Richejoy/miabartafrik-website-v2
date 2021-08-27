@@ -88,7 +88,7 @@
         <!-- info -->
         <div class="card custom-card">
             <div class="sidebar_titre">
-                <h4>Vote d'artiste à la une</h4>
+                <h4>Vote à la une</h4>
                 <a href="{{ route('bookcast.elections') }}">Tout afficher</a>
             </div>
             <div class="right_sidebar">

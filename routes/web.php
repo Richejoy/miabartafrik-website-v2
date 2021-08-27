@@ -24,6 +24,13 @@ use App\Http\Controllers\PhotographerController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NotificationController;
 
+use App\Http\Controllers\ElectionController;
+
+use App\Http\Controllers\CastingController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\NewsController;
+
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -45,14 +52,15 @@ Route::get('/clear', function() {
 });
 
 Route::prefix('/')->name('page.')->group(function() {
-	Route::get('/', [PageController::class, 'index'])->name('index');
+	Route::get('/', [PageController::class, 'login'])->name('index')->middleware('logged');
+
 	Route::get('/about', [PageController::class, 'about'])->name('about');
 	Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 	Route::get('/conditions', [PageController::class, 'conditions'])->name('conditions');
 	Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 	Route::get('/sitemap', [PageController::class, 'sitemap'])->name('sitemap');
 
-	Route::middleware(['logged'])->group(function () {
+	Route::middleware('logged')->group(function () {
 		Route::match(['GET', 'POST'], '/login', [PageController::class, 'login'])->name('login');
 		Route::match(['GET', 'POST'], '/register', [PageController::class, 'register'])->name('register');
 		Route::match(['GET', 'POST'], '/confirmed', [PageController::class, 'confirmed'])->name('confirmed');
@@ -74,10 +82,10 @@ Route::prefix('/')->name('page.')->group(function() {
 	Route::get('/lock', [PageController::class, 'lock'])->name('lock');
 });
 
-Route::prefix('/user')->name('user.')->group(function() {
-	Route::get('/', [UserController::class, 'index'])->name('index');
-	Route::match(['GET', 'POST'], '/{user}/show', [UserController::class, 'show'])->name('show');
-	Route::match(['GET', 'POST'], '/{user}/edit', [UserController::class, 'edit'])->name('edit');
+Route::name('user.')->middleware('auth')->group(function() {
+	Route::get('/user', [UserController::class, 'index'])->name('index');
+	Route::match(['GET', 'POST'], '/profile/{user}/show', [UserController::class, 'show'])->name('show');
+	Route::match(['GET', 'POST'], '/edit_profile/{user}/edit', [UserController::class, 'edit'])->name('edit');
 });
 
 Route::prefix('/contact')->name('contact.')->group(function () {
@@ -97,14 +105,14 @@ Route::prefix('/payement')->name('payment.')->group(function () {
 	Route::get('/cancel/url', [PaymentController::class, 'cancelURL'])->name('cancel_url');
 
 	/**/
-	Route::middleware(['auth'])->group(function () {
+	Route::middleware('auth')->group(function () {
 		Route::get('/checkout/{tableName}', [PaymentController::class, 'checkout'])->name('checkout');
 	});
 	/**/
 });
 
 /** */
-Route::prefix('settings')->name('settings.')->middleware(['auth'])->group(function () {
+Route::prefix('settings')->name('settings.')->middleware('auth')->group(function () {
 	Route::get('/', [SettingsController::class, 'index'])->name('index');
 	Route::get('/removing/account', [SettingsController::class, 'removingAccount'])->name('removing_account');
 	Route::get('/enabling/tfa', [SettingsController::class, 'enablingTFA'])->name('enabling_tfa');
@@ -115,7 +123,7 @@ Route::prefix('/crons')->name('crons.')->group(function () {
 	Route::get('/dbbackup', [CronsController::class, 'dbbackup'])->name('dbbackup');
 });
 
-Route::prefix('/bookcast')->name('bookcast.')->middleware(['auth'])->group(function() {
+Route::prefix('/bookcast')->name('bookcast.')->middleware('auth')->group(function() {
 	Route::get('/', [BookCastController::class, 'index'])->name('index');
 	Route::get('/books', [BookCastController::class, 'books'])->name('books');
 	Route::get('/visuoshop', [BookCastController::class, 'visuoshop'])->name('visuoshop');
@@ -127,54 +135,81 @@ Route::prefix('/bookcast')->name('bookcast.')->middleware(['auth'])->group(funct
 	Route::get('/news', [BookCastController::class, 'news'])->name('news');
 });
 
-Route::prefix('/boutikart')->name('boutikart.')->middleware(['auth'])->group(function() {
+Route::prefix('/boutikart')->name('boutikart.')->middleware('auth')->group(function() {
 	Route::get('/', [BoutikArtController::class, 'index'])->name('index');
 });
 
-Route::prefix('/bonaddress')->name('bonaddress.')->middleware(['auth'])->group(function() {
+Route::prefix('/bonaddress')->name('bonaddress.')->middleware('auth')->group(function() {
 	Route::get('/', [BonAddressController::class, 'index'])->name('index');
 });
 
-Route::prefix('/library')->name('library.')->middleware(['auth'])->group(function() {
+Route::prefix('/library')->name('library.')->middleware('auth')->group(function() {
 	Route::get('/', [LibraryController::class, 'index'])->name('index');
 	Route::get('/show/{library}', [LibraryController::class, 'show'])->name('show');
 	Route::match(['GET', 'POST'], '/edit/{library}', [LibraryController::class, 'edit'])->name('edit');
 });
 
 
-Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function() {
+Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function() {
 	
 });
 Route::resource('admin', AdminController::class)->middleware('auth');
 
 
-Route::prefix('/member')->name('member.')->middleware(['auth'])->group(function() {
+Route::prefix('/member')->name('member.')->middleware('auth')->group(function() {
 	Route::get('/package/{package?}', [MemberController::class, 'package'])->name('package');
 });
 Route::resource('member', MemberController::class)->middleware('auth');
 
 
-Route::prefix('/artist')->name('artist.')->middleware(['auth'])->group(function() {
+Route::prefix('/artist')->name('artist.')->middleware('auth')->group(function() {
 	Route::get('/package/{package?}', [ArtistController::class, 'package'])->name('package');
 });
 Route::resource('artist', ArtistController::class)->middleware('auth')->except(['destroy']);
 
 
-Route::prefix('/partner')->name('partner.')->middleware(['auth'])->group(function() {
+Route::prefix('/partner')->name('partner.')->middleware('auth')->group(function() {
 	Route::get('/package/{package?}', [PartnerController::class, 'package'])->name('package');
 });
 Route::resource('partner', PartnerController::class)->middleware('auth')->except(['destroy']);
 
 
-Route::prefix('/photographer')->name('photographer.')->middleware(['auth'])->group(function() {
+Route::prefix('/photographer')->name('photographer.')->middleware('auth')->group(function() {
 	Route::get('/package/{package?}', [PhotographerController::class, 'package'])->name('package');
 });
 Route::resource('photographer', PhotographerController::class)->middleware('auth')->except(['destroy']);
 
-Route::prefix('/message')->name('message.')->middleware(['auth'])->group(function() {
+Route::prefix('/message')->name('message.')->middleware('auth')->group(function() {
 	Route::get('/', [MessageController::class, 'index'])->name('index');
+	Route::get('/{message}/show', [MessageController::class, 'show'])->name('show');
 });
 
-Route::prefix('/notification')->name('notification.')->middleware(['auth'])->group(function() {
+Route::prefix('/notification')->name('notification.')->middleware('auth')->group(function() {
 	Route::get('/', [NotificationController::class, 'index'])->name('index');
+	Route::get('/{notification}/show', [NotificationController::class, 'show'])->name('show');
+});
+
+Route::prefix('/election')->name('election.')->middleware('auth')->group(function() {
+	
+	Route::get('/{election}/show', [ElectionController::class, 'show'])->name('show');
+});
+
+Route::prefix('/casting')->name('casting.')->middleware('auth')->group(function() {
+	
+	Route::get('/{casting}/show', [CastingController::class, 'show'])->name('show');
+});
+
+Route::prefix('/event')->name('event.')->middleware('auth')->group(function() {
+	
+	Route::get('/{event}/show', [EventController::class, 'show'])->name('show');
+});
+
+Route::prefix('/movie')->name('movie.')->middleware('auth')->group(function() {
+	
+	Route::get('/{movie}/show', [MovieController::class, 'show'])->name('show');
+});
+
+Route::prefix('/news')->name('news.')->middleware('auth')->group(function() {
+	
+	Route::get('/{item}/show', [NewsController::class, 'show'])->name('show');
 });

@@ -1,8 +1,8 @@
 <div class="blog-card">
-    <img src="{{ asset('public/assets/img/blog/art-design-4.jpg') }}" alt="" class="blog-thumbnail">
+    <img src="{{ $item->library->remote }}" alt="" class="blog-thumbnail">
 
     <div class="blog-container">
-        <span class="domaineart_actu badge-info">Cinéma &amp; Fiction</span>
+        <span class="domaineart_actu badge-info">{{ $item->area->areaRay->name }}</span>
 
         <a href="actualite_view.html">
             <h4 class="article_titre"><b>{{ $item->title }}</b></h4>
@@ -12,12 +12,12 @@
 
         <div class="detail-buttons">
             <button class="detail-button">
-                <a href="actualite_view.html">Lire l'article</a>
+                <a href="{{ route('news.show', ['item' => $item]) }}">Lire l'article</a>
             </button>
             <button class="mr_publier">
                 <div class="main-img-user online">
                     <img alt="avatar" class="radius"
-                        src="{{ asset('public/assets/img/artiste/pexels-ivan-siarbolin-3841891.jpg') }}">
+                        src="{{ $item->user->library->remote }}">
                 </div>
             </button>
         </div>

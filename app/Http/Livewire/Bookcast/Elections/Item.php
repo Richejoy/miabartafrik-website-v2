@@ -3,27 +3,32 @@
 namespace App\Http\Livewire\Bookcast\Elections;
 
 use Livewire\Component;
-use App\Models\Artist;
+use App\Models\UserElection;
+use App\Models\Election;
 
 class Item extends Component
 {
     public $fetch = 'all';
 
-    public $artists = null;
+    public $usersElections = null;
 
-    public $artist = null;
+    public $userElection = null;
 
-    public function mount($fetch = 'all')
+    private $_election = null;
+
+    public function mount($fetch = 'all', Election $election = null)
     {
         $this->fetch = $fetch;
+
+        $this->_election = $election;
     }
 
     public function render()
     {
         if ($this->fetch == 'all') {
-            $this->artists = Artist::where('paid', true)->get();
+            $this->usersElections = UserElection::with(['user', 'election', 'library'])->where('election_id', $this->_election->id)->get();
         } else {
-            $this->artist = Artist::find(1);
+            $this->userElection = UserElection::with(['user', 'election', 'library'])->find(1);
         }
         
         return view('livewire.bookcast.elections.item');

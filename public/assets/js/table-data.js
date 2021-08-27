@@ -93,8 +93,7 @@ $(function() {
    
    $('table').on('draw.dt', function() {
 		$('.select2-no-search').select2({
-			minimumResultsForSearch: Infinity,
-			placeholder: 'Sélectionner'
+			minimumResultsForSearch: Infinity, 
 		});
 	});
 	

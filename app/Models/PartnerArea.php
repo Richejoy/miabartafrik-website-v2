@@ -12,7 +12,7 @@ class PartnerArea extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    public $table = 'partners_areas';
+    protected $table = 'partners_areas';
 
     protected $fillable = [
         'partner_id',

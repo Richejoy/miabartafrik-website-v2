@@ -13,6 +13,7 @@ class Subscriber extends Model
     const UPDATED_AT = 'modified';
 
     protected $fillable = [
+        'slug',
         'email',
         'token',
         'token_expires',

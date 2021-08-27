@@ -12,7 +12,7 @@ class UserView extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    public $table = 'users_views';
+    protected $table = 'users_views';
 
     protected $fillable = [
         'sender_id',

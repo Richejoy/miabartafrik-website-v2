@@ -1,8 +1,7 @@
 $(function() {
 	'use strict'
 	
-	$('.select2').select2({
-		placeholder: '',
+	$('.select2').select2({ 
 		width: '100%'
 	});
 	$('#selectForm').parsley();

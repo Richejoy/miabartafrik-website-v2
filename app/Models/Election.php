@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Member extends Model
+class Election extends Model
 {
     use HasFactory;
 
@@ -13,22 +13,14 @@ class Member extends Model
     const UPDATED_AT = 'modified';
 
     protected $fillable = [
-        'slug',
-        'paid',
-        'expire_date',
-        'user_id',
+        'area_id',
         'library_id',
-        'package_id',
+        'country_id',
     ];
 
-    protected $casts = [
-        'created' => 'datetime',
-        'modified' => 'datetime',
-    ];
-
-    public function user()
+    public function area()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Area::class);
     }
 
     public function library()
@@ -36,8 +28,13 @@ class Member extends Model
         return $this->belongsTo(Library::class);
     }
 
-    public function package()
+    public function country()
     {
-        return $this->belongsTo(Package::class);
+        return $this->belongsTo(Country::class);
+    }
+
+    public function usersElections()
+    {
+        return $this->hasMany(UserElection::class)->with(['user', 'election', 'library']);
     }
 }

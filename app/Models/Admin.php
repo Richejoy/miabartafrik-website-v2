@@ -13,6 +13,7 @@ class Admin extends Model
     const UPDATED_AT = 'modified';
 
     protected $fillable = [
+        'slug',
         'user_id',
         'library_id',
     ];

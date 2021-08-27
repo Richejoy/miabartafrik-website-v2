@@ -31,7 +31,7 @@ class PageController extends Controller
 
     public function index(Request $request)
     {
-    	return view('pages.login');
+    	return view('pages.index');
     }
 
     public function terms(Request $request)
@@ -168,11 +168,12 @@ class PageController extends Controller
             ]);
 
             $subscriber = Subscriber::create([
+                'slug' => mb_strtoupper(md5(uniqid())),
                 'email' => $request->email,
-                'user_type_id' => $request->user_type_id,
                 'token' => sha1(uniqid()),
                 'token_expires' => now()->addDay(),
                 'token_signature' => md5(uniqid()),
+                'user_type_id' => $request->user_type_id,
             ]);
 
             event(new SubscriberEvent($subscriber, ['action' => 'subscription']));
@@ -236,6 +237,7 @@ class PageController extends Controller
                             'password' => bcrypt($password),
                             'library_id' => $library->id,
                             'token' => sha1(uniqid($library->id)),
+                            'slug' => mb_strtoupper(md5(uniqid())),
                         ]
                     )
                 );
@@ -245,6 +247,7 @@ class PageController extends Controller
                     case 2:    // 2 : member
                         $member = Member::create([
                             'user_id' => $user->id,
+                            'slug' => mb_strtoupper(md5(uniqid())),
                         ]);
 
                         event(new UserEvent($user, ['action' => 'register_member', 'password' => $password]));
@@ -253,6 +256,7 @@ class PageController extends Controller
                     case 3: //artist
                         $artist = Artist::create([
                             'user_id' => $user->id,
+                            'slug' => mb_strtoupper(md5(uniqid())),
                         ]);
 
                         event(new UserEvent($user, ['action' => 'register_artist', 'password' => $password]));
@@ -261,6 +265,7 @@ class PageController extends Controller
                     case 4: //partner
                         $partner = Partner::create([
                             'user_id' => $user->id,
+                            'slug' => mb_strtoupper(md5(uniqid())),
                         ]);
 
                         event(new UserEvent($user, ['action' => 'register_partner', 'password' => $password]));
@@ -269,6 +274,7 @@ class PageController extends Controller
                     case 5: //photographer
                         $photographer = Photographer::create([
                             'user_id' => $user->id,
+                            'slug' => mb_strtoupper(md5(uniqid())),
                         ]);
 
                         event(new UserEvent($user, ['action' => 'register_photographer', 'password' => $password]));

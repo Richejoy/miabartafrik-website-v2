@@ -35,11 +35,11 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('bookcast.elections') }}"><i class="ti-cup"></i>Votes</a>
+                <a class="nav-link" href="{{ route('bookcast.elections') }}"><i class="ti-cup"></i>Concours</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link with-sub" href="#"><i class="si si-grid"></i>Nos Produits</a>
+                <a class="nav-link with-sub" href="#"><i class="si si-grid"></i>Produits</a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
                         <a target="_blank" class="nav-sub-link" href="{{ route('bookcast.index') }}">BookCast</a>

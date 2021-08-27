@@ -73,8 +73,20 @@
 				</div>
 				<div class="main-sidebar-body">
 					<ul class="nav">
+
 						<li class="nav-item">
-							<a class="nav-link" href="{{ route('bookcast.index') }}"><span class="shape1"></span><span class="shape2"></span><i class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Accueil</span></a>
+							<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="si si-grid sidemenu-icon"></i><span class="sidemenu-label">Produits</span></a>
+							<ul class="nav-sub">
+								<li class="nav-sub-item">
+									<a target="_blank" class="nav-sub-link" href="{{ route('bookcast.index') }}">BookCast</a>
+								</li> 
+								<li class="nav-sub-item">
+									<a target="_blank" class="nav-sub-link" href="{{ route('boutikart.index') }}">BoutikArt</a>
+								</li>
+								<li class="nav-sub-item">
+									<a target="_blank" class="nav-sub-link" href="{{ route('bonaddress.index') }}">Bon-Address</a>
+								</li>
+							</ul>
 						</li>
 
 						<li class="nav-header"><span class="nav-label">Tableau de bord</span></li>
@@ -132,7 +144,7 @@
 							<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="si si-people sidemenu-icon"></i><span class="sidemenu-label">Book</span><i class="angle fe fe-chevron-right"></i></a>
 							<ul class="nav-sub">
 								<li class="nav-sub-item">
-									<a class="nav-sub-link" href="mon-book.html">Mon book</a>
+									<a class="nav-sub-link" href="">Mon book</a>
 								</li>
 								<li class="nav-sub-item">
 									<a class="nav-sub-link" href="contact.html">Mes Contacts</a>
@@ -232,26 +244,21 @@
 		<script src="{{ asset('public/assets/plugins/jquery/jquery.min.js') }}"></script>
 
 		<!-- Bootstrap js-->
+		<script src="{{ asset('public/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 		<script src="{{ asset('public/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
 		<script src="{{ asset('public/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+
+		<!-- form-validation js -->
+		<script src="{{ asset('public/assets/js/form-validation.js') }}"></script>
+
+		<!-- cbpFWTabs js -->
+		<script src="{{ asset('public/assets/js/cbpFWTabs.js') }}"></script>
 
 		<!-- Internal Chart.Bundle js-->
 		<script src="{{ asset('public/assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
 
 		<!-- Peity js-->
 		<script src="{{ asset('public/assets/plugins/peity/jquery.peity.min.js') }}"></script>
-
-		<!-- Select2 js-->
-		<script src="{{ asset('public/assets/plugins/select2/js/select2.min.js') }}"></script>
-
-		<!-- Perfect-scrollbar js -->
-		<script src="{{ asset('public/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-
-		<!-- Sidemenu js -->
-		<script src="{{ asset('public/assets/plugins/sidemenu/sidemenu.js') }}"></script>
-
-		<!-- Sidebar js -->
-		<script src="{{ asset('public/assets/plugins/sidebar/sidebar.js') }}"></script>
 
 		<!-- Internal Morris js -->
 		<script src="{{ asset('public/assets/plugins/raphael/raphael.min.js') }}"></script>
@@ -264,11 +271,61 @@
 		<!-- Internal Dashboard js-->
 		<script src="{{ asset('public/assets/js/index.js') }}"></script>
 
+		<!-- Internal Check-all-mail js-->
+		<script src="{{ asset('public/assets/js/check-all-mail.js') }}"></script>
+
+		<!-- Jquery-Ui js-->
+		<script src="{{ asset('public/assets/plugins/jquery-ui/ui/widgets/datepicker.js') }}"></script>
+
+		<!-- Internal Daternagepicker js-->
+		<script src="{{ asset('public/assets/plugins/bootstrap-daterangepicker/moment.min.js') }}"></script>
+		<script src="{{ asset('public/assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+
+		<!-- Internal Fileuploads js-->
+		<script src="{{ asset('public/assets/plugins/fileuploads/js/fileupload.js') }}"></script>
+        <script src="{{ asset('public/assets/plugins/fileuploads/js/file-upload.js') }}"></script>
+
+        <!-- InternalFancy uploader js-->
+		<script src="{{ asset('public/assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+        <script src="{{ asset('public/assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+        <script src="{{ asset('public/assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+        <script src="{{ asset('public/assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+        <script src="{{ asset('public/assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
+
+		<!-- Internal Form-elements js-->
+		<script src="{{ asset('public/assets/js/advanced-form-elements.js') }}"></script>
+		<script src="{{ asset('public/assets/js/select2.js') }}"></script>
+
+		<!-- Internal TelephoneInput js-->
+		<script src="{{ asset('public/assets/plugins/telephoneinput/telephoneinput.js') }}"></script>
+		<script src="{{ asset('public/assets/plugins/telephoneinput/inttelephoneinput.js') }}"></script>
+
+		<!-- Perfect-scrollbar js -->
+		<script src="{{ asset('public/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+
+		<!-- Sidemenu js -->
+		<script src="{{ asset('public/assets/plugins/sidemenu/sidemenu.js') }}"></script>
+
+		<!-- Sidebar js -->
+		<script src="{{ asset('public/assets/plugins/sidebar/sidebar.js') }}"></script>
+
+		<!-- Select2 js-->
+		<script src="{{ asset('public/assets/plugins/select2/js/select2.min.js') }}"></script>
+
 		<!-- Sticky js -->
 		<script src="{{ asset('public/assets/js/sticky.js') }}"></script>
 
 		<!-- Custom js -->
 		<script src="{{ asset('public/assets/js/custom.js') }}"></script>
+
+		<script>
+        (function() {
+            [].slice.call(document.querySelectorAll('.tabs_miabartafrik')).forEach(function(el) {
+                new CBPFWTabs(el);
+            });
+
+        })();
+    </script>
 
 	</body>
 </html>

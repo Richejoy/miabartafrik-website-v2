@@ -14,6 +14,7 @@ class Advert extends Model
 
     protected $fillable = [
         'library_id',
+        'country_id',
         'published',
         'expire_date',
         'is_gold',
@@ -28,5 +29,10 @@ class Advert extends Model
     public function library()
     {
         return $this->belongsTo(Library::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
     }
 }

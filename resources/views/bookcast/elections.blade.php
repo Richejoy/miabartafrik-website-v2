@@ -1,4 +1,4 @@
-@extends('layouts.bookcast', ['title' => 'Voter vos artiste préférés'])
+@extends('layouts.bookcast', ['title' => 'Liste des concours'])
 
 @section('body')
 
@@ -12,8 +12,8 @@
             <div class="page-header">
                 <div>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('bookcast.elections') }}">Votes</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Voter vos artiste préférés</li>
+                        <li class="breadcrumb-item"><a href="{{ route('bookcast.elections') }}">Concours</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Liste des concours</li>
                     </ol>
                 </div>
 
@@ -27,10 +27,21 @@
                     @livewire('bookcast.elections.search')
 
                     <div class="content_body">
-                        @livewire('bookcast.elections.item')
-                    </div>
+                        @forelse ($elections as $election)
 
-                    <p><button type="button" class="btn btn-dark btn-sm">Charger plus </button></p>
+                        <div class="col-md-12 pt-2">
+                            <h4 class="">{{ $election->title }} du {{ $election->start_date }} au {{ $election->end_date }}</h4>
+                            <p><a href="{{ route('election.show', ['election' => $election]) }}" class="btn btn-info">Afficher les participants</a></p>
+                        </div>
+
+                        @empty
+
+                        <div class="col-md-12">
+                            <p>Aucune donnée trouvée</p>
+                        </div>
+
+                        @endforelse
+                    </div>
                 </div>
 
                 <!-- RIGHT ASIDE -->

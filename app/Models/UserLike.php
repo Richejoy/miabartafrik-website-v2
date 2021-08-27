@@ -12,7 +12,7 @@ class UserLike extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    public $table = 'users_likes';
+    protected $table = 'users_likes';
 
     protected $fillable = [
         'sender_id',

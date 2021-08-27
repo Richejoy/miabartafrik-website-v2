@@ -2,12 +2,11 @@
 
     <div class="castingart_newByOsez__side castingart_newByOsez__side--front">
         <div class="castingart_newByOsez__img"
-            style="background-image: url({{ asset('public/assets/img/casting/studio-dance-photo.jpg') }});">
-
+            style="background-image: url({{ $casting->library->remote }});">
         </div>
 
         <h4 class="castingart_newByOsez__text">
-            <span class="castingart_newByOsez__text-span">Danse &amp; Musique</span>
+            <span class="castingart_newByOsez__text-span">{{ $casting->area->areaRay->name }}</span>
         </h4>
 
         <div class="info_container_agendaplus">
@@ -15,12 +14,12 @@
 
             <div class="detail-buttons">
                 <button class="detail-button">
-                    <a href="castingartview.html">Afficher le casting</a>
+                    <a href="{{ route('casting.show', ['casting' => $casting]) }}">Afficher le casting</a>
                 </button>
                 <button class="mr_publier">
                     <div class="main-img-user online">
                         <img alt="avatar" class="radius"
-                            src="{{ asset('public/assets/img/artiste/pexels-ivan-siarbolin-3841891.jpg') }}">
+                            src="{{ $casting->user->library->remote }}">
                     </div>
                 </button>
             </div>

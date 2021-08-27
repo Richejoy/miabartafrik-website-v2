@@ -20,6 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'slug',
         'first_name',
         'last_name',
         'email',
@@ -37,6 +38,7 @@ class User extends Authenticatable
         'tfa_enabled',
         'tfa_code',
         'removed',
+        'biography',
         'library_id',
         'user_type_id',
         'country_id',

@@ -13,13 +13,14 @@ class Artist extends Model
     const UPDATED_AT = 'modified';
 
     protected $fillable = [
-        'user_id',
-        'library_id',
+        'slug',
         'is_ambassador',
         'area_max',
-        'package_id',
         'paid',
         'expire_date',
+        'user_id',
+        'package_id',
+        'library_id',
     ];
 
     protected $casts = [

@@ -4463,10 +4463,10 @@ fieldset:disabled a.btn {
 }
 
 .dropdown-menu .main-header-center .select2-container--default .select2-selection--single {
-    border-radius: 6px 0 0 6px;
+    border-radius: 3px;
     background: #eaebfa;
     height: 40px;
-    width: 200px !important;
+    width: auto;
 }
 
 .dropdown-menu .main-header-center .search-btn {
@@ -4498,7 +4498,7 @@ fieldset:disabled a.btn {
     border: 1px solid #e6eaff;
     transition: none;
     height: 40px;
-    border-radius: 0;
+    border-radius: 3px;
 }
 
 .dropdown-menu .input-group {
@@ -8936,20 +8936,13 @@ div.dataTables_wrapper div.dataTables_length select {
     color: #ffffff;
 }
 
-.main-header-center .search-btn:hover,
-.main-header-center .search-btn:focus {
-    background-color: #4140a9;
-}
-
-.main-header-center .form-control::focus {
-    background: #f6f4ff !important;
-    border: 1px solid #e6eaff;
-}
+ 
+ 
 
 .main-header-center .select2-container--default .select2-selection--single {
-    border-radius: 6px 0 0 6px;
+    border-radius: 3px;
     height: 40px;
-    width: 150px;
+    width: auto;
 }
 
 .main-header-center .form-control {
@@ -8960,11 +8953,7 @@ div.dataTables_wrapper div.dataTables_length select {
     flex: inherit;
 }
 
-.main-header-center .form-control:focus {
-    background-color: #eaebfa;
-    border-color: #e0e1fb;
-    box-shadow: none !important;
-}
+ 
 
 .main-header-center .form-control:focus+.btn {
     color: #a8afc7;
@@ -8976,13 +8965,13 @@ div.dataTables_wrapper div.dataTables_length select {
 
 @media (min-width: 992px) and (max-width: 1172px) {
     .main-header-center .form-control {
-        width: 125px !important;
+        width: 100% !important;
     }
 }
 
 @media (min-width: 1173px) {
     .main-header-center .form-control {
-        width: 280px !important;
+        width: 100% !important;
     }
 }
 
@@ -14390,7 +14379,7 @@ textarea.parsley-success:focus {
 .main-content-title {
     color: #2c539b;
     font-weight: 500;
-    font-size: 20px !important;
+    font-size: 15px !important;
     text-indent: -1px;
     line-height: 1;
     position: relative;
@@ -16142,7 +16131,7 @@ textarea.parsley-success:focus {
 }
 
 .main-mail-compose-body .form-group+.form-group {
-    border-top: 1px dotted #e2e8f5;
+    border-top: 1px dotted #2c539b8f;
     padding-top: 1rem;
 }
 
@@ -67372,7 +67361,7 @@ a.tag-addon:hover {
 
 .main-navbar .nav-item {
     position: relative;
-    padding-right: 28px;
+    padding-right: 20px;
 }
 
 .main-navbar .nav-item:hover .nav-link {
@@ -71710,7 +71699,7 @@ input[type="search"]::-webkit-search-cancel-button {
     justify-content: space-between;
     padding: 0;
     position: relative; 
-    margin: 1rem 0 1rem 0;
+    margin: .5rem 0 .5rem 0;
     border-radius: 7px;
 }
 

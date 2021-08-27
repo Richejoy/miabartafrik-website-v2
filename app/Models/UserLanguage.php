@@ -12,7 +12,7 @@ class UserLanguage extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    public $table = 'users_languages';
+    protected $table = 'users_languages';
 
     protected $fillable = [
         'user_id',

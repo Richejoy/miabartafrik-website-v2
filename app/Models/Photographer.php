@@ -13,15 +13,16 @@ class Photographer extends Model
     const UPDATED_AT = 'modified';
 
     protected $fillable = [
+        'slug',
+        'area_max',
+        'paid',
+        'expire_date',
         'user_id',
         'library_id',
         'individual_id',
         'society_id',
         'person_type_id',
-        'area_max',
         'package_id',
-        'paid',
-        'expire_date',
     ];
 
     protected $casts = [

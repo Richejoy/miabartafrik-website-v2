@@ -1,7 +1,5 @@
 $(document).ready(function() {
-	$('.select2').select2({
-		placeholder: '',
-		searchInputPlaceholder: 'Recherche',
+	$('.select2').select2({  
 		 width: '100%'
 	});
 	

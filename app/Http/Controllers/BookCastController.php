@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sponsor;
+use App\Models\Election;
 
 class BookCastController extends Controller
 {
@@ -46,7 +47,9 @@ class BookCastController extends Controller
 
     public function elections(Request $request)
     {
-        return view('bookcast.elections');
+        $elections = Election::all();
+
+        return view('bookcast.elections', compact('elections'));
     }
 
     public function movies(Request $request)

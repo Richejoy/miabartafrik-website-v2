@@ -17,14 +17,14 @@ class Package extends Model
         return $this->belongsTo(UserType::class);
     }
 
-    public function currency()
+    public function country()
     {
-        return $this->belongsTo(Currency::class);
+        return $this->belongsTo(Country::class);
     }
 
     public function getPrice()
     {
-        return number_format($this->price, 0, '.', ' ') . ' ' . $this->currency->name;
+        return number_format($this->price, 0, '.', ' ') . ' ' . $this->country->currency;
     }
 
     public function getPercentage()

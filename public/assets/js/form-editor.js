@@ -50,16 +50,14 @@ $(function() {
 			toolbar: toolbarInlineOptions
 		},
 		bounds: '#quillInline',
-		scrollingContainer: '#scrolling-container',
-		placeholder: 'Write something...',
+		scrollingContainer: '#scrolling-container', 
 		theme: 'bubble'
 	});
 	new PerfectScrollbar('#scrolling-container', {
 		suppressScrollX: true
 	});
 	
-	$('#summernote').summernote({
-		placeholder: 'Ecrivez quelque chose',
+	$('#summernote').summernote({ 
 		tabsize: 3,
 		height: 300
 	});
