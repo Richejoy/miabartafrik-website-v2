@@ -4,16 +4,14 @@
     <div class="row mb-2">
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             {{ Form::label('civility_id', "Civilité", ['class' => 'required-text mg-b-10 label_mba']) }}
-            <div class="parsley-select" id="slWrapper">
-                {{ Form::select('civility_id', $civilities, null, ['class' => 'form-control select2', 'placeholder' => "Civilité", 'required' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Civilité"]) }}
-                <div id="slErrorContainer"></div>
+            <div class="parsley-select">
+                {{ Form::select('civility_id', $civilities, null, ['class' => 'form-control select2', 'placeholder' => "Civilité", 'required' => true]) }}
             </div>
         </div>
         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
             {{ Form::label('country_id', "Votre pays d'origine", ['class' => 'required-text mg-b-10 label_mba']) }}
-            <div class="parsley-select" id="slWrapper">
-                {{ Form::select('country_id', $countries, null, ['class' => 'form-control select2', 'placeholder' => "Pays d'origine", 'required' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Pays d'origine"]) }}
-                <div id="slErrorContainer"></div>
+            <div class="parsley-select">
+                {{ Form::select('country_id', $countries, null, ['class' => 'form-control select2', 'placeholder' => "Pays d'origine", 'required' => true]) }}
             </div>
         </div>
     </div>

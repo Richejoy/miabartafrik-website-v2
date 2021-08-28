@@ -25,7 +25,7 @@
                 </div>
                 <div class="media-body">
                     <p><strong>{{ $notification->sender->full_name }}</strong>, {{ $notification->content }}</p>
-                    <span>{{ $notification->created }}</span>
+                    <span>{{ $notification->created->diffForHumans() }}</span>
                 </div>
             </div>
 

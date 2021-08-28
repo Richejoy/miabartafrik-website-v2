@@ -14,31 +14,29 @@
             {!! Form::model($photographer->individual, ['route' => 'photographers.store']) !!}
             {!! Form::hidden('form', 'individual') !!}
 
-        <div class="form-group">
-            {{ Form::label('name', "Nom de marque", ['class' => 'required-text']) }}
-            {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nom de marque', 'required' => true]) }}
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('person_level_id', "Votre niveau", ['class' => 'required-text']) }}
-            <div class="parsley-select" id="slWrapper">
-                {{ Form::select('person_level_id', $personLevels, null, ['class' => 'form-control select2', 'placeholder' => "Votre niveau", 'required' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Votre niveau"]) }}
-                <div id="slErrorContainer"></div>
+            <div class="form-group">
+                {{ Form::label('name', "Nom de marque", ['class' => 'required-text']) }}
+                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nom de marque', 'required' => true]) }}
             </div>
-        </div>
 
-        <div class="form-group">
-            {{ Form::label('work_id', "Votre spécialité", ['class' => 'required-text']) }}
-            <div class="parsley-select" id="slWrapper">
-                {{ Form::select('work_id', $works, null, ['class' => 'form-control select2', 'placeholder' => "Votre spécialité", 'required' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Votre spécialité"]) }}
-                <div id="slErrorContainer"></div>
+            <div class="form-group">
+                {{ Form::label('person_level_id', "Votre niveau", ['class' => 'required-text']) }}
+                <div class="parsley-select">
+                    {{ Form::select('person_level_id', $personLevels, null, ['class' => 'form-control select2', 'placeholder' => "Votre niveau", 'required' => true]) }}
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            {{ Form::label('area_id', "Domaines d'activité", ['class' => 'required-text']) }}
-            {{ Form::select('area_id', $areas, null, ['name' => 'area_id[]', 'class' => 'form-control select2', 'required' => true, 'multiple' => true]) }}
-        </div>
+            <div class="form-group">
+                {{ Form::label('work_id', "Votre spécialité", ['class' => 'required-text']) }}
+                <div class="parsley-select">
+                    {{ Form::select('work_id', $works, null, ['class' => 'form-control select2', 'placeholder' => "Votre spécialité", 'required' => true]) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ Form::label('area_id', "Domaines d'activité", ['class' => 'required-text']) }}
+                {{ Form::select('area_id', $areas, null, ['name' => 'area_id[]', 'class' => 'form-control select2', 'required' => true, 'multiple' => true]) }}
+            </div>
 
             <div class="form-group">
                 {!! Form::submit('Enregistrer', ['class' => 'btnSignin ripple btn-main-primary btn-block']) !!}
@@ -46,38 +44,38 @@
 
             {!! Form::close() !!}
         </div>
+
         <div class="tab-pane fade py-3" id="corporation" role="tabpanel" aria-labelledby="corporation-tab">
             {!! Form::model($photographer->society, ['route' => 'photographers.store']) !!}
             {!! Form::hidden('form', 'corporation') !!}
 
-        <div class="form-group">
-            {{ Form::label('name', "Nom de la société", ['class' => 'required-text']) }}
-            {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nom de la société', 'required' => true]) }}
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('rccm', "RCCM", ['class' => 'required-text']) }}
-            {{ Form::text('rccm', null, ['class' => 'form-control', 'placeholder' => 'RCCM', 'required' => true]) }}
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('nif', "NIF", ['class' => 'required-text']) }}
-            {{ Form::text('nif', null, ['class' => 'form-control', 'placeholder' => 'NIF', 'required' => true]) }}
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('area_id', "Domaines d'activité", ['class' => 'required-text']) }}
-            <div class="parsley-select" id="slWrapper">
-                {{ Form::select('area_id', $areas, null, ['name' => 'area_id[]', 'class' => 'form-control select2', 'required' => true, 'multiple' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Domaines d'activité"]) }}
-                <div id="slErrorContainer"></div>
+            <div class="form-group">
+                {{ Form::label('name', "Nom de la société", ['class' => 'required-text']) }}
+                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nom de la société', 'required' => true]) }}
             </div>
-        </div>
 
-        <div class="form-group">
-            {!! Form::submit('Enregistrer', ['class' => 'btnSignin ripple btn-main-primary btn-block']) !!}
-        </div>
+            <div class="form-group">
+                {{ Form::label('rccm', "RCCM", ['class' => 'required-text']) }}
+                {{ Form::text('rccm', null, ['class' => 'form-control', 'placeholder' => 'RCCM', 'required' => true]) }}
+            </div>
 
-        {!! Form::close() !!}
+            <div class="form-group">
+                {{ Form::label('nif', "NIF", ['class' => 'required-text']) }}
+                {{ Form::text('nif', null, ['class' => 'form-control', 'placeholder' => 'NIF', 'required' => true]) }}
+            </div>
+
+            <div class="form-group">
+                {{ Form::label('area_id', "Domaines d'activité", ['class' => 'required-text']) }}
+                <div class="parsley-select">
+                    {{ Form::select('area_id', $areas, null, ['name' => 'area_id[]', 'class' => 'form-control select2', 'required' => true, 'multiple' => true]) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {!! Form::submit('Enregistrer', ['class' => 'btnSignin ripple btn-main-primary btn-block']) !!}
+            </div>
+
+            {!! Form::close() !!}
         </div>
     </div>
 

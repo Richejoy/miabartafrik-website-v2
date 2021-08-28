@@ -20,7 +20,7 @@
             <div class="row row-sm">
                 <div class="col-md-12">
                     <span>Copyright © 2021 - {{ date('Y') }} <a href="{{ route('bookcast.index') }}">BookCast</a>. Conçu par <a target="_blank" 
-                            href="https://www.osezconsult.com/">Osez Consult</a> Tous les droits sont réservés .</span>
+                            href="https://www.osezconsult.com/">Osez Consult</a> Tous les droits sont réservés.</span>
                 </div>
             </div>
         </div>

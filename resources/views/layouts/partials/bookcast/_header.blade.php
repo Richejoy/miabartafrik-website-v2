@@ -7,10 +7,9 @@
                 <a class="main-header-menu-icon" href="#" id="mainSidebarToggle"><span></span></a>
                 @else
                 <a class="main-header-menu-icon d-lg-none" href="" id="mainNavShow"><span></span></a>
-                <a class="main-logo" href="index.html">
+                <a class="main-logo" href="{{ route('bookcast.index') }}">
                     <img src="{{ asset('public/assets/img/brand/logo.png') }}" class="header-brand-img desktop-logo" alt="logo">
-                    <img src="{{ asset('public/assets/img/brand/logo-light.png') }}" class="header-brand-img desktop-logo theme-logo"
-                        alt="logo">
+                    <img src="{{ asset('public/assets/img/brand/logo-light.png') }}" class="header-brand-img desktop-logo theme-logo" alt="logo">
                 </a>
                 @endif
             </div>
@@ -18,8 +17,7 @@
             <div class="main-header-center">
                 <div class="responsive-logo">
                     <a href="{{ route('bookcast.index') }}"><img src="{{ asset('public/assets/img/brand/logo.png') }}" class="mobile-logo" alt="logo"></a>
-                    <a href="{{ route('bookcast.index') }}"><img src="{{ asset('public/assets/img/brand/logo-light.png') }}" class="mobile-logo-dark"
-                            alt="logo"></a>
+                    <a href="{{ route('bookcast.index') }}"><img src="{{ asset('public/assets/img/brand/logo-light.png') }}" class="mobile-logo-dark" alt="logo"></a>
                 </div>
 
                 @livewire('bookcast.search')

@@ -27,7 +27,7 @@
                     <p>
                         <strong>{{ $message->sender->full_name }}</strong>, vous a envoyé un nouveau message.
                     </p>
-                    <span>{{ $message->created }}</span>
+                    <span>{{ $message->created->diffForHumans() }}</span>
                 </div>
             </div>
 

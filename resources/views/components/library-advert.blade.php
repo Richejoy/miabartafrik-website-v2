@@ -35,7 +35,7 @@
         </a>
         @endif
         @empty
-            <span>Vide</span>
+            <span>Aucune donnée trouvée</span>
         @endforelse
         </div>
     </div>

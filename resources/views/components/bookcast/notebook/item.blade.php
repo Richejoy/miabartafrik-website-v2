@@ -1,6 +1,6 @@
 <div class="agendaplus_bookcast">
     <div class="event_affiche_agendaplus">
-        <img src="{{ $event->library->remote }}" class="image_agendaplus_bookcast">
+        <img src="{{ $event->library->remote }}" alt="{{ $event->library->description }}" class="image_agendaplus_bookcast">
 
         <div class="info_container_agendaplus">
             <div class="titre">{{ $event->title }}</div>
@@ -11,20 +11,17 @@
                 </button>
                 <button class="mr_publier">
                     <div class="main-img-user online">
-                        <img alt="avatar" class="radius"
-                            src="{{ $event->user->library->remote }}">
+                        <img alt="{{ $event->user->library->description }}" class="radius" src="{{ $event->user->library->remote }}">
                     </div>
                 </button>
             </div>
 
             <div class="main_profilbook_header">
                 <nav class="contact-info">
-                    <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                        data-original-title="Togo"><i class="flag flag-tg"></i></a>
+                    <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $event->user->country->nicename }}"><i class="{{ $event->user->getFlag() }}"></i></span>
 
                     <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                        data-original-title="356 392 (Vues)"><i class="fe fe-eye"></i>
-                    </a>
+                        data-original-title="356 392 (Vues)"><i class="fe fe-eye"></i></a>
 
                     <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
                         data-original-title="5254 (J'aimes)"><i class="fe fe-heart"></i>
@@ -46,7 +43,7 @@
     </div>
 
     <div class="dateWrapper_agendaplus_bookcast">
-        <span class="jour_agendaplus">10</span>
-        <span class="mois_agendaplus">Jun</span>
+        <span class="jour_agendaplus">{{ $event->created->day }}</span>
+        <span class="mois_agendaplus">{{ $event->created->monthName }}</span>
     </div>
 </div>

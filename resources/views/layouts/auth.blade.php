@@ -49,6 +49,8 @@
 
     <!-- Page -->
     <main>
+        @include('flash::message')
+
         @yield('body')
     </main>
     <!-- End Page -->
@@ -82,6 +84,8 @@
 
     <!-- Custom js -->
     <script src="{{ asset('public/assets/js/custom.js') }}"></script>
+
+    <script src="{{ asset('public/js/miabartafrik.js') }}"></script>
 
     @include('flashy::message')
 

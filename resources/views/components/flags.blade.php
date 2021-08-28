@@ -10,16 +10,14 @@
     </a>
     <div class="dropdown-menu">
         <a href="#" class="dropdown-item d-flex ">
-            <span class="avatar mr-3 align-self-center bg-transparent"><img src="{{ asset('public/assets/img/flags/french_flag.jpg') }}"
-                    alt="img"></span>
+            <span class="avatar mr-3 align-self-center bg-transparent"><img src="{{ asset('public/assets/img/flags/french_flag.jpg') }}" alt="img"></span>
             <div class="d-flex">
                 <span class="mt-2">Français</span>
             </div>
         </a>
         
         <a href="#" class="dropdown-item d-flex ">
-            <span class="avatar mr-3 align-self-center bg-transparent"><img src="{{ asset('public/assets/img/flags/us_flag.jpg') }}"
-                    alt="img"></span>
+            <span class="avatar mr-3 align-self-center bg-transparent"><img src="{{ asset('public/assets/img/flags/us_flag.jpg') }}" alt="img"></span>
             <div class="d-flex">
                 <span class="mt-2">Anglais</span>
             </div>

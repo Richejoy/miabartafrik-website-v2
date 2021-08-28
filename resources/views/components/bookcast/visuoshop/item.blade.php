@@ -10,8 +10,7 @@
 
             <div class="detail-area-header">
                 <span class="ambassadeurSign">
-                    <img src="{{ $photographer->user->library->remote }}" alt="ambassadeur BookCast"
-                        class="ambassadeurSRound">
+                    <img src="{{ $photographer->user->library->remote }}" alt="{{ $photographer->user->library->description }}" class="ambassadeurSRound">
                 </span>
 
                 <div class="main_profilbook_header">
@@ -31,21 +30,15 @@
 
                 <div class="main_profilbook_header">
                     <nav class="contact-info">
-                        <span class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="{{ $photographer->user->country->nicename }}"><i class="{{ $photographer->user->getFlag() }}"></i></span>
+                        <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $photographer->user->country->nicename }}"><i class="{{ $photographer->user->getFlag() }}"></i></span>
 
-                        <a href="{{ route('photographer.show', ['photographer' => $photographer]) }}" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="{{ $photographer->user->receiverViews->count() }} (Vues)"><i class="fe fe-eye"></i>
-                        </a>
+                        <a href="{{ route('photographer.show', ['photographer' => $photographer]) }}" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $photographer->user->receiverViews->count() }} (Vues)"><i class="fe fe-eye"></i></a>
 
-                        <span wire:click.prevent="like({{ $photographer->id }})" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="{{ $photographer->user->receiverLikes->count() }} (J'aimes)"><i class="fe fe-heart"></i> </span>
+                        <span wire:click.prevent="like({{ $photographer->id }})" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $photographer->user->receiverLikes->count() }} (J'aimes)"><i class="fe fe-heart"></i></span>
 
-                        <span wire:click.prevent="friend({{ $photographer->id }})" class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                            data-original-title="{{ $photographer->user->friends->count() }} (Amis)"><i class="fe fe-user-plus"></i></span>
+                        <span wire:click.prevent="friend({{ $photographer->id }})" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $photographer->user->friends->count() }} (Amis)"><i class="fe fe-user-plus"></i></span>
 
-                        <span data-show="share-photographer{{ $photographer->id }}" class="contact-icon border tx-inverse share-photographer" data-toggle="tooltip" title=""
-                            data-original-title="Publier"><i class="far fa-share-square"></i></span>
+                        <span data-show="share-photographer{{ $photographer->id }}" class="contact-icon border tx-inverse share-photographer" data-toggle="tooltip" title="" data-original-title="Publier"><i class="far fa-share-square"></i></span>
                     </nav>
                 </div>
 

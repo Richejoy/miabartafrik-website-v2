@@ -13,10 +13,16 @@ class Election extends Model
     const UPDATED_AT = 'modified';
 
     protected $fillable = [
+        'user_id',
         'area_id',
         'library_id',
         'country_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function area()
     {

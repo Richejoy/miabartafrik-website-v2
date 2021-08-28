@@ -64,7 +64,7 @@
 			<!-- Sidemenu -->
 			<div class="main-sidebar main-sidebar-sticky side-menu">
 				<div class="sidemenu-logo">
-					<a class="main-logo" href="index.html">
+					<a class="main-logo" href="{{ route('user.index') }}">
 						<img src="{{ asset('public/assets/img/brand/logo-light.png') }}" class="header-brand-img desktop-logo" alt="logo">
 						<img src="{{ asset('public/assets/img/brand/icon-light.png') }}" class="header-brand-img icon-logo" alt="logo">
 						<img src="{{ asset('public/assets/img/brand/logo.png') }}" class="header-brand-img desktop-logo theme-logo" alt="logo">

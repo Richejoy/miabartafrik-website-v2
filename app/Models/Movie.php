@@ -12,7 +12,12 @@ class Movie extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    public function library()
+    public function image()
+    {
+        return $this->belongsTo(Library::class);
+    }
+
+    public function video()
     {
         return $this->belongsTo(Library::class);
     }

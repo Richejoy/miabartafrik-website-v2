@@ -1,7 +1,6 @@
 <div class="dropdown main-profile-menu">
     <a class="d-flex" href="#">
-        <span class="main-img-user"><img alt="{{ auth()->user()->library->description }}"
-                src="{{ auth()->user()->library->remote }}"></span>
+        <span class="main-img-user"><img alt="{{ auth()->user()->library->description }}" src="{{ auth()->user()->library->remote }}"></span>
     </a>
     <div class="dropdown-menu">
         <div class="header-navheading">

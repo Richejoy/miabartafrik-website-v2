@@ -5,12 +5,10 @@
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="local-tab" data-toggle="tab" href="#local" role="tab" aria-controls="local"
-                aria-selected="true">Local</a>
+            <a class="nav-link active" id="local-tab" data-toggle="tab" href="#local" role="tab" aria-controls="local" aria-selected="true">Local</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link" id="remote-tab" data-toggle="tab" href="#remote" role="tab" aria-controls="remote"
-                aria-selected="false">Serveur</a>
+            <a class="nav-link" id="remote-tab" data-toggle="tab" href="#remote" role="tab" aria-controls="remote" aria-selected="false">Serveur</a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
