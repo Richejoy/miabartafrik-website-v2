@@ -7,7 +7,7 @@
     <!-- Row -->
     <div class="row signpages">
         <div class="col-md-12">
-            
+
             <div class="row">
                 @include("layouts.partials._validation_errors")
             </div>
@@ -69,7 +69,7 @@
                                                         </div>
 
                                                         <p class="small-text text-center">
-                                                            <a href="{{ route('members.package', array('package' => $package)) }}"
+                                                            <a href="{{ route('member.package', array('package' => $package)) }}"
                                                                 class="btnSignin ripple btn-main-primary btn-block">J'EN
                                                                 PROFITE</a>
                                                         </p>

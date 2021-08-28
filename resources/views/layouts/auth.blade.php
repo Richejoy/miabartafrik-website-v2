@@ -47,10 +47,8 @@
     <x-loader imgLink="{{ asset('public/assets/img/preloader.jpg') }}" />
     <!-- End Loader -->
 
-    <!-- Page -->
+    <!-- Page @include('flash::message') -->
     <main>
-        @include('flash::message')
-
         @yield('body')
     </main>
     <!-- End Page -->

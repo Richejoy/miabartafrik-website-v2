@@ -197,6 +197,7 @@ class PageController extends Controller
         if ($request->isMethod('POST')) {
 
             $this->validate($request, [
+                'username' => 'required|unique:users',
                 'country_id' => 'required',
                 'civility_id' => 'required',
                 'first_name' => 'required|min:3',
@@ -233,7 +234,6 @@ class PageController extends Controller
                         $request->all(),
                         [
                             'user_type_id' => $subscriber->user_type_id,
-                            'username' => mb_strtoupper(mb_substr(uniqid($library->id), 0, 15)),
                             'password' => bcrypt($password),
                             'library_id' => $library->id,
                             'token' => sha1(uniqid($library->id)),

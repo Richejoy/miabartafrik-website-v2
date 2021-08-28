@@ -11,7 +11,7 @@
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active py-3" id="individual" role="tabpanel" aria-labelledby="individual-tab">
-            {!! Form::model($photographer->individual, ['route' => 'photographers.store']) !!}
+            {!! Form::model($photographer->individual, ['route' => 'photographer.store']) !!}
             {!! Form::hidden('form', 'individual') !!}
 
             <div class="form-group">
@@ -46,7 +46,7 @@
         </div>
 
         <div class="tab-pane fade py-3" id="corporation" role="tabpanel" aria-labelledby="corporation-tab">
-            {!! Form::model($photographer->society, ['route' => 'photographers.store']) !!}
+            {!! Form::model($photographer->society, ['route' => 'photographer.store']) !!}
             {!! Form::hidden('form', 'corporation') !!}
 
             <div class="form-group">

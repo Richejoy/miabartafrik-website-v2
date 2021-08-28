@@ -54,7 +54,9 @@
                                     <div class="card-footer border-top-0 pl-0 mt-3 text-left ">
                                         <p>Vous êtes-vous souvenu de votre mot de passe ?</p>
                                         <p class="mb-0">Essayez de <a
-                                                href="{{ route('page.register') }}">S'identifier</a></p>
+                                                href="{{ route('page.register') }}">S'inscrire</a> ou <a
+                                                href="{{ route('page.login') }}">S'identifier</a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

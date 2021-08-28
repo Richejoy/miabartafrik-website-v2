@@ -4,17 +4,15 @@
         <span class="badge badge-danger nav-link-badge">{{ $notifications->count() }}</span>
     </a>
     <div class="dropdown-menu">
+        @if($notifications->count())
         <div class="header-navheading">
             <p class="main-notification-text">
-                @if($notifications->count())
-                <b>{{ $notifications->count() }}</b> notification(s) non lue
-                @else
-                Aucune notification non lue
-                @endif
-
+                <b>{{ $notifications->count() }}</b> notification(s) reçue
                 <a href="{{ route('notification.index') }}" class="badge badge-pill badge-danger ml-3">Voir tout</a>
             </p>
         </div>
+        @endif
+
         <div class="main-notification-list">
 
             @forelse($notifications as $notification)
@@ -31,14 +29,16 @@
 
             @empty
 
-            <p class="my-3 text-center">Aucune notification non lue reçue</p>
+            <p class="my-3 text-center">Aucune notification reçue</p>
 
             @endforelse
 
         </div>
 
+        @if($notifications->count())
         <div class="dropdown-footer">
             <a href="{{ route('notification.index') }}">Afficher toutes les notifications</a>
         </div>
+        @endif
     </div>
 </div>

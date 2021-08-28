@@ -16,7 +16,7 @@ body {
 }
 
 .main-header-center .select2-container--default .select2-selection--single {
-  border-right: 0;
+  /* border-right: 0; */
 }
 
 .bg-primary {

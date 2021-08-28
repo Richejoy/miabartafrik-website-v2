@@ -9,7 +9,7 @@ class Notifications extends Component
 {
     public function render()
     {
-        $notifications = Notification::where(['readed' => false])->get();
+        $notifications = Notification::where(['receiver_id' => auth()->id(), 'readed' => false])->get();
 
         return view('livewire.bookcast.notifications', compact('notifications'));
     }

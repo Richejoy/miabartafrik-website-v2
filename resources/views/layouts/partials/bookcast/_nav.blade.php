@@ -11,15 +11,19 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('bookcast.visuoshop') }}"><i class="si si-graduation"></i>VisuoShop</a>
-            </li>
-
-            <li class="nav-item">
                 <a class="nav-link" href="{{ route('bookcast.networks') }}"><i class="si si-graduation"></i>Réseaux</a>
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('bookcast.visuoshop') }}"><i class="si si-graduation"></i>VisuoShop</a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('bookcast.castings') }}"><i class="ti-video-clapper"></i>Castings</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('bookcast.elections') }}"><i class="ti-cup"></i>Concours</a>
             </li>
 
             <li class="nav-item">
@@ -32,10 +36,6 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('bookcast.news') }}"><i class="ti-face-smile"></i>ActuArt</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('bookcast.elections') }}"><i class="ti-cup"></i>Concours</a>
             </li>
 
             <li class="nav-item">

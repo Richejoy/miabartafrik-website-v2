@@ -4,17 +4,15 @@
         <span class="badge badge-success nav-link-badge">{{ $messages->count() }}</span>
     </a>
     <div class="dropdown-menu">
+        @if($messages->count())
         <div class="header-navheading">
             <p class="main-notification-text">
-                @if($messages->count())
                 <b>{{ $messages->count() }}</b> message(s) non lu
-                @else
-                Aucun message non lu
-                @endif
-
                 <a href="{{ route('message.index') }}" class="badge badge-pill badge-success ml-3">Voir tout</a>
             </p>
         </div>
+        @endif
+        
         <div class="main-notification-list">
 
             @forelse($messages as $message)
@@ -33,14 +31,16 @@
 
             @empty
 
-            <p class="my-3 text-center">Aucun message non lu reçu</p>
+            <p class="my-3 text-center">Aucun message reçu</p>
 
             @endforelse
 
         </div>
 
+        @if($messages->count())
         <div class="dropdown-footer">
             <a href="{{ route('message.index') }}">Afficher tous les messages</a>
         </div>
+        @endif
     </div>
 </div>

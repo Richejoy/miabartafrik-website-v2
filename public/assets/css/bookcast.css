@@ -2447,8 +2447,7 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
   margin: auto; 
   justify-content: center;
   border-radius: 8px;
-  align-items: center;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.2);
+  align-items: center; 
   transition: all ease-in-out 0.5s;
 }
 .booksId .profileImage img{
@@ -2457,10 +2456,15 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
   border-radius: 8px;
   height: 300px;
   object-fit: cover;
-  object-position: top;
-  /*! box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25); */
-  box-shadow: 8px 8px 12px #555;
+  object-position: top; 
+  box-shadow: 0px 2px 3px -1px rgba(72, 72, 72, 0.7)
 }
+
+.booksId .profileImage img:hover{
+  box-shadow:0px 4px 10px -1px rgba(72, 72, 72, 0.7);
+    .transition(all 400ms ease);
+}
+
 
  
 .booksId .inner_booksId{
@@ -2517,6 +2521,108 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
 }
 
 .booksId .info_booksId .viewMore button {
+    margin-left: 1rem;
+    border-radius: 500px;
+    height: 2rem;
+    width: 2rem;
+    background-color: rgba(33, 33, 33, 0.8);
+    box-shadow: 0 1px 4px 0 rgba(255, 255, 255, 0.25);
+    color: #f1f1f1;
+    border: none;
+    outline: 0;
+}
+
+/*-- CONOURS ID--*/ 
+ 
+.concoursId{
+  margin-bottom: 5%;
+} 
+
+
+.concoursId .profileImage:hover{
+ background-color: none;
+} 
+
+.concoursId .profileImage{  
+  background: var(--gradientbookcast) !important;
+  transform: translate(0, 0);
+  margin: auto; 
+  justify-content: center;
+  border-radius: 8px;
+  align-items: center; 
+  transition: all ease-in-out 0.5s;
+}
+.concoursId .profileImage img{
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  height: 300px;
+  object-fit: cover;
+  object-position: top; 
+  box-shadow: 0px 2px 3px -1px rgba(72, 72, 72, 0.7)
+}
+
+.concoursId .profileImage img:hover{
+  box-shadow:0px 4px 10px -1px rgba(72, 72, 72, 0.7);
+    .transition(all 400ms ease);
+}
+
+
+ 
+.concoursId .inner_concoursId{
+  position: relative;
+  z-index: 1;
+  padding:0 8px;
+}
+.concoursId .inner_concoursId .info_concoursId{
+  background-color:#fff;
+  text-align: center;
+  padding: 5px 5px;
+  border-radius:8px;
+  transition: all .5s ease;
+  margin-top: -10px;
+  box-shadow: 0 0 20px #00000060;
+}
+.concoursId:hover  .info_concoursId{
+    transform: translateY(-10px);
+}
+  
+.concoursId .inner_concoursId .info_concoursId h5{
+  margin:0;
+  font-size: 18px;
+  font-weight: 600;
+  color:#ffffff;
+}
+.concoursId .inner_concoursId .info_concoursId p{
+  font-size: 16px;
+  font-weight: 400;
+  color:#c5c5c5;
+  margin:10px 0 0;
+}
+
+.concoursId .inner_concoursId .info_concoursId .social-links{
+  padding-top: 15px;
+}
+
+.concoursId .inner_concoursId .info_concoursId .social-links a{
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  background-color: #ffffff;
+  color:#009688;
+  border-radius: 50%;
+  margin:0 2px;
+  text-align: center;
+  line-height: 32px;
+  font-size:16px;
+  transition: all .5s ease;
+}
+
+.concoursId .inner_concoursId .info_concoursId .social-links a:hover{
+  box-shadow: 0 0 10px #000;
+}
+
+.concoursId .info_concoursId .viewMore button {
     margin-left: 1rem;
     border-radius: 500px;
     height: 2rem;
@@ -2727,6 +2833,68 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
     color: #575757;
 }
 /*-- Vote*/ 
+
+.titre_concours{
+  border-bottom:1px solid #c5c7c8;
+  padding:9px 0;
+  text-align:center;
+  color:#59687f;
+  font-size:600;
+  font-size:19px; 
+  position:relative;
+}
+
+.dates_concours{
+  border:1px solid #c5c7c8;
+  border-radius:5px;
+  padding:5px 0px;
+  margin:5px 2px 0;
+  font-size:16px;
+  color:#5aadef;
+  font-weight:600;  
+  overflow:auto;
+}
+.dates_concours div{
+  float:left;
+  width:50%;
+  text-align:center;
+  position:relative;
+}
+.dates_concours strong,
+.stats_concours strong{
+  display:block;
+  color:#adb8c2;
+  font-size:11px;
+  font-weight:700;
+}
+.dates_concours span{
+  width:1px;
+  height:40px;
+  position:absolute;
+  right:0;
+  top:0;  
+  background:#c0c1c1;
+}
+.stats_concours{
+  border-top:1px solid #c5c7c8;
+  background:#f7f8fa;
+  overflow:auto;
+  padding:15px 0;
+  font-size:16px;
+  color:#59687f;
+  font-weight:600;  
+    margin-top: 8px;
+  border-radius: 0 0 5px 5px;
+}
+.stats_concours div{
+  border-right:1px solid #c5c7c8;
+  width:50%;
+  float:left;
+  text-align:center
+}
+.stats_concours div:nth-of-type(3){border:none;}
+
+div.ends{color:#2ECC71;}
 
 .vote_concours_mba{ 
   border-bottom: 1px dotted #409eff;
@@ -8848,7 +9016,7 @@ color: #0d478a;
 
 
 .input-wrap {
-  background: #cecccc45;
+  background: #e2e2e2;
   border-radius: 3px;
   height: 49px;
   position: relative;
@@ -8939,7 +9107,7 @@ color: #0d478a;
 
  
 .overlay__inner {
-  max-width: 36rem;
+  max-width: 100%;
 }
 
 .overlay__title {
@@ -10839,7 +11007,14 @@ font-size: 0.9rem;
   margin-bottom: .8rem;
   border-radius: 4px;
   color: #626262;  
+  box-shadow: 0px 2px 3px -1px rgba(151, 171, 187, 0.7);
 }
+
+.right_sidebar:hover{    
+  box-shadow:0px 4px 10px -1px rgba(151, 171, 187, 0.7);
+    .transition(all 400ms ease);
+}
+
 
 .mt_aside1{  
   margin-top: 1rem;

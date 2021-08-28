@@ -36,7 +36,7 @@ class Package extends Model
             $percentage = (($percentage * ($this->price - $this->discount)) / $this->price) - $percentage;
         }
 
-        return $percentage . $sign;
+        return ceil(number_format($percentage, 2, '.', ' ')) . $sign;
     }
 
     public function getExpire()

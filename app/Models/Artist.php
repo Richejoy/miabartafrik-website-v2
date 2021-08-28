@@ -14,6 +14,7 @@ class Artist extends Model
 
     protected $fillable = [
         'slug',
+        'name',
         'is_ambassador',
         'area_max',
         'paid',

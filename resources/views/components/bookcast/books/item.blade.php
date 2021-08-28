@@ -18,7 +18,7 @@
                 <div class="main_profilbook_header">
                     <div class="main_book_name">
                         <h6>
-                            <a href="{{ route('artist.show', ['artist' => $artist]) }}">{{ $artist->user->full_name }}</a>
+                            <a href="{{ route('artist.show', ['artist' => $artist]) }}">{{ $artist->name }}</a>
                         </h6>
                         <div class="all_services_mba"> 
                             @forelse($artist->artistAreas->take(3) as $artistArea)

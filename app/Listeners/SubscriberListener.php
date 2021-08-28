@@ -31,6 +31,6 @@ class SubscriberListener
     {
         $subscriber = $event->subscriber;
 
-        Mail::to($subscriber->email)->send(new SubscriberMail($subscriber, 'subscription', "Subscriber Mail"));
+        Mail::to($subscriber->email)->send(new SubscriberMail($subscriber, 'subscription', "Pré-inscription mail"));
     }
 }

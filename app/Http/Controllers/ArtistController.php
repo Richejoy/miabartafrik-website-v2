@@ -36,10 +36,10 @@ class ArtistController extends Controller
         if ($request->isMethod('POST')) {
             
             $this->validate($request, [
+                'name' => 'required|min:3',
                 'area_id' => 'required|array|size:3',
                 'language_id' => 'required',
                 'language_level_id' => 'required',
-                'language_accent' => 'required|min:3',
             ]);
 
             if ($artist->area_max == 0) {
@@ -63,6 +63,7 @@ class ArtistController extends Controller
                     ));
 
                     $artist->update([
+                        'name' => $request->name,
                         'area_max' => count($request->area_id),
                     ]);
 
