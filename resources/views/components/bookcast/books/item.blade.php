@@ -19,9 +19,11 @@
                     <div class="main_book_name">
                         <h6>
                             <a href="{{ route('artist.show', ['artist' => $artist]) }}">{{ $artist->name }}</a>
+
+                            <x-verified-account />
                         </h6>
                         <div class="all_services_mba"> 
-                            @forelse($artist->artistAreas->take(3) as $artistArea)
+                            @forelse($artist->artistArea->take(3) as $artistArea)
                             <small class="all_services_mba_small">{{ $artistArea->area->name }}</small>
                             @empty
                             <small class="all_services_mba_small">Aucun</small>

@@ -1,11 +1,6 @@
  @charset "UTF-8"; 
- /*LEFT-SIDEMENU CSS*/
-  @import url('../css/Preloader_miabartAfrik.css');
+ /*LEFT-SIDEMENU CSS*/ 
 
-   /*TABS CSS*/  
-
-  @import url('../css/tabstyles.css');
-  @import url('../css/tabs.css');
 
 
 
@@ -31,24 +26,24 @@
 
 @font-face {
   font-family: PlayfairDisplay-BlackItalic;
-  src: url('../fonts/PlayfairDisplay/PlayfairDisplay-BlackItalic.ttf'); 
+  src: url('https://miabartafrik.com/public/assets/fonts/PlayfairDisplay/PlayfairDisplay-BlackItalic.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('../fonts/Poppins/Poppins-Regular.ttf'); 
+  src: url('https://miabartafrik.com/public/assets/fonts/Poppins/Poppins-Regular.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('../fonts/Poppins/Poppins-Medium.ttf'); 
+  src: url('https://miabartafrik.com/public/assets/fonts/Poppins/Poppins-Medium.ttf'); 
 }
 @font-face {
   font-family: 'mouse-300';
-  src: url("../fonts/RobotoSlab-Regular.ttf") format("truetype"); }
+  src: url("https://miabartafrik.com/public/assets/fonts/RobotoSlab-Regular.ttf") format("truetype"); }
 @font-face {
   font-family: 'mouse-500';
-  src: url("../fonts/RobotoSlab-Bold.ttf") format("truetype"); }
+  src: url("https://miabartafrik.com/public/assets/fonts/RobotoSlab-Bold.ttf") format("truetype"); }
 
 
   /*//////////////////////////////////////////////////////////////////
@@ -57,17 +52,17 @@
 
 @font-face {
   font-family: PlayfairDisplay-BlackItalic;
-  src: url('../fonts/PlayfairDisplay/PlayfairDisplay-BlackItalic.ttf'); 
+  src: url('https://miabartafrik.com/public/assets/fonts/PlayfairDisplay/PlayfairDisplay-BlackItalic.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('../fonts/Poppins/Poppins-Regular.ttf'); 
+  src: url('https://miabartafrik.com/public/assets/fonts/Poppins/Poppins-Regular.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('../fonts/Poppins/Poppins-Medium.ttf'); 
+  src: url('https://miabartafrik.com/public/assets/fonts/Poppins/Poppins-Medium.ttf'); 
 }
 
 
@@ -987,7 +982,7 @@ text-align: center;
   margin-top: 0;
   background-size: cover;
   background-color: #151618; 
-  background-image: url("../img/homeimg/homeimg_bookcast.png");
+  background-image: url("https://miabartafrik.com/public/assets/img/homeimg/homeimg_bookcast.png");
   /*! position: initial; */
   overflow-y: hidden;
   overflow-x: hidden;
@@ -2433,7 +2428,7 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
 
  
 .booksId{
-  margin-bottom: 5%;
+  margin-bottom: 4%;
 } 
 
 
@@ -2482,7 +2477,7 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
   box-shadow: 0 0 20px #00000060;
 }
 .booksId:hover  .info_booksId{
-    transform: translateY(-20px);
+    transform: translateY(-4px);
 }
   
 .booksId .inner_booksId .info_booksId h5{
@@ -2534,10 +2529,7 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
 
 /*-- CONOURS ID--*/ 
  
-.concoursId{
-  margin-bottom: 5%;
-} 
-
+ 
 
 .concoursId .profileImage:hover{
  background-color: none;
@@ -2651,8 +2643,7 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
     order: 3;
 }
 .ambassadeurSign {
-    display: block;
-    margin-right: 0.75rem;
+    display: block; 
     position: relative;
     z-index: 1;
 }
@@ -2665,8 +2656,8 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
     margin-top: -3rem; 
     width: 55px;
     object-fit: cover;
-    object-position: center;
-    box-shadow: 8px 8px 12px #555;
+    object-position: top; 
+    margin-bottom: 5px;
 }
 
  
@@ -2682,7 +2673,7 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
   margin-left: -1rem; 
 }
 .ambassadeurSRound {
-    border-radius: 100%;
+    border-radius: 4px;
 }
 .titleAndAuthor {
     width: 95%;
@@ -2812,6 +2803,11 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
 
 .main_book_name{
   font-size: 0.6rem;
+}
+
+.text_verified{
+  font-size: 0.8rem;
+  color: #19b159 !important;
 }
 
 .main_book_name h6 {
@@ -4032,7 +4028,7 @@ a.back {
     padding: 135px 0 100px 20px;
     margin-top: -70px;
     line-height: 1.3em;
-    background: #fff url(../images/section-gradient-grey-shorter.png) repeat-x center top;
+    background: #fff url(https://miabartafrik.com/public/assets/images/section-gradient-grey-shorter.png) repeat-x center top;
     overflow: hidden;
     z-index: 90;
 }
@@ -4650,9 +4646,7 @@ button {
 }
 .castingart_newByOsez__side {
   width: 100%;
-  height: auto;
-  color: white;
-  /*! position: absolute; */
+  height: auto;  
   top: 0;
   left: 0;
   border-radius: 3px;
@@ -5369,6 +5363,77 @@ font-size: 16px;
 }
 
 /*******************************/
+/********* UPLOAD IMAGE *********/
+/*******************************/
+
+.preview_img_mba {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 8px auto;
+    box-shadow: 0px 0px 0px 2px rgb(30, 82, 111);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.file_upload_wrapper_mba {
+    position: relative;
+    z-index: 5;
+    display: block;
+    width: 250px;
+    height: 30px;
+    margin: 5px auto;
+    border-radius: 0px;
+    border-bottom: 1px dashed rgb(30, 82, 111);
+}
+
+.file_upload_native_mba,
+.file_upload_text_mba {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    color: #c5c7c8 !important;
+}
+
+.file_upload_wrapper_mba input[type="file"]::-webkit-file-upload-button {
+    cursor: pointer;
+}
+
+.file_upload_native_mba:focus,
+.file_upload_text_mba:focus {
+    outline: none;
+}
+
+.file_upload_text_mba {
+    z-index: 10;
+    padding: 5px 15px 8px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.4;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 1px;
+    text-overflow: ellipsis;
+    border: 0;
+    background-color: #00000075;
+}
+
+.file_upload_native_mba {
+    z-index: 15;
+    opacity: 0;
+}
+
+
+
+
+
+
+
+/*******************************/
 /********* PARTNER ARTISTIQUE CSS *********/
 /*******************************/
  #organisationpartner{
@@ -5494,6 +5559,20 @@ font-size: 16px;
     position: relative;
     text-align: center;
 }
+
+.domaines_artistique_views{
+    position: relative;
+    text-align: center;
+}
+
+.domaines_artistique_views::before {
+    content: url(https://miabartafrik.com/public/assets/img/obligatoire@1x.baedf82e.png);
+    display: inline;
+    padding-left: .2rem;
+    padding-right: .2rem;
+}
+
+
 
 .infopartner{
     position: relative;
@@ -7426,7 +7505,7 @@ a:hover {text-decoration:none;}
  
 /* Slider */
 .slick-loading .slick-list {
-    background: #fff url('./ajax-loader.gif') center center no-repeat;
+    background: #fff url('https://miabartafrik.com/public/assets/ajax-loader.gif') center center no-repeat;
 }
 
 /* Icons */
@@ -7435,8 +7514,9 @@ a:hover {text-decoration:none;}
     font-weight: normal;
     font-style: normal;
 
-    src: url('./fonts/slick.eot');
-    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
+    src: url('https://miabartafrik.com/public/assets/fonts/slick.eot');
+    src: url('https://miabartafrik.com/public/assets/fonts/slick.eot?#iefix') format('embedded-opentype'), 
+    url('https://miabartafrik.com/public/assets/fonts/slick.woff') format('woff'), url('https://miabartafrik.com/public/assets/fonts/slick.ttf') format('truetype'), url('https://miabartafrik.com/public/assets/fonts/slick.svg#slick') format('svg');
 }
 /* Arrows */
 .slick-prev,
@@ -8737,7 +8817,8 @@ color: #0d478a;
 
  
 .btn-search:hover {
-  background: #29a3dc;
+  background: #2c539b;
+  color: white;
 }
 
 
@@ -9111,11 +9192,10 @@ color: #0d478a;
 }
 
 .overlay__title {
-  font-size: 1.275rem;
-  line-height: 2.75rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: .75rem;
+  font-weight: 500; 
+  font-family: "mouse-500", Arial, Helvetica, sans-serif;
 }
 
   
@@ -10398,14 +10478,13 @@ padding-right: .3rem;
   .map-mark {
     padding-left: 30px; } }
 
-    #landing-text {
+#landing-text {
   display: flex;
   flex: 0 1 40vw;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding-right: 4rem; 
+  text-align: center;  
 }
 
 #landing-text h2 {
@@ -10802,7 +10881,8 @@ box-shadow: 0px 0px 13px 0 rgba(82,63,105,.15);
   width: 100%;
   background: #fff;
   border-radius: 6px;
-  padding: 20px;
+  padding: 20px 15px 5px 15px;
+  margin-bottom: .8rem;
   color: #626262;
 }
 
@@ -10843,15 +10923,20 @@ box-shadow: 0px 0px 13px 0 rgba(82,63,105,.15);
   outline: 0;
   border-bottom: 1px solid #ccc;
   background: transparent;
-  color: #a4a4a4;
+  color: #6c6a6a;
   font-size: 0.9rem;
   resize: none;
 }
 
 .post_input_container textarea::placeholder{   
-  color: #a4a4a4; 
+  color: #6c6a6a; 
 }
 
+ 
+.icons_recharge { 
+  cursor: pointer;
+}
+ 
 .add_post_links{   
   display: flex; 
   margin-top: 5px;

@@ -27,6 +27,8 @@
 
     <!-- Style css-->
     <link href="{{ asset('public/assets/css/bookcast.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/tabstyles.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/tabs.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/preloader_miabartAfrik.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/skins.css') }}" rel="stylesheet">
@@ -47,7 +49,7 @@
     <x-loader imgLink="{{ asset('public/assets/img/preloader.jpg') }}" />
     <!-- End Loader -->
 
-    <!-- Page @include('flash::message') -->
+    <!-- Page -->
     <main>
         @yield('body')
     </main>
@@ -56,23 +58,12 @@
     <!-- Jquery js-->
     <script src="{{ asset('public/assets/plugins/jquery/jquery.min.js') }}"></script>
 
-    <script src="{{ asset('public/assets/js/select2.js') }}"></script>
+    <script src="{{ asset('public/assets/js/cbpFWTabs.js') }}"></script>
 
     <!-- Bootstrap js-->
     <script src="{{ asset('public/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
+
     <script src="{{ asset('public/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-
-    <!-- Internal Jquery-steps js-->
-    <script src="{{ asset('public/assets/plugins/jquery-steps/jquery.steps.min.js') }}"></script>
-
-    <!-- Internal Accordion-Wizard-Form js-->
-    <script src="{{ asset('public/assets/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js') }}"></script>
-
-    <!-- Internal Form-wizard js-->
-    <script src="{{ asset('public/assets/js/form-wizard.js') }}"></script>
-
-    <!-- Internal Parsley js-->
-    <script src="{{ asset('public/assets/plugins/parsleyjs/parsley.min.js') }}"></script>
 
     <!-- Internal Form-validation js-->
     <script src="{{ asset('public/assets/js/form-validation.js') }}"></script>
@@ -83,7 +74,16 @@
     <!-- Custom js -->
     <script src="{{ asset('public/assets/js/custom.js') }}"></script>
 
-    <script src="{{ asset('public/js/miabartafrik.js') }}"></script>
+    <script src="{{ asset('public/js/file_upload.js') }}"></script>
+
+    <script type="text/javascript">
+        (function() {
+            [].slice.call(document.querySelectorAll('.tabs_miabartafrik')).forEach(function(el) {
+                new CBPFWTabs(el);
+            });
+
+        })();
+    </script>
 
     @include('flashy::message')
 

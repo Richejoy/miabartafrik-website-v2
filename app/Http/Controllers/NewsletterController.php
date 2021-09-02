@@ -24,29 +24,27 @@ class NewsletterController extends Controller
     {
         if ($request->isMethod('post')) {
 
-            $this->validate($request, [
-                'email' => 'required|email|min:3|max:40',
-                //'verification_code' => 'required',
+            $this->validate([
+                'email' => ['required', 'email', 'unique:newsletters', 'max:40'],
+                'verification_code' => 'required',
             ]);
 
-            /*if ($request->verification_code != session('verificationCode')) {
+            if ($request->verification_code != session('verificationCode')) {
                 return back()->withDanger('Désolé, code de vérification incorrecte');
-            }*/
-
-            if (!Newsletter::whereEmail($request->email)->first()) {
-                $newsletter = Newsletter::create(array_merge(
-                    $request->all(),
-                    [
-                        'token' => sha1(uniqid())
-                    ]
-                ));
-
-                event(new NewsletterEvent($newsletter, ['action' => 'subscribe']));
             }
 
-            flashy()->success("Merci pour votre suscription.");
+            $newsletter = Newsletter::create(array_merge(
+                $request->all(),
+                [
+                    'token' => sha1(uniqid())
+                ]
+            ));
 
-            return back()->withSuccess("Merci pour votre suscription.");
+            event(new NewsletterEvent($newsletter, ['action' => 'subscribe']));
+
+            flashy()->success("Merci pour votre souscription.");
+
+            return back()->withSuccess("Merci pour votre souscription.");
         }
 
         return back();

@@ -182,6 +182,11 @@ class PartnerController extends Controller
                 'paid' => (bool) ($package->price == 0),
             ]);
 
+            auth()->user()->update([
+                'activated' => true,
+                'can_login' => true,
+            ]);
+
             return redirect()->route('bookcast.index');
         }
         

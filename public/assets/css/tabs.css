@@ -5,22 +5,22 @@
 	font-weight: normal;
 	font-style: normal;
 	font-family: 'codropsicons';
-	src:url('../fonts/codropsicons/codropsicons.eot');
-	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
-		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
-		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+	src:url('https://miabartafrik.com/public/assets/fonts/codropsicons/codropsicons.eot');
+	src:url('https://miabartafrik.com/public/assets/fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('https://miabartafrik.com/public/assets/fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('https://miabartafrik.com/public/assets/fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('https://miabartafrik.com/public/assets/fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
 }
 
 @font-face {
 	font-weight: normal;
 	font-style: normal;
 	font-family: 'stroke7pixeden';
-	src:url('../fonts/stroke7pixeden/stroke7pixeden.eot?u58ytb');
-	src:url('../fonts/stroke7pixeden/stroke7pixeden.eot?#iefixu58ytb') format('embedded-opentype'),
-		url('../fonts/stroke7pixeden/stroke7pixeden.woff?u58ytb') format('woff'),
-		url('../fonts/stroke7pixeden/stroke7pixeden.ttf?u58ytb') format('truetype'),
-		url('../fonts/stroke7pixeden/stroke7pixeden.svg?u58ytb#stroke7pixeden') format('svg');
+	src:url('https://miabartafrik.com/public/assets/fonts/stroke7pixeden/stroke7pixeden.eot?u58ytb');
+	src:url('https://miabartafrik.com/public/assets/fonts/stroke7pixeden/stroke7pixeden.eot?#iefixu58ytb') format('embedded-opentype'),
+		url('https://miabartafrik.com/public/assets/fonts/stroke7pixeden/stroke7pixeden.woff?u58ytb') format('woff'),
+		url('https://miabartafrik.com/public/assets/fonts/stroke7pixeden/stroke7pixeden.ttf?u58ytb') format('truetype'),
+		url('https://miabartafrik.com/public/assets/fonts/stroke7pixeden/stroke7pixeden.svg?u58ytb#stroke7pixeden') format('svg');
 }
 
 
@@ -217,6 +217,7 @@
 	margin: 0 auto;
 	padding: 0;
 	max-width: 1200px;
+	width: 100%;
 	list-style: none;
 	-ms-box-orient: horizontal;
 	-ms-box-pack: center;
@@ -275,7 +276,7 @@
 	font-weight: normal;
 	font-variant: normal;
 	font-size: 1.3em;
-	font-family: 'stroke7pixeden','Pe-icon-7-stroke';
+	font-family: 'stroke7pixeden','Pe-icon-7-stroke','feather !important','simple-line-icons';
 	line-height: 1;
 	speak: none;
 	-webkit-backface-visibility: hidden;
@@ -328,13 +329,14 @@
 /* Content */
 .content-wrap {
 	position: relative;
+	background: rgba(140, 140, 140, 0.15);
 }
 
 .content-wrap section {
 	display: none;
 	margin: 0 auto;
 	padding: 1em;
-	max-width: 1200px; 
+	max-width: 1200px;  
 }
 
 .content-wrap section.content-current {
@@ -343,7 +345,7 @@
 
 .content-wrap section p {
 	margin: 0;
-	padding: 0.75em 0;
+	/*padding: 0.75em 0; */
 	color: rgba(100, 99, 99, 0.97); 
 	font-size: 0.9em;
 	line-height: 1.5;

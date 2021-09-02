@@ -55,7 +55,7 @@ class Partner extends Model
         return $this->belongsTo(Package::class);
     }
 
-    public function partnerAreas()
+    public function partnerArea()
     {
         return $this->hasMany(PartnerArea::class);
     }

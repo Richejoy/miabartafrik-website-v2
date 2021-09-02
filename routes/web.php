@@ -52,7 +52,7 @@ Route::get('/clear', function() {
 });
 
 Route::prefix('/')->name('page.')->group(function() {
-	Route::get('/', [PageController::class, 'login'])->name('index')->middleware('logged');
+	Route::get('/', [PageController::class, 'login'])->name('index')->middleware('guest');
 
 	Route::get('/about', [PageController::class, 'about'])->name('about');
 	Route::get('/terms', [PageController::class, 'terms'])->name('terms');
@@ -60,7 +60,7 @@ Route::prefix('/')->name('page.')->group(function() {
 	Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 	Route::get('/sitemap', [PageController::class, 'sitemap'])->name('sitemap');
 
-	Route::middleware('logged')->group(function () {
+	Route::middleware('guest')->group(function () {
 		Route::match(['GET', 'POST'], '/login', [PageController::class, 'login'])->name('login');
 		Route::match(['GET', 'POST'], '/register', [PageController::class, 'register'])->name('register');
 		Route::match(['GET', 'POST'], '/confirmed', [PageController::class, 'confirmed'])->name('confirmed');

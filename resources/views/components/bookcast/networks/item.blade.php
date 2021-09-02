@@ -12,6 +12,8 @@
             @else
                 {{ $partner->society->name }}
             @endif
+
+            <x-verified-account />
         </a>
     </h3>
     <div class="infopartner">
@@ -21,7 +23,7 @@
             @endif
         </div>
         <div class="all_services_mba"> 
-            @forelse($partner->partnerAreas->take(3) as $partnerArea)
+            @forelse($partner->partnerArea->take(3) as $partnerArea)
                 <small class="all_services_mba_small">{{ $partnerArea->area->name }}</small>
             @empty
                 <small class="all_services_mba_small">Aucun</small>

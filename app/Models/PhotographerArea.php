@@ -12,7 +12,7 @@ class PhotographerArea extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    protected $table = 'photographers_areas';
+    protected $table = 'photographer_area';
 
     protected $fillable = [
         'photographer_id',

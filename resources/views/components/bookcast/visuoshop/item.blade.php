@@ -17,9 +17,11 @@
                     <div class="main_book_name">
                         <h6>
                             <a href="{{ route('photographer.show', ['photographer' => $photographer]) }}">{{ $photographer->user->full_name }}</a>
+
+                            <x-verified-account />
                         </h6>
                         <div class="all_services_mba"> 
-                            @forelse($photographer->photographerAreas->take(3) as $photographerArea)
+                            @forelse($photographer->photographerArea->take(3) as $photographerArea)
                             <small class="all_services_mba_small">{{ $photographerArea->area->name }}</small>
                             @empty
                             <small class="all_services_mba_small">Aucun</small>

@@ -44,7 +44,7 @@ class Artist extends Model
         return $this->belongsTo(Package::class);
     }
 
-    public function artistAreas()
+    public function artistArea()
     {
         return $this->hasMany(ArtistArea::class);
     }

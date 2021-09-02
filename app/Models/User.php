@@ -39,6 +39,7 @@ class User extends Authenticatable
         'tfa_code',
         'removed',
         'biography',
+        'verified',
         'library_id',
         'user_type_id',
         'country_id',
@@ -194,6 +195,11 @@ class User extends Authenticatable
     public function call()
     {
         return 'tel:+' . $this->longPhone();
+    }
+
+    public function publicationLikes()
+    {
+        return $this->belongsToMany(Publication::class);
     }
 
     public function __toString()

@@ -60,7 +60,7 @@ class Photographer extends Model
         return $this->belongsTo(Package::class);
     }
 
-    public function photographerAreas()
+    public function photographerArea()
     {
         return $this->hasMany(PhotographerArea::class);
     }

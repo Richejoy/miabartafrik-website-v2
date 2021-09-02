@@ -27,6 +27,8 @@
 
     <!-- Style css-->
     <link href="{{ asset('public/assets/css/bookcast.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/tabstyles.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/css/tabs.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/preloader_miabartAfrik.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('public/assets/css/skins.css') }}" rel="stylesheet">

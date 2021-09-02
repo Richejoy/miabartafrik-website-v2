@@ -12,7 +12,7 @@ class UserElection extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    protected $table = 'users_elections';
+    protected $table = 'user_election';
 
     protected $fillable = [
         'user_id',
