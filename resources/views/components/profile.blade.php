@@ -4,7 +4,7 @@
     </a>
     <div class="dropdown-menu">
         <div class="header-navheading">
-            <p>
+            <p class="py-2">
                 <img width="100px" height="100px" alt="{{ auth()->user()->library->description }}"
                 src="{{ auth()->user()->library->remote }}">
             </p>

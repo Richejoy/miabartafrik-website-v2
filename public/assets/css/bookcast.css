@@ -363,6 +363,27 @@ text-align: center;
 }
 
  /*------ experiences infos book -------*/
+.experienceMba { 
+  margin-bottom: 1rem;
+}
+.titre_expe { 
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #3c3744;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.profile-info--section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    background-color: #f1f1f1;
+    color: #3c3744;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: none;
+}
 .riser {
   padding: 10px 10px 0px 10px;
   margin-bottom: 10px;
@@ -1503,8 +1524,133 @@ text-align: center;
   }
 }
 
- 
 
+.back_button_mba {
+width: 50px;
+height: 50px;
+position: absolute;
+top: 10%;
+left: 10%;
+transform: translate(-50%, -50%);
+border-radius: 50%;
+border: #03A9F4 1px solid;
+background: #f0f8ffbf;
+overflow: hidden;
+transition: background 0.3s ease;
+}
+.back_button_mba.back .arrow_mba-wrap {
+  left: -50%;
+}
+.back_button_mba:hover {
+  background: #03A9F4;
+}
+.back_button_mba:hover .arrow_mba-wrap span {
+  background: #fff;
+}
+.back_button_mba .arrow_mba-wrap {
+  display: block;
+  position: absolute;
+  height: 70%;
+  width: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s ease;
+}
+.back_button_mba .arrow_mba-wrap span {
+  height: 1px;
+  left: 0;
+  top: 50%;
+  background: #03A9F4;
+  position: absolute;
+  display: block;
+  transition: background 0.3s ease;
+}
+.back_button_mba .arrow_mba-wrap .arrow_mba-part-1 {
+  width: 100%;
+  transform: translate(0, -50%);
+}
+.back_button_mba .arrow_mba-wrap .arrow_mba-part-2 {
+  width: 60%;
+  transform: rotate(-45deg);
+  transform-origin: 0 0;
+}
+.back_button_mba .arrow_mba-wrap .arrow_mba-part-3 {
+  width: 60%;
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+}
+  
+/* Header */
+.miabartafrik-header {
+  padding: 7em 0 3em;
+  letter-spacing: -1px;
+}
+
+.miabartafrik-header h1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-weight: 800;
+  font-size: 5em;
+  line-height: 1;
+}
+
+.miabartafrik-header h1 span {
+  display: block;
+  font-size: 50%;
+  font-weight: 400;
+  padding-top: 0.325em;
+  color: #bdc2c9;
+}
+
+/* To Navigation Style */
+.miabartafrik-top {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.69em;
+  line-height: 2.2;
+  color: inherit;
+}
+
+.miabartafrik-top a {
+  display: inline-block;
+  padding: 1em 2em;
+  text-decoration: none;
+  letter-spacing: 1px;
+  color: inherit;
+  background: #ffffffb5;
+  margin: 1rem;
+}
+
+.miabartafrik-top span.right {
+  float: right;
+}
+
+.miabartafrik-top span.right a {
+  display: block;
+  float: left;
+}
+
+.miabartafrik-icon:before {
+  margin: 0 4px;
+  text-transform: none;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-family: 'codropsicons';
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.miabartafrik-icon-drop:before {
+  content: "\e001";
+}
+
+.miabartafrik-icon-prev:before {
+  content: "\e004";
+}
 
 
 .side-app01 {
@@ -4143,6 +4289,7 @@ a.back {
     margin-bottom: 1.2rem;
     border-radius: 10px; 
     position: relative;
+    text-align: center;
 }
 .partnerArt_org{
     display: flex;
@@ -4764,8 +4911,7 @@ button {
 .infos_plus_bookcast h3 {
   font-size: 0.9em;
   font-weight: 400;
-  margin: 0;
-  font-family: "mouse-500", Arial, Helvetica, sans-serif;
+  margin: 0; 
 }
 .infos_plus_bookcast h4 {
   margin: 0;
@@ -5556,8 +5702,7 @@ font-size: 16px;
 }
 
 .all_services_mba{
-    position: relative;
-    text-align: center;
+    position: relative; 
 }
 
 .domaines_artistique_views{
@@ -5575,8 +5720,7 @@ font-size: 16px;
 
 
 .infopartner{
-    position: relative;
-    text-align: center;
+    position: relative; 
 }
 
 .infopartner h3 {
@@ -10481,10 +10625,14 @@ padding-right: .3rem;
 #landing-text {
   display: flex;
   flex: 0 1 40vw;
-  height: 100vh;
+  height: 90vh;
   justify-content: center;
   align-items: center;
   text-align: center;  
+}
+
+.nom_art_viewPage { 
+  font-size: 2rem;
 }
 
 #landing-text h2 {
@@ -11088,8 +11236,7 @@ font-size: 0.9rem;
 /* sidebar  */
 .right_sidebar{    
   background: #fff;
-  padding: 10px;
-  margin-bottom: .8rem;
+  padding: 10px; 
   border-radius: 4px;
   color: #626262;  
   box-shadow: 0px 2px 3px -1px rgba(151, 171, 187, 0.7);
@@ -11296,6 +11443,56 @@ font-size: 0.9rem;
   clear: both;
 }
 
+/* VIDEO YOUTUBE MIABARTAFRIK  */
+.videoWrapper_mba {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.videoWrapper_mba iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-preview-image_mba {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: top left;
+  background-repeat: no-repeat;
+  z-index: 2;
+  cursor: pointer;
+}
+.video-preview-image_mba:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  width: 50px;
+  height: 50px;
+  background-image: url("https://miabartafrik.com/public/assets/img/icons/play-1173551_1280.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.autoplay_video{    
+  autoplay="false";
+    autoplay="1";
+    autoplay="";
+    autoplay="none";
+    autostart="false";}
+
+
+
+
 /* VIDEO MIABARTAFRIK  */
 [class^="swiper-button-"],
 .swiper-container-horizontal
@@ -11449,134 +11646,4 @@ font-size: 0.9rem;
     font-size: 12px;
   }
 }
-
-/* **************
-  VIDEO WRAPPER 
-************* */
-
-.videoWrapper_miabart_afrik {
-  position: relative;
-  width: 100%;
-  height: 0;
-  background-color: #000;
-  padding-top: 56%;
-  border-radius: 5px;
-}
-
-.videoIframe_miabart_afrik {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  border-radius: 5px;
-}
-
-.videoPoster_miabart_afrik {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  border: 0;
-  outline: none;
-  background-position: 50% 50%;
-  background-size: 100% 100%;
-  background-size: cover;
-  text-indent: -999em;
-  overflow: hidden;
-  opacity: 1;
-  -webkit-transition: opacity 800ms, height 0s;
-  -moz-transition: opacity 800ms, height 0s;
-  transition: opacity 800ms, height 0s;
-  -webkit-transition-delay: 0s, 0s;
-  -moz-transition-delay: 0s, 0s;
-  transition-delay: 0s, 0s;
-  border-radius: 5px;
-}
-.videoWrapper_miabart_afrikActive .videoPoster_miabart_afrik {
-  opacity: 0;
-  height: 0;
-  -webkit-transition-delay: 0s, 800ms;
-  -moz-transition-delay: 0s, 800ms;
-  transition-delay: 0s, 800ms;
-}
-.videoIframe_miabart_afrik {
-  position: absolute;
-  top: 0;
-}
-/* *********
-  SVG PLAY BUTTON
-********** */
-
-.stroke-dotted_miabart_afrik {
-  stroke-dasharray: 4, 5;
-  stroke-width: 1px;
-  -webkit-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  -webkit-animation: spin 4s infinite linear;
-  animation: spin 4s infinite linear;
-  -webkit-transition: opacity 1s ease, stroke-width 1s ease;
-  transition: opacity 1s ease, stroke-width 1s ease;
-}
-.stroke-solid {
-  stroke-dashoffset: 0;
-  stroke-dasharray: 300;
-  stroke-width: 4px;
-  -webkit-transition: stroke-dashoffset 1s ease, opacity 1s ease;
-  transition: stroke-dashoffset 1s ease, opacity 1s ease;
-  opacity: 0;
-}
-.vid-icon {
-  -webkit-transition: -webkit-transform 200ms ease-out;
-  transition: -webkit-transform 200ms ease-out;
-  transition: transform 200ms ease-out;
-  transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
-}
-
-.play-vid:hover .stroke-dotted_miabart_afrik {
-  stroke-width: 4px;
-  opacity: 1;
-}
-.play-vid:hover .stroke-solid {
-  opacity: 1;
-  stroke-dashoffset: 300;
-}
-.play-vid:hover .icon {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
-  opacity: 1;
-}
-.play-vid {
-  cursor: pointer;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0.85;
-  width: 80px;
-  height: 80px;
-}
-@-webkit-keyframes spin {
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 

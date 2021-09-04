@@ -30,35 +30,47 @@ $(document).ready(function(){
   //  INFOS UTILE
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-//  VIDEO YOUTUBE OU HTML PAYING
+//  Video Poster Setup
 
-$(".video-preview-image_mba")
-  .unbind("click")
-  .bind("click", function () {
-  $(".miabartvideo_mba").find(".playing .video-preview-image_mba").show();
-  if ($(".playing").length) {
-    var PlayingVideoSrc = $(".miabartvideo_mba")
-    .find(".playing iframe")
-    .attr("src")
-    .replace("&autoplay=1", "");
-    $(".miabartvideo_mba")
-      .find(".playing iframe")
-      .attr("src", PlayingVideoSrc);
-  }
 
-  $(this)
-    .closest(".miabartvideo_mba__row")
-    .addClass("playing")
-    .siblings()
-    .removeClass("playing");
-  $(this).hide();
-  $(this).parent().find("iframe")[0].src += "&autoplay=1";
+$(document).on("click", ".js-videoPoster_miabart_afrik", function (ev) {
+  "use strict";
+  ev.preventDefault();
+  videoStop();
+  var $poster = $(this);
+  var $wrapper = $poster.closest(".js-videoWrapper_miabart_afrik");
+  videoPlay($wrapper);
 });
 
- 
- 
+// play the targeted video (and hide the poster frame)
+function videoPlay($wrapper) {
+  "use strict";
+  var $iframe = $wrapper.find(".js-videoIframe_miabart_afrik");
+  var src = $iframe.data("src");
+  // hide poster
+  $wrapper.addClass("videoWrapper_miabart_afrikActive");
+  // add iframe src in, starting the video
+  $iframe.attr("src", src);
+}
 
-//  BOOK INFO
+// stop the targeted/all videos (and re-instate the poster frames)
+function videoStop($wrapper) {
+  "use strict";
+  // if we're stopping all videos on page
+  if (!$wrapper) {
+    var $wrapper = $(".js-videoWrapper_miabart_afrik");
+    var $iframe = $(".js-videoIframe_miabart_afrik");
+    // if we're stopping a particular video
+  } else {
+    var $iframe = $wrapper.find(".js-videoIframe_miabart_afrik");
+  }
+  // reveal poster
+  $wrapper.removeClass("videoWrapper_miabart_afrikActive");
+  // remove youtube link, stopping the video from playing in the background
+  $iframe.attr("src", "");
+}
+
+
 $('.book_infos_title').click(function(e) {
   console.log("Clicked");
   $(this).next().slideToggle();

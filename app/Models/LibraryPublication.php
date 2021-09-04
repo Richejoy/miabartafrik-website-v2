@@ -5,23 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PublicationUser extends Model
+class LibraryPublication extends Model
 {
     use HasFactory;
 
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
-    protected $table = 'publication_user';
+    protected $table = 'library_publication';
 
     protected $fillable = [
-        'user_id',
+        'library_id',
         'publication_id',
     ];
 
-    public function user()
+    public function library()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Library::class);
     }
 
     public function publication()

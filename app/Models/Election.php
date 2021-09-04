@@ -17,6 +17,7 @@ class Election extends Model
         'area_id',
         'library_id',
         'country_id',
+        'published',
     ];
 
     public function user()

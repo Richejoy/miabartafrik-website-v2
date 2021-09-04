@@ -21,4 +21,20 @@ class Message extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeReaded($query, $user_id)
+    {
+        return $query->where([
+            'receiver_id' => $user_id,
+            'readed' => true,
+        ]);
+    }
+
+    public function scopeUnReaded($query, $user_id)
+    {
+        return $query->where([
+            'receiver_id' => $user_id,
+            'readed' => false,
+        ]);
+    }
 }

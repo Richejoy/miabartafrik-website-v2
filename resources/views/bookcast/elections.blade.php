@@ -110,7 +110,7 @@
                                     </h1>
                                     <!-- Description -->
                                     <p class="overlay__description">
-                                        {{ mb_substr($election->content, 0, 250) }}...
+                                        {!! Str::words($election->content, 250) !!}
                                     </p>
                                 </div>
                             </div>

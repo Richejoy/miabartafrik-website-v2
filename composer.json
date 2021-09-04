@@ -6,7 +6,10 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "arrilot/laravel-widgets": "^3.13",
         "barryvdh/laravel-dompdf": "^0.9.0",
+        "christofferok/laravel-emojione": "^5.0",
+        "emojione/assets": "^4.5",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -20,10 +23,12 @@
         "livewire/livewire": "^2.4",
         "maatwebsite/excel": "^3.1",
         "mercuryseries/flashy": "^1.0",
+        "mervick/emojionearea": "^3.0.0",
         "niklasravnsborg/laravel-pdf": "^4.0",
         "orangehill/iseed": "^3.0",
         "rah/danpu": "^2.7",
         "spatie/db-dumper": "^2.21",
+        "spatie/emoji": "^2.3",
         "torann/geoip": "^3.0"
     },
     "require-dev": {

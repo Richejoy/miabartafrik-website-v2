@@ -9,12 +9,19 @@ use App\Models\Menu;
 
 class Search extends Component
 {
+    public $countries;
+
+    public $menus;
+
+    public function mount()
+    {
+        $this->countries = Country::all()->sortBy('id')->pluck(null, 'id');
+
+        $this->menus = Module::find(1)->menus()->get()->sortBy('id')->pluck(null, 'id');
+    }
+
     public function render()
     {
-        $countries = Country::all()->sortBy('id')->pluck(null, 'id');
-
-        $menus = Module::find(1)->menus()->get()->sortBy('id')->pluck(null, 'id');
-
-        return view('livewire.bookcast.search', compact('countries', 'menus'));
+        return view('livewire.bookcast.search');
     }
 }

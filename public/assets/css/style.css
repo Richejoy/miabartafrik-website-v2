@@ -14241,7 +14241,7 @@ textarea.parsley-success:focus {
 
 @media (min-width: 576px) {
     .main-modal-calendar-event .modal-header {
-        padding: 20px 25px;
+        padding: 10px 25px;
     }
 }
 
@@ -14275,6 +14275,15 @@ textarea.parsley-success:focus {
     .main-content-body-show .main-content-body-chat {
         display: flex;
     }
+}
+
+
+@media (min-width: 360px) {
+    ..miabartafrik-top {
+        margin-top: 3.5rem;
+    }
+
+     
 }
 
 .main-content-left-chat {
@@ -14628,11 +14637,7 @@ end page_miabartAfrik_not_found
 
 .main_profilbook_header {
     flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #e8e8f7;
+    text-align: center;
 }
 
 .main_profilbook_header .nav {

@@ -1,11 +1,11 @@
-<div class="dropdown main-header-notification">
+<div class="dropdown main-header-notification" wire:poll.visible.60s>
     <a class="nav-link icon" href="#">
         <i class="fe fe-mail header-icons"></i>
         <span class="badge badge-success nav-link-badge">{{ $messages->count() }}</span>
     </a>
     <div class="dropdown-menu">
         @if($messages->count())
-        <div class="header-navheading">
+        <div class="header-navheading py-2">
             <p class="main-notification-text">
                 <b>{{ $messages->count() }}</b> message(s) non lu
                 <a href="{{ route('message.index') }}" class="badge badge-pill badge-success ml-3">Voir tout</a>
@@ -31,7 +31,14 @@
 
             @empty
 
-            <p class="my-3 text-center">Aucun message reçu</p>
+            <!-- PAGE NOT FOUND -->
+            <div class="page_miabartAfrik_not_found">  
+                <div class="content_miabartAfrik_not_found"> 
+                    <h2>Aucune donnée trouver</h2>
+                    <p>Revenez plus tard</p>
+                </div> 
+            </div>
+            <!-- END PAGE NOT FOUND -->
 
             @endforelse
 

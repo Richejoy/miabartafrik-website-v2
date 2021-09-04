@@ -1,5 +1,4 @@
 <section>
-
     <div class="preview_img_mba img_wrapper_mba">
         <img alt="{{ $library->description }}" src="{{ $library->remote }}" id="preview-upload">
     </div>
@@ -77,10 +76,8 @@
 
             {!! Form::close() !!}
             </section>
-
             <!-- online_upload END --> 
 
         </div><!-- /content -->
     </div>
-
 </section>

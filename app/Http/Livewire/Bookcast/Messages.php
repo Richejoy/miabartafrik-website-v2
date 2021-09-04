@@ -9,7 +9,7 @@ class Messages extends Component
 {
     public function render()
     {
-        $messages = Message::where(['receiver_id' => auth()->id(), 'readed' => false])->get();
+        $messages = Message::unReaded(auth()->id())->get();
 
         return view('livewire.bookcast.messages', compact('messages'));
     }

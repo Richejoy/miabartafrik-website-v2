@@ -18,6 +18,7 @@ class UserFriend extends Model
         'sender_id',
         'receiver_id',
         'confirmed',
+        'favorite',
     ];
 
     public function sender()
@@ -29,4 +30,30 @@ class UserFriend extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /*Scope*/
+    public function scopeAllFriends($query, int $user_id, bool $confirmed = true)
+    {
+        return $query->where([
+                ['sender_id', '=', $user_id],
+                ['confirmed', '=', $confirmed],
+            ])->orWhere([
+                ['receiver_id', '=', $user_id],
+                ['confirmed', '=', $confirmed],
+            ]);
+    }
+
+    public function scopeFavoriteFriends($query, int $user_id, bool $confirmed = true)
+    {
+        return $query->where([
+                ['sender_id', '=', $user_id],
+                ['confirmed', '=', $confirmed],
+                ['favorite', '=', true],
+            ])->orWhere([
+                ['receiver_id', '=', $user_id],
+                ['confirmed', '=', $confirmed],
+                ['favorite', '=', true],
+            ]);
+    }
+    /*End*/
 }

@@ -29,8 +29,6 @@
                     <div class="content_body">
                         @livewire('bookcast.visuoshop.item')
                     </div>
-
-                    <p><button type="button" class="btn btn-dark btn-sm">Charger plus </button></p>
                 </div>
 
                 <!-- RIGHT ASIDE -->

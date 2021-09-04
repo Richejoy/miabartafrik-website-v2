@@ -1,33 +1,69 @@
-@forelse($friends as $friend)
-<div class="main-contact-item">
-    <div class="main-img-user">
-        <img alt="{{ $friend->receiver->library->description }}" src="{{ $friend->receiver->library->remote }}">
+<div class="sidebar sidebar-right sidebar-animate" wire:poll.visible.60s>
+    <div class="sidebar-icon">
+        <a href="#" class="text-right float-right text-dark fs-20" data-toggle="sidebar-right"
+            data-target=".sidebar-right"><i class="fe fe-x"></i></a>
     </div>
-    <div class="main-contact-body">
-        <h6>{{ $friend->receiver->full_name }}</h6>
-        <span>{{ $friend->receiver->email }}</span>
-    </div>
-    <span class="main-contact-star">
-        @if($tab == 'all')
-        <a href="#">
-            <i class="fe fe-star"></i>
-        </a>
-        @else
-        <a href="#">
-            <i class="fe fe-trash-2"></i>
-        </a>
-        @endif
+    <div class="sidebar-body">
+        <h5 class="mb-0">MES CONTACTS ({{ $allFriends->count() }})</h5>
 
-        <a href="#" class="mx-1">
-            <i class="fe fe-phone-call"></i>
-        </a>
-        <a href="#">
-            <i class="fe fe-eye"></i>
-        </a>
-    </span>
+        <div class="card main-content-left main-content-left-contacts">
+            <div class="tab-menu-heading">
+                <div class="tabs-menu1 ">
+                    <!-- Tabs -->
+                    <ul class="nav panel-tabs main-nav-line main-nav-line-chat d-flex pl-3 ">
+                        <li><a href="#all-contact" class="nav-link active mr-3" data-toggle="tab">Tout ({{ $allFriends->count() }})</a></li>
+                        <li><a href="#fav-contact" class="nav-link" data-toggle="tab">Favoris ({{ $favoriteFriends->count() }})</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel-body tabs-menu-body p-0">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="all-contact">
+                        <div class="main-contacts-list" id="mainContactList">
+
+                            @forelse($allFriends as $friend)
+                            
+                            <x-bookcast.friend tab="all" :friend="$friend" />
+
+                            @empty
+                            
+                            <!-- PAGE NOT FOUND -->
+                            <div class="page_miabartAfrik_not_found">  
+                                <div class="content_miabartAfrik_not_found">
+                                    <h2>Aucune donnée trouver</h2>
+                                    <p>Revenez plus tard</p>
+                                </div> 
+                            </div>
+                            <!-- END PAGE NOT FOUND -->
+
+                            @endforelse
+
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="fav-contact">
+                        <div class="main-contacts-list" id="mainContactList1">
+
+                            @forelse($favoriteFriends as $friend)
+                            
+                            <x-bookcast.friend tab="favorite" :friend="$friend" />
+
+                            @empty
+                            
+                            <!-- PAGE NOT FOUND -->
+                            <div class="page_miabartAfrik_not_found">  
+                                <div class="content_miabartAfrik_not_found">
+                                    <h2>Aucune donnée trouver</h2>
+                                    <p>Revenez plus tard</p>
+                                </div> 
+                            </div>
+                            <!-- END PAGE NOT FOUND -->
+
+                            @endforelse
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-@empty
-<div class="text-center py-5">
-    <p>Aucun contact</p>
-</div>
-@endforelse

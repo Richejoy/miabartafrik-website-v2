@@ -78,5 +78,4 @@
             {!! Form::close() !!}
         </div>
     </div>
-
 </section>

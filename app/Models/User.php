@@ -69,6 +69,7 @@ class User extends Authenticatable
         'can_login' => 'boolean',
         'tfa_enabled' => 'boolean',
         'removed' => 'boolean',
+        'verified' => 'boolean',
     ];
 
     /**
@@ -86,6 +87,8 @@ class User extends Authenticatable
         'tfa_enabled' => false,
         'tfa_code' => null,
         'removed' => false,
+        'verified' => false,
+        'biography' => null,
     ];
 
     /*Mutators : sets*/
@@ -118,15 +121,16 @@ class User extends Authenticatable
     {
         $this->attributes['address'] = ucfirst($value);
     }
-    /**/
+    /*End*/
 
     /*Mutators : gets*/
     public function getFullNameAttribute()
     {
         return $this->last_name . ' ' . $this->first_name;
     }
-    /**/
+    /*End*/
 
+    /**/
     public function civility()
     {
         return $this->belongsTo(Civility::class);
@@ -151,22 +155,28 @@ class User extends Authenticatable
     {
         return $this->belongsTo(UserType::class);
     }
+    /*End*/
 
-    public function longPhone()
+    /*Pivots : Many to Many*/
+    public function publicationLikes()
     {
-        return $this->country->phonecode . $this->phone;
+        return $this->belongsToMany(Publication::class);
     }
+    /*End*/
 
+    /*Has Many*/
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
     }
+    /*End*/
 
-    public function getFlag()
+    /**/
+    public function friends()
     {
-        return 'flag flag-' . mb_strtolower($this->country->iso);
+        return $this->hasMany(UserFriend::class, 'users_friends', 'sender_id', 'receiver_id')->where(['confirmed' => true]);
     }
-
+    
     public function senderViews()
     {
         return $this->hasMany(UserView::class, 'users_views', 'sender_id', 'receiver_id');
@@ -186,10 +196,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserLike::class, 'users_likes', 'sender_id', 'receiver_id');
     }
+    /**/
 
-    public function friends()
+    public function longPhone()
     {
-        return $this->hasMany(UserFriend::class, 'users_friends', 'sender_id', 'receiver_id')->where(['confirmed' => true]);
+        return $this->country->phonecode . $this->phone;
+    }
+
+    /**/
+    public function getFlag()
+    {
+        return 'flag flag-' . mb_strtolower($this->country->iso);
     }
 
     public function call()
@@ -197,10 +214,11 @@ class User extends Authenticatable
         return 'tel:+' . $this->longPhone();
     }
 
-    public function publicationLikes()
+    public function message()
     {
-        return $this->belongsToMany(Publication::class);
+        return 'mailto:' . $this->email;
     }
+    /**/
 
     public function __toString()
     {

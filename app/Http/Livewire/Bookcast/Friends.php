@@ -7,23 +7,41 @@ use App\Models\UserFriend;
 
 class Friends extends Component
 {
-    public $tab;
+    protected $listerners = [
+        'handleRefresh' => 'refresh',
+    ];
 
-    public function mount($tab)
+    public function refresh()
     {
-        $this->tab = $tab;
+        return;
+    }
+
+    /**
+     * Toggle user in favorite
+    */
+    public function toggleFavoriteFriend(int $id)
+    {
+        $userFriend = UserFriend::find($id);
+
+        $userFriend->update([
+            'favorite' => !$userFriend->favorite,
+        ]);
+        
+        $this->emitSelf('handleRefresh');
     }
 
     public function render()
     {
-        if ($this->tab == 'all') {
-            //all friends
-            $friends = UserFriend::where(['sender_id' => auth()->id(), 'confirmed' => true])->orWhere(['receiver_id' => auth()->id(), 'confirmed' => true])->get();
-        } else {
-            //favorites
-            $friends = UserFriend::where(['sender_id' => auth()->id(), 'confirmed' => true, 'favorite' => true])->orWhere(['receiver_id' => auth()->id(), 'confirmed' => true, 'favorite' => true])->get();
-        }
+        $allFriends = UserFriend::with('receiver')
+        ->allFriends(auth()->id())
+        ->latest()
+        ->get();
 
-        return view('livewire.bookcast.friends', compact('friends'));
+        $favoriteFriends = UserFriend::with('receiver')
+        ->favoriteFriends(auth()->id())
+        ->latest()
+        ->get();
+
+        return view('livewire.bookcast.friends', compact('allFriends', 'favoriteFriends'));
     }
 }
