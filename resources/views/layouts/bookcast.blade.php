@@ -57,6 +57,9 @@
     @livewireStyles
 
     <link href="{{ asset('public/plugins/emojionearea/dist/emojionearea.min.css') }}" rel="stylesheet">
+
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+    <script src="{{ asset('public/js/pusher.js') }}"></script>
 </head>
 
 <body class="horizontalmenu">

@@ -21,6 +21,7 @@ use App\Events\UserEvent;
 use App\Events\SubscriberEvent;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon;
+use App\Events\MessageEvent;
 
 class PageController extends Controller
 {
@@ -127,6 +128,8 @@ class PageController extends Controller
 
     public function login(Request $request)
     {
+        //event(new MessageEvent('hello world'));
+        
         if ($request->isMethod('POST')) {
 
             $this->validate($request, [
