@@ -17,7 +17,7 @@
 
             @forelse($messages as $message)
 
-            <div class="media">
+            <a href="{{ route('message.index') }}" class="media">
                 <div class="main-img-user">
                     <img alt="{{ $message->sender->library->description }}" src="{{ $message->sender->library->remote }}">
                 </div>
@@ -27,7 +27,7 @@
                     </p>
                     <span>{{ $message->created->diffForHumans() }}</span>
                 </div>
-            </div>
+            </a>
 
             @empty
 

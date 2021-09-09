@@ -278,6 +278,7 @@ label {
 
 .label_mba {
     display: inline-block;
+    font-size: .8rem;
     color: #808182;
     margin-bottom: 0.5rem;
     font-family: "mouse-500", Arial, Helvetica, sans-serif;
@@ -514,7 +515,7 @@ h6,
 
 .required-text::after {
 
-    content: url(https://miabartafrik.com/public/assets/img/obligatoire@1x.baedf82e.png);
+    content: url(https://miabartafrik.com/public/assets/img/icons/obligatoire@1x.baedf82e.png);
     display: inline;
     padding-left: .2rem;
     padding-right: .2rem;
@@ -523,7 +524,7 @@ h6,
 
 .all_services_mba_small::before {
 
-    content: url(https://miabartafrik.com/public/assets/img/obligatoire@1x.baedf82e.png);
+    content: url(https://miabartafrik.com/public/assets/img/icons/obligatoire@1x.baedf82e.png);
     display: inline;
     padding-left: .2rem;
     padding-right: .2rem;
@@ -4499,7 +4500,7 @@ fieldset:disabled a.btn {
     color: #565657;
     background-color: #ffffff;
     background-clip: padding-box;
-    border: 1px solid #e8e8f7;
+    border: 2px solid #d2d2d2;
     border-radius: 3px;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     height: 38px;
@@ -14608,7 +14609,7 @@ content_miabartAfrik_not_found
 }
 .content_miabartAfrik_not_found h2 {
   font-weight: 700;
-  font-size: 34px;
+  font-size: 17px;
   margin-bottom: 6px;
   opacity: 0.9;
 }
@@ -15666,11 +15667,9 @@ end page_miabartAfrik_not_found
 .signpages .login_form {
     background-color: #ffffff;
     border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    min-height: 60vh; 
-    max-height: 80vh; 
-    overflow-y: scroll;
-    padding: 0;
+    border-bottom-right-radius: 6px; 
+    padding-right: 0 !important;
+    padding-left: 0 !important;
 }
 
 .signpages .form__input {
@@ -19989,7 +19988,7 @@ button.bg-dark:focus {
 /* ###### Flex  ###### */
 /* ######  Border   ###### */
 .border {
-    border: 1px solid #ededf9 !important;
+    border: 1px solid #2c539b5c !important;
 }
 
 .border-top {
@@ -58992,7 +58991,7 @@ a.text-dark:focus {
 }
 
 .text-muted {
-    color: #8f8fb1 !important;
+    color: #858588 !important;
 }
 
 .text-black-50 {
@@ -69935,7 +69934,7 @@ a.tag-addon:hover {
     border-radius: 100%;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
 }
-
+ 
 .img-fit-cover {
     width: 100%;
     height: 100%;
@@ -70005,7 +70004,8 @@ a.tag-addon:hover {
     font-size: 10px;
 }
 
-.main-avatar::after {
+/* Nous l'avons annuler  
+    .main-avatar::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -70015,7 +70015,7 @@ a.tag-addon:hover {
     background-color: #a8afc7;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.95);
     border-radius: 100%;
-}
+}*/
 
 .main-avatar.online::after {
     background-color: #19b159;
@@ -72492,7 +72492,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
     .main-content.side-content .page-header,
     .main-content .page-header {
-        padding-top: 63px !important;
+        padding-top: 63px;
     }
 
     .header-search.show .dropdown-menu::before {

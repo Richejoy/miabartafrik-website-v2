@@ -35,7 +35,7 @@
                 </div>
                 <nav class="contact-info">
                     <span class="contact-icon border tx-inverse" data-toggle="tooltip" title=""
-                    data-original-title="{{ $movie->user->country->nicename }}"><i class="{{ $movie->user->getFlag() }}"></i>
+                    data-original-title="{{ $movie->user->country->nicename }}"><i class="{{ $movie->user->country->getFlag() }}"></i>
                     </span>
                 </nav>
             </div>

@@ -40,4 +40,11 @@ class Member extends Model
     {
         return $this->belongsTo(Package::class);
     }
+
+    /**/
+    public function isOwner()
+    {
+        return (bool) $this->user_id == auth()->id();
+    }
+    /**/
 }

@@ -23,7 +23,7 @@
 
         <div class="main_profilbook_header">
             <nav class="contact-info">
-                <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $item->user->country->nicename }}"><i class="{{ $item->user->getFlag() }}"></i></span>
+                <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $item->user->country->nicename }}"><i class="{{ $item->user->country->getFlag() }}"></i></span>
 
                 <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="356 392 (Vues)"><i class="fe fe-eye"></i></a>
 

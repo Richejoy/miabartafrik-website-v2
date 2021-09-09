@@ -1,29 +1,58 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ */
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Vote
+ * 
+ * @property int $id
+ * @property int $user_id
+ * @property int $election_id
+ * @property Carbon $created
+ * @property Carbon $modified
+ * 
+ * @property User $user
+ * @property Election $election
+ *
+ * @package App\Models
+ */
 class Vote extends Model
 {
-    use HasFactory;
+	protected $table = 'votes';
+	public $incrementing = false;
+	public $timestamps = false;
 
-    const CREATED_AT = 'created';
-    const UPDATED_AT = 'modified';
+	protected $casts = [
+		'id' => 'int',
+		'user_id' => 'int',
+		'election_id' => 'int'
+	];
 
-    protected $fillable = [
-        'sender_id',
-        'receiver_id',
-    ];
+	protected $dates = [
+		'created',
+		'modified'
+	];
 
-    public function sender()
-    {
-        return $this->belongsTo(User::class);
-    }
+	protected $fillable = [
+		'id',
+		'created',
+		'modified'
+	];
 
-    public function receiver()
-    {
-        return $this->belongsTo(User::class);
-    }
+	public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
+
+	public function election()
+	{
+		return $this->belongsTo(Election::class);
+	}
 }

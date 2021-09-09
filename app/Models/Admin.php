@@ -32,4 +32,11 @@ class Admin extends Model
     {
         return $this->belongsTo(Library::class);
     }
+
+    /**/
+    public function isOwner()
+    {
+        return (bool) $this->user_id == auth()->id();
+    }
+    /**/
 }

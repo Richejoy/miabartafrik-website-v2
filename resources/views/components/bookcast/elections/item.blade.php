@@ -1,6 +1,6 @@
 <div class="booksId">
     <div class="profileImage">
-        <img src="{{ $userElection->library->remote }}" alt="{{ $userElection->library->description }}">
+        <img src="{{ $electionUser->library->remote }}" alt="{{ $electionUser->library->description }}">
     </div>
 
     <div class="inner_booksId">
@@ -21,7 +21,7 @@
                 <div class="main_profilbook_header">
                     <div class="main-img-user online">
                         <a href="book_view.html">
-                            <img alt="{{ $userElection->user->library->description }}" class="radius" src="{{ $userElection->user->library->remote }}">
+                            <img alt="{{ $electionUser->user->library->description }}" class="radius" src="{{ $electionUser->user->library->remote }}">
                         </a>
                     </div>
                     <nav class="contact-info">

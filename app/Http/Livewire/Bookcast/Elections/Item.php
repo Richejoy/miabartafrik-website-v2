@@ -3,16 +3,16 @@
 namespace App\Http\Livewire\Bookcast\Elections;
 
 use Livewire\Component;
-use App\Models\UserElection;
+use App\Models\ElectionUser;
 use App\Models\Election;
 
 class Item extends Component
 {
     public $fetch = 'all';
 
-    public $usersElections = null;
+    public $electionsUsers = null;
 
-    public $userElection = null;
+    public $electionUser = null;
 
     private $_election = null;
 
@@ -26,9 +26,9 @@ class Item extends Component
     public function render()
     {
         if ($this->fetch == 'all') {
-            $this->usersElections = UserElection::with(['user', 'election', 'library'])->where('election_id', $this->_election->id)->get();
+            $this->electionsUsers = ElectionUser::with(['user', 'election', 'library'])->where('election_id', $this->_election->id)->get();
         } else {
-            $this->userElection = UserElection::with(['user', 'election', 'library'])->find(1);
+            $this->electionUser = ElectionUser::with(['user', 'election', 'library'])->find(1);
         }
         
         return view('livewire.bookcast.elections.item');

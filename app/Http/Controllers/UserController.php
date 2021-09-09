@@ -19,11 +19,15 @@ class UserController extends Controller
 
     public function show(Request $request, User $user)
     {
-    	return view('users.show');
+        abort_if($user->id != auth()->id(), 403, "Error...");
+
+    	return view('users.show', compact('user'));
     }
 
     public function edit(Request $request, User $user)
     {
-    	return view('users.edit');
+        abort_if($user->id != auth()->id(), 403, "Error...");
+
+    	return view('users.edit', compact('user'));
     }
 }

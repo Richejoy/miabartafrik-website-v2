@@ -14,7 +14,7 @@ class Form extends Component
 
     public $content;
 
-    public $medias = [];
+    public $media = null;
 
     public function mount()
     {
@@ -31,7 +31,7 @@ class Form extends Component
     public function updatedMedias()
     {
         $this->validate([
-            'medias.*' => ['file', 'max:1024', 'mimes:jpeg,jpg,png,mp3,mp4,pdf,wav,gif'],
+            'media' => ['file', 'max:1024', 'mimes:jpeg,jpg,png,mp3,mp4,pdf,wav,gif'],
         ]);
     }
 
@@ -39,7 +39,7 @@ class Form extends Component
     {
         $this->validate([
             'content' => ['required', 'min:10'],
-            'medias.*' => ['file', 'max:1024', 'mimes:jpeg,jpg,png,mp3,mp4,pdf,wav,gif'],
+            'media' => ['file', 'max:1024', 'mimes:jpeg,jpg,png,mp3,mp4,pdf,wav,gif'],
         ]);
 
         $publication = Publication::create([

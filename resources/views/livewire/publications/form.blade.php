@@ -37,9 +37,9 @@
             <textarea required class="form-control" placeholder="A quoi penses-tu, {{ auth()->user()->full_name }} ?" id="publication-input" wire:model.defer="content" rows="3"></textarea>
             <div class="page-header">
                 <div>
-                    <label for="medias">
-                        <i class="fe fe-paperclip" data-toggle="tooltip" title="" data-original-title="Ajouter une photo"></i>
-                        <input type="file" wire:model.defer="medias" id="medias" class="sr-only" multiple accept=".jpeg, .jpg, .png, .mp3, .mp4, .pdf, .wav, .gif">
+                    <label for="media">
+                        <i class="fe fe-paperclip" data-toggle="tooltip" title="" data-original-title="Ajouter un média"></i>
+                        <input type="file" wire:model.defer="media" id="media" class="sr-only" accept=".jpeg, .jpg, .png, .mp3, .mp4, .pdf, .wav, .gif">
                     </label>
                 </div>
                 <div class="d-flex">
@@ -58,17 +58,14 @@
             </div>
         </div>
         <div>
-            @forelse($medias as $media)
+            @if(!is_null($media))
             <div>
                 <p>{{ Str::limit($media->temporaryUrl(), 50) }}</p>
                 <img width="50" height="50" alt="Media" src="{{ $media->temporaryUrl() }}"> <span>x</span>
             </div>
-            @empty
-            @endforelse
-        </div>
-
-        <div>
-            @error('medias.*')
+            @endif
+        
+            @error('media')
             <p class="error">{{ $message }}</p>
             @enderror
         </div>

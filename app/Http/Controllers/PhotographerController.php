@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Photographer;
-use App\Models\PhotographerArea;
+use App\Models\AreaPhotographer;
 use App\Models\Individual;
 use App\Models\Society;
 use App\Models\Package;
@@ -66,7 +66,7 @@ class PhotographerController extends Controller
                                 ]);
 
                                 foreach($request->area_id as $key => $value) {
-                                    PhotographerArea::create([
+                                    AreaPhotographer::create([
                                         'photographer_id' => $photographer->id,
                                         'area_id' => $value,
                                     ]);
@@ -116,7 +116,7 @@ class PhotographerController extends Controller
                                 ]);
                             
                                 foreach($request->area_id as $key => $value) {
-                                    PhotographerArea::create([
+                                    AreaPhotographer::create([
                                         'photographer_id' => $photographer->id,
                                         'area_id' => $value,
                                     ]);
@@ -150,6 +150,8 @@ class PhotographerController extends Controller
 
     public function show(Request $request, Photographer $photographer)
     {
+        abort_if(auth()->user()->blocked, 403, self::VIEW_BLOCKED_MESSAGE);
+
         return view('photographers.show', compact('photographer'));
     }
 
@@ -167,13 +169,7 @@ class PhotographerController extends Controller
     {
         $photographer = Photographer::where('user_id', auth()->id())->firstOrFail();
 
-        $library = Library::create([
-            'folder' => 'photographers',
-            'url' => 'https://miabartafrik.com/libraries/photographers/cover.jpg',
-            'link' => 'https://miabartafrik.com/libraries/photographers/cover.jpg',
-            'description' => 'Photo de couverture',
-            'library_type_id' => 1,
-        ]);
+        $library = Library::create($this->getDefaultBackImage('photographers'));
         
         if (!is_null($package)) {
             $photographer->update([

@@ -28,48 +28,48 @@ class LibraryController extends Controller
             if ($request->has('form')) {
                 if ($request->form == 'local') {
 
-                                $this->validate($request, [
-                                    'photo' => 'required|mimes:jpeg,png,jpg,gif|max:10000',
-                                    'description' => 'required|min:6',
-                                ]);
+                    $request->validate([
+                        'photo' => 'required|mimes:jpeg,png,jpg,gif|max:10000',
+                        'description' => 'required|min:6',
+                    ]);
 
-                                //upload file
-                                if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
+                    //upload file
+                    if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
 
-                                    //$uploadPath = $request->file('photo')->path();
+                        //$uploadPath = $request->file('photo')->path();
 
-                                    //$extension = $request->file('photo')->extension();
+                        //$extension = $request->file('photo')->extension();
 
-                                    //$name = $request->file('photo')->getClientOriginalName();
+                        //$name = $request->file('photo')->getClientOriginalName();
 
-                                    $filename = time() . '.' . $request->file('photo')->extension();
+                        $filename = time() . '.' . $request->file('photo')->extension();
 
-                                    $storePath = $request->file('photo')->storeAs("public_html/libraries/uploads/users/{$library->folder}", $filename, 'ftp');
+                        $storePath = $request->file('photo')->storeAs(env('FTP_UPLOADS_PATH') . "images/users/{$library->folder}", $filename, 'ftp');
 
-                                    $library->update([
-                                        'description' => $request->description,
-                                        'local' => $filename,
-                                        'remote' => "http://miabartafrik.com/libraries/uploads/users/{$library->folder}/" . $filename,
-                                    ]);
+                        $library->update([
+                            'description' => $request->description,
+                            'local' => $filename,
+                            'remote' => self::ONLINE_URL . "libraries/images/users/{$library->folder}/" . $filename,
+                        ]);
 
-                                    flashy()->success("Modifications éffectuées");
-                                }
+                        flashy()->success("Modifications éffectuées");
+                    }
 
                 }elseif ($request->form == 'remote') {
                                     
-                                $this->validate($request, [
-                                    'description' => 'required|min:6',
-                                    'remote' => 'required|url',
-                                ]);
+                    $request->validate([
+                        'description' => 'required|min:6',
+                        'remote' => 'required|url',
+                    ]);
 
-                                $library->update(array_merge(
-                                    $request->all(),
-                                    [
-                                        'local' => $request->remote,
-                                    ]
-                                ));
+                    $library->update(array_merge(
+                        $request->all(),
+                        [
+                            'local' => $request->remote,
+                        ]
+                    ));
 
-                                flashy()->success("Modifications éffectuées");
+                    flashy()->success("Modifications éffectuées");
 
                 }
 

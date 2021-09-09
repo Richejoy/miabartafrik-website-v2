@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Artist;
-use App\Models\ArtistArea;
-use App\Models\UserLanguage;
+use App\Models\AreaArtist;
+use App\Models\LanguageUser;
 use App\Models\Package;
 use App\Models\Library;
 
@@ -49,13 +49,13 @@ class ArtistController extends Controller
                     DB::beginTransaction();
 
                     foreach($request->area_id as $key => $value) {
-                        ArtistArea::create([
+                        AreaArtist::create([
                             'artist_id' => $artist->id,
                             'area_id' => $value,
                         ]);
                     }
 
-                    UserLanguage::create(array_merge(
+                    LanguageUser::create(array_merge(
                         $request->only('language_id', 'language_level_id', 'language_accent'),
                         [
                             'user_id' => $artist->user_id,
@@ -87,6 +87,8 @@ class ArtistController extends Controller
 
     public function show(Request $request, Artist $artist)
     {
+        abort_if(auth()->user()->blocked, 403, self::VIEW_BLOCKED_MESSAGE);
+        
         return view('artists.show', compact('artist'));
     }
 
@@ -104,13 +106,7 @@ class ArtistController extends Controller
     {
         $artist = Artist::where('user_id', auth()->id())->firstOrFail();
 
-        $library = Library::create([
-            'folder' => 'artists',
-            'local' => 'https://miabartafrik.com/libraries/artists/cover.jpg',
-            'remote' => 'https://miabartafrik.com/libraries/artists/cover.jpg',
-            'description' => 'Photo de couverture',
-            'library_type_id' => 1,
-        ]);
+        $library = Library::create($this->getDefaultBackImage('artists'));
 
         if (!is_null($package)) {
             $artist->update([

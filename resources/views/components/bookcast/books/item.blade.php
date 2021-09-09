@@ -23,8 +23,8 @@
                             <x-verified-account />
                         </h6>
                         <div class="all_services_mba"> 
-                            @forelse($artist->artistArea->take(3) as $artistArea)
-                            <small class="all_services_mba_small">{{ $artistArea->area->name }}</small>
+                            @forelse($artist->areas as $area)
+                            <small class="all_services_mba_small">{{ $area->name }}</small>
                             @empty
                             <small class="all_services_mba_small">Aucun</small>
                             @endforelse
@@ -34,7 +34,7 @@
 
                 <div class="main_profilbook_header">
                     <nav class="contact-info">
-                        <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $artist->user->country->nicename }}"><i class="{{ $artist->user->getFlag() }}"></i></span>
+                        <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $artist->user->country->nicename }}"><i class="{{ $artist->user->country->getFlag() }}"></i></span>
 
                         <a href="{{ route('artist.show', ['artist' => $artist]) }}" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $artist->user->receiverViews->count() }} (Vues)"><i class="fe fe-eye"></i></a>
 

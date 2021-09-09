@@ -41,9 +41,7 @@
                                         <div class="info_concoursId">
                                             <div class="main_profilbook_header">
                                                 <nav class="contact-info">
-                                                    <a href="#" class="contact-icon border tx-inverse"
-                                                        data-toggle="tooltip" title="" data-original-title="Togo"><i
-                                                            class="flag flag-tg"></i></a>
+                                                    <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $election->country->nicename }}"><i class="{{ $election->country->getFlag() }}"></i></span>
 
                                                     <a href="#" class="contact-icon border tx-inverse"
                                                         data-toggle="tooltip" title=""
@@ -97,12 +95,12 @@
                                     <div class="stats_concours">
                                         <div>
                                             <strong>Candidats(e)</strong>
-                                            3098
+                                            {{ $election->users->count() }}
                                         </div>
 
                                         <div>
                                             <strong>Votants(e)</strong>
-                                            562
+                                            {{ $election->votes->count() }}
                                         </div>
                                     </div>
                                     <h1 class="overlay__title">

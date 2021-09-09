@@ -16,6 +16,12 @@ class Controller extends BaseController
 
     const MIABPAY_TOKEN = "56sqqsqs5q4s";
 
+    const LOCAL_URL = 'https://localhost/miabartafrik/';
+
+    const ONLINE_URL = 'https://miabartafrik.com/';
+
+    const VIEW_BLOCKED_MESSAGE = "Cette page a été bloquée par son responsable";
+
     public function __construct()
 	{
 		# code...
@@ -92,15 +98,24 @@ class Controller extends BaseController
 	{
 		$local = $this->getAppropriateLocal($request);
 
-		return "http://miabartafrik.com/libraries/{$folder}/{$local}";
+		return self::ONLINE_URL . "libraries/images/users/{$folder}/{$local}";
+	}
+
+	protected function getDefaultBackImage(string $folder = 'users'): array
+	{
+		$local = 'cover.jpg';
+
+		return [
+            'folder' => $folder,
+            'local' => self::ONLINE_URL . "libraries/images/users/{$folder}/{$local}",
+            'remote' => self::ONLINE_URL . "libraries/images/users/{$folder}/{$local}",
+            'description' => 'Ma jolie photo de couverture',
+            'library_type_id' => 1,
+        ];
 	}
 
 	public function getMiabpay()
 	{
-		if (config('app.env') == 'local') {
-			return 'http://localhost/miabartafrik/moneypay/payment/checkout';
-		}
-
-		return 'https://miabartafrik.com/moneypay/payment/checkout';
+			return (config('app.env') == 'local') ? self::LOCAL_URL . 'moneypay/payment/checkout' : self::ONLINE_URL . 'moneypay/payment/checkout';
 	}
 }

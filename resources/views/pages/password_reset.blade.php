@@ -3,9 +3,8 @@
 @section('body')
 
 <div class="page main-signin-wrapper">
-
     <!-- Row -->
-    <div class="row signpages">
+    <div class="row signpages text-center">
         <div class="col-md-12">
             
             <div class="row">
@@ -13,57 +12,59 @@
             </div>
 
             <div class="card">
-                <div class="row">
-                    <div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
-                        <div class="mt-4 pt-5 p-2 pos-absolute">
+                <div class="row row-sm m-0">
+                    <div class="col-lg-6 col-xl-5 d-none d-lg-block text-center details">
+                        <div class="pt-5 p-2">
                             <img src="{{ asset('public/assets/img/brand/logo-light.png') }}"
                                 class="header-brand-img mb-4" alt="logo">
                             <div class="clearfix"></div>
                             <img src="{{ asset('public/assets/img/svgs/user0.svg') }}" class="ht-100 mb-0" alt="user">
-                            <h5 class="mt-4 text-white">Réinitialisez votre mot de passe</h5>
+                            <h5 class="mt-4 text-white textSignHead">Réinitialisez votre mot de passe</h5>
                             <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Veillez resignez ls champs pour la
                                 reinitialisation de votre mot de passe.</span>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
-                        <div class="container-fluid">
-                            <div class="row row-sm">
-                                <div class="card-body mt-2 mb-2">
-                                    <img src="{{ asset('public/assets/img/brand/logo.png') }}"
-                                        class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
+                    <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form">
+                        <div class="log_mba">
+                            <div class="card-body p-1">
+                                <div class="head_fixed_mba_connex">
+                                    <img src="{{ asset('public/assets/img/brand/logo.png') }}" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
                                     <div class="clearfix"></div>
-                                    <h5 class="text-left mb-2">Réinitialisez votre mot de passe</h5>
-                                    <p class="mb-4 text-muted tx-13 ml-0 text-left">Réinitialiser en quelque seconde
+                                    <h5 class="textSignHead">Réinitialisez votre mot de passe</h5>
+                                    <p class="text-muted tx-13 m-0">Réinitialiser en quelque seconde
                                         votre mot de passe.</p>
+                                </div>
 
-                                    {!! Form::open() !!}
+                                <div id="content-3" class="custom-scrollbar-js">
+                                    {!! Form::open(['route' => 'page.login']) !!}
                                     <div class="form-group text-left">
-                                        <label for="profile_phone" class="required-text mg-b-10 label_mba">
-                                            Email
-                                        </label>
-                                        <input class="form-control" placeholder="Entrer votre Email " type="text">
+                                        {{ Form::label('password', "Nouveau mot de passe", ['class' => 'required-text mg-b-10 label_mba']) }}
+                                        {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Nouveau mot de passe']) !!}
                                     </div>
+
                                     <div class="form-group text-left">
-                                        <label for="profile_phone" class="required-text mg-b-10 label_mba">
-                                            Nouveau mot de passe
-                                        </label>
-                                        <input class="form-control" placeholder="Tapez votre mot de passe"
-                                            type="password">
+                                        {{ Form::label('password_confirmation', "Confirmez le mot de passe", ['class' => 'required-text mg-b-10 label_mba']) }}
+                                        {!! Form::password('password_confirmation', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Confirmez le mot de passe']) !!}
                                     </div>
-                                    <div class="form-group text-left">
-                                        <label for="profile_phone" class="required-text mg-b-10 label_mba">
-                                            Confirmez le mot de passe
-                                        </label>
-                                        <input class="form-control" placeholder="Tapez votre mot de passe"
-                                            type="password">
-                                    </div>
-                                    
+
                                     <div class="form-group">
-                                        {!! Form::submit('Réinitialiser le mot de passe', ['class' => 'btnSignin ripple btn-main-primary btn-block mt-3 mb-3']) !!}
+                                        {!! Form::submit('Réinitialiser le mot de passe', ['class' => 'btnSignin ripple btn-block']) !!}
                                     </div>
-
                                     {!! Form::close() !!}
 
+                                    <div class="text-center mt-4 ml-0">
+                                        <div>
+                                            J'ai un compte.
+                                            <a href="{{ route('page.login') }}">
+                                            Se connecter maintenant</a>
+                                        </div>
+
+                                        <div>
+                                            Je n'ai pas un compte.
+                                            <a href="{{ route('page.register') }}">S'inscrire
+                                                maintenant</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

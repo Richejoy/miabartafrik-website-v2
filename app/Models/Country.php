@@ -12,6 +12,11 @@ class Country extends Model
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
+    public function getFlag()
+    {
+        return 'flag flag-' . mb_strtolower($this->iso);
+    }
+
     public function __toString()
     {
         return $this->nicename . ' (+' . $this->phonecode . ')';

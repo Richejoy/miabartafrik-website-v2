@@ -19,17 +19,23 @@ class MemberController extends Controller
         return view('members.index');
     }
 
+    public function show(Request $request, Member $member)
+    {
+        abort_if(auth()->user()->blocked, 403, self::VIEW_BLOCKED_MESSAGE);
+        
+        return view('members.show', compact('member'));
+    }
+
+    public function edit(Request $request, Member $member)
+    {
+        return view('members.edit', compact('member'));
+    }
+
     public function package(Request $request, Package $package = null)
     {
         $member = Member::where('user_id', auth()->id())->firstOrFail();
 
-        $library = Library::create([
-            'folder' => 'members',
-            'url' => 'https://miabartafrik.com/libraries/members/cover.jpg',
-            'link' => 'https://miabartafrik.com/libraries/members/cover.jpg',
-            'description' => 'Photo de couverture',
-            'library_type_id' => 1,
-        ]);
+        $library = Library::create($this->getDefaultBackImage('members'));
         
         if (!is_null($package)) {
             $member->update([

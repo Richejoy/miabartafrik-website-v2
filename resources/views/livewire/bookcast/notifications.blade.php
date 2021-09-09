@@ -17,7 +17,7 @@
 
             @forelse($notifications as $notification)
 
-            <div class="media">
+            <a href="{{ route('notification.index') }}" class="media">
                 <div class="main-img-user">
                     <img alt="{{ $notification->sender->library->description }}" src="{{ $notification->sender->library->remote }}">
                 </div>
@@ -25,7 +25,7 @@
                     <p><strong>{{ $notification->sender->full_name }}</strong>, {{ $notification->content }}</p>
                     <span>{{ $notification->created->diffForHumans() }}</span>
                 </div>
-            </div>
+            </a>
 
             @empty
 

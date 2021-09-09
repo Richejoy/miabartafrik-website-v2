@@ -44,9 +44,15 @@ class Artist extends Model
         return $this->belongsTo(Package::class);
     }
 
-    public function artistArea()
+    public function areas()
     {
-        return $this->hasMany(ArtistArea::class);
+        return $this->belongsToMany(Area::class);
     }
 
+    /**/
+    public function isOwner()
+    {
+        return (bool) $this->user_id == auth()->id();
+    }
+    /**/
 }

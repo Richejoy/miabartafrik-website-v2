@@ -6,16 +6,16 @@ use Illuminate\View\Component;
 
 class Item extends Component
 {
-    public $userElection;
+    public $electionUser;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($userelection)
+    public function __construct($eu)
     {
-        $this->userElection = $userelection;
+        $this->electionUser = $eu;
     }
 
     /**

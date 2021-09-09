@@ -40,8 +40,13 @@ class Election extends Model
         return $this->belongsTo(Country::class);
     }
 
-    public function userElection()
+    public function users()
     {
-        return $this->hasMany(UserElection::class)->with(['user', 'election', 'library']);
+        return $this->belongsToMany(User::class);
+    }
+
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
     }
 }

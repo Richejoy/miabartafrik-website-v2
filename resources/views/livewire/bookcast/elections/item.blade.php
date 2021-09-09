@@ -1,17 +1,17 @@
 @if($fetch == 'all')
 <section>
-    @forelse ($usersElections as $userElection)
+    @forelse ($electionsUsers as $electionUser)
     <div class="row vote_concours_mba" id="graybg">
         <div class="col-md-6 col-lg-6 col-xl-1 col-sm-6">
             <div class="Number_levels">
-                <span>{{ $userElection->id }}</span>
+                <span>{{ $electionUser->id }}</span>
             </div>
         </div>
 
         <div class="col-md-6 col-lg-6 col-xl-4 col-sm-6">
             <div class="booksId">
                 <div class="profileImage">
-                    <img src="{{ $userElection->library->remote }}" alt="team">
+                    <img src="{{ $electionUser->library->remote }}" alt="team">
                 </div>
 
                 <div class="inner_booksId">
@@ -33,7 +33,7 @@
                                 <div class="main-img-user online">
                                     <a href="book_view.html">
                                         <img alt="avatar" class="radius"
-                                            src="{{ $userElection->user->library->remote }}">
+                                            src="{{ $electionUser->user->library->remote }}">
                                     </a>
                                 </div>
                                 <nav class="contact-info">
@@ -63,7 +63,7 @@
                 <div class="main_profilbook_header">
                     <div class="main_book_name">
                         <h6>
-                            <a href="#">{{ $userElection->user->full_name }}</a>
+                            <a href="#">{{ $electionUser->user->full_name }}</a>
                         </h6>
                         <div class="all_services_mba">
                             <small class="all_services_mba_small">Actrice</small>
@@ -78,7 +78,7 @@
                 </h1>
                 <!-- Description -->
                 <p class="overlay__description">
-                    {{ $userElection->user->biography }}
+                    {{ $electionUser->user->biography }}
                 </p>
 
                 <!-- Autres infos -->
@@ -98,8 +98,8 @@
 </section>
 
 @else
-@if(!is_null($userElection))
-<x-bookcast.elections.item :userelection="$userElection" />
+@if(!is_null($electionUser))
+<x-bookcast.elections.item :eu="$electionUser" />
 @else
 <p>Aucune donnée trouvée</p>
 @endif

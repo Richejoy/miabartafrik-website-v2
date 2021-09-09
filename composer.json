@@ -10,6 +10,8 @@
         "barryvdh/laravel-dompdf": "^0.9.0",
         "beyondcode/laravel-websockets": "^1.12",
         "christofferok/laravel-emojione": "^5.0",
+        "emojione/assets": "^4.5",
+        "emojione/emojione": "^4.5",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

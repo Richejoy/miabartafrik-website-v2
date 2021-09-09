@@ -195,7 +195,7 @@ class PageController extends Controller
     {
         $subscriber = Subscriber::where(['email' => $email, 'token' => $token])->firstOrFail();
 
-        abort_if(Carbon::parse($subscriber->token_expires)->isPast(), 403, 'The expire date is past');
+        abort_if(Carbon::parse($subscriber->token_expires)->isPast(), 403, 'Date limte passée');
 
         if ($request->isMethod('POST')) {
 
@@ -225,7 +225,7 @@ class PageController extends Controller
                         'folder' => $this->getAppropriateFolder($subscriber->user_type_id),
                         'local' => $this->getAppropriateLocal($request),
                         'remote' => $this->getAppropriateRemote($request, 'users'),
-                        'description' => 'Ma jolie photo',
+                        'description' => 'Mon jolie avatar par défaut',
                         'library_type_id' => 1,
                     ]
                 );
@@ -490,13 +490,7 @@ class PageController extends Controller
         if (!is_null($user)) {
 
             if ($user->user_type_id == 1) {
-                $library = Library::create([
-                    'folder' => 'admins',
-                    'local' => 'https://miabartafrik.com/libraries/admins/cover.jpg',
-                    'remote' => 'https://miabartafrik.com/libraries/admins/cover.jpg',
-                    'description' => 'Photo de couverture',
-                    'library_type_id' => 1,
-                ]);
+                $library = Library::create($this->getDefaultBackImage('admins'));
 
                 $admin = Admin::where('user_id', $user->id)->firstOrFail();
 

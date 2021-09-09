@@ -26,7 +26,7 @@
                 <img alt="{{ $movie->user->library->description }}" class="radius" src="{{ $movie->user->library->remote }}">
             </div>
             <nav class="contact-info">
-                <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $movie->user->country->nicename }}"><i class="{{ $movie->user->getFlag() }}"></i></span>
+                <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $movie->user->country->nicename }}"><i class="{{ $movie->user->country->getFlag() }}"></i></span>
             </nav>
         </div>
     </div>

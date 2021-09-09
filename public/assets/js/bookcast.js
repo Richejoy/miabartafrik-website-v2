@@ -30,6 +30,34 @@ $(document).ready(function(){
   //  INFOS UTILE
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  //  mCustomScrollbar
+$(function() {
+  /* Rounded Dots Dark */
+  $("#content-1").mCustomScrollbar({
+    theme: "rounded-dots-dark"
+  });
+
+  /* Rounded Dark */
+  $("#content-2").mCustomScrollbar({
+    theme: "rounded-dark"
+  });
+
+  /* Inset Dark */
+  $("#content-3").mCustomScrollbar({
+    theme: "inset-3-dark"
+  });
+
+  /* 3d Dark */
+  $("#content-4").mCustomScrollbar({
+    theme: "3d-dark"
+  });
+
+  /* Dark Thin */
+  $("#content-5").mCustomScrollbar({
+    theme: "dark-thin"
+  });
+});
+
 //  VIDEO YOUTUBE OU HTML PAYING
 
 $(".video-preview-image_mba")
@@ -56,7 +84,51 @@ $(".video-preview-image_mba")
 });
 
  
- 
+//  TABS NEW MBA
+$(document).ready(function(){
+  // ONGLETS
+  // On s'assure que les systèmes d'onglets ont toujours au moins un onglet d'actif
+  $('.tab_new_mba').each(function(){
+      if($(this).find('.tab_new_mba-header-item.is-opened').length !== 0){
+        // Au moins un onglet du système est actif
+        // On ne fait rien
+      } else {
+        // Aucun onglet activé par défaut, on active donc le premier qu'on trouvera
+        $(this).find('.tab_new_mba-header-item:first-child').addClass('is-opened'); 
+        $(this).find('.tab_new_mba-header-item:first-child').attr('aria-selected', true); // Pour l'accessiblité
+        $(this).find('.tab_new_mba-body-item:first-child').addClass('is-opened');
+        $(this).find('.tab_new_mba-body-item:first-child').attr('aria-hidden', 'false'); // Pour l'accessiblité
+      }
+  });
+  
+  $('.tab_new_mba-header-item').on('click focus focusin', function(){
+    // On cible notre système d'onglets par son ID pour éviter d'impacter d'éventuels autres systèmes d'onglets sur la même page.
+    parentID = $(this).closest('.tab_new_mba').attr('id');
+    
+    // ON va d'abord désactiver tous les autres onglets et tabpanel
+    $('#'+parentID+' .tab_new_mba-header-item').removeClass('is-opened');
+    $('#'+parentID+' .tab_new_mba-body-item').removeClass('is-opened');
+    $('#'+parentID+' .tab_new_mba-header-item').attr('aria-selected', 'false');
+    
+    // On va se servir de l'attribut "aria-controls" de cet onglet cliqué 
+    // pour cibler le "tabpanel" (contenu) correspondant à afficher.
+    target = $(this).attr('aria-controls');
+    
+    $(this).attr('aria-selected', 'true'); // On change l'attribut aria de l'onglet à "selected
+    $('#'+parentID+' .tab_new_mba-body-item').attr('aria-selected', 'true'); // On explicit en ARIA que les tabpanels non cliqués sont de nouveau masqués
+    $('#'+target+'').attr('aria-hidden', 'false'); // On explicit en ARIA que le tabpanel ciblé n'est plus masqué
+    
+    $(this).addClass('is-opened'); // On active l'onglet cliqué
+    $('#'+target+'').addClass('is-opened'); // Et son contenu correspondant
+    
+  });
+  
+});
+
+
+
+
+
 
 //  BOOK INFO
 $('.book_infos_title').click(function(e) {

@@ -3,9 +3,8 @@
 @section('body')
 
 <div class="page main-signin-wrapper">
-
     <!-- Row -->
-    <div class="row signpages">
+    <div class="row signpages text-center">
         <div class="col-md-12">
             
             <div class="row">
@@ -13,62 +12,49 @@
             </div>
 
             <div class="card">
-                <div class="row">
-                    <div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
-                        <div class="pt-5 p-2 pos-absolute">
+                <div class="row row-sm m-0">
+                    <div class="col-lg-6 col-xl-5 d-none d-lg-block text-center details">
+                        <div class="pt-5 p-2">
                             <img src="{{ asset('public/assets/img/brand/logo-light.png') }}"
                                 class="header-brand-img mb-4" alt="logo">
                             <div class="clearfix"></div>
-                            <img src="{{ asset('public/assets/img/svgs/user0.svg') }}" class="ht-100 mb-0" alt="user">
+                            <img src="{{ asset('public/assets/img/svgs/customer.svg') }}" class="ht-100 mb-0" alt="user">
                             <h5 class="mt-4 text-white textSignHead">Créer 1 compte sur 3</h5>
-                            <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Créer un compte selon votre profil, pour
-                                rejoindre la communauté artistique africaine.</span>
+                            <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Créer un compte selon votre profil (Membre - Artiste - Réseaux artistique - Photographe/Videaste) pour rejoindre la communauté artistique africaine.</span>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
-                        <div class="container-fluid">
-                            <div class="row row-sm">
-                                <div class="card-body mt-2 mb-2">
-                                    <img src="{{ asset('public/assets/img/brand/logo.png') }}"
-                                        class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
+                    <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form">
+                        <div class="log_mba">
+                            <div class="card-body p-1">
+                                <div class="head_fixed_mba_connex">
+                                    <img src="{{ asset('public/assets/img/brand/logo.png') }}" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
                                     <div class="clearfix"></div>
-                                    <h5 class="text-left mb-2 textSignHead">Inscription gratuite</h5>
-                                    <p class="mb-4 text-muted tx-13 ml-0 text-left">L'inscription est gratuite et ne
-                                        prend que moins de 15s.</p>
+                                    <h5 class="textSignHead">Inscription gratuite</h5>
+                                    <p class="text-muted tx-13 m-0">L'inscription est gratuite et ne prend qu'une minute.</p>
+                                </div>
 
-                                    {!! Form::open() !!}
-
-                                    <div class="row row-sm text-left">
-                                        <div class="col-lg-12 mg-t-20 mg-lg-t-0">
-
-                                            {{ Form::label('user_type_id', "Quel compte crée ?", ['class' => 'required-text mg-b-10 label_mba']) }}
-
-                                            <div class="parsley-select" id="slWrapper">
-
-                                                {{ Form::select('user_type_id', $userTypes, null, ['class' => 'form-control select2', 'placeholder' => "Quel compte crée ?", 'required' => true, 'data-parsley-class-handler' => '#slWrapper', 'data-parsley-errors-container' => '#slErrorContainer', 'data-placeholder' => "Quel compte crée ?"]) }}
-
-                                                <div id="slErrorContainer"></div>
-                                            </div>
-                                        </div>
+                                <div id="content-3" class="custom-scrollbar-js">
+                                    {!! Form::open(['route' => 'page.register']) !!}
+                                    <div class="form-group text-left">
+                                        {{ Form::label('user_type_id', "Votre profil", ['class' => 'required-text mg-b-10 label_mba']) }}
+                                        {{ Form::select('user_type_id', $userTypes, null, ['class' => 'form-control select2', 'placeholder' => "Votre profil", 'required' => true]) }}
                                     </div>
 
-                                    <div class="row row-sm text-left mt-3">
-                                        <div class="col-lg-12 mg-t-20 mg-lg-t-0">
-                                            {{ Form::label('email', 'Votre email', ['class' => 'required-text mg-b-10 label_mba']) }}
-                                            {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Votre email', 'required' => true]) }}
-                                        </div>
+                                    <div class="form-group text-left">
+                                        {{ Form::label('email', 'Votre email', ['class' => 'required-text mg-b-10 label_mba']) }}
+                                        {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Votre email', 'required' => true]) }}
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::submit('Créer mon compte', ['class' => 'btnSignin ripple
-                                        btn-main-primary btn-block mt-3 mb-3']) !!}
+                                        {!! Form::submit('Créer mon compte', ['class' => 'btnSignin ripple btn-block']) !!}
                                     </div>
-
                                     {!! Form::close() !!}
 
-                                    <div class="text-left mt-4 ml-0">
-                                        <p class="mb-0">Vous avez déjà un compte ? <a
-                                                href="{{ route('page.login') }}">Se connecter</a></p>
+                                    <div class="text-center mt-4 ml-0">
+                                        <div>
+                                            Vous avez déjà un compte ?
+                                            <a href="{{ route('page.login') }}">Se connecter</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

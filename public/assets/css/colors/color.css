@@ -8,7 +8,7 @@ body {
 }
 
 .main-header-center .form-control {
-  border: 1px solid #bababd;
+  border: 2px solid #d2d2d2;
 }
 
 .main-header-center .form-control:focus {
@@ -322,7 +322,7 @@ a.badge-light.focus {
 }
 
 a {
-  color: #959697;
+  color: #555657;
 }
 
 a:hover {

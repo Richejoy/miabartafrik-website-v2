@@ -72,14 +72,14 @@ Route::prefix('/')->name('page.')->group(function() {
 		Route::get('/enabled/tfa/{email}/{token}', [PageController::class, 'enabledTFA'])->name('enabled_tfa');
 	});
 
-	Route::match(['GET', 'POST'], '/completed/{email}/{token}', [PageController::class, 'completed'])->name('completed');
+	Route::match(['GET', 'POST'], '/completed/{email}/{token}', [PageController::class, 'completed'])->name('completed')->middleware('guest');
 
 	Route::match(['GET', 'POST'], '/donate', [PageController::class, 'donate'])->name('donate');
 
 	Route::match(['GET', 'POST'], '/lock/screen', [PageController::class, 'lockScreen'])->middleware(['lock'])->name('lock_screen');
 
-	Route::get('/logout', [PageController::class, 'logout'])->name('logout');
-	Route::get('/lock', [PageController::class, 'lock'])->name('lock');
+	Route::get('/logout', [PageController::class, 'logout'])->name('logout')->middleware('auth');
+	Route::get('/lock', [PageController::class, 'lock'])->name('lock')->middleware('auth');
 });
 
 Route::name('user.')->middleware('auth')->group(function() {
@@ -149,17 +149,16 @@ Route::prefix('/library')->name('library.')->middleware('auth')->group(function(
 	Route::match(['GET', 'POST'], '/edit/{library}', [LibraryController::class, 'edit'])->name('edit');
 });
 
-
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function() {
 	
 });
-Route::resource('admin', AdminController::class)->middleware('auth');
+Route::resource('admin', AdminController::class)->middleware('auth')->except(['destroy']);
 
 
 Route::prefix('/member')->name('member.')->middleware('auth')->group(function() {
 	Route::get('/package/{package?}', [MemberController::class, 'package'])->name('package');
 });
-Route::resource('member', MemberController::class)->middleware('auth');
+Route::resource('member', MemberController::class)->middleware('auth')->except(['destroy']);
 
 
 Route::prefix('/artist')->name('artist.')->middleware('auth')->group(function() {

@@ -5,35 +5,39 @@
 <!-- Main Content-->
 <div class="main-content pt-0">
 
-    <div class="container_profile_card">
+    <div
+        class="container_profile_card">
 
         <!-- ROW-1 OPEN -->
 
         <div id="profile_miabartafrik_wrap">
 
             <div class="profile_miabartafrik_image">
+
                 <div id="landing-text">
                     <div id="landing-text-inner">
-                        <a href="" class="btntelecharger" id="view-work" data-target="#affiche_modal"
-                            data-toggle="modal">
-                            Affiche de l'évènement
+                        <a href="" class="btntelecharger" id="view-work" data-target="#affiche_modal" data-toggle="modal">
+                            Adresse maping ici
                         </a>
                     </div>
                 </div>
+
             </div>
 
-            <div class="profile_miabartafrik_card_content">
+            <div id="content-3" class="profile_miabartafrik_card_content custom_scrollbar_page">
 
                 <div class="container-fluido no-padding">
 
-                    <div class="cover" style="background-image: url(../assets/img/event/affiche.jpg);">
-                        <div class="miabartafrik-top clearfix">
-                            <a class="miabartafrik-icon miabartafrik-icon-prev" href="castingart.html"><span>LISTE DES
-                                    Réseaux art.</span></a>
-
-                            <span class="right"><a class="" href=""><span>Nouveaux inscrits</span></a></span>
-                        </div>
-
+                    <div class="cover" style="background-image: url(../assets/img/artiste/blissful-smiling.jpg);">
+                        <a href="">
+                            <div class="back_button_mba">
+                                <div class="arrow_mba-wrap">
+                                    <span class="arrow_mba-part-1"></span>
+                                    <span class="arrow_mba-part-2"></span>
+                                    <span class="arrow_mba-part-3"></span>
+                                </div>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="cover-layer">
@@ -43,14 +47,35 @@
 
                                     <div class="main-contact-info-header">
                                         <h3 class="bold_titre_eventfirst">
-                                            Blueberry Tasting - The best of 2016 or whatever Blueberry Tasting - The
-                                            best of 2016 or whatever
+                                            Blueberry Tasting - The best of 2016 or whatever Blueberry Tasting - The best of 2016 or whatever
                                         </h3>
                                     </div>
-                                    <a href="" class="btntelecharger" id="view-work" data-target="#affiche_modal"
-                                        data-toggle="modal">
-                                        Affiche de l'évènement
-                                    </a>
+                                    <div class="media-body">
+                                        <nav class="contact-info">
+                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="Togo">
+                                                <i class="flag flag-tg"></i>
+                                            </a>
+                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="356 392 (Vues)">
+                                                <i class="fe fe-eye"></i>
+                                            </a>
+
+                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="5254 (J'aimes)">
+                                                <i class="fe fe-heart"></i>
+                                            </a>
+
+                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="Contacter l'annonceur">
+                                                <i class="fe fe-phone"></i>
+                                            </a>
+
+                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="Enrgistrer pour plus tard">
+                                                <i class="fe fe-save"></i>
+                                            </a>
+
+                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="Publier">
+                                                <i class="far fa-share-square"></i>
+                                            </a>
+                                        </nav>
+                                    </div>
 
                                 </div>
 
@@ -67,7 +92,8 @@
                                                 <div class="desc">
                                                     <h4>Date</h4>
                                                     <h3 class="date">
-                                                        <span id="datestart">17.08.2021</span> au
+                                                        <span id="datestart">17.08.2021</span>
+                                                        au
                                                         <span id="dateclosed">20.08.2021</span>
                                                     </h3>
                                                 </div>
@@ -78,7 +104,7 @@
                                                     <h3>19:35:30</h3>
                                                 </div>
                                             </li>
-                                            <li>
+                                            <li></li>
                                         </ul>
 
                                     </div>
@@ -99,44 +125,22 @@
 
                                     <div class="infos_plus_bookcast">
                                         <div class="detail-buttons" style="padding: 0.5rem;">
-                                            <button class="detail-button" data-target="#ticket_event"
-                                                data-toggle="modal">
+                                            <button class="detail-button" data-target="#ticket_event" data-toggle="modal">
                                                 Payer un ticket
                                             </button>
                                             <button class="mr_publier">
                                                 <div class="main-img-user online">
-                                                    <img alt="avatar" class="radius"
-                                                        src="../assets/img/artiste/pexels-ivan-siarbolin-3841891.jpg">
+                                                    <img alt="avatar" class="radius" src="../assets/img/artiste/pexels-ivan-siarbolin-3841891.jpg">
                                                 </div>
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div class="media-body">
-                                        <nav class="contact-info">
-                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip"
-                                                title="" data-original-title="Togo"><i class="flag flag-tg"></i></a>
-                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip"
-                                                title="" data-original-title="356 392 (Vues)"><i class="fe fe-eye"></i>
-                                            </a>
+                                    <a href="" class="btntelecharger" id="view-work" data-target="#affiche_modal" data-toggle="modal">
+                                        Affiche de l'évènement
+                                    </a>
 
-                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip"
-                                                title="" data-original-title="5254 (J'aimes)"><i
-                                                    class="fe fe-heart"></i> </a>
 
-                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip"
-                                                title="" data-original-title="Contacter l'annonceur"><i
-                                                    class="fe fe-phone"></i></a>
-
-                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip"
-                                                title="" data-original-title="Enrgistrer pour plus tard"><i
-                                                    class="fe fe-save"></i></a>
-
-                                            <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip"
-                                                title="" data-original-title="Publier"><i
-                                                    class="far fa-share-square"></i></a>
-                                        </nav>
-                                    </div>
                                 </div>
                             </div>
 
@@ -150,199 +154,149 @@
                                 <div class="tabs_miabartafrik tabs_miabartafrik-style-bar">
                                     <nav>
                                         <ul>
-                                            <li><a href="#actualite_fiche_reseau" class="icon pe-7s-news-paper">
-                                                    <span>A propos de l'évènement</span></a>
-                                            </li>
-                                            <li><a href="#photos_fiche_reseau" class="icon pe-7s-ticket">
-                                                    <span>Ticket/Réservation</span></a>
-                                            </li>
-                                            <li><a href="#artistes_fiche_reseau" class="icon pe-7s-camera">
-                                                    <span>Photos évènement</span></a>
-                                            </li>
-                                            <li><a href="#contact_fiche_reseau" class="icon pe-7s-mail">
-                                                    <span>Contact</span></a>
-                                            </li>
+                                            <li><a href="#actualite_fiche_reseau" class="icon pe-7s-news-paper"><span>A propos de l'évènement</span></a></li>
+                                            <li><a href="#tickets_event" class="icon pe-7s-ticket"><span>Ticket/Réservation</span></a></li>
+                                            <li><a href="#photos_events" class="icon si si-control-play"><span>Médias</span></a></li>
+                                            <li><a href="#contact_agenda" class="icon si si-location-pin"><span>Adresse + Contact</span></a></li>
                                         </ul>
                                     </nav>
-                                    <div class="content-wrap">
+                                    <div
+                                        class="content-wrap">
 
-                                        <!-- ACTIVITY BOOK CARD START -->
-
-                                        <section id="actualite_fiche_reseau">
-                                            <div class="main-contact-info-body">
-                                                <div>
-                                                    <h6>Présentation</h6>
-                                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                                                        quae ab illo inventore veritatis et quasi architecto beatae
-                                                        vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-                                                        voluptas sit aspernatur aut odit aut fugit, sed quia
-                                                        consequuntur magni dolores eos qui ratione voluptatem sequi
-                                                        nesciunt.</p>
-                                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                                                        quae ab illo inventore veritatis et quasi architecto beatae
-                                                        vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-                                                        voluptas sit aspernatur aut odit aut fugit, sed quia
-                                                        consequuntur magni dolores eos qui ratione voluptatem sequi
-                                                        nesciunt.</p>
-                                                </div>
-                                                <div class="media-list">
-                                                    <div class="media">
-                                                        <div class="media-body">
-                                                            <div>
-                                                                <label>Work</label> <span class="tx-medium">+1 (234) 567
-                                                                    8901</span>
-                                                            </div>
-                                                            <div>
-                                                                <label>Personal</label> <span class="tx-medium">+1 (498)
-                                                                    021 0090</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media">
-                                                        <div class="media-body">
-                                                            <div>
-                                                                <label>Gmail Account</label> <span
-                                                                    class="tx-medium">sonia.taylor@gmail.com</span>
-                                                            </div>
-                                                            <div>
-                                                                <label>Other Account</label> <span
-                                                                    class="tx-medium">me@bootstrapdash.me</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media">
-                                                        <div class="media-body">
-                                                            <div>
-                                                                <label>Current Address</label> <span
-                                                                    class="tx-medium">012 Dashboard Apartments, San
-                                                                    Francisco, California 13245</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media mb-0">
-                                                        <div class="media-body">
-                                                            <div>
-                                                                <label>Call History</label> <span
-                                                                    class="tx-medium">Duration of last call: 2m
-                                                                    32sec</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </section>
-
-                                        <!-- ACTIVITY BOOK CARD END -->
-
-                                        <!-- INFOS BOOK CARD START -->
-
+                                        <!-- A PROPOS DE L'EVENT START -->
                                         <section id="presentation_fiche_reseau">
-
+                                            <p>A propos de l'évènement ici</p>
                                         </section>
+                                        <!-- A PROPOS DE L'EVENT END -->
 
-                                        <!-- INFOS BOOK CARD END -->
+                                        <!-- VIDEOS BOOK CARD START -->
+                                        <section id="tickets_event">
+                                            <p>Ticket event ici</p>
+                                        </section>
+                                        <!-- VIDEOS BOOK CARD END -->
 
                                         <!-- PHOTOS BOOK CARD START -->
-                                        <section id="photos_fiche_reseau">
-                                            <div class="demo-gallery ">
-                                                <ul id="lightgallery"
-                                                    class="list-unstyled containergalbook detail-photo-grid">
-                                                    <li class="grid-item"
-                                                        data-responsive="../assets/img/media/artiste3-1.jpg"
-                                                        data-src="../assets/img/media/artiste3-1.jpg"
-                                                        data-sub-html="<h4>Gallery Image 1</h4>">
-                                                        <a href="" class="wd-100p"><img class="img-responsive wd-100p"
-                                                                src="../assets/img/media/artiste3-1.jpg" alt="Thumb-1">
-                                                        </a>
-                                                    </li>
-                                                    <li class="grid-item" data-responsive="../assets/img/media/2.jpg"
-                                                        data-src="../assets/img/media/2.jpg"
-                                                        data-sub-html="<h4>Gallery Image 2</h4>">
-                                                        <a href="" class="wd-100p"><img class="img-responsive"
-                                                                src="../assets/img/media/2.jpg" alt="Thumb-1"> </a>
-                                                    </li>
-                                                    <li class="grid-item" data-responsive="../assets/img/media/3.jpg"
-                                                        data-src="../assets/img/media/3.jpg"
-                                                        data-sub-html="<h4>Gallery Image 3</h4>">
-                                                        <a href="" class="wd-100p"><img class="img-responsive"
-                                                                src="../assets/img/media/3.jpg" alt="Thumb-1"> </a>
-                                                    </li>
-                                                    <li class="grid-item" data-responsive="../assets/img/media/4.jpg"
-                                                        data-src="../assets/img/media/4.jpg"
-                                                        data-sub-html="<h4>Gallery Image 4</h4>">
-                                                        <a href="" class="wd-100p"><img class="img-responsive"
-                                                                src="../assets/img/media/4.jpg" alt="Thumb-1"> </a>
-                                                    </li>
-                                                    <li class="grid-item" data-responsive="../assets/img/media/5.jpg"
-                                                        data-src="../assets/img/media/5.jpg"
-                                                        data-sub-html="<h4>Gallery Image 5</h4>">
-                                                        <a href="" class="wd-100p"><img class="img-responsive"
-                                                                src="../assets/img/media/5.jpg" alt="Thumb-1"> </a>
-                                                    </li>
-                                                    <li class="grid-item" data-responsive="../assets/img/media/6.jpg"
-                                                        data-src="../assets/img/media/6.jpg"
-                                                        data-sub-html="<h4>Gallery Image 6</h4>">
-                                                        <a href="" class="wd-100p"><img class="img-responsive"
-                                                                src="../assets/img/media/6.jpg" alt="Thumb-1"> </a>
-                                                    </li>
-                                                    <li class="grid-item" data-responsive="../assets/img/media/7.jpg"
-                                                        data-src="../assets/img/media/7.jpg"
-                                                        data-sub-html="<h4>Gallery Image 7</h4>">
-                                                        <a href="" class="wd-100p"><img class="img-responsive"
-                                                                src="../assets/img/media/7.jpg" alt="Thumb-1"> </a>
-                                                    </li>
-                                                    <li class="grid-item" data-responsive="../assets/img/media/8.jpg"
-                                                        data-src="../assets/img/media/8.jpg"
-                                                        data-sub-html="<h4>Gallery Image 8</h4>">
-                                                        <a href="" class="wd-100p"><img class="img-responsive"
-                                                                src="../assets/img/media/8.jpg" alt="Thumb-1"> </a>
-                                                    </li>
-                                                    <li class="grid-item" data-responsive="../assets/img/media/9.jpg"
-                                                        data-src="../assets/img/media/9.jpg"
-                                                        data-sub-html="<h4>Gallery Image 9</h4>">
-                                                        <a href="" class="wd-100p"><img class="img-responsive"
-                                                                src="../assets/img/media/9.jpg" alt="Thumb-1"> </a>
-                                                    </li>
-                                                </ul>
-                                                <!-- /Gallery -->
+                                        <section id="photos_events">
+                                            <div class="tab_new_mba" id="tab1">
+                                                <div class="tab_new_mba-header">
+                                                    <ul role="tablist">
+                                                        <li id="#photos_fiche" aria-selected="true" class="tab_new_mba-header-item is-opened" role="tab" tabindex="0" aria-controls="photos_fiche">Photos</li>
+
+                                                        <li id="#audios_fiche" aria-selected="false" class="tab_new_mba-header-item" role="tab" tabindex="0" aria-controls="audios_fiche">Audios</li>
+
+                                                        <li id="#videos_fiche" aria-selected="false" class="tab_new_mba-header-item" role="tab" tabindex="0" aria-controls="videos_fiche">Vidéos</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="tab_new_mba-body">
+
+                                                    <div id="photos_fiche" class="tab_new_mba-body-item is-opened" role="tabpanel" aria-labelledby="photos_fiche" aria-hidden="false">
+
+                                                        <div class="demo-gallery ">
+                                                            <ul id="lightgallery" class="list-unstyled containergalbook detail-photo-grid">
+                                                                <li class="grid-item" data-responsive="../assets/img/media/artiste3-1.jpg" data-src="../assets/img/media/artiste3-1.jpg" data-sub-html="<h4>Gallery Image 1</h4>">
+                                                                    <a href="" class="wd-100p"><img class="img-responsive wd-100p" src="../assets/img/media/artiste3-1.jpg" alt="Thumb-1">
+                                                                    </a>
+                                                                </li>
+                                                                <li class="grid-item" data-responsive="../assets/img/media/2.jpg" data-src="../assets/img/media/2.jpg" data-sub-html="<h4>Gallery Image 2</h4>">
+                                                                    <a href="" class="wd-100p"><img class="img-responsive" src="../assets/img/media/2.jpg" alt="Thumb-1">
+                                                                    </a>
+                                                                </li>
+                                                                <li class="grid-item" data-responsive="../assets/img/media/3.jpg" data-src="../assets/img/media/3.jpg" data-sub-html="<h4>Gallery Image 3</h4>">
+                                                                    <a href="" class="wd-100p"><img class="img-responsive" src="../assets/img/media/3.jpg" alt="Thumb-1">
+                                                                    </a>
+                                                                </li>
+                                                                <li class="grid-item" data-responsive="../assets/img/media/4.jpg" data-src="../assets/img/media/4.jpg" data-sub-html="<h4>Gallery Image 4</h4>">
+                                                                    <a href="" class="wd-100p"><img class="img-responsive" src="../assets/img/media/4.jpg" alt="Thumb-1">
+                                                                    </a>
+                                                                </li>
+                                                                <li class="grid-item" data-responsive="../assets/img/media/5.jpg" data-src="../assets/img/media/5.jpg" data-sub-html="<h4>Gallery Image 5</h4>">
+                                                                    <a href="" class="wd-100p"><img class="img-responsive" src="../assets/img/media/5.jpg" alt="Thumb-1">
+                                                                    </a>
+                                                                </li>
+                                                                <li class="grid-item" data-responsive="../assets/img/media/6.jpg" data-src="../assets/img/media/6.jpg" data-sub-html="<h4>Gallery Image 6</h4>">
+                                                                    <a href="" class="wd-100p"><img class="img-responsive" src="../assets/img/media/6.jpg" alt="Thumb-1">
+                                                                    </a>
+                                                                </li>
+                                                                <li class="grid-item" data-responsive="../assets/img/media/7.jpg" data-src="../assets/img/media/7.jpg" data-sub-html="<h4>Gallery Image 7</h4>">
+                                                                    <a href="" class="wd-100p"><img class="img-responsive" src="../assets/img/media/7.jpg" alt="Thumb-1">
+                                                                    </a>
+                                                                </li>
+                                                                <li class="grid-item" data-responsive="../assets/img/media/8.jpg" data-src="../assets/img/media/8.jpg" data-sub-html="<h4>Gallery Image 8</h4>">
+                                                                    <a href="" class="wd-100p"><img class="img-responsive" src="../assets/img/media/8.jpg" alt="Thumb-1">
+                                                                    </a>
+                                                                </li>
+                                                                <li class="grid-item" data-responsive="../assets/img/media/9.jpg" data-src="../assets/img/media/9.jpg" data-sub-html="<h4>Gallery Image 9</h4>">
+                                                                    <a href="" class="wd-100p"><img class="img-responsive" src="../assets/img/media/9.jpg" alt="Thumb-1">
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <!-- /Gallery -->
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div id="audios_fiche" class="tab_new_mba-body-item" role="tabpanel" aria-labelledby="audios_fiche" aria-hidden="true">
+                                                        <p>Musiques et audios</p>
+
+                                                    </div>
+
+                                                    <div id="videos_fiche" class="tab_new_mba-body-item" role="tabpanel" aria-labelledby="videos_fiche" aria-hidden="true">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="container">
+                                                                    <div
+                                                                        class="miabartvideo_mba">
+                                                                        <!-- video -->
+                                                                        <div class="miabartvideo_mba__row">
+                                                                            <div class="videoWrapper_mba">
+                                                                                <div class="video-preview-image_mba" style="background-image: url(../assets/img/artiste/blissful-young.jpg)"></div>
+                                                                                <iframe width="853" height="480" src="https://www.youtube.com/embed/TH5tU3S2ScE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-lg-6">
+                                                                <div class="container">
+                                                                    <div
+                                                                        class="miabartvideo_mba">
+                                                                        <!-- video -->
+                                                                        <div class="miabartvideo_mba__row">
+                                                                            <div class="videoWrapper_mba">
+                                                                                <div class="video-preview-image_mba" style="background-image: url(../assets/img/artiste/blissful-young.jpg)"></div>
+                                                                                <iframe width="853" height="480" src="https://www.youtube.com/embed/TH5tU3S2ScE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </section>
                                         <!-- PHOTOS BOOK CARD END -->
 
-                                        <!-- MUSIQUE BOOK CARD START -->
-                                        <section id="artistes_fiche_reseau">
-                                            <p>Nos Artistes</p>
-                                        </section>
-                                        <!-- MUSIQUE BOOK CARD END -->
-
-
-                                        <!-- VIDEOS BOOK CARD START -->
-                                        <section id="grilletarifaire_fiche_reseau">
-                                            <p>Grille tarifaire</p>
-                                        </section>
-                                        <!-- VIDEOS BOOK CARD END -->
 
                                         <!-- CONTACT BOOK CARD START -->
-                                        <section id="contact_fiche_reseau">
+                                        <section id="contact_agenda">
                                             <p>Formulaire de contact</p>
                                         </section>
                                         <!-- CONTACT BOOK CARD END -->
 
-                                    </div><!-- /content -->
-                                </div><!-- /tabs_miabartafrik -->
+                                    </div>
+                                    <!-- /content -->
+                                </div>
+                                <!-- /tabs_miabartafrik -->
                             </section>
 
                         </div>
                     </div>
 
 
-
                 </div>
-
-
 
 
             </div>
@@ -350,64 +304,5 @@
     </div>
 </div>
 <!-- End Main Content-->
-
-
-<!-- TICKETS EVENT -->
-<div class="modal" id="ticket_event">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content modal-content-demo">
-            <div class="modal-header">
-                <h6 class="modal-title">Tickets évènement</h6><button aria-label="Close" class="close"
-                    data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="row row-sm">
-                    <div class="col-md-6">
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain
-                            was born and I will give you a complete account of the who loves toil and pain can procureor
-                            sit aspernatur system.</p>
-                    </div>
-                </div>
-                <div class="row row-sm">
-                    <div class="col-md-6">
-                        <p>expound the actual teachings of the great explorer of the truth, the master-builder of human
-                            happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure
-                            desires to obtain pain.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-                            sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                            aut odit voluptatem.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Fermer</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--End TICKETS EVENT -->
-
-<!-- MODAL AFFICHE -->
-<div class="modal" id="affiche_modal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content modal-content-demo">
-            <div class="modal-header">
-                <h6 class="modal-title">Affiche évènement</h6><button aria-label="Close" class="close"
-                    data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body1">
-                <img src="../assets/img/event/affiche.jpg" class="imageaffichepub">
-            </div>
-        </div>
-    </div>
-</div>
-<!--End MODAL AFFICHE -->
 
 @endsection

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Partner;
-use App\Models\PartnerArea;
+use App\Models\AreaPartner;
 use App\Models\Individual;
 use App\Models\Society;
 use App\Models\Package;
@@ -66,7 +66,7 @@ class PartnerController extends Controller
                                 ]);
 
                                 foreach($request->area_id as $key => $value) {
-                                    PartnerArea::create([
+                                    AreaPartner::create([
                                         'partner_id' => $partner->id,
                                         'area_id' => $value,
                                     ]);
@@ -116,7 +116,7 @@ class PartnerController extends Controller
                                 ]);
                             
                                 foreach($request->area_id as $key => $value) {
-                                    PartnerArea::create([
+                                    AreaPartner::create([
                                         'partner_id' => $partner->id,
                                         'area_id' => $value,
                                     ]);
@@ -150,6 +150,8 @@ class PartnerController extends Controller
 
     public function show(Request $request, Partner $partner)
     {
+        abort_if(auth()->user()->blocked, 403, self::VIEW_BLOCKED_MESSAGE);
+        
         return view('partners.show', compact('partner'));
     }
 
@@ -167,13 +169,7 @@ class PartnerController extends Controller
     {
         $partner = Partner::where('user_id', auth()->id())->firstOrFail();
 
-        $library = Library::create([
-            'folder' => 'partners',
-            'url' => 'https://miabartafrik.com/libraries/partners/cover.jpg',
-            'link' => 'https://miabartafrik.com/libraries/partners/cover.jpg',
-            'description' => 'Photo de couverture',
-            'library_type_id' => 1,
-        ]);
+        $library = Library::create($this->getDefaultBackImage('partners'));
 
         if (!is_null($package)) {
             $partner->update([

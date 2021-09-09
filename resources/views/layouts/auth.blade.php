@@ -16,6 +16,7 @@
 
     <!-- Bootstrap css-->
     <link href="{{ asset('public/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/assets/css/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet">
 
     <!-- Icons css-->
     <link href="{{ asset('public/assets/plugins/web-fonts/icons.css') }}" rel="stylesheet" />
@@ -58,8 +59,6 @@
     <!-- Jquery js-->
     <script src="{{ asset('public/assets/plugins/jquery/jquery.min.js') }}"></script>
 
-    <script src="{{ asset('public/assets/js/cbpFWTabs.js') }}"></script>
-
     <!-- Bootstrap js-->
     <script src="{{ asset('public/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
 
@@ -71,8 +70,14 @@
     <!-- Select2 js-->
     <script src="{{ asset('public/assets/plugins/select2/js/select2.min.js') }}"></script>
 
+    <script src="{{ asset('public/assets/js/cbpFWTabs.js') }}"></script>
+
     <!-- Custom js -->
     <script src="{{ asset('public/assets/js/custom.js') }}"></script>
+
+    <!-- scriptscroll js -->
+    <script src="{{ asset('public/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('public/assets/js/scriptscroll.js') }}"></script>
 
     <script src="{{ asset('public/js/file_upload.js') }}"></script>
 

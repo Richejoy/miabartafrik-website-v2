@@ -55,8 +55,15 @@ class Partner extends Model
         return $this->belongsTo(Package::class);
     }
 
-    public function partnerArea()
+    public function areas()
     {
-        return $this->hasMany(PartnerArea::class);
+        return $this->belongsToMany(Area::class);
     }
+
+    /**/
+    public function isOwner()
+    {
+        return (bool) $this->user_id == auth()->id();
+    }
+    /**/
 }

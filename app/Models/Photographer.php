@@ -60,8 +60,15 @@ class Photographer extends Model
         return $this->belongsTo(Package::class);
     }
 
-    public function photographerArea()
+    public function areas()
     {
-        return $this->hasMany(PhotographerArea::class);
+        return $this->belongsToMany(Area::class);
     }
+
+    /**/
+    public function isOwner()
+    {
+        return (bool) $this->user_id == auth()->id();
+    }
+    /**/
 }

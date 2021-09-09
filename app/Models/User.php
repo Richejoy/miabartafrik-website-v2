@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -38,6 +39,7 @@ class User extends Authenticatable
         'tfa_enabled',
         'tfa_code',
         'removed',
+        'blocked',
         'biography',
         'verified',
         'library_id',
@@ -162,6 +164,16 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Publication::class);
     }
+
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class);
+    }
+
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class);
+    }
     /*End*/
 
     /*Has Many*/
@@ -204,11 +216,6 @@ class User extends Authenticatable
     }
 
     /**/
-    public function getFlag()
-    {
-        return 'flag flag-' . mb_strtolower($this->country->iso);
-    }
-
     public function call()
     {
         return 'tel:+' . $this->longPhone();
@@ -217,6 +224,21 @@ class User extends Authenticatable
     public function message()
     {
         return 'mailto:' . $this->email;
+    }
+
+    public function getAge()
+    {
+        return Carbon::parse($this->date_of_birth)->age . ' ans';
+    }
+
+    public function leftDaysBeforeBirthday()
+    {
+        return now()->diffInDays($this->date_of_birth, false);
+    }
+
+    public function isBirthday()
+    {
+        return Carbon::parse($this->date_of_birth)->isBirthday() ? ' Joyeux anniv' : '';
     }
     /**/
 
