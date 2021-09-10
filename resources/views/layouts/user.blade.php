@@ -59,7 +59,7 @@
     <script src="{{ asset('public/js/pusher.js') }}"></script>
 </head>
 
-<body class="main-body leftmenu">
+<body class="main-body leftmenu dashboard_body">
 
 	<x-loader imgLink="{{ auth()->user()->library->remote }}" />
 

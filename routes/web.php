@@ -31,6 +31,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\NewsController;
 
+use App\Http\Controllers\PublicationController;
+
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -211,4 +213,9 @@ Route::prefix('/movie')->name('movie.')->middleware('auth')->group(function() {
 Route::prefix('/news')->name('news.')->middleware('auth')->group(function() {
 	
 	Route::get('/{item}/show', [NewsController::class, 'show'])->name('show');
+});
+
+Route::prefix('/publication')->name('publication.')->middleware('auth')->group(function() {
+	
+	Route::post('/store', [PublicationController::class, 'store'])->name('store');
 });

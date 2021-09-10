@@ -3087,9 +3087,10 @@ input[type=checkbox]:checked ~ .checkbookcast::before {
 }
 .stats_concours{
   border-top:1px solid #c5c7c8;
-  background:#f7f8fa;
+  background:#e4e5e8;
   overflow:auto;
-  padding:15px 0;
+  padding:5px 0;
+  margin-bottom: 15px;
   font-size:16px;
   color:#59687f;
   font-weight:600;  
@@ -4947,6 +4948,7 @@ button {
 /* castings news 04 07 2021 */
 .castingart_newByOsez {
   margin-bottom: 1rem;  
+  text-align: center;
 }
 .castingart_newByOsez__side {
   width: 100%;
@@ -4961,6 +4963,7 @@ button {
 }
 .castingart_newByOsez__side--front {
   background-color: white;
+  padding-bottom: .3rem;
 }
  
  
@@ -6503,7 +6506,7 @@ figure.snip1253.hover img {
 
 .image_agendaplus_bookcast{
   position: relative;
-  background-color: blue;
+  background: var(--gradientbookcast) !important;
   width: 100%;
   height: 180px;
   border-top-right-radius: 8px;
@@ -6546,13 +6549,13 @@ figure.snip1253.hover img {
 }
 
 .info_container_agendaplus {
-  padding: 5px 5px 0 5px;
+  padding: 8px;
 }
 .info_container_agendaplus .titre {
   font-size: 1rem;
   font-weight: 700;
   color: #2E2E2E;
-  margin-bottom: 14px;
+  margin: 14px auto;
   line-height: 1.1;
   height: 2.2em;
   overflow: hidden;
@@ -9057,9 +9060,9 @@ color: #0d478a;
   display: flex;
 }
 
-.search_advanced_mba a i {
+ /*.search_advanced_mba a i {
   margin-left: .5rem;
-}
+}*/
 
 .search_advanced_mba a:hover {
   color: #4e77c1;  

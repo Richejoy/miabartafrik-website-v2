@@ -44,7 +44,7 @@
     @livewireStyles
 </head>
 
-<body class="main-body leftmenu">
+<body class="main-body leftmenu auth_body">
 
     <!-- Loader -->
     <x-loader imgLink="{{ asset('public/assets/img/preloader.jpg') }}" />

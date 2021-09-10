@@ -1,5 +1,5 @@
 <section>
-    {!! Form::open(['wire:submit.prevent' => 'save(Object.fromEntries(new FormData($event.target)))', 'files' => true]) !!}
+    {!! Form::open(['route' => 'publication.store', 'id' => 'publication-form']) !!}
     <div class="write_post_container">
         <div class="media">
             <div class="media-user mr-2">
@@ -25,12 +25,13 @@
                         <a class="dropdown-item" href="#" data-toggle-publication-state="3">Amis</a> 
                     </div>                
                 </span>
+
             </div>
         </div>
 
         <div class="post_input_container">
-            <textarea required class="form-control" placeholder="A quoi penses-tu, {{ auth()->user()->full_name }} ?" name="publicationContent" id="publicationContent" rows="3"></textarea>
-            <input type="hidden" name="publicationStateId" value="1" id="publicationStateId">
+            <textarea required class="form-control" placeholder="A quoi penses-tu, {{ auth()->user()->full_name }} ?" id="publication-input" name="content" rows="3"></textarea>
+            <input type="hidden" name="publication_state_id" value="1" id="publicationStateId">
             <div class="page-header">
                 <div>
                     <label for="media">
@@ -41,11 +42,9 @@
                 <div class="d-flex">
                     <div class="justify-content-center">
                         <button
+                        id="btn-submit-publication"
                         type="submit"
-                        class="btn btn-secondary btn-icon-text"
-                        wire:loading.attr="disabled"
-                        wire:loading.class.remove="btn-secondary"
-                        wire:loading.class="btn-success">
+                        class="btn btn-secondary btn-icon-text">
                           <i class="fe fe-send mr-2"></i> Publier
                         </button>
                     </div>

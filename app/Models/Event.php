@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Event extends Model
 {
@@ -25,5 +26,20 @@ class Event extends Model
     public function country()
     {
         return $this->belongsTo(Country::class);
+    }
+
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+
+    public function getStartDate()
+    {
+        return Carbon::parse($this->start_date);
+    }
+
+    public function getEndDate()
+    {
+        return Carbon::parse($this->end_date);
     }
 }

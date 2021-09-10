@@ -63,7 +63,7 @@
     <script src="{{ asset('public/js/pusher.js') }}"></script>
 </head>
 
-<body class="horizontalmenu">
+<body class="horizontalmenu bookcast_body">
 
     <!-- Loader -->
     @if(in_array(Route::currentRouteName(), ['artist.show', 'partner.show', 'photographer.show']))
@@ -171,42 +171,13 @@
 
     <script src="{{ asset('public/plugins/emojionearea/dist/emojionearea.min.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-
     @livewireScripts
 
-    <script>
-        (function() {
-            [].slice.call(document.querySelectorAll('.tabs_miabartafrik')).forEach(function(el) {
-                new CBPFWTabs(el);
-            });
-
-            $('span.share-artist').click(function(e) {
-                let div = $(this).data('show');
-                $('#' + div).slideToggle();
-            });
-
-            $('span.share-photographer').click(function(e) {
-                let div = $(this).data('show');
-                $('#' + div).slideToggle();
-            });
-
-            $('span.share-partner').click(function(e) {
-                let div = $(this).data('show');
-                $('#' + div).slideToggle();
-            });
-
-            $("#publication-input").emojioneArea({
-                pickerPosition: 'bottom',
-                filtersPosition: "bottom",
-                searchPosition: "bottom",
-                hidePickerOnBlur: true
-            });
-
-        })();
-    </script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 
     @include('flashy::message')
+
+    <script src="{{ asset('public/js/scripts.js') }}"></script>
 </body>
 
 </html>

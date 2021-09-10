@@ -1,6 +1,6 @@
 <div class="booksId">
     <div class="profileImage">
-        <img src="{{ $electionUser->library->remote }}" alt="{{ $electionUser->library->description }}">
+        <img alt="{{ $electionUser->user->library->description }}" src="{{ $electionUser->user->library->remote }}">
     </div>
 
     <div class="inner_booksId">
@@ -16,24 +16,6 @@
                         <a href=""><span class="neplusvoterArtiste">Ne plus voter</span>
                         </a>
                     </div>
-                </div>
-
-                <div class="main_profilbook_header">
-                    <div class="main-img-user online">
-                        <a href="book_view.html">
-                            <img alt="{{ $electionUser->user->library->description }}" class="radius" src="{{ $electionUser->user->library->remote }}">
-                        </a>
-                    </div>
-                    <nav class="contact-info">
-                        <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="Togo"><i class="flag flag-tg"></i></a>
-
-                        <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="356 392 (Vues)"><i class="fe fe-eye"></i>
-                        </a>
-
-                        <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="5254 (J'aimes)"><i class="fe fe-heart"></i> </a>
-
-                        <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="Publier"><i class="far fa-share-square"></i></a>
-                    </nav>
                 </div>
             </div>
         </div>
