@@ -10,7 +10,7 @@
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active py-3" id="individual" role="tabpanel" aria-labelledby="individual-tab">
+        <div class="tab-pane fade show active py-3 text-left" id="individual" role="tabpanel" aria-labelledby="individual-tab">
             {!! Form::model($photographer->individual, ['route' => 'photographer.store']) !!}
             {!! Form::hidden('form', 'individual') !!}
 
@@ -21,16 +21,12 @@
 
             <div class="form-group">
                 {{ Form::label('person_level_id', "Votre niveau", ['class' => 'required-text']) }}
-                <div class="parsley-select">
-                    {{ Form::select('person_level_id', $personLevels, null, ['class' => 'form-control select2', 'placeholder' => "Votre niveau", 'required' => true]) }}
-                </div>
+                {{ Form::select('person_level_id', $personLevels, null, ['class' => 'form-control select2', 'placeholder' => "Votre niveau", 'required' => true]) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('work_id', "Votre spécialité", ['class' => 'required-text']) }}
-                <div class="parsley-select">
-                    {{ Form::select('work_id', $works, null, ['class' => 'form-control select2', 'placeholder' => "Votre spécialité", 'required' => true]) }}
-                </div>
+                {{ Form::select('work_id', $works, null, ['class' => 'form-control select2', 'placeholder' => "Votre spécialité", 'required' => true]) }}
             </div>
 
             <div class="form-group">
@@ -39,7 +35,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Enregistrer', ['class' => 'btnSignin ripple btn-main-primary btn-block']) !!}
+                {!! Form::submit('Enregistrer', ['class' => 'btnSignin ripple btn-block']) !!}
             </div>
 
             {!! Form::close() !!}
@@ -66,13 +62,11 @@
 
             <div class="form-group">
                 {{ Form::label('area_id', "Domaines d'activité", ['class' => 'required-text']) }}
-                <div class="parsley-select">
-                    {{ Form::select('area_id', $areas, null, ['name' => 'area_id[]', 'class' => 'form-control select2', 'required' => true, 'multiple' => true]) }}
-                </div>
+                {{ Form::select('area_id', $areas, null, ['name' => 'area_id[]', 'class' => 'form-control select2', 'required' => true, 'multiple' => true]) }}
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Enregistrer', ['class' => 'btnSignin ripple btn-main-primary btn-block']) !!}
+                {!! Form::submit('Enregistrer', ['class' => 'btnSignin ripple btn-block']) !!}
             </div>
 
             {!! Form::close() !!}

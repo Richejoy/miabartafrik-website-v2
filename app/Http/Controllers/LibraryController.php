@@ -24,6 +24,8 @@ class LibraryController extends Controller
 
     public function edit(Request $request, Library $library)
     {
+        abort_if((auth()->user()->library_id != $library->id), 403, 'Non autoriser');
+
         if ($request->isMethod('POST')) {
             if ($request->has('form')) {
                 if ($request->form == 'local') {
@@ -73,24 +75,28 @@ class LibraryController extends Controller
 
                 }
 
-                switch ($library->folder) {
-                    case 'admins':
+                auth()->user()->update([
+                    'completed' => 3,
+                ]);
+
+                switch (auth()->user()->user_type_id) {
+                    case 1:
                         return redirect()->route('bookcast.index');
                         break;
 
-                    case 'members':
+                    case 2:
                         return redirect()->route('member.package');
                         break;
 
-                    case 'artists':
+                    case 3:
                         return redirect()->route('artist.package');
                         break;
 
-                    case 'partners':
+                    case 4:
                         return redirect()->route('partner.package');
                         break;
 
-                    case 'photographers':
+                    case 5:
                         return redirect()->route('photographer.package');
                         break;
                     

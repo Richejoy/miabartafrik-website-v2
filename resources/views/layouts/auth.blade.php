@@ -79,22 +79,17 @@
     <script src="{{ asset('public/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/scriptscroll.js') }}"></script>
 
-    <script src="{{ asset('public/js/file_upload.js') }}"></script>
+    @stack('scripts')
 
-    <script type="text/javascript">
-        (function() {
-            [].slice.call(document.querySelectorAll('.tabs_miabartafrik')).forEach(function(el) {
-                new CBPFWTabs(el);
-            });
+    <script src="{{ asset('public/plugins/validate-image-size-preview-imo/dist/imoViewer-min.js') }}"></script>
+    
+    @livewireScripts
 
-        })();
-    </script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 
     @include('flashy::message')
 
-    @stack('scripts')
-    
-    @livewireScripts
+    <script src="{{ asset('public/js/scripts.js') }}"></script>
 </body>
 
 </html>

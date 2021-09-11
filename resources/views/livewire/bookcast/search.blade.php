@@ -4,28 +4,22 @@
         <div class="col-md-3 p-lg-0">
             <div class="input-wrap"> 
                 <div class="icon-wrap">
-                    <i class="si si-location-pin" data-toggle="tooltip" title="" data-original-title="si-location-pin" width="24" height="24"></i>
+                    <i class="si si-location-pin" data-toggle="tooltip" title="" data-original-title="Choisir un pays" width="24" height="24"></i>
                 </div>
 
                 <div class="input-field">
-                    <div class="parsley-select">
-                        {!! Form::select('country_id', $countries, null, ['class' => 'form-control select2', 'placeholder' =>
-            'Pays']) !!}
-                    </div>
+                    {!! Form::select('country_id', $countries, null, ['class' => 'form-control select2', 'placeholder' => 'Pays']) !!}
                 </div>
             </div>
         </div>
         <div class="col-md-3 p-lg-0">
             <div class="input-wrap"> 
                 <div class="icon-wrap">
-                    <i class="si si-graduation" data-toggle="tooltip" title="" data-original-title="si-location-pin" width="24" height="24"></i>
+                    <i class="si si-graduation" data-toggle="tooltip" title="" data-original-title="Choisir un menu" width="24" height="24"></i>
                 </div>
 
-                <div class="input-field">                
-                    <div class="parsley-select">
-                        {!! Form::select('menu_id', $menus, null, ['class' => 'form-control select2', 'placeholder' =>
-            'Menu']) !!}
-                    </div>
+                <div class="input-field">
+                    {!! Form::select('menu_id', $menus, null, ['class' => 'form-control select2', 'placeholder' => 'Menu']) !!}
                 </div>
 
             </div>
@@ -33,7 +27,7 @@
         <div class="col-md-5 p-lg-0">
             <div class="input-wrap"> 
                 <div class="icon-wrap">
-                    <i class="fe fe-search" data-toggle="tooltip" title="" data-original-title="si-location-pin" width="24" height="24"></i>
+                    <i class="fe fe-search" data-toggle="tooltip" title="" data-original-title="Saisir un mot" width="24" height="24"></i>
                 </div>
 
                 {!! Form::search('item', null, ['class' => 'form-control', 'placeholder' => 'Que recherchez-vous ?']) !!}

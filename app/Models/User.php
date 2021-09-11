@@ -40,6 +40,7 @@ class User extends Authenticatable
         'tfa_code',
         'removed',
         'blocked',
+        'completed',
         'biography',
         'verified',
         'library_id',
@@ -72,6 +73,8 @@ class User extends Authenticatable
         'tfa_enabled' => 'boolean',
         'removed' => 'boolean',
         'verified' => 'boolean',
+        'blocked' => 'boolean',
+        'completed' => 'int',
     ];
 
     /**
@@ -82,6 +85,7 @@ class User extends Authenticatable
     protected $attributes = [
         'last_login' => null,
         'nb_login' => 0,
+        'completed' => 0,
         'activated' => false,
         'can_login' => false,
         'user_type_id' => 2,
@@ -90,6 +94,7 @@ class User extends Authenticatable
         'tfa_code' => null,
         'removed' => false,
         'verified' => false,
+        'blocked' => false,
         'biography' => null,
     ];
 
@@ -107,6 +112,11 @@ class User extends Authenticatable
     public function setEmailAttribute($value)
     {
         $this->attributes['email'] = strtolower($value);
+    }
+
+    public function setUsernameAttribute($value)
+    {
+        $this->attributes['username'] = str_replace(' ', '', $value);
     }
 
     public function setPhoneAttribute($value)

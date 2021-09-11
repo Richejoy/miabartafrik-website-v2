@@ -19,6 +19,7 @@ class Member extends Model
         'user_id',
         'library_id',
         'package_id',
+        'work_id',
     ];
 
     protected $casts = [
@@ -39,6 +40,11 @@ class Member extends Model
     public function package()
     {
         return $this->belongsTo(Package::class);
+    }
+
+    public function work()
+    {
+        return $this->belongsTo(Work::class);
     }
 
     /**/

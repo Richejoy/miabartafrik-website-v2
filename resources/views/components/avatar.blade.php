@@ -1,6 +1,6 @@
 <section>
     <div class="preview_img_mba img_wrapper_mba">
-        <img alt="{{ $library->description }}" src="{{ $library->remote }}" id="preview-upload">
+        <img alt="{{ $library->description }}" src="{{ $library->remote }}" id="avatar-preview">
     </div>
 
     <div class="tabs_miabartafrik tabs_miabartafrik-style-bar">
@@ -14,70 +14,67 @@
                 </li> 
             </ul>
         </nav>
-        <div class="content-wrap">
+        <div class="content-wrap text-left">
 
-            <!-- local_upload START -->
             <section id="local_upload">
                 {!! Form::model($library, ['files' => true]) !!}
-            {!! Form::hidden('form', 'local') !!}
+                {!! Form::hidden('form', 'local') !!}
 
-            <div class="row row-sm text-left">
-                <div class="col-md-12">
-                    <div class="form-group mt-3">
-                        {{ Form::label('photo', 'Veuillez selectionner un fichier...', ['class' => 'btn btn-dark required-text']) }}
-                        {{ Form::file('photo', ['class' => 'sr-only', 'required' => true, 'data-upload '=> true]) }}
+                <div class="row row-sm">
+                    <div class="col-md-12">
+                        <div class="form-group mt-3">
+                            <div class="custom-file">
+                                {{ Form::label('photo', 'Veuillez selectionner un fichier...', ['class' => 'custom-file-label required-text mg-b-10']) }}
+                                {{ Form::file('photo', ['class' => 'custom-file-input', 'required' => true]) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            {{ Form::label('description', 'Description (texte alternatif)', ['class' => 'required-text mg-b-10']) }}
+                            {{ Form::text('description', null, ['class' => 'form-control', 'placeholder' => 'Description (texte alternatif)', 'required' => true]) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            {!! Form::submit('Appliquer les modifications', ['class' => 'btnSignin ripple btn-block']) !!}
+                        </div>
                     </div>
                 </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        {{ Form::label('description', 'Description', ['class' => 'required-text mg-b-10']) }}
-                        {{ Form::text('description', null, ['class' => 'form-control', 'placeholder' => 'Description', 'required' => true]) }}
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        {!! Form::submit('Changer', ['class' => 'btnSignin ripple btn-main-primary btn-block']) !!}
-                    </div>
-                </div>
-            </div>
-
-            {!! Form::close() !!}
+                {!! Form::close() !!}
             </section>
-            <!-- local_upload END -->
 
-            <!-- online_upload START -->
             <section id="online_upload"> 
-                 {!! Form::model($library) !!}
-            {!! Form::hidden('form', 'remote') !!}
+                {!! Form::model($library) !!}
+                {!! Form::hidden('form', 'remote') !!}
 
-            <div class="row row-sm text-left">
-                <div class="col-md-12">
-                    <div class="form-group mt-3">
-                        {{ Form::label('remote', 'Serveur', ['class' => 'required-text mg-b-10']) }}
-                        {{ Form::text('remote', null, ['class' => 'form-control', 'placeholder' => 'Serveur', 'required' => true, 'data-upload' => true]) }}
+                <div class="row row-sm">
+                    <div class="col-md-12">
+                        <div class="form-group mt-3">
+                            {{ Form::label('remote', 'Serveur', ['class' => 'required-text mg-b-10']) }}
+                            {{ Form::text('remote', null, ['class' => 'form-control', 'placeholder' => 'Serveur', 'required' => true]) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            {{ Form::label('description', 'Description (texte alternatif)', ['class' => 'required-text mg-b-10']) }}
+                            {{ Form::text('description', null, ['class' => 'form-control', 'placeholder' => 'Description (texte alternatif)', 'required' => true]) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            {!! Form::submit('Appliquer les modifications', ['class' => 'btnSignin ripple btn-block']) !!}
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-12">
-                    <div class="form-group">
-                        {{ Form::label('description', 'Description', ['class' => 'required-text mg-b-10']) }}
-                        {{ Form::text('description', null, ['class' => 'form-control', 'placeholder' => 'Description', 'required' => true]) }}
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        {!! Form::submit('Changer', ['class' => 'btnSignin ripple btn-main-primary btn-block']) !!}
-                    </div>
-                </div>
-            </div>
-
-            {!! Form::close() !!}
+                {!! Form::close() !!}
             </section>
-            <!-- online_upload END --> 
 
-        </div><!-- /content -->
+        </div>
     </div>
 </section>

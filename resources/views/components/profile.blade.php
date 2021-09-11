@@ -18,7 +18,7 @@
             <i class="fe fe-user"></i> Mon profil
         </a>
         <a class="dropdown-item" href="{{ route('user.edit', ['user' => auth()->id()]) }}">
-            <i class="fe fe-phone-call"></i> Editer le profil
+            <i class="fe fe-edit"></i> Editer le profil
         </a>
         <a class="dropdown-item" href="{{ route('settings.index') }}">
             <i class="fe fe-settings"></i> Paramètres du compte

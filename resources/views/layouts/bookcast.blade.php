@@ -68,14 +68,16 @@
     <!-- Loader -->
     @if(in_array(Route::currentRouteName(), ['artist.show', 'partner.show', 'photographer.show']))
 
-    @yield('loader')
+        @yield('loader')
 
     @else
 
-    <x-loader imgLink="{{ auth()->user()->library->remote }}" />
+        <x-loader imgLink="{{ auth()->user()->library->remote }}" />
 
     @endif
     <!-- End Loader -->
+
+    @if(auth()->user()->completed == 4)
 
     <!-- Page -->
     <div class="page">
@@ -110,6 +112,21 @@
 
     </div>
     <!-- End Page -->
+
+    @else
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col py-5 text-center">
+                <h1 class="text-warning">Erreur</h1>
+                <p>
+                    Vous n'avez pas terminer votre inscription sur le site officiel.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    @endif
 
     <!-- Back-to-top -->
     <a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a>

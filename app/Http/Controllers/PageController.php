@@ -174,7 +174,7 @@ class PageController extends Controller
                 'slug' => mb_strtoupper(md5(uniqid())),
                 'email' => $request->email,
                 'token' => sha1(uniqid()),
-                'token_expires' => now()->addDay(),
+                'token_expires' => now()->addDays(3),
                 'token_signature' => md5(uniqid()),
                 'user_type_id' => $request->user_type_id,
             ]);
@@ -195,7 +195,7 @@ class PageController extends Controller
     {
         $subscriber = Subscriber::where(['email' => $email, 'token' => $token])->firstOrFail();
 
-        abort_if(Carbon::parse($subscriber->token_expires)->isPast(), 403, 'Date limte passée');
+        abort_if(Carbon::parse($subscriber->token_expires)->isPast(), 403, 'Date limte dépassée');
 
         if ($request->isMethod('POST')) {
 
@@ -223,8 +223,8 @@ class PageController extends Controller
                 $library = Library::create(
                     [
                         'folder' => $this->getAppropriateFolder($subscriber->user_type_id),
-                        'local' => $this->getAppropriateLocal($request),
-                        'remote' => $this->getAppropriateRemote($request, 'users'),
+                        'local' => $this->getAppropriateLocal($request->input('civility_id')),
+                        'remote' => $this->getAppropriateRemote($subscriber->user_type_id, $request->input('civility_id')),
                         'description' => 'Mon jolie avatar par défaut',
                         'library_type_id' => 1,
                     ]
@@ -240,7 +240,7 @@ class PageController extends Controller
                             'password' => bcrypt($password),
                             'library_id' => $library->id,
                             'token' => sha1(uniqid($library->id)),
-                            'slug' => mb_strtoupper(md5(uniqid())),
+                            'slug' => $subscriber->slug,
                         ]
                     )
                 );
@@ -294,20 +294,30 @@ class PageController extends Controller
 
                 auth()->login($user);
 
-                if ($user->user_type_id == 2) {
-                    return redirect()->route('library.edit', ['library' => $library]);
-                }
+                auth()->user()->update([
+                    'completed' => 1,
+                ]);
 
-                if ($user->user_type_id == 3) {
-                    return redirect()->route('artist.create');
-                }
+                switch ($user->user_type_id) {
+                    case 2:
+                        return redirect()->route('member.create');
+                        break;
 
-                if ($user->user_type_id == 4) {
-                    return redirect()->route('partner.create');
-                }
+                    case 3:
+                        return redirect()->route('artist.create');
+                        break;
 
-                if ($user->user_type_id == 5) {
-                    return redirect()->route('photographer.create');
+                    case 4:
+                        return redirect()->route('partner.create');
+                        break;
+
+                    case 5:
+                        return redirect()->route('photographer.create');
+                        break;
+                    
+                    default:
+                        // code...
+                        break;
                 }
 
             } catch (\Exception $ex) {
@@ -488,35 +498,118 @@ class PageController extends Controller
     private function _connectUser(Request $request, User $user)
     {
         if (!is_null($user)) {
+            switch (intval($user->completed)) {
+                case 4:
+                    
+                    if ($user->user_type_id == 1) {
+                        $library = Library::create($this->getDefaultBackImage('admins'));
 
-            if ($user->user_type_id == 1) {
-                $library = Library::create($this->getDefaultBackImage('admins'));
+                        $admin = Admin::where('user_id', $user->id)->firstOrFail();
 
-                $admin = Admin::where('user_id', $user->id)->firstOrFail();
+                        $admin->update([
+                            'library_id' => $library->id,
+                        ]);
+                    }
 
-                $admin->update([
-                    'library_id' => $library->id,
-                ]);
+                    $user->update([
+                        'last_login' => now(),
+                        'nb_login' => ++$user->nb_login,
+                    ]);
+
+                    Transaction::create([
+                        'activity' => "Connexion sur le site",
+                        'user_id' => $user->id,
+                        'transaction_type_id' => 1,
+                    ]);
+
+                    auth()->login($user, $request->has('remember'));
+
+                    event(new UserEvent($user, ['action' => 'login']));
+
+                    flashy()->success("Bienvenue dans votre tableau de bord");
+
+                    return redirect()->route('bookcast.index');
+
+                    break;
+
+                case 3:
+                    
+                    auth()->login($user);
+
+                    switch ($user->user_type_id) {
+                        case 1:
+                            return redirect()->route('bookcast.index');
+                            break;
+
+                        case 2:
+                            return redirect()->route('member.package');
+                            break;
+
+                        case 3:
+                            return redirect()->route('artist.package');
+                            break;
+
+                        case 4:
+                            return redirect()->route('partner.package');
+                            break;
+
+                        case 5:
+                            return redirect()->route('photographer.package');
+                            break;
+                        
+                        default:
+                            // code...
+                            break;
+                    }
+
+                    break;
+
+                case 2:
+                    
+                    return redirect()->route('library.edit', ['library' => $user->library]);
+
+                    break;
+
+                case 1:
+                    
+                    auth()->login($user);
+
+                    switch ($user->user_type_id) {
+                        case 2:
+                            return redirect()->route('member.create');
+                            break;
+
+                        case 3:
+                            return redirect()->route('artist.create');
+                            break;
+
+                        case 4:
+                            return redirect()->route('partner.create');
+                            break;
+
+                        case 5:
+                            return redirect()->route('photographer.create');
+                            break;
+                        
+                        default:
+                            // code...
+                            break;
+                    }
+
+                    break;
+
+                case 0:
+                    
+                    $subscriber = Subscriber::where('slug', $user->slug)->firstOrFail();
+
+                    return redirect()->route('page.completed', array('email' => $subscriber->email, 'token' => $subscriber->token));
+
+                    break;
+                
+                default:    //error
+
+                    break;
             }
-
-            $user->update([
-                'last_login' => now(),
-                'nb_login' => ++$user->nb_login,
-            ]);
-
-            Transaction::create([
-                'activity' => "Connexion sur le site",
-                'user_id' => $user->id,
-                'transaction_type_id' => 1,
-            ]);
-
-            auth()->login($user, $request->has('remember'));
-
-            event(new UserEvent($user, ['action' => 'login']));
-
-            flashy()->success("Bienvenue dans votre tableau de bord");
-
-            return redirect()->route('bookcast.index');
         }
 
         return back()->withDanger("Impossible de satisfaire votre requête.");

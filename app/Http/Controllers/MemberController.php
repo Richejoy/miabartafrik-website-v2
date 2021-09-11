@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Package;
@@ -19,6 +20,48 @@ class MemberController extends Controller
         return view('members.index');
     }
 
+    public function create(Request $request)
+    {
+        $member = Member::where('user_id', auth()->id())->firstOrFail();
+
+        return view('members.create', compact('member'));
+    }
+
+    public function store(Request $request)
+    {
+        $member = Member::where('user_id', auth()->id())->firstOrFail();
+
+        if ($request->isMethod('POST')) {
+            
+            $this->validate($request, [
+                'work_id' => 'required',
+            ]);
+
+            try {
+
+                DB::beginTransaction();
+
+                $member->update($request->all());
+
+                auth()->user()->update([
+                    'completed' => 2,
+                ]);
+
+                DB::commit();
+
+                flashy()->success("Modifications éffectuées");
+                        
+                return redirect()->route('library.edit', ['library' => $member->user->library]);
+            } catch (\Exception $ex) {
+                DB::rollback();
+
+                session()->flash('danger', "Impossible de vous inscrire " . $ex);
+            }
+        }
+
+        return back();
+    }
+
     public function show(Request $request, Member $member)
     {
         abort_if(auth()->user()->blocked, 403, self::VIEW_BLOCKED_MESSAGE);
@@ -29,6 +72,15 @@ class MemberController extends Controller
     public function edit(Request $request, Member $member)
     {
         return view('members.edit', compact('member'));
+    }
+
+    public function update(Request $request, Member $member)
+    {
+        if ($request->isMethod('PUT')) {
+            
+        }
+        
+        return back();
     }
 
     public function package(Request $request, Package $package = null)
@@ -47,6 +99,7 @@ class MemberController extends Controller
             auth()->user()->update([
                 'activated' => true,
                 'can_login' => true,
+                'completed' => 4,
             ]);
 
             return redirect()->route('bookcast.index');

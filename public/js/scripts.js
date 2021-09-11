@@ -12,6 +12,11 @@ $(function () {
       }
     })
 
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+
     $('span.share-artist').click(function(e) {
         let div = $(this).data('show')
         $('#' + div).slideToggle()
@@ -24,6 +29,12 @@ $(function () {
 
     $('span.share-partner').click(function(e) {
         let div = $(this).data('show')
+        $('#' + div).slideToggle()
+    })
+
+    $('a.avantage').click(function(e) {
+        e.preventDefault()
+        var div = $(this).data('show')
         $('#' + div).slideToggle()
     })
 

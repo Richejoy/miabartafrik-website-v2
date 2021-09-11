@@ -36,67 +36,64 @@ class Controller extends BaseController
 	{
 		$folder = null;
 
-		if ($user_type_id > 0) {
-			switch ($user_type_id) {
-				case 1:
-					$folder = 'admins';
-					break;
+		switch ($user_type_id) {
+			case 1:
+				$folder = 'admins';
+				break;
 
-				case 2:
-					$folder = 'members';
-					break;
+			case 2:
+				$folder = 'members';
+				break;
 
-				case 3:
-					$folder = 'artists';
-					break;
+			case 3:
+				$folder = 'artists';
+				break;
 
-				case 4:
-					$folder = 'partners';
-					break;
+			case 4:
+				$folder = 'partners';
+				break;
 
-				case 5:
-					$folder = 'photographers';
-					break;
-				
-				default:
-					$folder = 'users';
-					break;
-			}
+			case 5:
+				$folder = 'photographers';
+				break;
+			
+			default:
+				$folder = 'users';
+				break;
 		}
 
 		return $folder;
 	}
 
-	protected function getAppropriateLocal(Request $request)
+	protected function getAppropriateLocal(int $civility_id)
 	{
 		$local = null;
 
-		if ($request->has('civility_id')) {
-			switch (intval($request->input('civility_id'))) {
-				case 1:
-					$local = 'man.png';
-					break;
+		switch ($civility_id) {
+			case 1:
+				$local = 'man.png';
+				break;
 
-				case 2:
-					$local = 'woman.png';
-					break;
+			case 2:
+				$local = 'woman.png';
+				break;
 
-				case 3:
-					$local = 'lady.png';
-					break;
-				
-				default:
-					$local = 'default.png';
-					break;
-			}
+			case 3:
+				$local = 'lady.png';
+				break;
+			
+			default:
+				$local = 'default.png';
+				break;
 		}
 
 		return $local;
 	}
 
-	protected function getAppropriateRemote(Request $request, string $folder)
+	protected function getAppropriateRemote(int $user_type_id, int $civility_id)
 	{
-		$local = $this->getAppropriateLocal($request);
+		$folder = $this->getAppropriateFolder($user_type_id);
+		$local = $this->getAppropriateLocal($civility_id);
 
 		return self::ONLINE_URL . "libraries/images/users/{$folder}/{$local}";
 	}

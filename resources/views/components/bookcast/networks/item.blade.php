@@ -22,7 +22,7 @@
             {{ $partner->individual->work->name }}     
             @endif
         </div>
-        <div class="all_services_mba"> 
+        <div class="all_services_mba">
             @forelse($partner->areas as $area)
                 <small class="all_services_mba_small">{{ $area->name }}</small>
             @empty

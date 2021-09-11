@@ -72,6 +72,10 @@ class PhotographerController extends Controller
                                     ]);
                                 }
 
+                                auth()->user()->update([
+                                    'completed' => 2,
+                                ]);
+
                                 DB::commit();
 
                                 flashy()->success("Modifications éffectuées");
@@ -122,6 +126,10 @@ class PhotographerController extends Controller
                                     ]);
                                 }
 
+                                auth()->user()->update([
+                                    'completed' => 2,
+                                ]);
+
                                 DB::commit();
 
                                 flashy()->success("Modifications éffectuées");
@@ -162,6 +170,10 @@ class PhotographerController extends Controller
 
     public function update(Request $request, Photographer $photographer)
     {
+        if ($request->isMethod('PUT')) {
+            
+        }
+        
         return back();
     }
 
@@ -181,6 +193,7 @@ class PhotographerController extends Controller
             auth()->user()->update([
                 'activated' => true,
                 'can_login' => true,
+                'completed' => 4,
             ]);
 
             return redirect()->route('bookcast.index');

@@ -5657,6 +5657,12 @@ font-size: 16px;
     overflow: hidden;
 }
 
+.preview_img_mba img { 
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
 .file_upload_wrapper_mba {
     position: relative;
     z-index: 5;
@@ -10045,6 +10051,13 @@ color: #0d478a;
   }
   
   /* Elite Pricing */
+
+  .plans-list{
+    margin: 0;
+    padding: 0;
+  }
+
+
   #miabart-pricingpackage-container{
     display:block;
     padding: 0 24px
@@ -11381,6 +11394,7 @@ font-size: 0.9rem;
 .right_sidebar{    
   background: #fff;
   padding: 5px;  
+  margin-bottom: .5rem;
   border-radius: 4px;
   color: #626262;  
   box-shadow: 0px 2px 3px -1px rgba(151, 171, 187, 0.7);

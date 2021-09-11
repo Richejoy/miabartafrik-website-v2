@@ -1,4 +1,4 @@
-<section>
+<section class="text-left">
     {!! Form::open(['route' => 'artist.store']) !!}
 
     <p class="dowload_photoProfile small-text">
@@ -7,23 +7,19 @@
 
     <div class="form-group">
         {{ Form::label('name', "Nom d'artiste", ['class' => 'required-text']) }}
-            {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => "Nom d'artiste", 'required' => true]) }}
+        {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => "Nom d'artiste", 'required' => true]) }}
     </div>
 
     <div class="form-group">
         {{ Form::label('area_id', "Domaines artistique", ['class' => 'required-text']) }}
-        <div class="parsley-select">
-            {{ Form::select('area_id', $areas, null, ['name' => 'area_id[]', 'class' => 'form-control select2', 'required' => true, 'multiple' => true]) }}
-        </div>
+        {{ Form::select('area_id', $areas, null, ['name' => 'area_id[]', 'class' => 'form-control select2', 'required' => true, 'multiple' => true]) }}
     </div>
 
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 {{ Form::label('language_id', "Langue", ['class' => 'required-text mg-b-10']) }}
-                <div class="parsley-select">
-                    {{ Form::select('language_id', $languages, null, ['class' => 'form-control select2', 'required' => true, 'placeholder' => "Langue"]) }}
-                </div>
+                {{ Form::select('language_id', $languages, null, ['class' => 'form-control select2', 'required' => true, 'placeholder' => "Langue"]) }}
             </div>
         </div>
         <div class="col-md-4">
@@ -43,7 +39,7 @@
     </div> 
 
     <div class="form-group">
-        {!! Form::submit('Enregistrer', ['class' => 'btnSignin ripple btn-main-primary btn-block']) !!}
+        {!! Form::submit('Enregistrer', ['class' => 'btnSignin ripple btn-block']) !!}
     </div>
 
     {!! Form::close() !!}

@@ -35,7 +35,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('bookcast.news') }}"><i class="ti-face-smile"></i>ActuArt</a>
+                <a class="nav-link" href="{{ route('bookcast.news') }}"><i class="fas fa-newspaper"></i>ActuArt</a>
             </li>
 
             <li class="nav-item">

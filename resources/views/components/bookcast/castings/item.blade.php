@@ -12,9 +12,9 @@
                 </div>
                 <div class="col-md-6 p-0">
                     <div class="float-right">
-                        <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $casting->place }}"><i class="fe fe-map-pin"></i></span>
+                        <span class="" data-toggle="tooltip" title="" data-original-title="{{ $casting->place }}"><i class="fe fe-map-pin"></i></span>
 
-                        <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $casting->country->nicename }}"><i class="{{ $casting->country->getFlag() }}"></i></span>
+                        <span class="" data-toggle="tooltip" title="" data-original-title="{{ $casting->country->nicename }}"><i class="{{ $casting->country->getFlag() }}"></i></span>
                     </div>
                 </div> 
             </div>
@@ -30,8 +30,8 @@
                </button>
             </div>
 
-            <div class="main_profilbook_header"> 
-                <nav class="contact-info"> 
+            <div class="main_profilbook_header">
+                <nav class="contact-info">
                     <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="356 392 (Vues)"><i class="fe fe-eye"></i>
                     </a>
 

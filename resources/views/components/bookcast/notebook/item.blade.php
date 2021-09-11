@@ -3,8 +3,7 @@
         <img src="{{ $event->library->remote }}" alt="{{ $event->library->description }}" class="image_agendaplus_bookcast">
 
         <div class="info_container_agendaplus">
-            <div class="titre">{{ $event->title }}
-            </div> 
+            <div class="titre">{{ $event->title }}</div> 
 
             <div class="row m-0 p-0">
                 <div class="col-md-6 p-0">
@@ -12,12 +11,23 @@
                 </div>
                 <div class="col-md-6 p-0">
                     <div class="float-right">
-                        <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $event->place }}"><i class="fe fe-map-pin"></i></span>
+                        <span class="" data-toggle="tooltip" title="" data-original-title="{{ $event->place }}"><i class="fe fe-map-pin"></i></span>
 
-                        <span class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="{{ $event->country->nicename }}"><i class="{{ $event->country->getFlag() }}"></i></span>
+                        <span class="" data-toggle="tooltip" title="" data-original-title="{{ $event->country->nicename }}"><i class="{{ $event->country->getFlag() }}"></i></span>
                     </div>
                 </div> 
-            </div> 
+            </div>
+
+            <div class="detail-buttons"> 
+               <button class="detail-button">
+                <a href="{{ route('event.show', ['event' => $event]) }}">Afficher l'évènement</a>
+               </button>
+               <button class="mr_publier">  
+                <div class="main-img-user online">
+                    <img alt="{{ $event->user->library->description }}" class="radius" src="{{ $event->user->library->remote }}">
+                </div>
+               </button>
+            </div>
 
             <div class="main_profilbook_header"> 
                 <nav class="contact-info"> 
@@ -32,17 +42,6 @@
 
                     <a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="" data-original-title="Publier"><i class="far fa-share-square"></i></a>
                 </nav>                                                      
-            </div>
-
-            <div class="detail-buttons"> 
-               <button class="detail-button">  
-                <a href="{{ route('event.show', ['event' => $event]) }}">Afficher l'évènement</a>
-               </button>
-               <button class="mr_publier">  
-                <div class="main-img-user online">
-                    <img alt="{{ $event->user->library->description }}" class="radius" src="{{ $event->user->library->remote }}">
-                </div>
-               </button>
             </div>
                  
         </div> 

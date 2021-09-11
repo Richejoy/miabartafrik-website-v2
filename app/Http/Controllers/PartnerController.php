@@ -72,6 +72,10 @@ class PartnerController extends Controller
                                     ]);
                                 }
 
+                                auth()->user()->update([
+                                    'completed' => 2,
+                                ]);
+
                                 DB::commit();
 
                                 flashy()->success("Modifications éffectuées");
@@ -122,6 +126,10 @@ class PartnerController extends Controller
                                     ]);
                                 }
 
+                                auth()->user()->update([
+                                    'completed' => 2,
+                                ]);
+
                                 DB::commit();
 
                                 flashy()->success("Modifications éffectuées");
@@ -162,6 +170,10 @@ class PartnerController extends Controller
 
     public function update(Request $request, Partner $partner)
     {
+        if ($request->isMethod('PUT')) {
+            
+        }
+        
         return back();
     }
 
@@ -181,6 +193,7 @@ class PartnerController extends Controller
             auth()->user()->update([
                 'activated' => true,
                 'can_login' => true,
+                'completed' => 4,
             ]);
 
             return redirect()->route('bookcast.index');
