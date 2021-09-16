@@ -7,11 +7,7 @@
     </div>
     <h3 class="partnername">
         <a href="{{ route('partner.show', ['partner' => $partner]) }}" title="Voir la fiche">
-            @if($partner->person_type_id == 1)
-                {{ $partner->individual->name }}
-            @else
-                {{ $partner->society->name }}
-            @endif
+            {{ $partner->getName() }}
 
             <x-verified-account />
         </a>

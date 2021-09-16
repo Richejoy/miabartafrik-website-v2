@@ -14,14 +14,8 @@ class Individual extends Model
 
     protected $fillable = [
         'name',
-        'person_level_id',
         'work_id',
     ];
-
-    public function personLevel()
-    {
-        return $this->belongsTo(PersonLevel::class);
-    }
 
     public function work()
     {

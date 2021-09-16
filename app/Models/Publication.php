@@ -40,7 +40,7 @@ class Publication extends Model
     /**
      * Return a collection of User model
     */
-    public function publicationUsers()
+    public function users()
     {
         return $this->belongsToMany(User::class);
     }
@@ -48,7 +48,7 @@ class Publication extends Model
     /**
      * Return a collection of Library model
     */
-    public function publicationLibraries()
+    public function libraries()
     {
         return $this->belongsToMany(Library::class);
     }
@@ -84,5 +84,10 @@ class Publication extends Model
             'publication_state_id' => 3,
             'published' => true,
         ]);
+    }
+
+    public function isOwner()
+    {
+        return (bool) $this->user_id == auth()->id();
     }
 }

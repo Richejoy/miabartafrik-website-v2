@@ -1,12 +1,12 @@
 <section>
-    {!! Form::open(['route' => 'publication.store', 'id' => 'publication-form']) !!}
+    {!! Form::open(['route' => 'publication.store', 'id' => 'publicationForm']) !!}
     <div class="write_post_container">
         <div class="media">
             <div class="media-user mr-2">
                 <div class="main-img-user avatar-md"><img alt="{{ auth()->user()->library->description }}" class="rounded-circle" src="{{ auth()->user()->library->remote }}"></div>
             </div>
             <div class="media-body">
-                <h6 class="mb-0 mg-t-2">{{ auth()->user()->full_name }}</h6>
+                <h6 class="mb-0 mg-t-2">{{ auth()->user()->username }}</h6>
                 <span class="post__date">
                   <a href="#">{{ date('d M Y') }}</a>
                 </span>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="post_input_container">
-            <textarea required class="form-control" placeholder="A quoi penses-tu, {{ auth()->user()->full_name }} ?" id="publication-input" name="content" rows="3"></textarea>
+            <textarea required class="form-control" placeholder="A quoi penses-tu, {{ auth()->user()->username }} ?" id="publicationContent" name="content" rows="3"></textarea>
             <input type="hidden" name="publication_state_id" value="1" id="publicationStateId">
             <div class="page-header">
                 <div>
@@ -41,10 +41,7 @@
                 </div>
                 <div class="d-flex">
                     <div class="justify-content-center">
-                        <button
-                        id="btn-submit-publication"
-                        type="submit"
-                        class="btn btn-secondary btn-icon-text">
+                        <button type="submit" class="btn btn-secondary btn-icon-text">
                           <i class="fe fe-send mr-2"></i> Publier
                         </button>
                     </div>

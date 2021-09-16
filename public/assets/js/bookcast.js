@@ -58,6 +58,18 @@ $(function() {
   });
 });
 
+//  FAQS RESPONSIVE
+$('body').delegate('.c-faq', 'click', function(){
+  $('.c-faq').removeClass('c-faq--active');
+  $(this).addClass('c-faq--active');
+});
+
+//  MIABPAY ONLINE
+$('body').delegate('.miabPay', 'click', function(){
+  $('.miabPay').removeClass('miabPay_payments_active');
+  $(this).addClass('miabPay_payments_active');
+});
+
 //  VIDEO YOUTUBE OU HTML PAYING
 
 $(".video-preview-image_mba")

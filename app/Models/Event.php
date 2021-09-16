@@ -42,4 +42,14 @@ class Event extends Model
     {
         return Carbon::parse($this->end_date);
     }
+
+    public function getPeriod()
+    {
+        return $this->getStartDate()->format('d M Y') . ' au ' . $this->getEndDate()->format('d M Y');
+    }
+
+    public function diffDaysBetweenStartAndEndDate()
+    {
+        return $this->getStartDate()->diffInDays($this->getEndDate(), false);
+    }
 }

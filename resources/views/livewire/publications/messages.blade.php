@@ -1,15 +1,12 @@
-<div class="col-12" wire:poll.visible.60s>
+<div class="col-12" wire:poll.visible.10s>
     
-    @if(auth()->check())
-    <table class="table">
+    <table class="table table-bordered">
         <tr>
-            <th class="table-dark">Publications</th>
-            <th>Vous : {{ $userPublications->count() }}</th>
-            <th>Les autres : {{ $publications->count() - $userPublications->count() }}</th>
-            <th>Total : {{ $publications->count() }}</th>
+            <th class="table-success">Vous : {{ $userPublications->count() }}</th>
+            <th class="table-warning">Les autres : {{ $publications->count() - $userPublications->count() }}</th>
+            <th class="table-danger">Total : {{ $publications->count() }}</th>
         </tr>
     </table>
-    @endif
 
     @forelse($publications as $publication)
     <!-- Post container -->
@@ -24,7 +21,7 @@
                     </div>
                 </div>
                 <div class="media-body">
-                    <h6 class="mb-0 mg-t-2 ml-2">{{ $publication->user->full_name }}</h6>
+                    <h6 class="mb-0 mg-t-2 ml-2">{{ $publication->user->username }}</h6>
                     <span class="text-primary ml-2">{{ $publication->created->diffForHumans() }}</span>
 
                     <span class="post__date-privacy-separator">&nbsp;</span>
@@ -37,7 +34,7 @@
 
                 </div>
                 <div class="ml-auto">
-                    @if($publication->user_id == auth()->id())
+                    @if($publication->isOwner())
                     <div class="dropdown">
                         <a class="new option-dots2" data-toggle="dropdown" href="JavaScript:void(0);" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
                         <div class="dropdown-menu dropdown-menu-right shadow"
@@ -75,7 +72,7 @@
                 {!! Str::words(nl2br($publication->content), 250) !!}
             </div>
 
-            @if(!is_null($library = $publication->publicationLibraries->first()))
+            @if(!is_null($library = $publication->libraries->first()))
 
             <div class="container">
                 @if($library->library_type_id == 1)
@@ -113,7 +110,7 @@
                 <div class="media-user mr-2">
                     <div class="demo-avatar-group">
                         <div class="demo-avatar-group main-avatar-list-stacked">
-                            @forelse($publication->publicationUsers->take(3) as $user)
+                            @forelse($publication->users->take(3) as $user)
                             <div class="main-img-user">
                                 <img alt="{{ $user->library->description }}"
                                     class="rounded-circle"
@@ -122,7 +119,7 @@
                             @empty
                             @endforelse
 
-                            <div class="main-avatar"> +{{ $publication->publicationUsers->take(3)->count() }}</div>
+                            <div class="main-avatar"> +{{ $publication->users->take(3)->count() }}</div>
                         </div>
                         <!-- demo-avatar-group -->
                     </div>
@@ -130,15 +127,15 @@
                 </div>
                 <div class="media-body">
                     <h6 class="mb-0 mg-t-10">
-                        @if($publication->publicationUsers->count())
+                        @if($publication->users->count())
 
-                        @if($publication->publicationUsers->contains(auth()->user()))
+                        @if($publication->users->contains(auth()->user()))
 
-                        vous et {{ $publication->publicationUsers->count() }} {{ Str::plural('autre', $publication->publicationUsers->count()) }} {{ Str::plural('personne', $publication->publicationUsers->count()) }} aiment la publication.
+                        vous et {{ $publication->users->count() }} {{ Str::plural('autre', $publication->users->count()) }} {{ Str::plural('personne', $publication->users->count()) }} aiment la publication.
 
                         @else
 
-                        {{ $publication->publicationUsers->count() }} {{ Str::plural('personne', $publication->publicationUsers->count()) }} aiment la publication.
+                        {{ $publication->users->count() }} {{ Str::plural('personne', $publication->users->count()) }} aiment la publication.
 
                         @endif
 
@@ -152,7 +149,7 @@
                         <a class="new" href="#" data-toggle="modal" data-target="#publicationViewModal"><i class="far fa-eye mr-3"></i></a>
 
                         <a class="new" href="#" wire:click.prevent="toggleLikeUser({{ $publication->id }})">
-                            @if($publication->publicationUsers->contains(auth()->user()))
+                            @if($publication->users->contains(auth()->user()))
                             <i class="far fa-heart mr-3 text-success"></i>
                             @else
                             <i class="far fa-heart mr-3"></i>

@@ -16,7 +16,7 @@
                 <div class="main_profilbook_header">
                     <div class="main_book_name">
                         <h6>
-                            <a href="{{ route('photographer.show', ['photographer' => $photographer]) }}">{{ $photographer->user->full_name }}</a>
+                            <a href="{{ route('photographer.show', ['photographer' => $photographer]) }}">{{ $photographer->getName() }}</a>
 
                             <x-verified-account />
                         </h6>

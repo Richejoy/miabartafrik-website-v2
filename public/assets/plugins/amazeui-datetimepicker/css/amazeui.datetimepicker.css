@@ -17,7 +17,7 @@
     margin: 0 0 0;
     display: none;
     width: auto !important;
-    z-index: 5 !important;
+    z-index: 99999 !important;
 }
 .datetimepicker:before {
 	content: '';

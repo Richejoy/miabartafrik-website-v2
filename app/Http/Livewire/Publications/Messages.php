@@ -44,20 +44,20 @@ class Messages extends Component
     */
     public function toggleLikeUser(int $id)
     {
-        Publication::find($id)->publicationUsers()->toggle(auth()->id());
+        Publication::find($id)->users()->toggle(auth()->id());
 
         $this->emitSelf('handleRefresh');
     }
 
     public function render()
     {
-        $userPublications = Publication::with(['user', 'publicationState', 'publicationUsers', 'publicationLibraries'])
+        $userPublications = Publication::with(['user', 'publicationState', 'users', 'libraries'])
         ->where([
             'user_id' => auth()->id(),
             'published' => true,
         ])->latest()->get();
 
-        $publicPublications = Publication::with(['user', 'publicationState', 'publicationUsers', 'publicationLibraries'])->publicly()->latest()->get();
+        $publicPublications = Publication::with(['user', 'publicationState', 'users', 'libraries'])->publicly()->latest()->get();
 
         $publications = $userPublications->merge($publicPublications);
 

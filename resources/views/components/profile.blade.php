@@ -8,7 +8,7 @@
                 <img width="100px" height="100px" alt="{{ auth()->user()->library->description }}"
                 src="{{ auth()->user()->library->remote }}">
             </p>
-            <h6 class="main-notification-title">{{ auth()->user()->full_name }}</h6>
+            <h6 class="main-notification-title">{{ auth()->user()->username }}</h6>
             <p class="main-notification-text">{{ auth()->user()->userType->name }}</p>
         </div>
         <a class="dropdown-item border-top" href="{{ route('user.index') }}">

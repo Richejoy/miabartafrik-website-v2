@@ -1,4 +1,4 @@
-@extends('layouts.auth', ['title' => "Ecran véroullé"])
+@extends('layouts.auth', ['title' => "Ecran vérroullé"])
 
 @section('body')
 
@@ -7,9 +7,7 @@
     <div class="row signpages text-center">
         <div class="col-md-12">
             
-            <div class="row">
-                @include("layouts.partials._validation_errors")
-            </div>
+            @include("layouts.partials._validation_errors")
 
             <div class="card">
                 <div class="row row-sm m-0">
@@ -42,7 +40,7 @@
                                             <img alt="avatar avatar-sm" class="rounded-circle mb-0"
                                                 src="{{ session('lockUser')->library->remote }}">
                                             <div class="my-auto">
-                                                <p class="font-weight-semibold my-auto ml-2 text-uppercase">{{ session('lockUser')->full_name }}
+                                                <p class="font-weight-semibold my-auto ml-2 text-uppercase">{{ session('lockUser')->username }}
                                                 </p>
                                                 <p class="font-weight-semibold my-auto ml-2">{{ session('lockUser')->userType->name }}
                                                 </p>

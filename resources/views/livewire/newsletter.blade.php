@@ -2,8 +2,6 @@
     <div class="component-item">
         <div class="right_sidebar">
 
-            @include("layouts.partials._validation_errors")
-
             {!! Form::open(['route' => 'newsletter.store', 'wire:submit.prevent' => 'save']) !!}
                 <div class="sidebar_titre">
                     <h4>NewsLetter</h4>

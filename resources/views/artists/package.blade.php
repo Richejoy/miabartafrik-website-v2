@@ -1,4 +1,4 @@
-@extends('layouts.auth', ['title' => auth()->user()->full_name])
+@extends('layouts.auth', ['title' => $artist->name])
 
 @section('body')
 
@@ -7,9 +7,7 @@
     <div class="row signpages text-center">
         <div class="col-md-12">
             
-            <div class="row">
-                @include("layouts.partials._validation_errors")
-            </div>
+            @include("layouts.partials._validation_errors")
 
             <div class="card">
                 <div class="row row-sm m-0">

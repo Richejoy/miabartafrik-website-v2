@@ -8,9 +8,7 @@
     <div class="row signpages">
         <div class="col-md-12">
             
-            <div class="row">
-                @include("layouts.partials._validation_errors")
-            </div>
+            @include("layouts.partials._validation_errors")
 
             <div class="card">
                 <div class="row">

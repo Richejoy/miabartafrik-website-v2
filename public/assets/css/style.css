@@ -3602,7 +3602,7 @@ fieldset:disabled a.btn {
 }
 
 .card-dashboard-twentysix.card-dark-two {
-    background-image: linear-gradient(to bottom, #0a47ff 0%, #6259ca 100%);
+    background-image: linear-gradient(to bottom, #0a47ff 0%, #1b75b3 100%);
     background-repeat: repeat-x;
 }
 
@@ -4465,7 +4465,7 @@ fieldset:disabled a.btn {
     z-index: 1000;
     display: none;
     float: left;
-    min-width: 10rem;
+    min-width: 15rem;
     padding: 0.5rem 0;
     margin: 0.125rem 0 0;
     font-size: 0.875rem;
@@ -4476,7 +4476,7 @@ fieldset:disabled a.btn {
     background-clip: padding-box;
     border: 1px solid #ffffff;
     border-radius: 0px;
-    box-shadow: -8px 12px 18px 0 rgba(21, 21, 62, 0.3);
+    box-shadow: 0px 2px 3px 2px rgba(151, 171, 187, 0.7);
 }
 
 .dropdown-menu[x-placement^="top"],
@@ -6936,7 +6936,7 @@ div.dtr-modal div.dtr-modal-content {
 }
 
 .main-nav-column .nav-link.active i:not([class*=' tx-']) {
-    color: #6259ca !important;
+    color: #1b75b3 !important;
 }
 
 .main-nav-column .nav-link.active::before {
@@ -8262,28 +8262,28 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 
 .tooltip-primary .tooltip-inner {
-    background-color: #6259ca;
+    background-color: #1b75b3;
     color: #ffffff;
 }
 
 .tooltip-primary.bs-tooltip-top .arrow::before,
 .tooltip-primary.bs-tooltip-auto[x-placement^="top"] .arrow::before {
-    border-top-color: #6259ca;
+    border-top-color: #1b75b3;
 }
 
 .tooltip-primary.bs-tooltip-bottom .arrow::before,
 .tooltip-primary.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
-    border-bottom-color: #6259ca;
+    border-bottom-color: #1b75b3;
 }
 
 .tooltip-primary.bs-tooltip-left .arrow::before,
 .tooltip-primary.bs-tooltip-auto[x-placement^="left"] .arrow::before {
-    border-left-color: #6259ca;
+    border-left-color: #1b75b3;
 }
 
 .tooltip-primary.bs-tooltip-right .arrow::before,
 .tooltip-primary.bs-tooltip-auto[x-placement^="right"] .arrow::before {
-    border-right-color: #6259ca;
+    border-right-color: #1b75b3;
 }
 
 .tooltip-secondary .tooltip-inner {
@@ -12577,8 +12577,8 @@ textarea.parsley-success:focus {
 
 .select2-container--default .select2-selection--multiple {
     background-color: #ffffff;
-    border-color: #f0f0ff;
-    border-radius: 0;
+    border-color: #d2d2d2;
+    border-radius: 3px;
     min-height: 38px;
     outline: none;
 }
@@ -14640,6 +14640,7 @@ end page_miabartAfrik_not_found
 .main_profilbook_header {
     flex-shrink: 0;
     text-align: center;
+    padding-bottom: 5px;
 }
 
 .contact-info {
@@ -15631,7 +15632,7 @@ text-align: center;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     background: url(https://miabartafrik.com/public/assets/img/bkg/homeimg_bookcast.png); 
-    background-color: #b0b0b0;
+    background-color: #151618;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -16914,7 +16915,7 @@ ul.inbox-pagination {
 
 .mail-option .dropdown-menu>li>a:hover {
     background: #f1f2f9;
-    color: #6259ca;
+    color: #1b75b3;
 }
 
 /* ###### Mail  ###### */
@@ -17449,7 +17450,7 @@ ul.inbox-pagination {
 }
 
 .btn-default.active {
-    background: #6259ca;
+    background: #1b75b3;
     color: #ffffff;
     border-bottom: 2px solid #433c9a;
 }
@@ -17641,7 +17642,7 @@ ul.inbox-pagination {
 }
 
 .crypto-btc-usd .nav-link.active {
-    background: #6259ca;
+    background: #1b75b3;
     border-radius: 3px;
     color: #ffffff;
 }
@@ -17730,7 +17731,7 @@ ul.inbox-pagination {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 0 10px;
+    margin: 0 5px;
     border-radius: 3px;
     font-weight: 500;
 }
@@ -17748,11 +17749,11 @@ ul.inbox-pagination {
 }
 
 input:checked+label.payment-cards {
-    border-color: #6259ca !important;
+    border-color: #1b75b3 !important;
     position: relative !important;
     display: block !important;
     border-width: 1px;
-    color: #6259ca;
+    color: #1b75b3;
 }
 
 .form input:checked+label:after,
@@ -17763,7 +17764,7 @@ form input:checked+label:after {
     line-height: 17px;
     border-style: solid;
     border-width: 0 35px 35px 0px;
-    border-color: #6259ca #6259ca transparent;
+    border-color: #1b75b3 #1b75b3 transparent;
     display: block;
     position: absolute;
     top: 0;
@@ -17777,7 +17778,7 @@ form input:checked+label:after {
     line-height: 17px;
     border-style: solid;
     border-width: 0 35px 35px 0px;
-    border-color: #6259ca #6259ca transparent;
+    border-color: #1b75b3 #1b75b3 transparent;
     display: block;
     position: absolute;
     top: 0;
@@ -17828,7 +17829,7 @@ form input:checked+label:before,
     height: 0;
     border: solid transparent;
     border-width: 10px;
-    border-top-color: #6259ca;
+    border-top-color: #1b75b3;
     content: '';
     pointer-events: none;
 }
@@ -17843,7 +17844,7 @@ form input:checked+label:before,
 }
 
 .crypto-buysell-card .nav.panel-tabs li a.active {
-    background: #6259ca;
+    background: #1b75b3;
     color: #ffffff;
 }
 
@@ -17869,14 +17870,14 @@ form input:checked+label:before,
 }
 
 .crypto-wallet .clipboard-icon {
-    background-color: #6259ca !important;
-    border-color: #6259ca !important;
+    background-color: #1b75b3 !important;
+    border-color: #1b75b3 !important;
     border-radius: 0 4px 4px 0 !important;
     top: 0;
     right: 0;
     font-size: 14px;
-    background: #6259ca;
-    border: 1px solid #6259ca;
+    background: #1b75b3;
+    border: 1px solid #1b75b3;
     cursor: pointer;
     padding: 0.375rem 0.75rem;
     font-size: 0.875rem;
@@ -17887,14 +17888,14 @@ form input:checked+label:before,
 
 .crypto-wallet .clipboard-icon:hover,
 .crypto-wallet .clipboard-icon:focus {
-    background-color: #6259ca !important;
-    border-color: #6259ca !important;
+    background-color: #1b75b3 !important;
+    border-color: #1b75b3 !important;
     border-radius: 0 4px 4px 0 !important;
     top: 0;
     right: 0;
     font-size: 14px;
-    background: #6259ca;
-    border: 1px solid #6259ca;
+    background: #1b75b3;
+    border: 1px solid #1b75b3;
     cursor: pointer;
     padding: 0.375rem 0.75rem;
     font-size: 0.875rem;
@@ -18044,7 +18045,7 @@ table.dataTable thead .sorting_asc_disabled:after,
     font-size: 20px;
     line-height: 37px;
     font-size: 17px;
-    color: #6259ca;
+    color: #1b75b3;
 }
 
 .product-timeline ul.timeline-1:before {
@@ -18285,7 +18286,7 @@ table.dataTable thead .sorting_asc_disabled:after,
     line-height: 1.573;
     color: #ffffff;
     border-radius: 4px;
-    background: #6259ca;
+    background: #1b75b3;
 }
 
 #checkoutsteps>.actions .disabled a {
@@ -18349,7 +18350,7 @@ table.dataTable thead .sorting_asc_disabled:after,
 }
 
 #checkoutsteps>.steps .current a .number {
-    background: #6259ca;
+    background: #1b75b3;
     color: #ffffff;
 }
 
@@ -18438,7 +18439,7 @@ table.dataTable thead .sorting_asc_disabled:after,
 }
 
 .card-pay .tabs-menu li a.active {
-    background: #6259ca;
+    background: #1b75b3;
     color: #ffffff;
 }
 
@@ -18471,14 +18472,14 @@ table.dataTable thead .sorting_asc_disabled:after,
 }
 
 .item1-links .nav-item a.active {
-    background-color: #6259ca;
+    background-color: #1b75b3;
     color: #ffffff;
     border-radius: 0;
 }
 
 .item1-links .nav-link:hover,
 .item1-links .nav-link:focus {
-    background-color: #6259ca;
+    background-color: #1b75b3;
     color: #ffffff;
     border-radius: 0;
 }
@@ -18534,11 +18535,11 @@ table.dataTable thead .sorting_asc_disabled:after,
 }
 
 .track .step.active:before {
-    background: #6259ca;
+    background: #1b75b3;
 }
 
 .track .step.active .icon {
-    background: #6259ca;
+    background: #1b75b3;
     color: #ffffff;
 }
 
@@ -67359,7 +67360,7 @@ a.tag-addon:hover {
 }
 
 .tag-indigo {
-    background-color: #6259ca;
+    background-color: #1b75b3;
     color: #ffffff;
 }
 
@@ -68665,7 +68666,7 @@ a.tag-addon:hover {
     line-height: 1.573;
     color: #ffffff;
     border-radius: 4px;
-    background: #6259ca;
+    background: #1b75b3;
 }
 
 .wizard>.actions a:hover,
@@ -70704,8 +70705,8 @@ a.tag-addon:hover {
 
 .list-group-item.active {
     color: #ffffff;
-    background-color: #6259ca;
-    border-color: #6259ca;
+    background-color: #1b75b3;
+    border-color: #1b75b3;
 }
 
 /* ###### List-group ###### */

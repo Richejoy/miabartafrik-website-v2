@@ -1,4 +1,4 @@
-@extends('layouts.auth', ['title' => $partner->user->full_name])
+@extends('layouts.auth', ['title' => $partner->user->username])
 
 @section('body')
 
@@ -7,9 +7,7 @@
     <div class="row signpages text-center">
         <div class="col-md-12">
             
-            <div class="row">
-                @include("layouts.partials._validation_errors")
-            </div>
+            @include("layouts.partials._validation_errors")
 
             <div class="card">
                 <div class="row row-sm m-0">
@@ -18,7 +16,11 @@
                             <img src="{{ asset('public/assets/img/brand/logo-light.png') }}"
                                 class="header-brand-img mb-4" alt="logo">
                             <div class="clearfix"></div>
-                            <img src="{{ $partner->user->library->remote }}" class="ht-100 mb-0 avatar_inscription" alt="{{ $partner->user->library->description }}">
+
+                            <span class="avatar_inscription">
+                                <img src="{{ $partner->user->library->remote }}" alt="{{ $partner->user->library->description }}">
+                            </span>
+
                             <h5 class="mt-4 text-white textSignHead">{{ auth()->user()->username }}</h5>
                             <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Description</span>
                         </div>

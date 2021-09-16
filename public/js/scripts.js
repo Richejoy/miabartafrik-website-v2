@@ -74,36 +74,9 @@ $(function () {
         $(this).trigger('reset')
     })*/
 
-    $('[data-toggle-publication-state]').click(function (e) {
-        e.preventDefault()
-
-        let classAttr;
-        let dataAttr;
-
-        $('#publicationStateId').val($(this).data('toggle-publication-state'))
-
-        switch($('#publicationStateId').val()) {
-            case '3':
-                classAttr = 'post__privacy fe fe-users'
-                dataAttr = 'Amis'
-                break;
-
-            case '2':
-                classAttr = 'post__privacy si si-lock'
-                dataAttr = 'Privée'
-                break;
-
-            default:
-                classAttr = 'post__privacy si si-globe'
-                dataAttr = 'Publique'
-        }
-
-        $('#publication-state').attr('class', classAttr)
-        $('#publication-state').attr('data-original-title', dataAttr)
-    })
-
 })
 
+/*
 Livewire.on('publicationCreated', () => {
     console.error('okkkk')
 
@@ -114,3 +87,4 @@ Livewire.on('publicationCreated', () => {
 Livewire.on('publicationFormSet', () => {
     console.error('okkkkcsc')
 })
+*/

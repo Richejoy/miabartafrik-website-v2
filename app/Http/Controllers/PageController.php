@@ -129,6 +129,7 @@ class PageController extends Controller
     public function login(Request $request)
     {
         //event(new MessageEvent('hello world'));
+        //dd(bcrypt(123456789));
         
         if ($request->isMethod('POST')) {
 
@@ -200,13 +201,13 @@ class PageController extends Controller
         if ($request->isMethod('POST')) {
 
             $this->validate($request, [
-                'username' => 'required|unique:users',
                 'country_id' => 'required',
                 'civility_id' => 'required',
                 'first_name' => 'required|min:3',
                 'last_name' => 'required|min:3',
                 'email' => 'required|email|unique:users',
                 'phone' => 'required|unique:users',
+                'username' => 'required|unique:users',
                 'city' => 'required|min:3',
                 'address' => 'required|min:3',
                 'password' => 'required|min:9|confirmed',
@@ -526,7 +527,7 @@ class PageController extends Controller
 
                     event(new UserEvent($user, ['action' => 'login']));
 
-                    flashy()->success("Bienvenue dans votre tableau de bord");
+                    flashy()->success("Bienvenue " . $user->username . " !");
 
                     return redirect()->route('bookcast.index');
 

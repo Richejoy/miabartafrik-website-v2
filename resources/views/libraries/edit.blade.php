@@ -7,9 +7,7 @@
     <div class="row signpages text-center">
         <div class="col-md-12">
             
-            <div class="row">
-                @include("layouts.partials._validation_errors")
-            </div>
+            @include("layouts.partials._validation_errors")
 
             <div class="card">
                 <div class="row row-sm m-0">
@@ -30,7 +28,7 @@
                                     <img src="{{ asset('public/assets/img/brand/logo.png') }}" class=" d-lg-none header-brand-img text-left float-left mb-4" alt="logo">
                                     <div class="clearfix"></div>
                                     <h5 class="textSignHead">Photo de profil</h5>
-                                    <p class="text-muted tx-13 m-0">Faites vous connaître en modifiant votre photo de profil par défaut générer par le système</p>
+                                    <p class="text-muted tx-13 m-0">Faites vous connaître en modifiant votre photo de profil.</p>
                                 </div>
 
                                 <div id="content-3" class="custom-scrollbar-js">

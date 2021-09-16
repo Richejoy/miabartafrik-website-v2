@@ -16,18 +16,6 @@
         <!-- info -->
         <div class="card custom-card">
             <div class="sidebar_titre">
-                <h4>Photographe à la une</h4>
-                <a href="{{ route('bookcast.visuoshop') }}">Tout afficher</a>
-            </div>
-            <div class="right_sidebar">
-                @livewire('bookcast.visuoshop.item', ['fetch' => 'one'])
-            </div>
-        </div>
-        <!-- end info -->
-
-        <!-- info -->
-        <div class="card custom-card">
-            <div class="sidebar_titre">
                 <h4>Partenaire à la une</h4>
                 <a href="{{ route('bookcast.networks') }}">Tout afficher</a>
             </div>
@@ -40,11 +28,35 @@
         <!-- info -->
         <div class="card custom-card">
             <div class="sidebar_titre">
+                <h4>Photographe à la une</h4>
+                <a href="{{ route('bookcast.visuoshop') }}">Tout afficher</a>
+            </div>
+            <div class="right_sidebar">
+                @livewire('bookcast.visuoshop.item', ['fetch' => 'one'])
+            </div>
+        </div>
+        <!-- end info -->
+
+        <!-- info -->
+        <div class="card custom-card">
+            <div class="sidebar_titre">
                 <h4>Casting à la une</h4>
                 <a href="{{ route('bookcast.castings') }}">Tout afficher</a>
             </div>
             <div class="right_sidebar">
                 @livewire('bookcast.castings.item', ['fetch' => 'one'])
+            </div>
+        </div>
+        <!-- end info -->
+
+        <!-- info -->
+        <div class="card custom-card">
+            <div class="sidebar_titre">
+                <h4>Vote à la une</h4>
+                <a href="{{ route('bookcast.elections') }}">Tout afficher</a>
+            </div>
+            <div class="right_sidebar">
+                @livewire('bookcast.elections.item', ['fetch' => 'one'])
             </div>
         </div>
         <!-- end info -->
@@ -81,18 +93,6 @@
             </div>
             <div class="right_sidebar">
                 @livewire('bookcast.news.item', ['fetch' => 'one'])
-            </div>
-        </div>
-        <!-- end info -->
-
-        <!-- info -->
-        <div class="card custom-card">
-            <div class="sidebar_titre">
-                <h4>Vote à la une</h4>
-                <a href="{{ route('bookcast.elections') }}">Tout afficher</a>
-            </div>
-            <div class="right_sidebar">
-                @livewire('bookcast.elections.item', ['fetch' => 'one'])
             </div>
         </div>
         <!-- end info -->

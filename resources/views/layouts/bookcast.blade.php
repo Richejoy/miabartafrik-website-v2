@@ -61,6 +61,8 @@
 
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
     <script src="{{ asset('public/js/pusher.js') }}"></script>
+
+    <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 </head>
 
 <body class="horizontalmenu bookcast_body">
@@ -195,6 +197,8 @@
     @include('flashy::message')
 
     <script src="{{ asset('public/js/scripts.js') }}"></script>
+
+    <script src="{{ asset('public/js/app.js') }}"></script>
 </body>
 
 </html>

@@ -7,9 +7,7 @@
     <div class="row signpages text-center">
         <div class="col-md-12">
             
-            <div class="row">
-                @include("layouts.partials._validation_errors")
-            </div>
+            @include("layouts.partials._validation_errors")
 
             <div class="card">
                 <div class="row row-sm m-0">
@@ -34,7 +32,7 @@
                                 </div>
 
                                 <div id="content-3" class="custom-scrollbar-js">
-                                    {!! Form::open(['route' => 'page.password_forgot']) !!}
+                                    {!! Form::open() !!}
                                     <div class="form-group text-left">
                                         {{ Form::label('email_phone_username', "Identifiants", ['class' => 'required-text mg-b-10 label_mba']) }}
                                         {!! Form::text('email_phone_username', null, ['class' => 'form-control', 'required' => true, 'placeholder' => "Email | téléphone | nom d'utilisateur"]) !!}

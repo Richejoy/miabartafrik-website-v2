@@ -373,6 +373,18 @@ text-align: center;
   color:tomato;
 }
 
+.avatar_inscription{   
+  width: 200px !important; 
+  height: 200px !important; 
+  border-radius: 100% !important;
+}
+
+.avatar_inscription img{   
+  width: 200px !important; 
+  height: 200px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+}
  /*------ experiences infos book -------*/
 
 
@@ -1249,6 +1261,9 @@ text-align: center;
   color: #d7d4d4;  
 }
 
+.plus_details_all {
+  margin-right: 0.2rem;
+}
 .mr_publier {
   margin-left: 0.2rem;
 }
@@ -1273,6 +1288,7 @@ text-align: center;
   width: 100%;
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
+  padding-bottom: 5px;
 }
 
 
@@ -4947,8 +4963,7 @@ button {
 
 /* castings news 04 07 2021 */
 .castingart_newByOsez {
-  margin-bottom: 1rem;  
-  text-align: center;
+  margin-bottom: 1rem;   
 }
 .castingart_newByOsez__side {
   width: 100%;
@@ -4970,8 +4985,9 @@ button {
 .castingart_newByOsez__img {
   background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
   background-size: cover;
+  background-position: center;
   background-blend-mode: screen;
-  height: 10rem;
+  height: 13rem;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 .castingart_newByOsez__text {
@@ -5042,10 +5058,10 @@ button {
  
  
 .infos_plus_bookcast .desc {
-  width: 50%;
+  width: 100%;
 }
 .infos_plus_bookcast .desc1 {
-  width: 85%;
+  width: 100%;
 }
  
 .infos_plus_bookcast h4 {
@@ -6522,17 +6538,16 @@ figure.snip1253.hover img {
 }
 
  
-
-.dateWrapper_agendaplus_bookcast{
+.dateWrapper_agendaplus_bookcast_only{
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
-  background-color: white;
+  background-color: #ffffffd6;
   width: 62px;
   height: 62px;
-  top: 130px;
-  right: 4px;
+  top: 115px;
+  right: .3rem;
   border-radius: 8px;
   padding: 8px;
   box-sizing: border-box;
@@ -6541,6 +6556,45 @@ figure.snip1253.hover img {
   box-shadow: -6px 11px 25px -10px rgba(0,0,0,0.25);
 }
 
+.dateWrapper_agendaplus_bookcast_first{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  background-color: #ffffffd6;
+  width: 62px;
+  height: 62px;
+  top: 115px;
+  right: 4.5rem;
+  border-radius: 8px;
+  padding: 8px;
+  box-sizing: border-box;
+  -webkit-box-shadow: -6px 11px 25px -10px rgba(0,0,0,0.25);
+  -moz-box-shadow: -6px 11px 25px -10px rgba(0,0,0,0.25);
+  box-shadow: -6px 11px 25px -10px rgba(0,0,0,0.25);
+}
+
+
+
+.dateWrapper_agendaplus_bookcast_second{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  background-color: #ffffffd6;
+  width: 62px;
+  height: 62px;
+  top: 115px;
+  right: .3rem;
+  border-radius: 8px;
+  padding: 8px;
+  box-sizing: border-box;
+  -webkit-box-shadow: -6px 11px 25px -10px rgba(0,0,0,0.25);
+  -moz-box-shadow: -6px 11px 25px -10px rgba(0,0,0,0.25);
+  box-shadow: -6px 11px 25px -10px rgba(0,0,0,0.25);
+}
+
+ 
 .jour_agendaplus{
   font-size: 24px;
   font-weight: bold;
@@ -6555,18 +6609,26 @@ figure.snip1253.hover img {
 }
 
 .info_container_agendaplus {
-  padding: 8px;
+  padding: 0 8px;
+}
+
+.date_event span {
+  font-size: .6875rem;
 }
 .info_container_agendaplus .titre {
   font-size: 1rem;
   font-weight: 700;
-  color: #2E2E2E;
-  margin: 14px auto;
+  color: #105193;
+  margin: 15px 0px 12px 0px;;
   line-height: 1.1;
   height: 2.2em;
   overflow: hidden;
 }
  
+.info_container_agendaplus .titre:hover { 
+  color: #289FD9; 
+}
+
 .info_container_agendaplus .details span {
   display: inline-flex;
   flex-direction: row;
@@ -9058,7 +9120,7 @@ color: #0d478a;
 
 .search_advanced_mba a {
   color: #2c539b;  
-  font-size: 1rem;
+  font-size: .75rem;
   position: relative; 
   justify-content: center;
   align-items: center;
@@ -10053,8 +10115,8 @@ color: #0d478a;
   /* Elite Pricing */
 
   .plans-list{
-    margin: 0;
-    padding: 0;
+    margin: 0 ;
+    padding: 0 !important;
   }
 
 
@@ -11288,7 +11350,7 @@ box-shadow: 0px 0px 13px 0 rgba(82,63,105,.15);
 
 .post_text{   
   font-size: 13px; 
-  color: #9a9a9a; 
+  color: #403e3e; 
   margin: 15px 0;
 }
 
@@ -11602,7 +11664,7 @@ font-size: 0.9rem;
 
 /* SCROLL CUSTOM  */
 .head_fixed_mba_connex {  
-  padding: .5rem 0rem 1.5rem .3rem;  
+  padding: .5rem 0rem .7rem .3rem;  
   border-bottom: 1px solid #e8e8f7 !important;
 }
 
@@ -11848,3 +11910,334 @@ font-size: 0.9rem;
   }
 }
 
+/* FAQS RESPONSIVE  */
+.c-faq__answer {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+ 
+ 
+
+.sectionfaq__headline {
+  font-family: "Varela Round", sans-serif;
+  font-size: 62px;
+  font-weight: light;
+  color: #1e88e5;
+  padding-left: 15px;
+  padding-top: 30px;
+}
+
+.c-faqs__headline {
+  font-family: "Varela Round", sans-serif;
+  text-align: left;
+  padding-left: 15px;
+  font-size: 1.5em;
+  margin-top: 1.5em;
+  font-weight: bold;
+}
+
+.c-faqs {
+  margin: 15px 0;
+  padding: 0 15px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.c-faq {
+  font-family: "Varela Round", sans-serif;
+  list-style: none;
+  margin: 10px 0 5px;
+}
+
+.c-faq__title {
+  cursor: pointer;
+  font-weight: 500; 
+  position: relative;
+  font-size: 1.1em;
+}
+.c-faq__title:hover {
+  text-decoration: underline;
+}
+.c-faq__title::after {
+  white-space: nowrap;
+  font-weight: 300;
+  padding-left: 5px;
+  opacity: 0;
+  transform-origin: 11px;
+  transform: rotateZ(90deg);
+  display: none;
+  content: ">";
+}
+
+.c-faq--active .c-faq__title {
+  color: #1e88e5;
+}
+.c-faq--active .c-faq__title::after {
+  opacity: 1;
+  transform: rotateZ(90deg);
+  display: inline-block;
+}
+
+.c-faq__answer {
+  font-weight: normal;
+  margin-top: -10%;
+  transition: all 0.1s;
+  z-index: 1;
+  font-size: 0.9em;
+  color: #505050;
+}
+
+.c-faq--active .c-faq__answer {
+  opacity: 1;
+  position: relative;
+  top: 0;
+  left: 0;
+  font-weight: 300;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  transition: all 0.2s;
+  border-radius: 3px;
+  border: 1px solid #f1f2f3;
+  border-top: 1px solid #1e88e5;
+  padding: 20px;
+}
+
+@media (min-width: 780px) {
+  .c-faqs {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+  }
+
+  .c-faqs::before {
+    opacity: 0.2;
+  }
+
+  .c-faq {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .c-faq .c-faq__title {
+    width: 50%;
+    padding-right: 40px;
+    display: inline-block;
+  }
+  .c-faq .c-faq__title::after {
+    display: none;
+  }
+  .c-faq .c-faq__answer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    width: 50%;
+    border-left-color: #1e88e5;
+    border-top-color: #f1f2f3;
+  }
+}
+.c-note {
+  font-size: 0.8em;
+  padding-left: 15px;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+.c-note:hover {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+.c-note a {
+  color: #1e88e5;
+}
+
+/* MIABPAY ONLINE */
+.miabPay_payments_formulaire {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.miabPay_section_payer {
+  font-family: "Varela Round", sans-serif;
+  font-size: 62px;
+  font-weight: light;
+  color: #1e88e5;
+  padding-left: 15px;
+  padding-top: 30px;
+}
+
+.pay_with_miabPay {
+  font-family: "Varela Round", sans-serif;
+  text-align: left;
+  padding-left: 15px;
+  font-size: .97em;
+  margin-top: .5em;
+  font-weight: bold;
+}
+
+.miabPay_payments {
+  margin: 15px 0;
+  padding: 0 15px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.miabPay {
+  font-family: "Varela Round", sans-serif;
+  list-style: none;
+  margin: 10px 0 5px;
+}
+
+.copyright_miabPay {
+  color: #cac6c6;
+} 
+
+.copyright_miabPay:hover {
+  color: #cac6c6;
+} 
+
+.miabPay_payments_method {
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  z-index: 10;
+  position: relative;
+  font-size: .95em;
+  text-decoration: none;
+}
+.miabPay_payments_method:hover {
+  text-decoration: none;
+  color: #1e88e5;
+}
+.miabPay_payments_method::after {
+  white-space: nowrap;
+  font-weight: 300;
+  padding-left: 5px;
+  opacity: 0;
+  transform-origin: 11px;
+  transform: rotateZ(90deg);
+  display: none;
+  content: "";
+}
+
+.miabPay_payments_active .miabPay_payments_method {
+  color: #5aadef;
+}
+.miabPay_payments_active .miabPay_payments_method::after {
+  opacity: 1;
+  transform: rotateZ(90deg);
+  display: inline-block;
+}
+
+.miabPay_payments_formulaire {
+  font-weight: normal;
+  margin-top: -10%;
+  transition: all 0.1s;
+  z-index: 1;
+  font-size: 0.9em;
+  color: #505050;
+}
+
+.miabPay_payments_active .miabPay_payments_formulaire {
+  opacity: 1;
+  position: relative;
+  top: 0;
+  left: 0;
+  font-weight: 300;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  transition: all 0.2s;
+  border-radius: 3px;
+  border: 1px solid #f1f2f3;
+  border-top: 1px solid #1e88e5;
+  padding: 20px;
+}
+
+@media (min-width: 780px) {
+  .miabPay_payments {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+  }
+
+  .miabPay_payments::before {
+    opacity: 0.2;
+  }
+
+  .miabPay { 
+    border: 1px solid #c5c7c8;
+    border-radius: 5px;
+    padding: 5px 0px;
+    margin: 5px;
+    font-size: 16px;
+    color: #656768;
+    font-weight: 600;
+    overflow: auto;
+    width: 250px;
+    padding: 15px;
+    text-align: initial;
+  }
+  .miabPay .miabPay_payments_method {
+    width: 100%;
+    /*! padding-right: 40px; */
+    display: inline-block;
+  }
+  .miabPay .miabPay_payments_method::after {
+    display: none;
+  }
+  .miabPay .miabPay_payments_formulaire {
+    position: absolute;
+    top: 0%; 
+    left: 38%;
+    width: 62%;
+    border-left-color: #1e88e5;
+    border-top-color: #f1f2f3;
+  }
+}
+
+
+.btn_miabPay {
+  color: #fff;
+  outline: 0;
+  border: none;
+  font-family: "Lato";
+  padding: 1em;
+  margin-top: 2rem;
+  border-radius: 0.25em;
+  text-align: center;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s background;
+}
+.btn_miabPay.btn_miabPay-primary {
+  background: #3BB029;
+}
+.btn_miabPay.btn_miabPay-primary:hover {
+  background: #2d871f;
+}
+.btn_miabPay.btn_miabPay-paypal {
+  background: #003087;
+}
+.btn_miabPay.btn_miabPay-paypal:hover {
+  background: #001e54;
+}
+.btn_miabPay.btn_miabPay-coinbase {
+  background: #0072C8;
+}
+.btn_miabPay.btn_miabPay-coinbase:hover {
+  background: #005595;
+}
+
+.alternate-payment {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+.alternate-payment .btn {
+  width: 48%;
+}

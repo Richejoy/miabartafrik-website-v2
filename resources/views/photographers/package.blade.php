@@ -1,4 +1,4 @@
-@extends('layouts.auth', ['title' => auth()->user()->full_name])
+@extends('layouts.auth', ['title' => $photographer->getName()])
 
 @section('body')
 
@@ -7,9 +7,7 @@
     <div class="row signpages text-center">
         <div class="col-md-12">
             
-            <div class="row">
-                @include("layouts.partials._validation_errors")
-            </div>
+            @include("layouts.partials._validation_errors")
 
             <div class="card">
                 <div class="row row-sm m-0">
@@ -19,7 +17,9 @@
                                 class="header-brand-img mb-4" alt="logo">
                             <div class="clearfix"></div>
                             <img src="{{ auth()->user()->library->remote }}" class="ht-100 mb-0 avatar_inscription" alt="{{ auth()->user()->library->description }}">
-                            <h5 class="mt-4 text-white textSignHead">{{ $photographer->user->full_name }}</h5>
+                            <h5 class="mt-4 text-white textSignHead">
+                                {{ $photographer->getName() }}
+                            </h5>
                             <div class="all_services_mba tx-white-6 tx-13 mb-5 mt-xl-0">
                                 @forelse($photographer->areas as $area)
                                 <small class="all_services_mba_small">{{ $area->name }}</small>

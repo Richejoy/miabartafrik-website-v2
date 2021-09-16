@@ -6,7 +6,7 @@
                 <div class="main-img-user avatar-md"><img alt="{{ auth()->user()->library->description }}" class="rounded-circle" src="{{ auth()->user()->library->remote }}"></div>
             </div>
             <div class="media-body">
-                <h6 class="mb-0 mg-t-2">{{ auth()->user()->full_name }}</h6>
+                <h6 class="mb-0 mg-t-2">{{ auth()->user()->username }}</h6>
                 <span class="post__date">
                   <a href="#">{{ date('d M Y') }}</a>
                 </span>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="post_input_container">
-            <textarea required class="form-control" placeholder="A quoi penses-tu, {{ auth()->user()->full_name }} ?" name="publicationContent" id="publicationContent" rows="3"></textarea>
+            <textarea required class="form-control" placeholder="A quoi penses-tu, {{ auth()->user()->username }} ?" name="publicationContent" id="publicationContent" rows="3"></textarea>
             <input type="hidden" name="publicationStateId" value="1" id="publicationStateId">
             <div class="page-header">
                 <div>

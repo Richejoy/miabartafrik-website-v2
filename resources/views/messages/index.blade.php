@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => auth()->user()->full_name])
+@extends('layouts.user', ['title' => auth()->user()->username])
 
 @section('body')
 

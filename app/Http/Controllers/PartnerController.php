@@ -57,11 +57,12 @@ class PartnerController extends Controller
 
                                 DB::beginTransaction();
 
-                                $individual = Individual::create($request->except('area_id'));
+                                $individual = Individual::create($request->except('person_level_id', 'area_id'));
 
                                 $partner->update([
                                     'individual_id' => $individual->id,
                                     'person_type_id' => 1,
+                                    'person_level_id' => $request->person_level_id,
                                     'area_max' => count($request->area_id),
                                 ]);
 
@@ -97,6 +98,7 @@ class PartnerController extends Controller
                             'name' => 'required|min:3',
                             'rccm' => 'required|min:3',
                             'nif' => 'required|min:3',
+                            'person_level_id' => 'required',
                             'area_id' => 'required|array|size:3',
                         ]);
 
@@ -111,11 +113,12 @@ class PartnerController extends Controller
 
                                 DB::beginTransaction();
 
-                                $society = Society::create($request->except('area_id'));
+                                $society = Society::create($request->except('person_level_id', 'area_id'));
 
                                 $partner->update([
                                     'society_id' => $society->id,
                                     'person_type_id' => 2,
+                                    'person_level_id' => $request->person_level_id,
                                     'area_max' => count($request->area_id),
                                 ]);
                             

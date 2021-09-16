@@ -22,6 +22,7 @@ class Photographer extends Model
         'individual_id',
         'society_id',
         'person_type_id',
+        'person_level_id',
         'package_id',
     ];
 
@@ -55,6 +56,11 @@ class Photographer extends Model
         return $this->belongsTo(PersonType::class);
     }
 
+    public function personLevel()
+    {
+        return $this->belongsTo(PersonLevel::class);
+    }
+
     public function package()
     {
         return $this->belongsTo(Package::class);
@@ -69,6 +75,11 @@ class Photographer extends Model
     public function isOwner()
     {
         return (bool) $this->user_id == auth()->id();
+    }
+
+    public function getName()
+    {
+        return ($this->person_type_id == 1) ? $this->individual->name : $this->society->name;
     }
     /**/
 }

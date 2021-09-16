@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Casting extends Model
 {
@@ -30,5 +31,25 @@ class Casting extends Model
     public function area()
     {
         return $this->belongsTo(Area::class);
+    }
+
+    public function getStartDate()
+    {
+        return Carbon::parse($this->start_date);
+    }
+
+    public function getEndDate()
+    {
+        return Carbon::parse($this->end_date);
+    }
+
+    public function getPeriod()
+    {
+        return $this->getStartDate()->format('d M Y') . ' au ' . $this->getEndDate()->format('d M Y');
+    }
+
+    public function diffDaysBetweenStartAndEndDate()
+    {
+        return $this->getStartDate()->diffInDays($this->getEndDate(), false);
     }
 }
