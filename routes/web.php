@@ -175,6 +175,7 @@ Route::prefix('/partner')->name('partner.')->middleware('auth')->group(function(
 Route::resource('partner', PartnerController::class)->middleware('auth')->except(['destroy']);
 
 
+Route::post('/photographer/ray', [PhotographerController::class, 'ray'])->name('photographer.ray');
 Route::prefix('/photographer')->name('photographer.')->middleware('auth')->group(function() {
 	Route::get('/package/{package?}', [PhotographerController::class, 'package'])->name('package');
 });

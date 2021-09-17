@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Photographer;
-use App\Models\PhotographerPhotographerCategory;
-use App\Models\AreaPhotographer;
+use App\Models\PhotographerCategory;
 use App\Models\Individual;
 use App\Models\Society;
 use App\Models\Package;
@@ -43,9 +42,7 @@ class PhotographerController extends Controller
                         $this->validate($request, [
                             'name' => 'required|min:5',
                             'person_level_id' => 'required',
-                            'work_id' => 'required',
-                            'area_id' => 'required|array|size:3',
-                            'photographer_category_id' => 'required|array',
+                            'photographer_category_id' => 'required|array|size:3',
                         ]);
 
                         //very important
@@ -53,34 +50,23 @@ class PhotographerController extends Controller
                             return back()->withWarning("Désolé, vous ne pouvez pas être à la fois personne morale et personne physique.");
                         }
 
-                        if ($photographer->area_max == 0) {
+                        if ($photographer->photographerCategories->count() == 0) {
 
                             try {
 
                                 DB::beginTransaction();
 
-                                $individual = Individual::create($request->except('person_level_id', 'area_id'));
+                                $individual = Individual::create($request->only('name'));
 
                                 $photographer->update([
                                     'individual_id' => $individual->id,
                                     'person_type_id' => 1,
                                     'person_level_id' => $request->person_level_id,
-                                    'area_max' => count($request->area_id),
                                 ]);
 
-                                foreach($request->area_id as $key => $value) {
-                                    AreaPhotographer::create([
-                                        'photographer_id' => $photographer->id,
-                                        'area_id' => $value,
-                                    ]);
-                                }
-
-                                foreach($request->photographer_category_id as $key => $value) {
-                                    PhotographerPhotographerCategory::create([
-                                        'photographer_id' => $photographer->id,
-                                        'photographer_category_id' => $value,
-                                    ]);
-                                }
+                                $photographer->photographerCategories()->attach(
+                                    $request->photographer_category_id
+                                );
 
                                 auth()->user()->update([
                                     'completed' => 2,
@@ -108,8 +94,7 @@ class PhotographerController extends Controller
                             'rccm' => 'required|min:3',
                             'nif' => 'required|min:3',
                             'person_level_id' => 'required',
-                            'area_id' => 'required|array|size:3',
-                            'photographer_category_id' => 'required|array',
+                            'photographer_category_id' => 'required|array|size:3',
                         ]);
 
                         //very important
@@ -117,34 +102,23 @@ class PhotographerController extends Controller
                             return back()->withWarning("Désolé, vous ne pouvez pas être à la fois personne physique et personne morale.");
                         }
 
-                        if ($photographer->area_max == 0) {
+                        if ($photographer->photographerCategories->count() == 0) {
 
                             try {
 
                                 DB::beginTransaction();
 
-                                $society = Society::create($request->except('person_level_id', 'area_id'));
+                                $society = Society::create($request->only('name', 'rccm', 'nif'));
 
                                 $photographer->update([
                                     'society_id' => $society->id,
                                     'person_type_id' => 2,
                                     'person_level_id' => $request->person_level_id,
-                                    'area_max' => count($request->area_id),
                                 ]);
                             
-                                foreach($request->area_id as $key => $value) {
-                                    AreaPhotographer::create([
-                                        'photographer_id' => $photographer->id,
-                                        'area_id' => $value,
-                                    ]);
-                                }
-
-                                foreach($request->photographer_category_id as $key => $value) {
-                                    PhotographerPhotographerCategory::create([
-                                        'photographer_id' => $photographer->id,
-                                        'photographer_category_id' => $value,
-                                    ]);
-                                }
+                                $photographer->photographerCategories()->attach(
+                                    $request->photographer_category_id
+                                );
 
                                 auth()->user()->update([
                                     'completed' => 2,
@@ -222,5 +196,19 @@ class PhotographerController extends Controller
         $packages = Package::where('user_type_id', $photographer->user->user_type_id)->get();
 
         return view('photographers.package', compact('photographer', 'packages'));
+    }
+
+    /* AJAX REQUEST */
+    public function ray(Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            if ($request->ajax()) {
+                $photographerCategories = PhotographerCategory::where('photographer_ray_id', $request->input('rayId'))->get();
+
+                return response()->json($photographerCategories);
+            }
+        }
+
+        return response()->json(['message' => 'Method not allowed']);
     }
 }

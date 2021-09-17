@@ -14,7 +14,6 @@ class Partner extends Model
 
     protected $fillable = [
         'slug',
-        'area_max',
         'paid',
         'expire_date',
         'user_id',

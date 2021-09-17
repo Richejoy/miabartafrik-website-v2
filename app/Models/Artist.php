@@ -16,7 +16,6 @@ class Artist extends Model
         'slug',
         'name',
         'is_ambassador',
-        'area_max',
         'paid',
         'expire_date',
         'user_id',

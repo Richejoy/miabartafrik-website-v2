@@ -1,5 +1,5 @@
 <section class="text-left">
-    {!! Form::open(['route' => 'artist.store']) !!}
+    {!! Form::model($artist, ['route' => 'artist.store']) !!}
 
     <div class="form-group">
         {{ Form::label('name', "Nom d'artiste", ['class' => 'required-text']) }}

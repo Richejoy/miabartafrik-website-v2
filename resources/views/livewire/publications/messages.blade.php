@@ -1,4 +1,4 @@
-<div class="col-12" wire:poll.visible.10s>
+<div class="col-12" wire:poll.visible.5s>
     
     <table class="table table-bordered">
         <tr>

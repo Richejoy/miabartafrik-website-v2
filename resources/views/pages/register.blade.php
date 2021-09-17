@@ -16,7 +16,11 @@
                             <img src="{{ asset('public/assets/img/brand/logo-light.png') }}"
                                 class="header-brand-img mb-4" alt="logo">
                             <div class="clearfix"></div>
-                            <img src="{{ asset('public/assets/img/svgs/customer.svg') }}" class="ht-100 mb-0" alt="user">
+                            
+                            <span class="avatar_inscription">
+                                <img src="{{ asset('public/assets/img/svgs/customer.svg') }}"  alt="user">
+                            </span>
+
                             <h5 class="mt-4 text-white textSignHead">Créer 1 compte sur 3</h5>
                             <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Créer un compte selon votre profil (Membre - Artiste - Réseaux artistique - Photographe/Videaste) pour rejoindre la communauté artistique africaine.</span>
                         </div>

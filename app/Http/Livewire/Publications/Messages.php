@@ -20,9 +20,9 @@ class Messages extends Component
     /**
      * Delete the publication and relationship
     */
-    public function deletePublication(int $id)
+    public function deletePublication(Publication $publication)
     {
-        Publication::find($id)->delete();
+        $publication->delete();
 
         $this->emitSelf('handleRefresh');
     }
@@ -30,9 +30,9 @@ class Messages extends Component
     /**
      * Change the user connected publication state
     */
-    public function setPublicationState(int $id, int $publicationStateId)
+    public function setPublicationState(Publication $publication, int $publicationStateId)
     {
-        Publication::find($id)->update([
+        $publication->update([
             'publication_state_id' => $publicationStateId,
         ]);
 
@@ -42,9 +42,9 @@ class Messages extends Component
     /**
      * Attach or Detach the connected user to publication likes users
     */
-    public function toggleLikeUser(int $id)
+    public function toggleLikeUser(Publication $publication)
     {
-        Publication::find($id)->users()->toggle(auth()->id());
+        $publication->users()->toggle(auth()->id());
 
         $this->emitSelf('handleRefresh');
     }

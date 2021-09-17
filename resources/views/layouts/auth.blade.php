@@ -8,6 +8,8 @@
     <meta name="author" content="Miabart Afrik">
     <meta name="keywords" content="book artiste, castings artistique, agenda plus, concert en ligne">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('public/assets/img/brand/favicon.ico') }}" type="image/x-icon" />
 
@@ -79,9 +81,13 @@
     <script src="{{ asset('public/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/scriptscroll.js') }}"></script>
 
+    <script src="{{ asset('public/js/laroute.js') }}"></script>
+
     @stack('scripts')
 
     <script src="{{ asset('public/plugins/validate-image-size-preview-imo/dist/imoViewer-min.js') }}"></script>
+
+    <script src="{{ asset('public/plugins/password/bootstrap-password-toggler.min.js') }}"></script>
     
     @livewireScripts
 

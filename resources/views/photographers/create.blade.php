@@ -50,3 +50,43 @@
 </div>
 
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+    $(function () {
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+          }
+        })
+
+        $('[data-ray]').on('change', function (e) {
+            const rayId = $(this).val();
+            const url = laroute.route('photographer.ray');
+
+            const select = $('[data-categories]');
+            const data = {
+                rayId:rayId
+            }
+
+            if (rayId) {
+                $.post(url, data)
+                .done(function (response) {
+                    select.empty();
+
+                    response.forEach(function (resp) {
+                        //console.log(resp.id + ' - ' + resp.name)
+
+                        select.append('<option value="' + resp.id + '">' + resp.name + '</option>')
+                    })
+                })
+                .fail(function (error) {
+                    console.error(error)
+                })
+            } else {
+                select.empty();
+            }
+        })
+    })
+</script>
+@endpush

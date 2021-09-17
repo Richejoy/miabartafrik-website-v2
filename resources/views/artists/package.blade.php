@@ -16,7 +16,11 @@
                             <img src="{{ asset('public/assets/img/brand/logo-light.png') }}"
                                 class="header-brand-img mb-4" alt="logo">
                             <div class="clearfix"></div>
-                            <img src="{{ auth()->user()->library->remote }}" class="ht-100 mb-0 avatar_inscription" alt="{{ auth()->user()->library->description }}">
+                            
+                            <span class="avatar_inscription">
+                                <img src="{{ auth()->user()->library->remote }}"  alt="{{ auth()->user()->library->description }}">
+                            </span>
+                            
                             <h5 class="mt-4 text-white textSignHead">{{ $artist->name }}</h5>
                             <div class="all_services_mba tx-white-6 tx-13 mb-5 mt-xl-0">
                                 @forelse($artist->areas as $area)

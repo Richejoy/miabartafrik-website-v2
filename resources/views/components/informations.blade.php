@@ -1,5 +1,5 @@
 <section class="text-left">
-    {!! Form::open() !!}
+    {!! Form::model($subscriber) !!}
     <div class="form-group">
         {{ Form::label('username', "Nom d'utilisateur", ['class' => 'required-text']) }}
         {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => "Nom d'utilisateur", 'required' => true]) }}
@@ -30,7 +30,7 @@
     <div class="row my-2">
         <div class="col-lg-6">
             {{ Form::label('email', 'Votre email', ['class' => 'required-text']) }}
-            {{ Form::email('email', $subscriber->email, ['class' => 'form-control', 'placeholder' => 'Votre email', 'required' => true, 'readonly' => true]) }}
+            {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Votre email', 'required' => true, 'readonly' => true]) }}
         </div>
         <div class="col-lg-6">
             {{ Form::label('phone', 'Votre téléphone', ['class' => 'required-text']) }}
@@ -52,11 +52,11 @@
     <div class="row my-2">
         <div class="col-lg-6">
             {{ Form::label('password', 'Mot de passe', ['class' => 'required-text']) }}
-            {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Mot de passe', 'required' => true]) }}
+            {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Mot de passe', 'required' => true, 'data-toggle' => 'password']) }}
         </div>
         <div class="col-lg-6">
             {{ Form::label('password_confirmation', 'Confirmer le mot de passe', ['class' => 'required-text']) }}
-            {{ Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Confirmer le mot de passe', 'required' => true]) }}
+            {{ Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Confirmer le mot de passe', 'required' => true, 'data-toggle' => 'password']) }}
         </div>
     </div>
 

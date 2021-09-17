@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Partner;
-use App\Models\AreaPartner;
 use App\Models\Individual;
 use App\Models\Society;
 use App\Models\Package;
@@ -51,7 +50,7 @@ class PartnerController extends Controller
                             return back()->withWarning("Désolé, vous ne pouvez pas être à la fois personne morale et personne physique.");
                         }
 
-                        if ($partner->area_max == 0) {
+                        if ($partner->areas->count() == 0) {
 
                             try {
 
@@ -63,15 +62,11 @@ class PartnerController extends Controller
                                     'individual_id' => $individual->id,
                                     'person_type_id' => 1,
                                     'person_level_id' => $request->person_level_id,
-                                    'area_max' => count($request->area_id),
                                 ]);
 
-                                foreach($request->area_id as $key => $value) {
-                                    AreaPartner::create([
-                                        'partner_id' => $partner->id,
-                                        'area_id' => $value,
-                                    ]);
-                                }
+                                $partner->areas()->attach(
+                                    $request->area_id
+                                );
 
                                 auth()->user()->update([
                                     'completed' => 2,
@@ -89,7 +84,7 @@ class PartnerController extends Controller
                             }
                         }
 
-                        return back()->withDanger("Vous avez atteind la limite exigée");
+                        return back()->withDanger("Vous avez atteind la limite exigée des domaines artistique");
 
                         break;
 
@@ -107,7 +102,7 @@ class PartnerController extends Controller
                             return back()->withWarning("Désolé, vous ne pouvez pas être à la fois personne physique et personne morale.");
                         }
 
-                        if ($partner->area_max == 0) {
+                        if ($partner->areas->count() == 0) {
 
                             try {
 
@@ -119,15 +114,11 @@ class PartnerController extends Controller
                                     'society_id' => $society->id,
                                     'person_type_id' => 2,
                                     'person_level_id' => $request->person_level_id,
-                                    'area_max' => count($request->area_id),
                                 ]);
                             
-                                foreach($request->area_id as $key => $value) {
-                                    AreaPartner::create([
-                                        'partner_id' => $partner->id,
-                                        'area_id' => $value,
-                                    ]);
-                                }
+                                $partner->areas()->attach(
+                                    $request->area_id
+                                );
 
                                 auth()->user()->update([
                                     'completed' => 2,
@@ -145,7 +136,7 @@ class PartnerController extends Controller
                             }
                         }
 
-                        return back()->withDanger("Vous avez atteind la limite exigée");
+                        return back()->withDanger("Vous avez atteind la limite exigée des domaines artistique");
 
                         break;
 

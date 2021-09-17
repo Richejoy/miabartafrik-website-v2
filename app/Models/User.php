@@ -179,7 +179,9 @@ class User extends Authenticatable
 
     public function languages()
     {
-        return $this->belongsToMany(Language::class);
+        return $this->belongsToMany(Language::class)
+        ->withPivot('id', 'user_id', 'language_id', 'language_level_id', 'language_accent')
+        ->withTimestamps();
     }
 
     public function skills()

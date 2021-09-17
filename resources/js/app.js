@@ -40,10 +40,21 @@ $('#publicationForm').on('submit', function (e) {
 	const state = $('#publicationStateId').val();
 	const message = $('#publicationContent').val();
 
-	const data = {
+    const media = $('#media').prop('files')[0];
+    const media_name = media.name;
+    const media_extension = media_name.split('.').pop().toLowerCase();
+
+    /*if(jQuery.inArray(media_extension,['gif','jpg','jpeg','']) == -1){
+        alert("Invalid image file");
+    }*/
+
+    let data = new FormData();
+
+	/*const data = {
 		state: state,
-		message: message
-	}
+		message: message,
+        media: media
+	}*/
 
 	$.post(url, data)
     .done(function (response) {

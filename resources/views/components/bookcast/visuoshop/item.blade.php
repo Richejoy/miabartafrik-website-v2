@@ -20,9 +20,9 @@
 
                             <x-verified-account />
                         </h6>
-                        <div class="all_services_mba"> 
-                            @forelse($photographer->areas as $area)
-                            <small class="all_services_mba_small">{{ $area->name }}</small>
+                        <div class="all_services_mba">
+                            @forelse($photographer->photographerCategories as $photographerCategory)
+                            <small class="all_services_mba_small">{{ $photographerCategory->name }}</small>
                             @empty
                             <small class="all_services_mba_small">Aucun</small>
                             @endforelse

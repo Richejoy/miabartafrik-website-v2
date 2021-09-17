@@ -1,5 +1,5 @@
 <section>
-    {!! Form::open(['route' => 'publication.store', 'id' => 'publicationForm']) !!}
+    {!! Form::open(['route' => 'publication.store', 'id' => 'publicationForm', 'files' => true]) !!}
     <div class="write_post_container">
         <div class="media">
             <div class="media-user mr-2">

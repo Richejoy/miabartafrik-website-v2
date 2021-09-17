@@ -16,7 +16,11 @@
                             <img src="{{ asset('public/assets/img/brand/logo-light.png') }}"
                                 class="header-brand-img mb-4" alt="logo">
                             <div class="clearfix"></div>
-                            <img src="{{ asset('public/assets/img/svgs/user0.svg') }}" class="ht-100 mb-0" alt="user">
+                            
+                            <span class="avatar_inscription">
+                                <img src="{{ asset('public/assets/img/svgs/user0.svg') }}"  alt="user">
+                            </span>
+                            
                             <h5 class="mt-4 text-white textSignHead">Réinitialisez votre mot de passe</h5>
                             <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Veillez resignez ls champs pour la
                                 reinitialisation de votre mot de passe.</span>
@@ -37,12 +41,12 @@
                                     {!! Form::open() !!}
                                     <div class="form-group text-left">
                                         {{ Form::label('password', "Nouveau mot de passe", ['class' => 'required-text mg-b-10 label_mba']) }}
-                                        {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Nouveau mot de passe']) !!}
+                                        {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Nouveau mot de passe', 'data-toggle' => 'password']) !!}
                                     </div>
 
                                     <div class="form-group text-left">
                                         {{ Form::label('password_confirmation', "Confirmez le mot de passe", ['class' => 'required-text mg-b-10 label_mba']) }}
-                                        {!! Form::password('password_confirmation', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Confirmez le mot de passe']) !!}
+                                        {!! Form::password('password_confirmation', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Confirmez le mot de passe', 'data-toggle' => 'password']) !!}
                                     </div>
 
                                     <div class="form-group">

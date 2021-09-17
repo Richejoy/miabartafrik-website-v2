@@ -46,45 +46,4 @@ $(function () {
         hidePickerOnBlur: true,*/
     })
 
-    /*$('#publication-form').submit(function (e) {
-        e.preventDefault()
-        const url = $(this).attr('action')
-        let data = $(this).serialize()
-
-        $('#btn-submit-publication').attr('disabled', 'disabled')
-
-        $("#publicationContent").data("emojioneArea").hidePicker();
-
-        $('#publicationContent').val('')
-
-        $("#publicationContent").data("emojioneArea").showPicker();
-
-        $.post(url, data)
-        .done(function (response) {
-            console.log(response)
-
-            callLivewireEvent('publicationCreated')
-        }).fail(function (error) {
-            console.log(error)
-        })
-
-        $('#btn-submit-publication').removeAttr('disabled')
-        $('#publication-input').val('')
-
-        $(this).trigger('reset')
-    })*/
-
 })
-
-/*
-Livewire.on('publicationCreated', () => {
-    console.error('okkkk')
-
-    //$('publicationContent').val('')
-    //$("#publicationContent").data("emojioneArea").enable()
-})
-
-Livewire.on('publicationFormSet', () => {
-    console.error('okkkkcsc')
-})
-*/

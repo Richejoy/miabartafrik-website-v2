@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Artist;
-use App\Models\AreaArtist;
-use App\Models\LanguageUser;
 use App\Models\Package;
 use App\Models\Library;
 
@@ -40,32 +38,24 @@ class ArtistController extends Controller
                 'area_id' => 'required|array|size:3',
                 'language_id' => 'required',
                 'language_level_id' => 'required',
+                'language_accent' => 'required|min:3',
             ]);
 
-            if ($artist->area_max == 0) {
+            if ($artist->areas->count() == 0) {
 
                 try {
 
                     DB::beginTransaction();
 
-                    foreach($request->area_id as $key => $value) {
-                        AreaArtist::create([
-                            'artist_id' => $artist->id,
-                            'area_id' => $value,
-                        ]);
-                    }
+                    $artist->areas()->attach(
+                        $request->area_id
+                    );
 
-                    LanguageUser::create(array_merge(
-                        $request->only('language_id', 'language_level_id', 'language_accent'),
-                        [
-                            'user_id' => $artist->user_id,
-                        ]
-                    ));
+                    $artist->user->languages()->attach(
+                        auth()->id(), $request->only('language_id', 'language_level_id', 'language_accent')
+                    );
 
-                    $artist->update([
-                        'name' => $request->name,
-                        'area_max' => count($request->area_id),
-                    ]);
+                    $artist->update($request->only('name'));
 
                     auth()->user()->update([
                         'completed' => 2,
@@ -83,7 +73,7 @@ class ArtistController extends Controller
                 }
             }
 
-            return back()->withDanger("Vous avez atteind la limite exigée");
+            return back()->withDanger("Vous avez atteind la limite exigée des domaines artistique");
         }
 
         return back();

@@ -14,7 +14,6 @@ class Photographer extends Model
 
     protected $fillable = [
         'slug',
-        'area_max',
         'paid',
         'expire_date',
         'user_id',
@@ -66,9 +65,9 @@ class Photographer extends Model
         return $this->belongsTo(Package::class);
     }
 
-    public function areas()
+    public function photographerCategories()
     {
-        return $this->belongsToMany(Area::class);
+        return $this->belongsToMany(PhotographerCategory::class);
     }
 
     /**/

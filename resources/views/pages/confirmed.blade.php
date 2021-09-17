@@ -17,7 +17,11 @@
                             <img src="{{ asset('public/assets/img/brand/logo-light.png') }}"
                                 class="header-brand-img mb-4" alt="logo">
                             <div class="clearfix"></div>
-                            <img src="{{ asset('public/assets/img/svgs/user0.svg') }}" class="ht-100 mb-0" alt="user">
+                            
+                            <span class="avatar_inscription">
+                                <img src="{{ asset('public/assets/img/svgs/user0.svg') }}"  alt="user">
+                            </span>
+                            
                             <h5 class="mt-4 text-white">Unlock</h5>
                             <span class="tx-white-6 tx-13 mb-5 mt-xl-0">Entrez le code pour accéder à la
                                 plateforme .</span>

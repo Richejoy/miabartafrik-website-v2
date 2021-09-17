@@ -1880,10 +1880,20 @@ $('#publicationForm').on('submit', function (e) {
   var url = $(this).attr('action');
   var state = $('#publicationStateId').val();
   var message = $('#publicationContent').val();
-  var data = {
-    state: state,
-    message: message
-  };
+  var media = $('#media').prop('files')[0];
+  var media_name = media.name;
+  var media_extension = media_name.split('.').pop().toLowerCase();
+  /*if(jQuery.inArray(media_extension,['gif','jpg','jpeg','']) == -1){
+      alert("Invalid image file");
+  }*/
+
+  var data = new FormData();
+  /*const data = {
+  	state: state,
+  	message: message,
+         media: media
+  }*/
+
   $.post(url, data).done(function (response) {
     console.log(response);
   }).fail(function (error) {

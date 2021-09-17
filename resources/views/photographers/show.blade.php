@@ -1,4 +1,4 @@
-@extends('layouts.bookcast', ['title' => $photographer->user->image])
+@extends('layouts.bookcast', ['title' => $photographer->getName()])
 
 @section('body')
 

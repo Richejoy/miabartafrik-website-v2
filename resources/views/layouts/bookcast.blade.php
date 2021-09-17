@@ -48,7 +48,7 @@
 
     <link rel="stylesheet" href="{{ asset('public/assets/plugins/multipleselect/multiple-select.css') }}">
 
-    <!-- Sidemenu css-->
+    <!-- Sidemenu css -->
     <link href="{{ asset('public/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
 
     <link href="{{ asset('public/assets/plugins/gallery/gallery.css') }}" rel="stylesheet">
@@ -59,8 +59,8 @@
 
     <link href="{{ asset('public/plugins/emojionearea/dist/emojionearea.min.css') }}" rel="stylesheet">
 
-    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script src="{{ asset('public/js/pusher.js') }}"></script>
+    <!-- <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+    <script src="{{ asset('public/js/pusher.js') }}"></script>-->
 
     <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 </head>
@@ -186,7 +186,11 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
+    <script src="{{ asset('public/js/laroute.js') }}"></script>
+
     @stack('scripts')
+
+    <script src="{{ asset('public/plugins/password/bootstrap-password-toggler.min.js') }}"></script>
 
     <script src="{{ asset('public/plugins/emojionearea/dist/emojionearea.min.js') }}"></script>
 
