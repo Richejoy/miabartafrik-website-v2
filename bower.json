@@ -1,0 +1,22 @@
+{
+  "name": "miabartafrik",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Richejoy <richejoy314@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Richejoy/miabartafrik-website-v2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ckeditor": "^4.16.2",
+    "emojione": "^4.5.0",
+    "ckeditor-emojione": "^1.0.2"
+  }
+}

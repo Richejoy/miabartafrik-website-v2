@@ -1,10 +1,10 @@
-<div class="col-12" wire:poll.visible.5s>
+<div class="col-12" wire:poll.visible>
     
-    <table class="table table-bordered">
+    <table class="table table-bordered text-center">
         <tr>
-            <th class="table-success">Vous : {{ $userPublications->count() }}</th>
-            <th class="table-warning">Les autres : {{ $publications->count() - $userPublications->count() }}</th>
-            <th class="table-danger">Total : {{ $publications->count() }}</th>
+            <th class="table-white">Vous : {{ $userPublications->count() }}</th>
+            <th class="table-white">Les autres : {{ $publications->count() - $userPublications->count() }}</th>
+            <th class="table-white">Total : {{ $publications->count() }}</th>
         </tr>
     </table>
 
@@ -77,9 +77,11 @@
             <div class="container">
                 @if($library->library_type_id == 1)
 
-                <!-- Image attachment -->
-                <div>
-                    <img src="{{ $library->remote }}" alt="{{ $library->description }}">
+                <!-- Image attachment -->        
+                <div class="grid-item detail-photo-grid">
+                    <a data-fancybox="gallery" href="{{ $library->remote }}">
+                        <img src="{{ $library->remote }}" class="mCS_img_loaded" alt="{{ $library->description }}">
+                    </a>
                 </div>
 
                 @elseif($library->library_type_id == 3)

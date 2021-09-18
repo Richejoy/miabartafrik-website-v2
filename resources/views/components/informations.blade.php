@@ -49,6 +49,11 @@
         </div>
     </div>
 
+    <div class="form-group">
+        {{ Form::label('date_of_birth', "Date de naissance", ['class' => 'required-text']) }}
+        {{ Form::date('date_of_birth', now(), ['class' => 'form-control', 'required' => true]) }}
+    </div>
+
     <div class="row my-2">
         <div class="col-lg-6">
             {{ Form::label('password', 'Mot de passe', ['class' => 'required-text']) }}

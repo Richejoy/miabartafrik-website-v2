@@ -210,6 +210,7 @@ class PageController extends Controller
                 'username' => 'required|unique:users',
                 'city' => 'required|min:3',
                 'address' => 'required|min:3',
+                'date_of_birth' => 'required',
                 'password' => 'required|min:9|confirmed',
             ]);
 
@@ -227,6 +228,7 @@ class PageController extends Controller
                         'local' => $this->getAppropriateLocal($request->input('civility_id')),
                         'remote' => $this->getAppropriateRemote($subscriber->user_type_id, $request->input('civility_id')),
                         'description' => 'Mon jolie avatar par défaut',
+                        'mime_type' => 'image/png',
                         'library_type_id' => 1,
                     ]
                 );

@@ -50,7 +50,7 @@ class Member extends Model
     /**/
     public function isOwner()
     {
-        return (bool) $this->user_id == auth()->id();
+        return (bool) ($this->user_id == auth()->id());
     }
     /**/
 }

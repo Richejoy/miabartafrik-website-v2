@@ -17,6 +17,7 @@ class Library extends Model
         'local',
         'remote',
         'description',
+        'mime_type',
         'library_type_id',
     ];
 

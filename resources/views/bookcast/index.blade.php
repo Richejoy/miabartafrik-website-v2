@@ -37,7 +37,7 @@
                 <!-- BODY -->
                 <div class="col-xl-6 col-lg-12">
 
-                    @include('layouts.partials.bookcast._publication_form')
+                    <x-publications.form />
 
                     <div class="main-content-body tab-pane border-top-0 active" id="timeline">
                         <div class="post_news">

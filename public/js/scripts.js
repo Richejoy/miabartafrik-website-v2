@@ -38,12 +38,48 @@ $(function () {
         $('#' + div).slideToggle()
     })
 
-    $("#publicationContent").emojioneArea({
+    /*$("#publicationContent").emojioneArea({
         useInternalCDN: true,
         pickerPosition: 'bottom',
-        /*filtersPosition: "bottom",
-        searchPosition: "bottom",
-        hidePickerOnBlur: true,*/
-    })
+    })*/
+
+    $('[data-toggle-publication-state]').on('click', function (e) {
+        e.preventDefault();
+
+        let classAttr;
+        let dataAttr;
+
+        $('#publicationStateId').val($(this).data('toggle-publication-state'));
+
+        switch($('#publicationStateId').val()) {
+            case '3':
+                classAttr = 'post__privacy fe fe-users';
+                dataAttr = 'Amis';
+                break;
+
+            case '2':
+                classAttr = 'post__privacy si si-lock';
+                dataAttr = 'Privée';
+                break;
+
+            default:
+                classAttr = 'post__privacy si si-globe';
+                dataAttr = 'Publique';
+        }
+
+        $('#publication-state').attr('class', classAttr);
+        $('#publication-state').attr('data-original-title', dataAttr);
+    });
+
+    $('#publicationForm').submit(function () {
+        $(this).ajaxSubmit({ success: showPublicationResponse, clearForm: true, resetForm: true });
+        
+        return false;
+    });
 
 })
+
+//Publication ajax callback
+function showPublicationResponse(responseText, statusText, xhr, $form) {
+    console.log(responseText);
+}

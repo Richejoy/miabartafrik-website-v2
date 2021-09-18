@@ -15665,6 +15665,15 @@ text-align: center;
     color: #008080;
 }
 
+.montantApayer {
+    font-family: "mouse-500", Arial, Helvetica, sans-serif;
+    font-size: .79rem;
+    color: #5e6060;
+}
+.montantApayer span { 
+    color: #a1a2a2;
+}
+
 .textSignHead {
     font-family: "mouse-500", Arial, Helvetica, sans-serif;
     font-size: 1.3rem;

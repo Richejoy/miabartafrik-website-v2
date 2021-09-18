@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class Controller extends BaseController
 {
@@ -107,9 +108,31 @@ class Controller extends BaseController
             'local' => self::ONLINE_URL . "libraries/images/users/{$folder}/{$local}",
             'remote' => self::ONLINE_URL . "libraries/images/users/{$folder}/{$local}",
             'description' => 'Ma jolie photo de couverture',
-            'library_type_id' => 1,
+            'mime_type' => 'image/jpg',
+            'library_type_id' => $this->getLibraryType('image/jpg'),
         ];
 	}
+
+    protected function getLibraryType(string $mimeType): int
+    {
+        $type = 1;
+
+        if (Str::of($mimeType)->startsWith('image')) {
+            $type = 1;
+        } elseif (Str::of($mimeType)->startsWith('application')) {
+            $type = 2;
+        } elseif (Str::of($mimeType)->startsWith('video')) {
+            $type = 3;
+        } elseif (Str::of($mimeType)->startsWith('audio')) {
+            $type = 4;
+        } elseif (Str::of($mimeType)->startsWith('text')) {
+            $type = 5;
+        } elseif (Str::of($mimeType)->startsWith('font')) {
+            $type = 6;
+        }
+
+        return $type;
+    }
 
 	public function getMiabpay()
 	{

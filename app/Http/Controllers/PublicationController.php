@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Library;
 use App\Events\PublicationEvent;
+use Illuminate\Support\Str;
 
 class PublicationController extends Controller
 {
@@ -18,12 +19,10 @@ class PublicationController extends Controller
     {
         if ($request->isMethod('POST')) {
 
-            return response()->json($request->all());
-
             $request->validate([
-                'message' => ['required', 'min:10'],
-                'state' => ['required'],
-                #'media' => ['file', 'max:1024', 'mimes:jpeg,jpg,png,mp3,mp4,pdf,wav,gif'],
+                'publication_state_id' => ['required'],
+                'content' => ['required', 'min:10'],
+                'media' => ['nullable', 'file', 'max:1024', 'mimes:jpeg,jpg,png,mp3,mp4,pdf,wav,gif'],
             ]);
 
             $publication = Publication::create([
@@ -31,12 +30,15 @@ class PublicationController extends Controller
                 'start_date' => now(),
                 'end_date' => now()->addYear(1),
                 'published' => true,
-                'publication_state_id' => $request->input('state'),
-                'content' => $request->input('message'),
+                'publication_state_id' => $request->input('publication_state_id'),
+                'content' => $request->input('content'),
             ]);
 
             //upload file
             if ($request->hasFile('media') && $request->file('media')->isValid()) {
+
+                $mimeType = $request->file('media')->getMimeType();
+                $libraryTypeId = $this->getLibraryType($mimeType);
 
                 //$uploadPath = $request->file('media')->path();
 
@@ -49,18 +51,21 @@ class PublicationController extends Controller
                 $storePath = $request->file('media')->storeAs(env('FTP_UPLOADS_PATH') . "publications", $filename, 'ftp');
 
                 $library = Library::create([
-                    'description' => 'Pulication file',
+                    'folder' => 'publications',
                     'local' => $filename,
                     'remote' => self::ONLINE_URL . "libraries/publications/" . $filename,
+                    'description' => 'Pulication file',
+                    'mime_type' => $mimeType,
+                    'library_type_id' => $libraryTypeId,
                 ]);
 
                 $publication->libraries()->attach([$library->id]);
             }
 
-            event(new PublicationEvent(
+            /*event(new PublicationEvent(
                 $publication->publication_state_id,
                 $publication->content
-            ));
+            ));*/
 
             return response()->json($publication);
         }

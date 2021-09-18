@@ -11269,9 +11269,8 @@ box-shadow: 0px 0px 13px 0 rgba(82,63,105,.15);
   font-size: 12px !important;
 }
 
-.post_input_container{  
-  padding-left: 55px;
-  padding-top: 20px;
+.post_input_container{
+  padding-top: 15px;
 }
 
 .post_input_container textarea{  
@@ -12240,4 +12239,9 @@ font-size: 0.9rem;
 }
 .alternate-payment .btn {
   width: 48%;
+}
+
+.payment-method-logo-sm {
+    height: 3.5rem;
+    max-height: 2rem;
 }
