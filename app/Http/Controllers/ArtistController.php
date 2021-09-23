@@ -39,6 +39,7 @@ class ArtistController extends Controller
                 'language_id' => 'required',
                 'language_level_id' => 'required',
                 'language_accent' => 'required|min:3',
+                'g-recaptcha-response' => 'required|captcha',
             ]);
 
             if ($artist->areas->count() == 0) {

@@ -35,6 +35,7 @@ class MemberController extends Controller
             
             $this->validate($request, [
                 'work_id' => 'required',
+                'g-recaptcha-response' => 'required|captcha',
             ]);
 
             try {

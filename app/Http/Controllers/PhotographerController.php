@@ -43,6 +43,7 @@ class PhotographerController extends Controller
                             'name' => 'required|min:5',
                             'person_level_id' => 'required',
                             'photographer_category_id' => 'required|array|size:3',
+                            'g-recaptcha-response' => 'required|captcha',
                         ]);
 
                         //very important
@@ -95,6 +96,7 @@ class PhotographerController extends Controller
                             'nif' => 'required|min:3',
                             'person_level_id' => 'required',
                             'photographer_category_id' => 'required|array|size:3',
+                            'g-recaptcha-response' => 'required|captcha',
                         ]);
 
                         //very important

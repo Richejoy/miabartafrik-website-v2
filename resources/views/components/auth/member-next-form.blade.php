@@ -1,5 +1,5 @@
 <section class="text-left">
-    {!! Form::model($member, ['route' => 'member.store']) !!}
+    {!! Form::model($member, ['route' => 'member.store', 'id' => 'recaptcha-watcher']) !!}
 
     <div class="form-group">
         {{ Form::label('work_id', "Profession", ['class' => 'required-text mg-b-10']) }}

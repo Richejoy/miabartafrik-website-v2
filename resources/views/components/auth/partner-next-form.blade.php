@@ -12,7 +12,7 @@
         </nav>
         <div class="content-wrap text-left">
             <section id="local_upload">
-                {!! Form::model($partner, ['route' => 'partner.store']) !!}
+                {!! Form::model($partner, ['route' => 'partner.store', 'id' => 'recaptcha-watcher']) !!}
                 {!! Form::hidden('form', 'individual') !!}
                 <div class="form-group">
                     {{ Form::label('name', "Nom de marque", ['class' => 'required-text']) }}
@@ -41,7 +41,7 @@
             </section>
 
             <section id="online_upload">
-                {!! Form::model($partner, ['route' => 'partner.store']) !!}
+                {!! Form::model($partner, ['route' => 'partner.store', 'id' => 'recaptcha-watcher']) !!}
                 {!! Form::hidden('form', 'corporation') !!}
                 <div class="form-group">
                     {{ Form::label('name', "Nom de la société", ['class' => 'required-text']) }}

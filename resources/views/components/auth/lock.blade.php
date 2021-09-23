@@ -46,8 +46,12 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Tapez votre mot de passe', 'data-toggle' => 'password']) !!}
+                                        
+                                        <div class="input-group" id="show_hide_password">
+                                            {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Taper votre mot de passe']) !!}
+                                            <div class="input-group-addon">
+                                                <a href=""><i class="fe fe-eye-off small" aria-hidden="true"></i></a>
+                                            </div>
                                         </div>
                                         
                                         <div class="form-group">

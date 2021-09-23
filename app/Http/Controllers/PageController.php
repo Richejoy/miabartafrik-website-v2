@@ -169,6 +169,7 @@ class PageController extends Controller
             $this->validate($request, [
                 'user_type_id' => 'required',
                 'email' => 'required|email|unique:subscribers',
+                'g-recaptcha-response' => 'required|captcha',
             ]);
 
             $subscriber = Subscriber::create([
@@ -212,6 +213,7 @@ class PageController extends Controller
                 'address' => 'required|min:3',
                 'date_of_birth' => 'required',
                 'password' => 'required|min:9|confirmed',
+                'g-recaptcha-response' => 'required|captcha',
             ]);
 
             if (empty($request->tou)) {

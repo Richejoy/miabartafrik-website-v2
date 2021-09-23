@@ -1,5 +1,5 @@
 <section class="text-left">
-    {!! Form::model($subscriber) !!}
+    {!! Form::model($subscriber, ['id' => 'recaptcha-watcher']) !!}
     <div class="form-group">
         {{ Form::label('username', "Nom d'utilisateur", ['class' => 'required-text']) }}
         {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => "Nom d'utilisateur", 'required' => true]) }}
@@ -57,11 +57,21 @@
     <div class="row my-2">
         <div class="col-lg-6">
             {{ Form::label('password', 'Mot de passe', ['class' => 'required-text']) }}
-            {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Mot de passe', 'required' => true, 'data-toggle' => 'password']) }}
+            <div class="input-group" id="show_hide_password">
+                {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Mot de passe']) !!}
+                <div class="input-group-addon">
+                    <a href=""><i class="fe fe-eye-off small" aria-hidden="true"></i></a>
+                </div>
+            </div>
         </div>
         <div class="col-lg-6">
             {{ Form::label('password_confirmation', 'Confirmer le mot de passe', ['class' => 'required-text']) }}
-            {{ Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Confirmer le mot de passe', 'required' => true, 'data-toggle' => 'password']) }}
+            <div class="input-group" id="show_hide_password">
+                {!! Form::password('password_confirmation', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Confirmer le mot de passe']) !!}
+                <div class="input-group-addon">
+                    <a href=""><i class="fe fe-eye-off small" aria-hidden="true"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 

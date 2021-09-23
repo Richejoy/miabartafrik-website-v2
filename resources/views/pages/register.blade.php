@@ -47,6 +47,8 @@
                                         {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Votre email', 'required' => true]) }}
                                     </div>
 
+                                    {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
+
                                     <div class="form-group">
                                         {!! Form::submit('Créer mon compte', ['class' => 'btnSignin ripple btn-block']) !!}
                                     </div>

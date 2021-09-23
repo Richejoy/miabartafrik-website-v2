@@ -43,6 +43,7 @@ class PartnerController extends Controller
                             'person_level_id' => 'required',
                             'work_id' => 'required',
                             'area_id' => 'required|array|size:3',
+                            'g-recaptcha-response' => 'required|captcha',
                         ]);
 
                         //very important
@@ -95,6 +96,7 @@ class PartnerController extends Controller
                             'nif' => 'required|min:3',
                             'person_level_id' => 'required',
                             'area_id' => 'required|array|size:3',
+                            'g-recaptcha-response' => 'required|captcha',
                         ]);
 
                         //very important

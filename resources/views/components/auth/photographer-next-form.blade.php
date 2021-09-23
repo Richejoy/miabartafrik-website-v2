@@ -12,7 +12,7 @@
         </nav>
         <div class="content-wrap text-left">
             <section id="local_upload">
-                {!! Form::model($photographer, ['route' => 'photographer.store']) !!}
+                {!! Form::model($photographer, ['route' => 'photographer.store', 'id' => 'recaptcha-watcher']) !!}
                 {!! Form::hidden('form', 'individual') !!}
                 <div class="row">
                     <div class="col-md-6">
@@ -46,7 +46,7 @@
             </section>
 
             <section id="online_upload">
-                {!! Form::model($photographer, ['route' => 'photographer.store']) !!}
+                {!! Form::model($photographer, ['route' => 'photographer.store', 'id' => 'recaptcha-watcher']) !!}
                 {!! Form::hidden('form', 'corporation') !!}
                 <div class="row">
                     <div class="col-md-6">

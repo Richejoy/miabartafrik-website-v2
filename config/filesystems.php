@@ -43,6 +43,11 @@ return [
             // 'timeout' => 30,
         ],
 
+        'backup' => [
+            'driver' => 'local',
+            'root' => public_path('backups'),
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

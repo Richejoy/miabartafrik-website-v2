@@ -40,7 +40,12 @@
 
                                     <div class="form-group text-left">
                                         {{ Form::label('password', "Mot de passe", ['class' => 'required-text mg-b-10 label_mba']) }}
-                                        {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Entrer votre mot de passe', 'data-toggle' => 'password']) !!}
+                                        <div class="input-group" id="show_hide_password">
+                                            {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Entrer votre mot de passe']) !!}
+                                            <div class="input-group-addon">
+                                                <a href=""><i class="fe fe-eye-off small" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group text-left">

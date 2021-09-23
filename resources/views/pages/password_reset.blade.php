@@ -41,12 +41,22 @@
                                     {!! Form::open() !!}
                                     <div class="form-group text-left">
                                         {{ Form::label('password', "Nouveau mot de passe", ['class' => 'required-text mg-b-10 label_mba']) }}
-                                        {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Nouveau mot de passe', 'data-toggle' => 'password']) !!}
+                                        <div class="input-group" id="show_hide_password">
+                                            {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Nouveau mot de passe']) !!}
+                                            <div class="input-group-addon">
+                                                <a href=""><i class="fe fe-eye-off small" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group text-left">
                                         {{ Form::label('password_confirmation', "Confirmez le mot de passe", ['class' => 'required-text mg-b-10 label_mba']) }}
-                                        {!! Form::password('password_confirmation', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Confirmez le mot de passe', 'data-toggle' => 'password']) !!}
+                                        <div class="input-group" id="show_hide_password">
+                                            {!! Form::password('password_confirmation', ['class' => 'form-control', 'required' => true, 'placeholder' => 'Confirmer le mot de passe']) !!}
+                                            <div class="input-group-addon">
+                                                <a href=""><i class="fe fe-eye-off small" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">

@@ -70,6 +70,24 @@ $('body').delegate('.miabPay', 'click', function(){
   $(this).addClass('miabPay_payments_active');
 });
 
+
+//  viewPassword
+ $(document).ready(function() {
+    $("#show_hide_password a").on('click', function(event) {
+        event.preventDefault();
+        if($('#show_hide_password input').attr("type") == "text"){
+            $('#show_hide_password input').attr('type', 'password');
+            $('#show_hide_password i').addClass( "fe-eye-off" );
+            $('#show_hide_password i').removeClass( "fe-eye" );
+        }else if($('#show_hide_password input').attr("type") == "password"){
+            $('#show_hide_password input').attr('type', 'text');
+            $('#show_hide_password i').removeClass( "fe-eye-off" );
+            $('#show_hide_password i').addClass( "fe-eye" );
+        }
+    });
+});
+
+
 //  VIDEO YOUTUBE OU HTML PAYING
 
 $(".video-preview-image_mba")
