@@ -186,36 +186,39 @@
 
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-    <!-- From -->
+    <!-- Richejoy js -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="{{ asset('public/plugins/emojione/lib/js/emojione.js') }}" defer></script>
+    <script src="//cdn.ckeditor.com/4.16.2/basic/ckeditor.js" defer></script>
+    <!-- <script src="{{ asset('public/plugins/ckeditor/ckeditor.js') }}" defer></script>
+    <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js" defer></script>
+    <script src="//cdn.ckeditor.com/4.16.2/basic/ckeditor.js" defer></script>
+    <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js" defer></script> -->
+
+    <script src="https://js.pusher.com/7.0/pusher.min.js" defer></script>
+    <script src="{{ asset('public/js/pusher.js') }}" defer></script>
+
+    <script src="{{ asset('public/plugins/emojionearea/dist/emojionearea.min.js') }}" defer></script>
+
+    <script src="{{ asset('public/plugins/validate-image-size-preview-imo/dist/imoViewer-min.js') }}" defer></script>
+
+    <script src="{{ asset('public/plugins/password/bootstrap-password-toggler.min.js') }}" defer></script>
+
+    <script src="{{ asset('public/js/laroute.js') }}" defer></script>
+
+    <script src="{{ asset('public/js/scripts.js') }}" defer></script>
+
+    <script src="{{ asset('public/js/app.js') }}" defer></script>
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-
-    <script src="{{ asset('public/plugins/emojione/lib/js/emojione.js') }}"></script>
-    <script src="//cdn.ckeditor.com/4.16.2/basic/ckeditor.js"></script>
-    <!-- <script src="{{ asset('public/plugins/ckeditor/ckeditor.js') }}"></script>
-    <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-    <script src="//cdn.ckeditor.com/4.16.2/basic/ckeditor.js"></script>
-    <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script> -->
-
-    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script src="{{ asset('public/js/pusher.js') }}"></script>
-
-    <script src="{{ asset('public/plugins/password/bootstrap-password-toggler.min.js') }}"></script>
-
-    <script src="{{ asset('public/plugins/emojionearea/dist/emojionearea.min.js') }}"></script>
-
-    <script src="{{ asset('public/js/laroute.js') }}"></script>
 
     @livewireScripts
 
     @include('flashy::message')
 
     @stack('scripts')
-
-    <script src="{{ asset('public/js/scripts.js') }}"></script>
-
-    <script src="{{ asset('public/js/app.js') }}"></script>
 
     <script>
         CKEDITOR.plugins.addExternal('emojione', "{{ asset('public/plugins/ckeditor-emojione') }}/", 'plugin.js');

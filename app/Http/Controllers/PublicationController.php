@@ -22,7 +22,7 @@ class PublicationController extends Controller
             $request->validate([
                 'publication_state_id' => ['required'],
                 'content' => ['required', 'min:10'],
-                'media' => ['nullable', 'file', 'max:1024', 'mimes:jpeg,jpg,png,mp3,mp4,pdf,wav,gif'],
+                'media' => ['nullable', 'file', 'max:1048576', 'mimes:jpeg,jpg,png,mp3,mp4,pdf,wav,gif'],
             ]);
 
             $publication = Publication::create([

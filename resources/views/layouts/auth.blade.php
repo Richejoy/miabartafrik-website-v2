@@ -81,21 +81,27 @@
     <script src="{{ asset('public/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/scriptscroll.js') }}"></script>
 
-    <script src="{{ asset('public/js/laroute.js') }}"></script>
+    <!-- Richejoy js -->
 
-    @stack('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="{{ asset('public/plugins/validate-image-size-preview-imo/dist/imoViewer-min.js') }}"></script>
+    <script src="{{ asset('public/plugins/validate-image-size-preview-imo/dist/imoViewer-min.js') }}" defer></script>
 
-    <script src="{{ asset('public/plugins/password/bootstrap-password-toggler.min.js') }}"></script>
+    <script src="{{ asset('public/plugins/password/bootstrap-password-toggler.min.js') }}" defer></script>
+
+    <script src="{{ asset('public/js/laroute.js') }}" defer></script>
+
+    <script src="{{ asset('public/js/scripts.js') }}" defer></script>
+
+    <script src="{{ asset('public/js/app.js') }}" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
     
     @livewireScripts
 
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-
     @include('flashy::message')
 
-    <script src="{{ asset('public/js/scripts.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

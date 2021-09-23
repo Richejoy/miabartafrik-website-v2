@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NewsletterController;
@@ -33,8 +35,6 @@ use App\Http\Controllers\NewsController;
 
 use App\Http\Controllers\PublicationController;
 
-use Illuminate\Support\Facades\Artisan;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,12 +45,12 @@ use Illuminate\Support\Facades\Artisan;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/clear', function() {
-	Artisan::call('route:clear');
-	Artisan::call('cache:clear');
-	Artisan::call('view:clear');
-	return "Route, Cache and View are cleared";
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    return "Route, Cache and View are cleared";
 });
 
 Route::prefix('/')->name('page.')->group(function() {
