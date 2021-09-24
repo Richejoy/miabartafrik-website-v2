@@ -217,6 +217,13 @@ Route::prefix('/news')->name('news.')->middleware('auth')->group(function() {
 });
 
 Route::prefix('/publication')->name('publication.')->middleware('auth')->group(function() {
-	
-	Route::post('/store', [PublicationController::class, 'store'])->name('store');
+    
+    Route::post('/store', [PublicationController::class, 'store'])->name('store');
+    Route::get('/messages', [PublicationController::class, 'messages'])->name('messages');
+    Route::get('/user/messages', [PublicationController::class, 'userMessages'])->name('user_messages');
+
 });
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -17,7 +17,7 @@ class PublicationController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->isMethod('POST')) {
+        /*if ($request->isMethod('POST')) {
 
             $request->validate([
                 'publication_state_id' => ['required'],
@@ -62,14 +62,38 @@ class PublicationController extends Controller
                 $publication->libraries()->attach([$library->id]);
             }
 
-            /*event(new PublicationEvent(
+            event(new PublicationEvent(
                 $publication->publication_state_id,
                 $publication->content
-            ));*/
+            ));
 
             return response()->json($publication);
-        }
+        }*/
 
-        return back()->withDanger('Error');
+        return [];
+
+        //return back()->withDanger('Error');
+    }
+
+    public function messages(Request $request)
+    {
+        $publicPublications = Publication::with(['user.library', 'publicationState', 'users.library', 'libraries'])
+        ->publicly()
+        ->latest()
+        ->get();
+
+        return $this->userMessages($request)
+            ->merge($publicPublications);
+    }
+
+    public function userMessages(Request $request)
+    {
+        return Publication::with(['user.library', 'publicationState', 'users.library', 'libraries'])
+        ->where([
+            'user_id' => auth()->id(),
+            'published' => true,
+        ])
+        ->latest()
+        ->get();
     }
 }

@@ -37,6 +37,7 @@ class User extends Authenticatable
         'date_of_birth',
         'place_of_birth',
         'token',
+        'api_token',
         'remember_token',
         'tfa_enabled',
         'tfa_code',
@@ -60,6 +61,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'token',
+        'api_token',
         'remember_token',
     ];
 
@@ -255,9 +257,4 @@ class User extends Authenticatable
         return Carbon::parse($this->date_of_birth)->isBirthday() ? ' Joyeux anniv' : '';
     }
     /**/
-
-    public function __toString()
-    {
-        return $this->full_name;
-    }
 }

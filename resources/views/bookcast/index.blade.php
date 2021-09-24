@@ -35,26 +35,10 @@
                 <!-- END LEFT ASIDE -->
 
                 <!-- BODY -->
-                <div class="col-xl-6 col-lg-12">
+                <div class="col-xl-6 col-lg-12" id="publicationApp">
 
-                    <x-publications.form />
+                    <publication :user="{{ \App\Models\User::with('library')->find(auth()->id()) }}"></publication>
 
-                    <div class="main-content-body tab-pane border-top-0 active" id="timeline">
-                        <div class="post_news">
-                            <div class="main-content-body main-content-body-profile">
-                                <div class="main-profile-body p-0">
-                                    <div class="row row-sm">
-                                        
-                                        <livewire:publications.messages />
-                                        
-                                    </div>
-                                </div>
-                                <!-- main-profile-body -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end Post container -->
                 </div>
                 <!-- END BODY -->
 

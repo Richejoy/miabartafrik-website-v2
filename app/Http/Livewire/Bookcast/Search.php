@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Bookcast;
 
 use Livewire\Component;
 use App\Models\Country;
-use App\Models\Module;
 use App\Models\Menu;
 
 class Search extends Component
@@ -17,7 +16,7 @@ class Search extends Component
     {
         $this->countries = Country::all()->sortBy('id')->pluck(null, 'id');
 
-        $this->menus = Module::find(1)->menus()->get()->sortBy('id')->pluck(null, 'id');
+        $this->menus = Menu::where('module_id', 1)->get()->sortBy('id')->pluck(null, 'id');
     }
 
     public function render()

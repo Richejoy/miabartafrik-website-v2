@@ -1,4 +1,4 @@
-<div class="col-12" wire:poll.visible>
+<div class="col-12">
     
     <table class="table table-bordered text-center">
         <tr>

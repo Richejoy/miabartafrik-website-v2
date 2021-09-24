@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sponsor;
 use App\Models\Election;
+use App\Models\User;
+use Illuminate\Support\Str;
 
 class BookCastController extends Controller
 {
@@ -15,7 +17,7 @@ class BookCastController extends Controller
 
     public function index(Request $request)
     {
-        $sponsors = Sponsor::all();
+        $sponsors = Sponsor::with('library')->get();
 
     	return view('bookcast.index', compact('sponsors'));
     }

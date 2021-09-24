@@ -22,6 +22,7 @@ use App\Events\SubscriberEvent;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon;
 use App\Events\MessageEvent;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -246,6 +247,7 @@ class PageController extends Controller
                             'library_id' => $library->id,
                             'token' => sha1(uniqid($library->id)),
                             'slug' => $subscriber->slug,
+                            'api_token' => Str::random(60),
                         ]
                     )
                 );
@@ -444,6 +446,10 @@ class PageController extends Controller
 
         auth()->logout();
 
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
         if (session()->has('pendingConnectUser')) {
             session()->forget('pendingConnectUser');
         }
@@ -461,6 +467,10 @@ class PageController extends Controller
             session()->put('lockUser', auth()->user());
 
             auth()->logout();
+
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
 
             return redirect()->route('page.lock_screen');
         }

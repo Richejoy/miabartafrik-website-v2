@@ -85,9 +85,8 @@ body {
     font-weight: 400;
     line-height: 1.5;
     text-align: left;
-    background-color: #ffffff;
-    font-family: "Roboto", sans-serif !important;
-    background: #f0f0ff;
+    background-image: linear-gradient(158deg,rgba(84,84,84,.03) 0,rgba(84,84,84,.03) 20%,rgba(219,219,219,.03) 20%,rgba(219,219,219,.03) 40%,rgba(54,54,54,.03) 40%,rgba(54,54,54,.03) 60%,rgba(99,99,99,.03) 60%,rgba(99,99,99,.03) 80%,rgba(92,92,92,.03) 80%,rgba(92,92,92,.03) 100%),linear-gradient(45deg,rgba(221,221,221,.02) 0,rgba(221,221,221,.02) 14.286%,rgba(8,8,8,.02) 14.286%,rgba(8,8,8,.02) 28.572%,rgba(52,52,52,.02) 28.572%,rgba(52,52,52,.02) 42.858%,rgba(234,234,234,.02) 42.858%,rgba(234,234,234,.02) 57.144%,rgba(81,81,81,.02) 57.144%,rgba(81,81,81,.02) 71.42999999999999%,rgba(239,239,239,.02) 71.43%,rgba(239,239,239,.02) 85.71600000000001%,rgba(187,187,187,.02) 85.716%,rgba(187,187,187,.02) 100.002%),linear-gradient(109deg,rgba(33,33,33,.03) 0,rgba(33,33,33,.03) 12.5%,rgba(147,147,147,.03) 12.5%,rgba(147,147,147,.03) 25%,rgba(131,131,131,.03) 25%,rgba(131,131,131,.03) 37.5%,rgba(151,151,151,.03) 37.5%,rgba(151,151,151,.03) 50%,rgba(211,211,211,.03) 50%,rgba(211,211,211,.03) 62.5%,rgba(39,39,39,.03) 62.5%,rgba(39,39,39,.03) 75%,rgba(55,55,55,.03) 75%,rgba(55,55,55,.03) 87.5%,rgba(82,82,82,.03) 87.5%,rgba(82,82,82,.03) 100%),linear-gradient(348deg,rgba(42,42,42,.02) 0,rgba(42,42,42,.02) 20%,rgba(8,8,8,.02) 20%,rgba(8,8,8,.02) 40%,rgba(242,242,242,.02) 40%,rgba(242,242,242,.02) 60%,rgba(42,42,42,.02) 60%,rgba(42,42,42,.02) 80%,rgba(80,80,80,.02) 80%,rgba(80,80,80,.02) 100%),linear-gradient(120deg,rgba(106,106,106,.03) 0,rgba(106,106,106,.03) 14.286%,rgba(67,67,67,.03) 14.286%,rgba(67,67,67,.03) 28.572%,rgba(134,134,134,.03) 28.572%,rgba(134,134,134,.03) 42.858%,rgba(19,19,19,.03) 42.858%,rgba(19,19,19,.03) 57.144%,rgba(101,101,101,.03) 57.144%,rgba(101,101,101,.03) 71.42999999999999%,rgba(205,205,205,.03) 71.43%,rgba(205,205,205,.03) 85.71600000000001%,rgba(53,53,53,.03) 85.716%,rgba(53,53,53,.03) 100.002%),linear-gradient(45deg,rgba(214,214,214,.03) 0,rgba(214,214,214,.03) 16.667%,rgba(255,255,255,.03) 16.667%,rgba(255,255,255,.03) 33.334%,rgba(250,250,250,.03) 33.334%,rgba(250,250,250,.03) 50.001000000000005%,rgba(231,231,231,.03) 50.001%,rgba(231,231,231,.03) 66.668%,rgba(241,241,241,.03) 66.668%,rgba(241,241,241,.03) 83.33500000000001%,rgba(31,31,31,.03) 83.335%,rgba(31,31,31,.03) 100.002%),linear-gradient(59deg,rgba(224,224,224,.03) 0,rgba(224,224,224,.03) 12.5%,rgba(97,97,97,.03) 12.5%,rgba(97,97,97,.03) 25%,rgba(143,143,143,.03) 25%,rgba(143,143,143,.03) 37.5%,rgba(110,110,110,.03) 37.5%,rgba(110,110,110,.03) 50%,rgba(34,34,34,.03) 50%,rgba(34,34,34,.03) 62.5%,rgba(155,155,155,.03) 62.5%,rgba(155,155,155,.03) 75%,rgba(249,249,249,.03) 75%,rgba(249,249,249,.03) 87.5%,rgba(179,179,179,.03) 87.5%,rgba(179,179,179,.03) 100%),linear-gradient(241deg,rgba(58,58,58,.02) 0,rgba(58,58,58,.02) 25%,rgba(124,124,124,.02) 25%,rgba(124,124,124,.02) 50%,rgba(254,254,254,.02) 50%,rgba(254,254,254,.02) 75%,rgba(52,52,52,.02) 75%,rgba(52,52,52,.02) 100%),linear-gradient(90deg,#fff,#fff);
+    font-family: "Roboto", sans-serif !important; 
     color: #1d212f;
     direction: ltr;
     -webkit-font-smoothing: antialiased;
@@ -3191,8 +3190,7 @@ fieldset:disabled a.btn {
 .card-footer {
     position: relative;
     border-color: #f0f0ff;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 5px 25px 5px 25px; 
 }
 
 .card-header-tab {
@@ -7693,7 +7691,7 @@ div.dtr-modal div.dtr-modal-content {
 .table td {
     padding: 0.75rem;
     vertical-align: middle;
-    padding: 9px 15px;
+    padding: 9px 5px;
     line-height: 1.462;
     border-top: 0;
 }
@@ -14535,9 +14533,8 @@ textarea.parsley-success:focus {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 15px 12px;
-    border-bottom: 1px solid #e8e8f7;
+    justify-content: flex-start; 
+    width: 90%;
 }
 
 .main-chat-header .nav {
@@ -14547,7 +14544,7 @@ textarea.parsley-success:focus {
 
 .main-chat-header .nav-link {
     padding: 0;
-    color: #a8afc7;
+    color: #4f5051;
     font-size: 16px;
     display: none;
 }
@@ -14697,12 +14694,12 @@ text-align: center;
     margin-bottom: 0px;
     font-size: 15px;
     font-weight: 700;
-    color: #8f9cc0;
+    color: #585959;
 }
 
 .main-chat-msg-name small {
     font-size: 12px;
-    color: #a8afc7;
+    color: #838486;
 }
 
 .main-chat-body {
@@ -70208,8 +70205,8 @@ a.tag-addon:hover {
 .ckbox {
     font-weight: normal;
     position: relative;
-    display: block;
-    line-height: 1;
+    /*display: block;
+    line-height: 1;*/
     margin-bottom: 0;
 }
 
@@ -74080,4 +74077,31 @@ body.horizontalmenu {
 .onboarding .onboarding-form button {
  width:100%
 }
- 
+
+
+.input-group-addon {
+    padding: .5rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #495057;
+    text-align: center;
+    background-color: #e9ecef;
+    border: 1px solid rgba(0,0,0,.15);
+        border-left-color: rgba(0, 0, 0, 0.15);
+        border-left-style: solid;
+        border-left-width: 1px;
+    border-radius: .25rem;
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+}
+
+.input-group-addon:not(:first-child){
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-control + .input-group-addon:not(:first-child) {
+    border-left: 0;
+}

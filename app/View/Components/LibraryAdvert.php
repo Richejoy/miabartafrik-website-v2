@@ -26,7 +26,7 @@ class LibraryAdvert extends Component
 
         $this->isGold = (bool) ($this->type == 'gold');
 
-        $query = Advert::where(['published' => true]);
+        $query = Advert::with('library')->where(['published' => true]);
 
         if ($this->isGold) {
 
