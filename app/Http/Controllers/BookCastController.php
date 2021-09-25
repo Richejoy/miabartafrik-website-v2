@@ -17,7 +17,7 @@ class BookCastController extends Controller
 
     public function index(Request $request)
     {
-        $sponsors = Sponsor::with('library')->get();
+        $sponsors = Sponsor::with('library')->take(6)->get();
 
     	return view('bookcast.index', compact('sponsors'));
     }

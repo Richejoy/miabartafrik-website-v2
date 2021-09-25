@@ -1,23 +1,18 @@
-<section style="margin-bottom: 0.8rem;">
-    <div class="rt-container">
-        <div class="col-rt-12">
-            <article class="textIntroBonAdress">
-                <h1>Partenaires</h1>
-                <p>Sponsors</p>
-            </article>
-            <section class="customer-logos slider">
-                @forelse($sponsors as $sponsor)
+<section id="partenairesMba" class="partenairesMba section-bg">
+  <div class="container">
 
-                <div class="slide">
-                    <a href="{{ $sponsor->website }}" target="_blank">
-                        <img src="{{ $sponsor->library->remote }}" alt="{{ $sponsor->library->description }}" height="150">
-                    </a>
-                </div>
+    <h5 class="text-center">Nos partenaires</h5>
+    <a href="{{ route('page.partners') }}" class="text-center">Liste des partenaires</a>
 
-                @empty
-
-                @endforelse
-            </section>
-        </div>
+    <div class="row">
+        @foreach($sponsors as $sponsor)
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <a href="{{ $sponsor->website }}" target="_blank">
+                <img src="{{ $sponsor->library->remote }}" alt="{{ $sponsor->library->description }}" class="img-fluid">
+            </a>
+          </div>
+        @endforeach
     </div>
+
+  </div>
 </section>

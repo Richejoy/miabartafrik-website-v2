@@ -1,5 +1,5 @@
 <!-- Scroll with content modal -->
-<div class="modal" id="publicationViewModal">
+<div class="modal large" id="publicationViewModal">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
@@ -13,8 +13,10 @@
                 <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.</p>
             </div>
             <div class="modal-footer">
-                <button class="btn ripple btn-primary" type="button">Save changes</button>
-                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Close</button>
+                <form>
+                    <textarea class="form-control" rows="3" placeholder="Comment..."></textarea>
+                    <button class="btn btn-primary">Commenter</button>
+                </form>
             </div>
         </div>
     </div>

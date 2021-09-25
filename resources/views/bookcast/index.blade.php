@@ -35,9 +35,9 @@
                 <!-- END LEFT ASIDE -->
 
                 <!-- BODY -->
-                <div class="col-xl-6 col-lg-12" id="publicationApp">
+                <div class="col-xl-6 col-lg-6" id="publicationApp">
 
-                    <publication :user="{{ \App\Models\User::with('library')->find(auth()->id()) }}"></publication>
+                    <publication :user="{{ auth()->user()->load('library') }}"></publication>
 
                 </div>
                 <!-- END BODY -->

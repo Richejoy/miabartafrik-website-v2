@@ -1,8 +1,13 @@
+/*STYLE CSS*/
+@import url('https://miabartafrik.com/public/assets/css/style.css');
+
  /*BOOKCAST CSS*/
 @import url('https://miabartafrik.com/public/assets/css/bookcast.css');
 
-/*STYLE CSS*/
-@import url('https://miabartafrik.com/public/assets/css/style.min.css');
+ /*FANCYBOX CSS*/
+@import url('https://miabartafrik.com/public/assets/css/jquery.fancybox.min.css'); 
+
+
 
 
 

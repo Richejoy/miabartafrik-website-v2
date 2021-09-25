@@ -17,13 +17,11 @@
 
                     <i v-if="(publication.publication_state_id == 3)" class="post__privacy fe fe-users" data-toggle="tooltip" title="" data-original-title="Amis"></i>
                     <i v-else-if="(publication.publication_state_id == 2)" class="post__privacy si si-lock" data-toggle="tooltip" title="" data-original-title="Privée"></i>
-
                 </div>
                 <div class="ml-auto">
                     <div v-if="(publication.user_id == user.id)" class="dropdown">
-                        <a class="new option-dots2" data-toggle="dropdown" href="JavaScript:void(0);" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right shadow"
-                            style="">
+                        <a class="new option-dots2" data-toggle="dropdown" href="#" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right shadow">
                             <a class="dropdown-item" href="#" @click.prevent="deletePublication(publication.id)">Supprimer</a>
 
                             <span v-if="(publication.publication_state_id == 1)">
@@ -48,8 +46,7 @@
         </div>
         
         <div class="card-body">
-            <div class="post_text mg-t-0" v-html="publication.content">
-            </div>
+            <div class="post_text mg-t-0" v-html="publication.content"></div>
 
             <div v-if="(library = publication.libraries[0])" class="container">       
                 <div v-if="(library.library_type_id == 1)" class="grid-item detail-photo-grid">
@@ -81,11 +78,9 @@
                                     :src="user.library.remote">
                             </div>
 
-                            <div class="main-avatar"> +{{ publication.users.slice(0, 3).length }}</div>
+                            <div class="main-avatar"> +{{ publication.users.slice(0,3).length }}</div>
                         </div>
-                        <!-- demo-avatar-group -->
                     </div>
-                    <!-- demo-avatar-group -->
                 </div>
                 <div class="media-body">
                     <h6 class="mb-0 mg-t-10">
@@ -104,16 +99,14 @@
                 </div>
                 <div class="ml-auto">
                     <div class="dropdown show">
-                        <a class="new" href="#" data-toggle="modal" data-target="#publicationViewModal"><i class="far fa-eye mr-3"></i></a>
+                        <a class="new" href="#" data-toggle="modal" data-target="#publicationViewModal"><i class="far fa-comment mr-3"></i></a>
 
                         <a class="new" href="#" @click.prevent="toggleLikeUser(publication.id)">
                             <i v-if="publication.users.includes(user)" class="far fa-heart mr-3 text-success"></i>
                             <i v-else class="far fa-heart mr-3"></i>
                         </a>
 
-                        <a class="new" href="JavaScript:void(0);"><i class="far fa-comment mr-3"></i></a>
-
-                        <a class="new" href="JavaScript:void(0);"><i class="far fa-share-square"></i></a>
+                        <a class="new" href="#"><i class="far fa-share-square"></i></a>
                     </div>
                 </div>
             </div>
@@ -146,9 +139,6 @@
             return {
                 
             }
-        },
-        created() {
-            
         }
     }
 </script>

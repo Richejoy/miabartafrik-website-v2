@@ -1,4 +1,4 @@
-<div class="sidebar sidebar-right sidebar-animate" wire:poll.visible.60s>
+<div class="sidebar sidebar-right sidebar-animate">
     <div class="sidebar-icon">
         <a href="#" class="text-right float-right text-dark fs-20" data-toggle="sidebar-right"
             data-target=".sidebar-right"><i class="fe fe-x"></i></a>

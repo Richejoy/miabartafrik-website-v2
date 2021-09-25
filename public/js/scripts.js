@@ -37,9 +37,4 @@ $(function () {
         var div = $(this).data('show')
         $('#' + div).slideToggle()
     })
-
-    /*$("#publicationContent").emojioneArea({
-        useInternalCDN: true,
-        pickerPosition: 'bottom',
-    })*/
 })

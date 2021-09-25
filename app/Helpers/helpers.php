@@ -34,7 +34,7 @@ if (!function_exists('javascripts')) {
 		$output = '';
 
 		foreach ($filenames as $filename) {
-			$output .= '<script src="'. url("/public/{$filename}.js") .'" async defer></script>'."\n";
+			$output .= '<script src="'. url("/public/{$filename}.js") .'" defer></script>'."\n";
 		}
 
 		return $output;

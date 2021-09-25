@@ -7,18 +7,19 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
-
-import VuePluralize from 'vue-pluralize'
-
-import moment from 'moment'
+window.CKEditor = require('ckeditor4-vue');
+window.VuePluralize = require('vue-pluralize');
+window.moment = require('moment');
+window.VueUploadComponent = require('vue-upload-component');
  
-Vue.use(VuePluralize)
-
+Vue.use( CKEditor );
+Vue.use(VuePluralize);
 Vue.filter('formatDate', function(value, pattern = 'MM/DD/YYYY hh:mm') {
     if (value) {
-        return moment(String(value)).format(pattern)
+        return moment(String(value)).format(pattern);
     }
-})
+});
+Vue.component('vue-upload-component', VueUploadComponent);
 
 /**
  * The following block of code may be used to automatically register your

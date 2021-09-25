@@ -9,25 +9,22 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Publication;
 
 class PublicationEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $state;
-
-    public $message;
+    public $publication;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($state, $message)
+    public function __construct(Publication $publication)
     {
-        $this->state = $state;
-
-        $this->message = $message;
+        $this->publication = $publication;
     }
 
     /**

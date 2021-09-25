@@ -36,6 +36,11 @@ class PageController extends Controller
     	return view('pages.index');
     }
 
+    public function partners(Request $request)
+    {
+        return view('pages.partners');
+    }
+
     public function terms(Request $request)
     {
         return view('pages.terms');

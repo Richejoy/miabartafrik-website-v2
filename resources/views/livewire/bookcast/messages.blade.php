@@ -1,4 +1,4 @@
-<div class="dropdown main-header-notification" wire:poll.visible.60s>
+<div class="dropdown main-header-notification">
     <a class="nav-link icon" href="#">
         <i class="fe fe-mail header-icons"></i>
         <span class="badge badge-success nav-link-badge">{{ $messages->count() }}</span>

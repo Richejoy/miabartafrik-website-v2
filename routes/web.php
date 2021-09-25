@@ -56,6 +56,7 @@ Route::get('/clear', function() {
 Route::prefix('/')->name('page.')->group(function() {
 	Route::get('/', [PageController::class, 'login'])->name('index')->middleware('guest');
 
+	Route::get('/partners', [PageController::class, 'partners'])->name('partners');
 	Route::get('/about', [PageController::class, 'about'])->name('about');
 	Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 	Route::get('/conditions', [PageController::class, 'conditions'])->name('conditions');

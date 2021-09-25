@@ -17,12 +17,14 @@ class PublicationController extends Controller
 
     public function store(Request $request)
     {
-        /*if ($request->isMethod('POST')) {
+        if ($request->isMethod('POST')) {
 
             $request->validate([
-                'publication_state_id' => ['required'],
+                'stateId' => ['required'],
                 'content' => ['required', 'min:10'],
-                'media' => ['nullable', 'file', 'max:1048576', 'mimes:jpeg,jpg,png,mp3,mp4,pdf,wav,gif'],
+                'image' => ['nullable', 'file', 'max:1048576', 'mimes:jpeg,jpg,png,gif'],
+                'audio' => ['nullable', 'file', 'max:1048576', 'mimes:mp3,wav'],
+                'video' => ['nullable', 'file', 'max:1048576', 'mimes:mp3,mp4'],
             ]);
 
             $publication = Publication::create([
@@ -30,15 +32,15 @@ class PublicationController extends Controller
                 'start_date' => now(),
                 'end_date' => now()->addYear(1),
                 'published' => true,
-                'publication_state_id' => $request->input('publication_state_id'),
+                'publication_state_id' => $request->input('stateId'),
                 'content' => $request->input('content'),
             ]);
 
             //upload file
-            if ($request->hasFile('media') && $request->file('media')->isValid()) {
+            if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
-                $mimeType = $request->file('media')->getMimeType();
-                $libraryTypeId = $this->getLibraryType($mimeType);
+                //$mimeType = $request->file('media')->getMimeType();
+                //$libraryTypeId = $this->getLibraryType($mimeType);
 
                 //$uploadPath = $request->file('media')->path();
 
@@ -46,7 +48,7 @@ class PublicationController extends Controller
 
                 //$name = $request->file('media')->getClientOriginalName();
 
-                $filename = time() . '.' . $request->file('media')->extension();
+                /*$filename = time() . '.' . $request->file('media')->extension();
 
                 $storePath = $request->file('media')->storeAs(env('FTP_UPLOADS_PATH') . "publications", $filename, 'ftp');
 
@@ -59,20 +61,15 @@ class PublicationController extends Controller
                     'library_type_id' => $libraryTypeId,
                 ]);
 
-                $publication->libraries()->attach([$library->id]);
+                $publication->libraries()->attach([$library->id]);*/
             }
 
-            event(new PublicationEvent(
-                $publication->publication_state_id,
-                $publication->content
-            ));
+            broadcast(new PublicationEvent($publication->load(['user.library', 'publicationState', 'users.library', 'libraries'])));
 
             return response()->json($publication);
-        }*/
+        }
 
-        return [];
-
-        //return back()->withDanger('Error');
+        return back()->withDanger('Error');
     }
 
     public function messages(Request $request)
